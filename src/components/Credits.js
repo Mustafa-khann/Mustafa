@@ -21,7 +21,7 @@ class Credits extends React.Component {
       <FadeInSection>
         <div id="credits">
           <div className="ending-credits">
-            <div>Design by Gazi Jarin</div>
+            <div>Design inspired by Gazi Jarin</div>
             <div><a href="https://www.gazijarin.com/" target="_blank" rel="noopener noreferrer">gazijarin.com</a> </div>
           </div>
         </div>
