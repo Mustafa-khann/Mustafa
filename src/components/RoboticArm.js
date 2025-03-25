@@ -48,7 +48,7 @@ const RoboticArm = () => {
     directionalLight.castShadow = true;
     scene.add(directionalLight);
     
-    // Define arm segment lengths - adjusted for better proportions
+    // Define arm segment lengths with more realistic proportions
     const armLength1 = 0.4;  // Base to shoulder height
     const armLength2 = 0.8;  // Upper arm length
     const armLength3 = 0.7;  // Forearm length
@@ -58,16 +58,27 @@ const RoboticArm = () => {
     // Scale factor for all components
     const scaleFactor = 1.5;  // Increase overall scale
     
-    // Define initial angles for a vertical swan neck-like posture with 45-degree bends
+    // Define joint limits (in radians) for more realistic constraints
+    const jointLimits = {
+      base: { min: -Math.PI, max: Math.PI },           // Base rotation (y-axis)
+      shoulder: { min: -Math.PI/2, max: Math.PI/2 },   // Shoulder joint (x-axis)
+      elbow: { min: 0, max: Math.PI },                 // Elbow joint (x-axis)
+      wristPitch: { min: -Math.PI/2, max: Math.PI/2 }, // Wrist pitch (x-axis)
+      wristRoll: { min: -Math.PI, max: Math.PI },      // Wrist roll (z-axis)
+      wristYaw: { min: -Math.PI/2, max: Math.PI/2 },   // Wrist yaw (y-axis)
+      gripper: { min: -Math.PI/4, max: Math.PI/4 }     // Gripper rotation (z-axis)
+    };
+    
+    // Current joint angles
     let angle1 = 0;           // Base rotation (y-axis)
-    let angle2 = -Math.PI/2;  // Shoulder joint (x-axis) - straight up
-    let angle3 = Math.PI/4;   // Elbow joint (x-axis) - 45-degree bend
-    let angle4 = Math.PI/4;   // Wrist pitch (x-axis) - 45-degree bend downward
+    let angle2 = -Math.PI/2;  // Shoulder joint (x-axis)
+    let angle3 = Math.PI/4;   // Elbow joint (x-axis)
+    let angle4 = Math.PI/4;   // Wrist pitch (x-axis)
     let angle5 = 0;           // Wrist roll (z-axis)
     let angle6 = 0;           // Wrist yaw (y-axis)
     let angle7 = 0;           // Gripper rotation (z-axis)
     
-    // Target angles for IK - match initial angles for smooth start
+    // Target joint angles for IK
     let targetAngle1 = angle1;
     let targetAngle2 = angle2;
     let targetAngle3 = angle3;
@@ -76,12 +87,18 @@ const RoboticArm = () => {
     let targetAngle6 = angle6;
     let targetAngle7 = angle7;
     
+    // Path planning variables
+    let pathPoints = [];
+    let currentPathIndex = 0;
+    let pathProgress = 0;
+    let pathSpeed = 0.05;
+    
     // Animation state
     let state = "idle";
     let animationProgress = 0;
     let animationSpeed = 0.02;
     let objectGrabbed = false;
-    let currentTarget = null; 
+    let currentTarget = null;
     
     // Object positions
     const objectStartPos = new THREE.Vector3(2.5, -1, 0);
@@ -114,7 +131,7 @@ const RoboticArm = () => {
         position.z = direction.z * newDistance;
       }
       
-      // Constrain height to be at the table level
+      // Constrain height to be at the table level - fixed to ensure objects stay on the surface
       position.y = baseGroup.position.y + (position === userDropLocation.position ? 0.01 : 0.15);
       
       return position;
@@ -632,7 +649,7 @@ const RoboticArm = () => {
           // Update the object position, adding the original offset
           selectedObject.position.copy(intersectionPoint.add(dragOffset));
           
-          // Apply constraints to keep the object within valid bounds
+          // Apply constraints to keep the object within valid bounds and on the surface
           if (selectedObject.userData.isInteractive) {
             constrainObjectPosition(selectedObject.position);
           } else if (selectedObject === userDropLocation) {
@@ -655,9 +672,8 @@ const RoboticArm = () => {
         } else if (selectedObject && selectedObject.userData.isInteractive && state === "idle") {
           // Start the arm animation to pick up the object
           currentTarget = selectedObject;
-          state = "approaching";
-          animationProgress = 0;
-          console.log("State changed to approaching for object:", currentTarget);
+          state = "planning_approach";
+          console.log("State changed to planning_approach for object:", currentTarget);
         }
         
         isDragging = false;
@@ -715,19 +731,28 @@ const RoboticArm = () => {
     const addDebugText = (text, position) => {
       const canvas = document.createElement('canvas');
       const context = canvas.getContext('2d');
-      canvas.width = 768; // Increased canvas width for larger text (from 512 to 768)
-      canvas.height = 192; // Increased canvas height for larger text (from 128 to 192)
+      canvas.width = 1024; // Significantly increased canvas width
+      canvas.height = 256; // Increased canvas height
       
+      // Clear the canvas with a transparent background
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Draw text with better positioning
       context.fillStyle = '#40ffda'; // Aqua color to match website theme
-      context.font = '48px Arial'; // Increased font size from 36px to 48px
-      context.fillText(text, 10, 80); // Adjusted y-position for larger text (from 60 to 80)
+      context.font = 'bold 48px Arial'; // Bold font for better visibility
+      
+      // Center the text horizontally
+      context.textAlign = 'center';
+      context.textBaseline = 'middle';
+      context.fillText(text, canvas.width/2, canvas.height/2);
       
       const texture = new THREE.CanvasTexture(canvas);
       const material = new THREE.MeshBasicMaterial({
         map: texture,
-        transparent: true
+        transparent: true,
+        side: THREE.DoubleSide // Visible from both sides
       });
-      const geometry = new THREE.PlaneGeometry(3, 0.75); // Increased plane size for larger text (from 2x0.5 to 3x0.75)
+      const geometry = new THREE.PlaneGeometry(5, 1.25); // Wider plane geometry
       const mesh = new THREE.Mesh(geometry, material);
       mesh.position.copy(position);
       scene.add(mesh);
@@ -735,10 +760,237 @@ const RoboticArm = () => {
       return mesh;
     };
 
-    // Add a debug message
-    const debugText = addDebugText("Drag boxes or white target ring", new THREE.Vector3(0, 2.5, 0));
+    // Add a debug message with shorter text that will definitely fit
+    const debugText = addDebugText("It's not broken, it's just artistic.", new THREE.Vector3(0, 2.2, 0));
     debugText.lookAt(camera.position);
     
+    // Implement forward kinematics to calculate end effector position from joint angles
+    const forwardKinematics = (angles) => {
+      const [a1, a2, a3, a4, a5, a6, a7] = angles;
+      
+      // Create transformation matrices for each joint
+      const baseMatrix = new THREE.Matrix4().makeRotationY(a1);
+      
+      const shoulderPos = new THREE.Vector3(0, armLength1, 0);
+      const shoulderMatrix = new THREE.Matrix4().makeTranslation(shoulderPos.x, shoulderPos.y, shoulderPos.z)
+        .multiply(new THREE.Matrix4().makeRotationX(a2));
+      
+      const elbowPos = new THREE.Vector3(0, 0, armLength2);
+      const elbowMatrix = new THREE.Matrix4().makeTranslation(elbowPos.x, elbowPos.y, elbowPos.z)
+        .multiply(new THREE.Matrix4().makeRotationX(a3));
+      
+      const wristPos = new THREE.Vector3(0, 0, armLength3);
+      const wristPitchMatrix = new THREE.Matrix4().makeTranslation(wristPos.x, wristPos.y, wristPos.z)
+        .multiply(new THREE.Matrix4().makeRotationX(a4));
+      
+      const wristRollPos = new THREE.Vector3(0, 0, 0);
+      const wristRollMatrix = new THREE.Matrix4().makeTranslation(wristRollPos.x, wristRollPos.y, wristRollPos.z)
+        .multiply(new THREE.Matrix4().makeRotationZ(a5));
+      
+      const wristYawPos = new THREE.Vector3(0, 0, 0);
+      const wristYawMatrix = new THREE.Matrix4().makeTranslation(wristYawPos.x, wristYawPos.y, wristYawPos.z)
+        .multiply(new THREE.Matrix4().makeRotationY(a6));
+      
+      const handPos = new THREE.Vector3(0, 0, armLength4);
+      const handMatrix = new THREE.Matrix4().makeTranslation(handPos.x, handPos.y, handPos.z)
+        .multiply(new THREE.Matrix4().makeRotationZ(a7));
+      
+      const gripperPos = new THREE.Vector3(0, 0, armLength5);
+      const gripperMatrix = new THREE.Matrix4().makeTranslation(gripperPos.x, gripperPos.y, gripperPos.z);
+      
+      // Combine all transformations
+      const worldMatrix = new THREE.Matrix4()
+        .multiply(baseMatrix)
+        .multiply(shoulderMatrix)
+        .multiply(elbowMatrix)
+        .multiply(wristPitchMatrix)
+        .multiply(wristRollMatrix)
+        .multiply(wristYawMatrix)
+        .multiply(handMatrix)
+        .multiply(gripperMatrix);
+      
+      // Extract the position from the world matrix
+      const position = new THREE.Vector3();
+      position.setFromMatrixPosition(worldMatrix);
+      
+      return position;
+    };
+
+    // Implement inverse kinematics using the Jacobian transpose method
+    const inverseKinematics = (targetPosition, currentAngles) => {
+      const maxIterations = 100;
+      const epsilon = 0.01;
+      let angles = [...currentAngles];
+      
+      for (let i = 0; i < maxIterations; i++) {
+        // Calculate current end effector position
+        const currentPosition = forwardKinematics(angles);
+        
+        // Calculate error vector
+        const error = new THREE.Vector3().subVectors(targetPosition, currentPosition);
+        
+        // If error is small enough, we're done
+        if (error.length() < epsilon) {
+          break;
+        }
+        
+        // Calculate Jacobian matrix (approximation using finite differences)
+        const jacobian = calculateJacobian(angles);
+        
+        // Calculate joint angle updates using Jacobian transpose
+        const updates = applyJacobianTranspose(jacobian, error);
+        
+        // Update angles with damping factor
+        const dampingFactor = 0.1;
+        for (let j = 0; j < angles.length; j++) {
+          angles[j] += updates[j] * dampingFactor;
+          
+          // Apply joint limits
+          const jointName = ['base', 'shoulder', 'elbow', 'wristPitch', 'wristRoll', 'wristYaw', 'gripper'][j];
+          const limits = jointLimits[jointName];
+          angles[j] = Math.max(limits.min, Math.min(limits.max, angles[j]));
+        }
+      }
+      
+      return angles;
+    };
+
+    // Calculate Jacobian matrix using finite differences
+    const calculateJacobian = (angles) => {
+      const jacobian = [];
+      const h = 0.0001; // Small delta for finite difference
+      
+      // Calculate current end effector position
+      const currentPosition = forwardKinematics(angles);
+      
+      // For each joint angle, calculate partial derivatives
+      for (let i = 0; i < angles.length; i++) {
+        const tempAngles = [...angles];
+        tempAngles[i] += h;
+        
+        // Calculate new position after small change in angle
+        const newPosition = forwardKinematics(tempAngles);
+        
+        // Calculate partial derivatives (dx/dθ, dy/dθ, dz/dθ)
+        const dx = (newPosition.x - currentPosition.x) / h;
+        const dy = (newPosition.y - currentPosition.y) / h;
+        const dz = (newPosition.z - currentPosition.z) / h;
+        
+        jacobian.push([dx, dy, dz]);
+      }
+      
+      return jacobian;
+    };
+
+    // Apply Jacobian transpose method to calculate joint updates
+    const applyJacobianTranspose = (jacobian, error) => {
+      const updates = new Array(jacobian.length).fill(0);
+      
+      // Multiply Jacobian transpose by error vector
+      for (let i = 0; i < jacobian.length; i++) {
+        updates[i] = jacobian[i][0] * error.x + jacobian[i][1] * error.y + jacobian[i][2] * error.z;
+      }
+      
+      return updates;
+    };
+
+    // Path planning using cubic spline interpolation
+    const planPath = (startPos, endPos, numPoints = 20) => {
+      const path = [];
+      
+      // Create a smooth arc path between start and end positions
+      const midPoint = new THREE.Vector3().addVectors(startPos, endPos).multiplyScalar(0.5);
+      
+      // Add height to the midpoint to create an arc
+      midPoint.y += 0.5;
+      
+      // Generate points along the path using cubic spline interpolation
+      for (let i = 0; i <= numPoints; i++) {
+        const t = i / numPoints;
+        
+        // Cubic interpolation parameters
+        const t2 = t * t;
+        const t3 = t2 * t;
+        const mt = 1 - t;
+        const mt2 = mt * mt;
+        const mt3 = mt2 * mt;
+        
+        // Cubic spline formula with control points
+        const point = new THREE.Vector3();
+        point.x = startPos.x * mt3 + 3 * midPoint.x * mt2 * t + 3 * midPoint.x * mt * t2 + endPos.x * t3;
+        point.y = startPos.y * mt3 + 3 * midPoint.y * mt2 * t + 3 * midPoint.y * mt * t2 + endPos.y * t3;
+        point.z = startPos.z * mt3 + 3 * midPoint.z * mt2 * t + 3 * midPoint.z * mt * t2 + endPos.z * t3;
+        
+        path.push(point);
+      }
+      
+      return path;
+    };
+
+    // Collision detection and avoidance
+    const checkCollision = (position, obstacles) => {
+      for (const obstacle of obstacles) {
+        const distance = position.distanceTo(obstacle.position);
+        if (distance < obstacle.radius) {
+          return true; // Collision detected
+        }
+      }
+      return false; // No collision
+    };
+
+    // Modify path to avoid obstacles
+    const avoidObstacles = (path, obstacles) => {
+      const modifiedPath = [];
+      
+      for (const point of path) {
+        if (checkCollision(point, obstacles)) {
+          // Find closest obstacle
+          let closestObstacle = obstacles[0];
+          let minDistance = point.distanceTo(closestObstacle.position);
+          
+          for (let i = 1; i < obstacles.length; i++) {
+            const distance = point.distanceTo(obstacles[i].position);
+            if (distance < minDistance) {
+              minDistance = distance;
+              closestObstacle = obstacles[i];
+            }
+          }
+          
+          // Calculate avoidance vector
+          const avoidanceVector = new THREE.Vector3().subVectors(point, closestObstacle.position);
+          avoidanceVector.normalize();
+          
+          // Move point away from obstacle
+          const safePoint = new THREE.Vector3().addVectors(
+            closestObstacle.position,
+            avoidanceVector.multiplyScalar(closestObstacle.radius + 0.2)
+          );
+          
+          modifiedPath.push(safePoint);
+        } else {
+          modifiedPath.push(point.clone());
+        }
+      }
+      
+      return modifiedPath;
+    };
+
+    // Smooth the path using Catmull-Rom spline
+    const smoothPath = (path, numPoints = 50) => {
+      if (path.length < 4) return path;
+      
+      const smoothedPath = [];
+      const spline = new THREE.CatmullRomCurve3(path);
+      
+      for (let i = 0; i <= numPoints; i++) {
+        const t = i / numPoints;
+        const point = spline.getPoint(t);
+        smoothedPath.push(point);
+      }
+      
+      return smoothedPath;
+    };
+
     // Update robot arm function with more realistic movement
     const updateRobotArm = () => {
       // Update robot arm joint rotations
@@ -776,25 +1028,52 @@ const RoboticArm = () => {
         currentTarget.quaternion.copy(gripperWorldQuat);
       }
     };
-    
-    // Get the appropriate drop location based on the current target
-    const getTargetDropLocation = () => {
-      if (!currentTarget) return blueDropLocation.position.clone();
-      
-      // Choose drop location based on box color
-      if (currentTarget.userData.isRed) {
-        return redDropLocation.position.clone();
-      } else {
-        return blueDropLocation.position.clone();
+
+    // Follow path using IK
+    const followPath = () => {
+      if (pathPoints.length === 0 || currentPathIndex >= pathPoints.length) {
+        return false;
       }
+      
+      // Get current target point
+      const targetPoint = pathPoints[currentPathIndex];
+      
+      // Calculate current joint angles
+      const currentAngles = [angle1, angle2, angle3, angle4, angle5, angle6, angle7];
+      
+      // Calculate new joint angles using IK
+      const newAngles = inverseKinematics(targetPoint, currentAngles);
+      
+      // Interpolate between current and new angles
+      const t = pathProgress;
+      angle1 = currentAngles[0] + (newAngles[0] - currentAngles[0]) * t;
+      angle2 = currentAngles[1] + (newAngles[1] - currentAngles[1]) * t;
+      angle3 = currentAngles[2] + (newAngles[2] - currentAngles[2]) * t;
+      angle4 = currentAngles[3] + (newAngles[3] - currentAngles[3]) * t;
+      angle5 = currentAngles[4] + (newAngles[4] - currentAngles[4]) * t;
+      angle6 = currentAngles[5] + (newAngles[5] - currentAngles[5]) * t;
+      angle7 = currentAngles[6] + (newAngles[6] - currentAngles[6]) * t;
+      
+      // Update path progress
+      pathProgress += pathSpeed;
+      
+      // Move to next point if we've reached the current one
+      if (pathProgress >= 1) {
+        currentPathIndex++;
+        pathProgress = 0;
+        
+        // Return true if we've reached the end of the path
+        return currentPathIndex >= pathPoints.length;
+      }
+      
+      return false;
     };
-    
+
     // Animation update function with improved state transitions
     const updateAnimation = (time) => {
       // Animate the target rings with pulsing effect
       const pulse = (Math.sin(time * 0.003) + 1) * 0.5;
       userDropLocationMaterial.opacity = 0.4 + pulse * 0.3;
-      innerRingMaterial.opacity = 0.3 + pulse * 0.4;
       
       if (state === "idle") {
         // Idle position with subtle movement
@@ -826,533 +1105,219 @@ const RoboticArm = () => {
             }
           });
           
-          // If we found a box to pick up, make the arm look at it
+          // If we found a box to pick up, start approaching it
           if (closestBox) {
-            const lookDir = new THREE.Vector3().subVectors(closestBox.position, baseGroup.position).normalize();
-            targetAngle1 = Math.atan2(lookDir.x, lookDir.z) * 0.2;
-            angle1 = angle1 * 0.8 + targetAngle1 * 0.2;
+            currentTarget = closestBox;
+            state = "planning_approach";
+            console.log("State changed to planning_approach for object:", currentTarget);
           }
         }
+      } else if (state === "planning_approach") {
+        // Plan a path to approach the object
+        const endEffectorPos = getEndEffectorPosition();
+        const approachPos = currentTarget.position.clone();
+        approachPos.y += 0.3; // Position above the object
+        
+        // Generate path points
+        pathPoints = planPath(endEffectorPos, approachPos, 30);
+        
+        // Avoid obstacles
+        const obstacles = interactiveObjects
+          .filter(obj => obj !== currentTarget)
+          .map(obj => ({ position: obj.position, radius: 0.4 }));
+        
+        pathPoints = avoidObstacles(pathPoints, obstacles);
+        
+        // Smooth the path
+        pathPoints = smoothPath(pathPoints);
+        
+        // Reset path following variables
+        currentPathIndex = 0;
+        pathProgress = 0;
+        
+        // Transition to following the path
+        state = "approaching";
+        console.log("Path planned with", pathPoints.length, "points");
       } else if (state === "approaching") {
-        // Move to a position slightly above the object
-        targetPos = currentTarget.position.clone();
-        targetPos.y += 0.3;
+        // Follow the planned path
+        const pathComplete = followPath();
         
-        // Calculate target position relative to the robot base
-        const relativePos = targetPos.clone().sub(baseGroup.position);
-        
-        // Calculate horizontal distance and height
-        const distXZ = Math.sqrt(relativePos.x * relativePos.x + relativePos.z * relativePos.z);
-        const height = relativePos.y - armLength1;
-        
-        // Calculate distance from shoulder to target
-        const distance = Math.sqrt(distXZ * distXZ + height * height);
-        
-        // Check if distance is within reachable range
-        const maxReach = armLength2 + armLength3 + armLength4 * 0.5;
-        if (distance > maxReach * 0.95) {
-          console.log("Object too far to reach, distance:", distance, "max reach:", maxReach);
-          state = "idle";
-          return;
-        }
-        
-        // Calculate target angles using inverse kinematics
-        targetAngle1 = Math.atan2(relativePos.x, relativePos.z);
-        
-        // Calculate elbow angle using law of cosines
-        const cosElbow = (armLength2 * armLength2 + armLength3 * armLength3 - distance * distance) / 
-                         (2 * armLength2 * armLength3);
-        const clampedCosElbow = Math.max(-0.99, Math.min(0.99, cosElbow));
-        targetAngle3 = Math.PI - Math.acos(clampedCosElbow);
-        
-        // Calculate shoulder angle
-        const cosShoulderToElbow = (armLength2 * armLength2 + distance * distance - armLength3 * armLength3) / 
-                                  (2 * armLength2 * distance);
-        const clampedCosShoulderToElbow = Math.max(-0.99, Math.min(0.99, cosShoulderToElbow));
-        const shoulderToElbow = Math.acos(clampedCosShoulderToElbow);
-        const shoulderToTarget = Math.atan2(height, distXZ);
-        targetAngle2 = shoulderToTarget - shoulderToElbow;
-        
-        // Calculate wrist pitch angle to keep end effector level
-        targetAngle4 = -targetAngle2 - targetAngle3;
-        
-        // Calculate wrist orientation to align with the object
-        targetAngle5 = 0;
-        targetAngle6 = targetAngle1 * 0.2;
-        targetAngle7 = 0;
-        
-        // Add slight anticipation movement
-        const progress = Math.min(1, animationProgress * 3);
-        if (progress < 0.3) {
-          const anticipation = Math.sin(progress * Math.PI) * 0.1;
-          targetAngle2 += anticipation;
-          targetAngle3 -= anticipation * 0.5;
-        }
-        
-        // Smoothly interpolate current angles to target angles with easing
-        const easeFactor = 0.05 + 0.05 * Math.sin(Math.PI * Math.min(1, animationProgress * 2));
-        angle1 = angle1 + (targetAngle1 - angle1) * easeFactor;
-        angle2 = angle2 + (targetAngle2 - angle2) * easeFactor;
-        angle3 = angle3 + (targetAngle3 - angle3) * easeFactor;
-        angle4 = angle4 + (targetAngle4 - angle4) * easeFactor;
-        angle5 = angle5 + (targetAngle5 - angle5) * easeFactor;
-        angle6 = angle6 + (targetAngle6 - angle6) * easeFactor;
-        angle7 = angle7 + (targetAngle7 - angle7) * easeFactor;
-        
-        // Increment animation progress
-        animationProgress += animationSpeed;
-        
-        // Check if we've reached the position above the object
-        const endEffectorPos = getEndEffectorPosition();
-        const distanceToTarget = endEffectorPos.distanceTo(targetPos);
-        
-        if (distanceToTarget < pickupDistance || animationProgress > 3) {
-          state = "descending";
-          animationProgress = 0;
-          console.log("State changed to descending");
-        }
-      } else if (state === "descending") {
-        // Move down to grab the object
-        targetPos = currentTarget.position.clone();
-        
-        // Add a slight approach angle for more natural movement
-        const approachProgress = Math.min(1, animationProgress * 2);
-        const approachOffset = 0.1 * (1 - approachProgress);
-        targetPos.y += approachOffset;
-        
-        // Calculate target position relative to the robot base
-        const relativePos = targetPos.clone().sub(baseGroup.position);
-        
-        // Calculate horizontal distance and height
-        const distXZ = Math.sqrt(relativePos.x * relativePos.x + relativePos.z * relativePos.z);
-        const height = relativePos.y - armLength1;
-        
-        // Calculate distance from shoulder to target
-        const distance = Math.sqrt(distXZ * distXZ + height * height);
-        
-        // Calculate target angles using inverse kinematics
-        targetAngle1 = Math.atan2(relativePos.x, relativePos.z);
-        
-        // Calculate elbow angle using law of cosines
-        const cosElbow = (armLength2 * armLength2 + armLength3 * armLength3 - distance * distance) / 
-                         (2 * armLength2 * armLength3);
-        const clampedCosElbow = Math.max(-0.99, Math.min(0.99, cosElbow));
-        targetAngle3 = Math.PI - Math.acos(clampedCosElbow);
-        
-        // Calculate shoulder angle
-        const cosShoulderToElbow = (armLength2 * armLength2 + distance * distance - armLength3 * armLength3) / 
-                                  (2 * armLength2 * distance);
-        const clampedCosShoulderToElbow = Math.max(-0.99, Math.min(0.99, cosShoulderToElbow));
-        const shoulderToElbow = Math.acos(clampedCosShoulderToElbow);
-        const shoulderToTarget = Math.atan2(height, distXZ);
-        targetAngle2 = shoulderToTarget - shoulderToElbow;
-        
-        // Calculate wrist pitch angle to keep end effector level
-        targetAngle4 = -targetAngle2 - targetAngle3;
-        
-        // Calculate wrist orientation to align with the object
-        targetAngle5 = 0;
-        targetAngle6 = targetAngle1 * 0.2;
-        targetAngle7 = 0;
-        
-        // Slow down as we get closer to the object
-        const slowdownFactor = 0.05 + 0.05 * (1 - Math.min(1, approachProgress));
-        
-        // Smoothly interpolate current angles to target angles
-        angle1 = angle1 + (targetAngle1 - angle1) * slowdownFactor;
-        angle2 = angle2 + (targetAngle2 - angle2) * slowdownFactor;
-        angle3 = angle3 + (targetAngle3 - angle3) * slowdownFactor;
-        angle4 = angle4 + (targetAngle4 - angle4) * slowdownFactor;
-        angle5 = angle5 + (targetAngle5 - angle5) * slowdownFactor;
-        angle6 = angle6 + (targetAngle6 - angle6) * slowdownFactor;
-        angle7 = angle7 + (targetAngle7 - angle7) * slowdownFactor;
-        
-        // Increment animation progress
-        animationProgress += animationSpeed * 0.7;
-        
-        // Check if we've reached the object
-        const endEffectorPos = getEndEffectorPosition();
-        const distanceToTarget = endEffectorPos.distanceTo(targetPos);
-        
-        if (distanceToTarget < pickupDistance || animationProgress > 2) {
+        if (pathComplete) {
+          // Plan path to grab the object
+          const endEffectorPos = getEndEffectorPosition();
+          const grabPos = currentTarget.position.clone();
+          
+          // Generate path points for final approach
+          pathPoints = planPath(endEffectorPos, grabPos, 10);
+          
+          // Reset path following variables
+          currentPathIndex = 0;
+          pathProgress = 0;
+          
+          // Transition to grabbing
           state = "grabbing";
-          animationProgress = 0;
           console.log("State changed to grabbing");
         }
       } else if (state === "grabbing") {
-        // Close the gripper
-        animationProgress = Math.min(animationProgress + animationSpeed * 0.8, 1);
+        // Follow the path to grab the object
+        const pathComplete = followPath();
         
-        // Add a slight upward movement as the gripper closes
-        const grabAdjustment = Math.sin(animationProgress * Math.PI) * 0.02;
-        targetAngle2 -= grabAdjustment;
-        targetAngle3 += grabAdjustment;
-        targetAngle4 -= grabAdjustment;
-        
-        // Smoothly interpolate current angles to target angles
-        angle1 = angle1 + (targetAngle1 - angle1) * 0.1;
-        angle2 = angle2 + (targetAngle2 - angle2) * 0.1;
-        angle3 = angle3 + (targetAngle3 - angle3) * 0.1;
-        angle4 = angle4 + (targetAngle4 - angle4) * 0.1;
-        angle5 = angle5 + (targetAngle5 - angle5) * 0.1;
-        angle6 = angle6 + (targetAngle6 - angle6) * 0.1;
-        angle7 = angle7 + (targetAngle7 - angle7) * 0.1;
-        
-        // After a short delay, grab the object
-        if (animationProgress >= 1) {
+        if (pathComplete) {
+          // Grab the object
           objectGrabbed = true;
           currentTarget.userData.isGrabbed = true;
-          state = "lifting";
-          animationProgress = 0;
-          console.log("State changed to lifting, object grabbed");
           
-          // Add a slight "settling" effect
-          targetAngle2 += 0.02;
-          targetAngle3 -= 0.03;
-          targetAngle4 += 0.01;
+          // Plan path to lift the object
+          const endEffectorPos = getEndEffectorPosition();
+          const liftPos = endEffectorPos.clone();
+          liftPos.y += 0.3; // Lift up
+          
+          // Generate path points for lifting
+          pathPoints = planPath(endEffectorPos, liftPos, 10);
+          
+          // Reset path following variables
+          currentPathIndex = 0;
+          pathProgress = 0;
+          
+          // Transition to lifting
+          state = "lifting";
+          console.log("State changed to lifting, object grabbed");
         }
       } else if (state === "lifting") {
-        // Move up with the object
-        targetPos = currentTarget.position.clone();
-        targetPos.y += 0.3 + 0.1 * Math.sin(Math.PI * Math.min(1, animationProgress * 2));
+        // Follow the path to lift the object
+        const pathComplete = followPath();
         
-        // Calculate target position relative to the robot base
-        const relativePos = targetPos.clone().sub(baseGroup.position);
-        
-        // Calculate horizontal distance and height
-        const distXZ = Math.sqrt(relativePos.x * relativePos.x + relativePos.z * relativePos.z);
-        const height = relativePos.y - armLength1;
-        
-        // Calculate distance from shoulder to target
-        const distance = Math.sqrt(distXZ * distXZ + height * height);
-        
-        // Calculate target angles using inverse kinematics
-        targetAngle1 = Math.atan2(relativePos.x, relativePos.z);
-        
-        // Calculate elbow angle using law of cosines
-        const cosElbow = (armLength2 * armLength2 + armLength3 * armLength3 - distance * distance) / 
-                         (2 * armLength2 * armLength3);
-        const clampedCosElbow = Math.max(-0.99, Math.min(0.99, cosElbow));
-        targetAngle3 = Math.PI - Math.acos(clampedCosElbow);
-        
-        // Calculate shoulder angle
-        const cosShoulderToElbow = (armLength2 * armLength2 + distance * distance - armLength3 * armLength3) / 
-                                  (2 * armLength2 * distance);
-        const clampedCosShoulderToElbow = Math.max(-0.99, Math.min(0.99, cosShoulderToElbow));
-        const shoulderToElbow = Math.acos(clampedCosShoulderToElbow);
-        const shoulderToTarget = Math.atan2(height, distXZ);
-        targetAngle2 = shoulderToTarget - shoulderToElbow;
-        
-        // Calculate wrist pitch angle to keep end effector level
-        targetAngle4 = -targetAngle2 - targetAngle3;
-        
-        // Add a slight wobble to the movement for weight simulation
-        const liftProgress = Math.min(1, animationProgress * 2);
-        const wobble = Math.sin(liftProgress * Math.PI * 4) * 0.02 * (1 - liftProgress);
-        targetAngle2 += wobble;
-        targetAngle3 -= wobble * 0.7;
-        targetAngle4 += wobble * 0.3;
-        
-        // Acceleration at start of lift
-        const liftEase = liftProgress < 0.3 ? 
-                        0.05 + 0.1 * (liftProgress / 0.3) : 
-                        0.15 - 0.1 * ((liftProgress - 0.3) / 0.7);
-        
-        // Smoothly interpolate current angles to target angles
-        angle1 = angle1 + (targetAngle1 - angle1) * liftEase;
-        angle2 = angle2 + (targetAngle2 - angle2) * liftEase;
-        angle3 = angle3 + (targetAngle3 - angle3) * liftEase;
-        angle4 = angle4 + (targetAngle4 - angle4) * liftEase;
-        angle5 = angle5 + (targetAngle5 - angle5) * liftEase;
-        angle6 = angle6 + (targetAngle6 - angle6) * liftEase;
-        angle7 = angle7 + (targetAngle7 - angle7) * liftEase;
-        
-        // Increment animation progress
-        animationProgress += animationSpeed;
-        
-        // Check if we've reached the position above the object
-        const endEffectorPos = getEndEffectorPosition();
-        const distanceToTarget = endEffectorPos.distanceTo(targetPos);
-        
-        if (distanceToTarget < pickupDistance || animationProgress > 2) {
-          state = "moving";
-          animationProgress = 0;
-          console.log("State changed to moving");
-          
+        if (pathComplete) {
           // Determine the appropriate drop location based on the box color
+          let dropPos;
           if (currentTarget.userData.isRed) {
             // Red box goes to red drop location
-            objectDropPos.copy(redDropLocation.position);
+            dropPos = redDropLocation.position.clone();
           } else {
             // Blue box goes to blue drop location
-            objectDropPos.copy(blueDropLocation.position);
+            dropPos = blueDropLocation.position.clone();
           }
           
           // If user has moved the custom drop location, use that instead
           if (userDropLocation.userData.isActive) {
-            objectDropPos.copy(userDropLocation.position);
+            dropPos = userDropLocation.position.clone();
             userDropLocation.userData.isActive = false; // Reset after use
           }
+          
+          // Add height for approach
+          dropPos.y += 0.3;
+          
+          // Plan path to the drop location
+          const endEffectorPos = getEndEffectorPosition();
+          
+          // Generate path points for moving to drop location
+          pathPoints = planPath(endEffectorPos, dropPos, 30);
+          
+          // Avoid obstacles
+          const obstacles = interactiveObjects
+            .filter(obj => obj !== currentTarget)
+            .map(obj => ({ position: obj.position, radius: 0.4 }));
+          
+          pathPoints = avoidObstacles(pathPoints, obstacles);
+          
+          // Smooth the path
+          pathPoints = smoothPath(pathPoints);
+          
+          // Reset path following variables
+          currentPathIndex = 0;
+          pathProgress = 0;
+          
+          // Transition to moving
+          state = "moving";
+          console.log("State changed to moving");
         }
       } else if (state === "moving") {
-        // Move to the drop location with a natural arc motion
-        targetPos = objectDropPos.clone();
+        // Follow the path to the drop location
+        const pathComplete = followPath();
         
-        // Add an arc to the movement path
-        const moveProgress = Math.min(1, animationProgress);
-        const arcHeight = 0.4 * Math.sin(moveProgress * Math.PI);
-        targetPos.y += 0.3 + arcHeight;
-        
-        // Calculate target position relative to the robot base
-        const relativePos = targetPos.clone().sub(baseGroup.position);
-        
-        // Calculate horizontal distance and height
-        const distXZ = Math.sqrt(relativePos.x * relativePos.x + relativePos.z * relativePos.z);
-        const height = relativePos.y - armLength1;
-        
-        // Calculate distance from shoulder to target
-        const distance = Math.sqrt(distXZ * distXZ + height * height);
-        
-        // Check if distance is within reachable range
-        const maxReach = armLength2 + armLength3;
-        if (distance > maxReach * 0.95) {
-          console.log("Drop location too far to reach, distance:", distance, "max reach:", maxReach);
-          // Move the drop location closer if it's too far
-          const direction = new THREE.Vector3(relativePos.x, 0, relativePos.z).normalize();
-          objectDropPos.x = baseGroup.position.x + direction.x * maxReach * 0.8;
-          objectDropPos.z = baseGroup.position.z + direction.z * maxReach * 0.8;
-          return;
-        }
-        
-        // Calculate target angles using inverse kinematics
-        targetAngle1 = Math.atan2(relativePos.x, relativePos.z);
-        
-        // Calculate elbow angle using law of cosines
-        const cosElbow = (armLength2 * armLength2 + armLength3 * armLength3 - distance * distance) / 
-                         (2 * armLength2 * armLength3);
-        const clampedCosElbow = Math.max(-0.99, Math.min(0.99, cosElbow));
-        targetAngle3 = Math.PI - Math.acos(clampedCosElbow);
-        
-        // Calculate shoulder angle
-        const cosShoulderToElbow = (armLength2 * armLength2 + distance * distance - armLength3 * armLength3) / 
-                                  (2 * armLength2 * distance);
-        const clampedCosShoulderToElbow = Math.max(-0.99, Math.min(0.99, cosShoulderToElbow));
-        const shoulderToElbow = Math.acos(clampedCosShoulderToElbow);
-        const shoulderToTarget = Math.atan2(height, distXZ);
-        targetAngle2 = shoulderToTarget - shoulderToElbow;
-        
-        // Calculate wrist pitch angle to keep end effector level
-        targetAngle4 = -targetAngle2 - targetAngle3;
-        
-        // Add natural movement patterns during transport
-        // Simulate weight and momentum with subtle oscillations
-        const weightWobble = Math.sin(moveProgress * Math.PI * 6) * 0.02 * (1 - moveProgress);
-        targetAngle2 += weightWobble;
-        targetAngle3 -= weightWobble * 0.7;
-        targetAngle4 += weightWobble * 0.3;
-        
-        // Add wrist movements to make the transport look more natural
-        targetAngle5 = Math.sin(moveProgress * Math.PI * 2) * 0.1;
-        targetAngle6 = Math.atan2(relativePos.x, relativePos.z) * 0.3;
-        targetAngle7 = Math.sin(moveProgress * Math.PI * 3) * 0.05;
-        
-        // Variable speed based on movement phase (ease in/out)
-        let movementEase;
-        if (moveProgress < 0.2) {
-          // Acceleration phase
-          movementEase = 0.03 + (moveProgress / 0.2) * 0.07;
-        } else if (moveProgress > 0.8) {
-          // Deceleration phase
-          movementEase = 0.1 - ((moveProgress - 0.8) / 0.2) * 0.07;
-        } else {
-          // Constant speed phase
-          movementEase = 0.1;
-        }
-        
-        // Smoothly interpolate current angles to target angles
-        angle1 = angle1 + (targetAngle1 - angle1) * movementEase;
-        angle2 = angle2 + (targetAngle2 - angle2) * movementEase;
-        angle3 = angle3 + (targetAngle3 - angle3) * movementEase;
-        angle4 = angle4 + (targetAngle4 - angle4) * movementEase;
-        angle5 = angle5 + (targetAngle5 - angle5) * movementEase;
-        angle6 = angle6 + (targetAngle6 - angle6) * movementEase;
-        angle7 = angle7 + (targetAngle7 - angle7) * movementEase;
-        
-        // Increment animation progress
-        animationProgress += animationSpeed * (0.7 + 0.6 * Math.sin(Math.PI * moveProgress));
-        
-        // Check if we've reached the position above the drop location
-        const endEffectorPos = getEndEffectorPosition();
-        const distanceToTarget = endEffectorPos.distanceTo(targetPos);
-        
-        if (distanceToTarget < pickupDistance || animationProgress > 3) {
+        if (pathComplete) {
+          // Plan path to lower the object
+          const endEffectorPos = getEndEffectorPosition();
+          const lowerPos = endEffectorPos.clone();
+          lowerPos.y -= 0.3; // Lower down
+          
+          // Generate path points for lowering
+          pathPoints = planPath(endEffectorPos, lowerPos, 10);
+          
+          // Reset path following variables
+          currentPathIndex = 0;
+          pathProgress = 0;
+          
+          // Transition to dropping
           state = "dropping";
-          animationProgress = 0;
           console.log("State changed to dropping");
         }
       } else if (state === "dropping") {
-        // Lower the object to the drop location
-        targetPos = objectDropPos.clone();
+        // Follow the path to lower the object
+        const pathComplete = followPath();
         
-        // Add a slight approach angle for more natural movement
-        const dropProgress = Math.min(1, animationProgress * 2);
-        const dropOffset = 0.1 * (1 - dropProgress);
-        targetPos.y += dropOffset;
-        
-        // Calculate target position relative to the robot base
-        const relativePos = targetPos.clone().sub(baseGroup.position);
-        
-        // Calculate horizontal distance and height
-        const distXZ = Math.sqrt(relativePos.x * relativePos.x + relativePos.z * relativePos.z);
-        const height = relativePos.y - armLength1;
-        
-        // Calculate distance from shoulder to target
-        const distance = Math.sqrt(distXZ * distXZ + height * height);
-        
-        // Calculate target angles using inverse kinematics
-        targetAngle1 = Math.atan2(relativePos.x, relativePos.z);
-        
-        // Calculate elbow angle using law of cosines
-        const cosElbow = (armLength2 * armLength2 + armLength3 * armLength3 - distance * distance) / 
-                         (2 * armLength2 * armLength3);
-        const clampedCosElbow = Math.max(-0.99, Math.min(0.99, cosElbow));
-        targetAngle3 = Math.PI - Math.acos(clampedCosElbow);
-        
-        // Calculate shoulder angle
-        const cosShoulderToElbow = (armLength2 * armLength2 + distance * distance - armLength3 * armLength3) / 
-                                  (2 * armLength2 * distance);
-        const clampedCosShoulderToElbow = Math.max(-0.99, Math.min(0.99, cosShoulderToElbow));
-        const shoulderToElbow = Math.acos(clampedCosShoulderToElbow);
-        const shoulderToTarget = Math.atan2(height, distXZ);
-        targetAngle2 = shoulderToTarget - shoulderToElbow;
-        
-        // Calculate wrist pitch angle to keep end effector level
-        targetAngle4 = -targetAngle2 - targetAngle3;
-        
-        // Add precision movements as we get closer to the target
-        const precisionFactor = Math.min(1, dropProgress * 3);
-        if (precisionFactor > 0.8) {
-          // Slight adjustments for precise placement
-          const microAdjust = Math.sin(precisionFactor * Math.PI * 10) * 0.005 * (1 - (precisionFactor - 0.8) / 0.2);
-          targetAngle2 += microAdjust;
-          targetAngle3 -= microAdjust * 0.5;
-          targetAngle4 += microAdjust * 0.5;
-        }
-        
-        // Slow down as we get closer to the drop point
-        const slowdownFactor = 0.03 + 0.02 * (1 - Math.min(1, dropProgress));
-        
-        // Smoothly interpolate current angles to target angles
-        angle1 = angle1 + (targetAngle1 - angle1) * slowdownFactor;
-        angle2 = angle2 + (targetAngle2 - angle2) * slowdownFactor;
-        angle3 = angle3 + (targetAngle3 - angle3) * slowdownFactor;
-        angle4 = angle4 + (targetAngle4 - angle4) * slowdownFactor;
-        angle5 = angle5 + (targetAngle5 - angle5) * slowdownFactor;
-        angle6 = angle6 + (targetAngle6 - angle6) * slowdownFactor;
-        angle7 = angle7 + (targetAngle7 - angle7) * slowdownFactor;
-        
-        // Increment animation progress
-        animationProgress += animationSpeed * 0.6;
-        
-        // Check if we've reached the drop location
-        const endEffectorPos = getEndEffectorPosition();
-        const distanceToTarget = endEffectorPos.distanceTo(targetPos);
-        
-        if (distanceToTarget < pickupDistance || animationProgress > 2) {
-          state = "releasing";
-          animationProgress = 0;
-          console.log("State changed to releasing");
-        }
-      } else if (state === "releasing") {
-        // Open the gripper
-        animationProgress = Math.min(animationProgress + animationSpeed * 0.8, 1);
-        
-        // Add a slight upward movement as the gripper opens
-        const releaseAdjustment = Math.sin(animationProgress * Math.PI) * 0.01;
-        targetAngle2 -= releaseAdjustment;
-        targetAngle3 += releaseAdjustment;
-        targetAngle4 -= releaseAdjustment;
-        
-        // Smoothly interpolate current angles to target angles
-        angle1 = angle1 + (targetAngle1 - angle1) * 0.1;
-        angle2 = angle2 + (targetAngle2 - angle2) * 0.1;
-        angle3 = angle3 + (targetAngle3 - angle3) * 0.1;
-        angle4 = angle4 + (targetAngle4 - angle4) * 0.1;
-        angle5 = angle5 + (targetAngle5 - angle5) * 0.1;
-        angle6 = angle6 + (targetAngle6 - angle6) * 0.1;
-        angle7 = angle7 + (targetAngle7 - angle7) * 0.1;
-        
-        // After a short delay, release the object
-        if (animationProgress >= 1) {
+        if (pathComplete) {
+          // Release the object
           objectGrabbed = false;
-          
-          // Fix: Ensure the object stays at the drop position
-          currentTarget.position.copy(objectDropPos);
-          // Ensure the box is properly aligned with the ground
-          currentTarget.rotation.set(0, currentTarget.rotation.y, 0);
-          currentTarget.position.y = baseGroup.position.y + 0.15; // Half height of box
           currentTarget.userData.isGrabbed = false;
           
-          state = "returning";
-          animationProgress = 0;
-          console.log("State changed to returning, object released");
+          // Plan path to move away from the object
+          const endEffectorPos = getEndEffectorPosition();
+          const retreatPos = endEffectorPos.clone();
+          retreatPos.y += 0.3; // Move up
           
-          // Add a slight "settling" effect when the object is released
-          targetAngle2 += 0.02;
-          targetAngle3 -= 0.03;
-          targetAngle4 += 0.01;
+          // Generate path points for retreating
+          pathPoints = planPath(endEffectorPos, retreatPos, 10);
+          
+          // Reset path following variables
+          currentPathIndex = 0;
+          pathProgress = 0;
+          
+          // Transition to retreating
+          state = "retreating";
+          console.log("State changed to retreating, object released");
+        }
+      } else if (state === "retreating") {
+        // Follow the path to move away from the object
+        const pathComplete = followPath();
+        
+        if (pathComplete) {
+          // Plan path to return to idle position
+          const endEffectorPos = getEndEffectorPosition();
+          const idlePos = new THREE.Vector3(0, armLength1 + armLength2 * 0.7, armLength3 * 0.7);
+          
+          // Generate path points for returning to idle
+          pathPoints = planPath(endEffectorPos, idlePos, 20);
+          
+          // Avoid obstacles
+          const obstacles = interactiveObjects.map(obj => ({ 
+            position: obj.position, 
+            radius: 0.4 
+          }));
+          
+          pathPoints = avoidObstacles(pathPoints, obstacles);
+          
+          // Smooth the path
+          pathPoints = smoothPath(pathPoints);
+          
+          // Reset path following variables
+          currentPathIndex = 0;
+          pathProgress = 0;
+          
+          // Transition to returning
+          state = "returning";
+          console.log("State changed to returning");
         }
       } else if (state === "returning") {
-        // Move back to idle position
-        targetAngle1 = 0;
-        targetAngle2 = -Math.PI/2;
-        targetAngle3 = Math.PI/4;
-        targetAngle4 = Math.PI/4;
-        targetAngle5 = 0;
-        targetAngle6 = 0;
-        targetAngle7 = 0;
+        // Follow the path to return to idle position
+        const pathComplete = followPath();
         
-        // Add natural return motion with slight overshoot
-        const returnProgress = Math.min(1, animationProgress * 1.5);
-        const overshoot = Math.sin(returnProgress * Math.PI) * 0.05 * (1 - returnProgress);
-        
-        // Apply overshoot to different joints
-        targetAngle2 += overshoot;
-        targetAngle3 -= overshoot * 0.7;
-        targetAngle4 += overshoot * 0.3;
-        
-        // Variable speed for return (faster at start, slower at end)
-        const returnEase = 0.05 + 0.1 * (1 - Math.min(1, returnProgress));
-        
-        // Smoothly interpolate current angles to target angles
-        angle1 = angle1 + (targetAngle1 - angle1) * returnEase;
-        angle2 = angle2 + (targetAngle2 - angle2) * returnEase;
-        angle3 = angle3 + (targetAngle3 - angle3) * returnEase;
-        angle4 = angle4 + (targetAngle4 - angle4) * returnEase;
-        angle5 = angle5 + (targetAngle5 - angle5) * returnEase;
-        angle6 = angle6 + (targetAngle6 - angle6) * returnEase;
-        angle7 = angle7 + (targetAngle7 - angle7) * returnEase;
-        
-        // Increment animation progress
-        animationProgress += animationSpeed;
-        
-        // Check if we've returned to idle position
-        const angleThreshold = 0.05;
-        const isNearTarget = 
-          Math.abs(angle1 - targetAngle1) < angleThreshold &&
-          Math.abs(angle2 - targetAngle2) < angleThreshold &&
-          Math.abs(angle3 - targetAngle3) < angleThreshold &&
-          Math.abs(angle4 - targetAngle4) < angleThreshold;
-        
-        if (isNearTarget || animationProgress > 3) {
+        if (pathComplete) {
+          // Reset to idle state
           state = "idle";
-          animationProgress = 0;
           currentTarget = null;
           console.log("State changed to idle");
         }
-      } else if (state === "paused") {
-        // Do nothing while paused - user is dragging the object
-        // The arm will maintain its current position
       }
     };
     
