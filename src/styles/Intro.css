@@ -14,6 +14,7 @@
   text-align: center;
   font-size: 76px;
   margin-top: -30px;
+  margin-bottom: 0px;
 }
 .Typist .Cursor--blinking {
   color: var(--green-bright);
@@ -32,7 +33,7 @@
 }
 
 .intro-subtitle {
-  margin-top: 0px;
+  margin-top: -35px;
   font-family: "NTR", sans-serif;
   color: var(--slate);
   text-align: center;

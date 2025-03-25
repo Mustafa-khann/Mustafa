@@ -26,18 +26,17 @@ class Intro extends React.Component {
     return (
       <div id="intro" style={{ paddingTop: 10 }}>
         <RoboticArm></RoboticArm>
-        <div className="typist-container">
-          <Typist avgTypingDelay={120} cursor={{ show: true, hideWhenDone: false, hideWhenDoneDelay: 1000 }}>
-            <span>hi, </span>
-            <span className="intro-name">Mustafa</span>
-            <span> here.</span>
-          </Typist>
-          <span className="mobile-cursor">|</span>
-        </div>
+        <Typist avgTypingDelay={120}>
+          {"hi, "}
+        <span className="intro-title">
+            <span className="intro-name">{"Mustafa"}</span>
+            {" here."}
+          </span>
+        </Typist>
         <FadeInSection>
           <div className="intro-subtitle">I engineer.</div>
           <div className="intro-desc">
-            I'm Mustafa Khan, an Embedded Systems Engineer and Robotics enthusiast focused on AI-driven automation, industrial robotics, and large-scale manufacturing. 
+          I'm Mustafa Khan, an Embedded Systems Engineer and Robotics enthusiast focused on AI-driven automation, industrial robotics, and large-scale manufacturing. 
           </div>
           <a
             href="mailto:mustafakhann050@gmail.com"
