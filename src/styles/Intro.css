@@ -19,6 +19,9 @@
   color: var(--green-bright);
   padding-left: 4px;
 }
+.Typist.Typist--done .Cursor--blinking {
+  display: none;
+}
 
 .intro-title {
   font-family: "NTR", sans-serif;
@@ -107,4 +110,9 @@ b {
     padding: 8px 20px;
     margin-bottom: 40px;
   }
+}
+
+.typist-container {
+  position: relative;
+  display: inline-block;
 }
