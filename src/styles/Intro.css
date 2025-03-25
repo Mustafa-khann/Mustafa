@@ -32,7 +32,7 @@
 }
 
 .intro-subtitle {
-  margin-top: -36px;
+  margin-top: 0px;
   font-family: "NTR", sans-serif;
   color: var(--slate);
   text-align: center;
@@ -91,7 +91,7 @@ b {
   }
 
   .intro-subtitle {
-    margin: 0;
+    margin-top: -10px;
     font-size: 28px;
   }
 
