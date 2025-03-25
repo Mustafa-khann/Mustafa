@@ -89,9 +89,9 @@ class Projects extends React.Component {
           "LLama 3.0 based resume analyzer that analyzes your resume and gives you a score and suggestions on how to improve it.",
         techStack: "Python, Nodejs, Ollama",
       },
-      "Sign Language Recognizer in C": {
-        title: "Sign Language Recognizer in C",
-        desc: "A sign language recognizer purely written in C. Yeilds 73% accuracy on the MNIST Sign Language Dataset.",
+      "Sign Language Recognizer Neural Network in C": {
+        title: "Sign Language Recognizer Neural Network in C",
+        desc: "A sign language recognizer neural network purely written in C. Yeilds 73% accuracy on the MNIST Sign Language Dataset.",
         techStack: "C",
         link: "https://github.com/Mustafa-khann/Sign-Language-Recognizer",
       },

@@ -17,7 +17,7 @@ const Posts = () => {
     {
       id: 2,
       title: "Open Questions",
-      date: "January 7, 2025",
+      date: "January 27, 2025",
       content: `Paul Graham has written that <a href="https://arc.net/l/quote/qywfpqso" rel="nofollow">great essays tell the reader something surprising about an important or relevant topic</a>, perhaps one <a href="https://arc.net/l/quote/hwnwuzbn" rel="nofollow">with wide breadth of applicability</a> in some way (chronological, fields of study, etc.).
 
       Assuming that knowledge is a strongly connected graph, he also writes that <a href="https://arc.net/l/quote/cwjqzbvx" rel="nofollow">it should be sufficient to start with any sufficiently interesting question</a>, and by exploring the subquestions instigated by that initial question you will inevitably arrive at an essay topic that is both interesting/surprising and important/relevant, ie. a great essay.
