@@ -27,16 +27,7 @@ class Intro extends React.Component {
       <div id="intro" style={{ paddingTop: 10 }}>
         <RoboticArm></RoboticArm>
         <div className="typist-container">
-          <Typist 
-            avgTypingDelay={120} 
-            cursor={{ 
-              show: true, 
-              blink: true, 
-              element: '|', 
-              hideWhenDone: true, 
-              hideWhenDoneDelay: 0 
-            }}
-          >
+          <Typist avgTypingDelay={120} cursor={{ show: true, hideWhenDone: false, hideWhenDoneDelay: 1000 }}>
             <span>hi, </span>
             <span className="intro-name">Mustafa</span>
             <span> here.</span>
