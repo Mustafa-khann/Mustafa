@@ -7,7 +7,7 @@ const Posts = () => {
     {
       id: 1,
       title: "Knowing as Inseparable from Doing",
-      date: "March 25, 2024",
+      date: "March 25, 2025",
       content: `We treat pieces of knowledge as something to be acquired once and kept forever, preserved forever on a timeless mental shelf of some kind. But the reality that we can all attest to is that knowing requires diligent practice and constant maintenance.
 
       In other words, <a href="https://en.wikipedia.org/wiki/Situated_cognition" target="_blank" rel="noopener noreferrer">knowing is a skill</a>, like playing an instrument or playing chess, that can be honed with practice.
