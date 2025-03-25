@@ -1,0 +1,64 @@
+.navbar {
+    background-color: var(--navy);
+    color: var(--lightest-slate);
+    font-family: 'NTR';
+    font-weight: bold;
+  }
+
+  .navbar-logo {
+    height: 40px; /* Adjust as needed */
+  }
+
+  .navbar-light .navbar-brand  {
+    color: var(--lightest-slate) !important;
+  }
+
+  .navbar-light .navbar-nav .nav-link {
+    color: var(--lightest-slate) !important;
+  }
+
+  .navbar-light .navbar-nav .nav-link:hover {
+    color: var(--green-bright) !important;
+  }
+
+  .navbar-light .navbar-nav .nav-link svg:hover {
+    color: var(--green-bright) !important;
+  }
+
+  .form-control {
+    width: 200px; /* Adjust width as needed */
+  }
+
+  @media only screen and (max-width: 600px) {
+    .navbar-light .navbar-brand {
+        display: none;
+    }
+
+    /* Adjust mobile nav styling */
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        padding: 0.5rem 1rem;
+    }
+
+    /* Adjust spacing for social icons on mobile */
+    .navbar-nav.ml-auto {
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .navbar-nav.ml-auto .nav-link {
+        padding: 0.5rem;
+    }
+  }
+
+.bg-body-tertiary {
+  background-color: var(--navy) !important; /* Add !important to override Bootstrap */
+}
+
+.custom-navbar {
+  background-color: var(--navy) !important;
+}
