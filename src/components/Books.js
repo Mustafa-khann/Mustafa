@@ -99,7 +99,16 @@ const Books = () => {
         {filteredBooks.map((book, index) => (
           <div className="book-card" key={index}>
             <a href={book.link} target="_blank" rel="noopener noreferrer">
-              <img src={book.cover} alt={`${book.title} cover`} className="book-cover" />
+              <img 
+                src={book.cover} 
+                alt={`${book.title} cover`} 
+                className="book-cover"
+                loading="lazy"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = "./assets/bookCovers/placeholder.jpg";
+                }}
+              />
             </a>
             <h3>{book.title}</h3>
             <p>{book.author}</p>
