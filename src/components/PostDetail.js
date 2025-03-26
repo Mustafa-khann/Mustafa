@@ -95,7 +95,6 @@ const PostDetail = () => {
         <li>Do what degree should intentions matter when determining blame, guilt, or responsibility?</li>
         <li><strong><span style="color: #00d1b2;">How:</span></strong></li>
         <ol>
-          <li>How does Cryptography work? How is information encoded such that only the sender and receiver can access them even if the act of sending is public knowledge?</li>
           <li>How do Quantum Computers work? Why are they more able to solve large problems then normal computers?</li>
           <li>How did financial systems get to the place they are at today?</li>
           <li>How does quantum electrodynamics work?</li>
