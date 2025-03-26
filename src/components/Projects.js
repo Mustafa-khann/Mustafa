@@ -97,7 +97,7 @@ class Projects extends React.Component {
       },
       "CNN Architecture from Scratch in C": {
         title: "CNN Architecture from Scratch in C",
-        desc: "Built a convolutional neural network from first principles in C, peeling back the abstraction layers of modern ML frameworks. By manually implementing convolutions, pooling, and backpropagation, this project offers an intuitive understanding of how CNNs actually 'see' and process images at the most fundamental level.",
+        desc: "Built a convolutional neural network in C, implementing convolutions, pooling, and backpropagation to understand how CNNs process images.",
         techStack: "C",
         link: "https://github.com/Mustafa-khann/CNN-Architecture-from-Scratch-in-C",
       }
