@@ -84,7 +84,7 @@ const JobList = () => {
   const experienceItems = {
     VeevoTech: {
       jobTitle: "Embedded Systems Engineer @",
-      duration: "APR 2024 - PRESENT",
+      duration: "APR 2025 - PRESENT",
       desc: [
         "Designing touch screen user interfaces and developing embedded system firmware using C/C++/Arduino.",
         "Conducting R&D to address product design challenges and enhance efficiency/performance of various components.",
@@ -94,7 +94,7 @@ const JobList = () => {
     },
     AntonX: {
       jobTitle: "Software Engineer @",
-      duration: "SEP 2024 - APR 2024",
+      duration: "SEP 2024 - APR 2025",
       desc: [
         "Collaborating with senior engineers to design and implement features across the full tech stack, ensuring seamless functionality and user experience.",
         "Writing clean, efficient, and well-documented code in Javascript & PHP Laravel to meet project requirements and improve overall system performance.",
