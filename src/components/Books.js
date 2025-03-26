@@ -22,7 +22,6 @@ const Books = () => {
     { title: "Debt: The First 5,000 Years", author: "David Graeber", cover: "./assets/bookCovers/debt.jpg", category: "Non-Fiction" },
     { title: "Design as Art", author: "Bruno Munari", cover: "./assets/bookCovers/designAsArt.jpg", category: "Non-Fiction" },
     { title: "Something to do with paying attention", author: "David Foster Wallace", cover: "./assets/bookCovers/Stdwa.jpg", category: "Non-Fiction" },
-    
     // Technology
     { title: "Chip War: The Fight for the World's Most Critical Technology", author: "Chris Miller", cover: "./assets/bookCovers/chipwar.png", category: "Technology" },
     { title: "Fundamentals of Materials Science and Engineering", author: "William D. Callister", cover: "./assets/bookCovers/materialscience.png", category: "Technology" },
@@ -31,6 +30,11 @@ const Books = () => {
     // Electronics
     { title: "The Art of Electronics", author: "Paul Horowitz, Winfield Hill", cover: "./assets/bookCovers/electronics.png", category: "Electronics" },
     
+    // Biology
+    { title: "The Selfish Gene", author: "Richard Dawkins", cover: "./assets/bookCovers/selfishgene.jpeg", category: "Biology" },
+    { title: "The Origin of Species", author: "Charles Darwin", cover: "./assets/bookCovers/originofspecies.jpg", category: "Biology" },
+    { title: "Molecular Biology of the Cell", author: "Bruce Alberts et al.", cover: "./assets/bookCovers/thecell.jpg", category: "Biology" },
+
     // Programming
     { title: "A Computational Logic", author: "Robert S. Boyer, J. Strother Moore", cover: "./assets/bookCovers/comlogic.png", category: "Programming" },
     { title: "Algorithms in C", author: "Robert Sedgewick", cover: "./assets/bookCovers/algoc.png", category: "Programming" },

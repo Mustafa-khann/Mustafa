@@ -98,6 +98,24 @@ const Posts = () => {
       - What does quantum mechanics imply about the nature of reality? How can we verify this empirically? Is the Copenhagen Interpretation correct?
       - Is FTL travel ever possible? What might this look like — how might it work?
       - How does the internet really work?`
+    },
+    {
+      id: 3,
+      title: "Why Physical AI (Robotics) is Going to Revolutionize Industrialism",
+      date: "Jan 14 2025",
+      content: ""
+    },
+    {
+      id: 4,
+      title: "The Future of AI: Navigating the Technological Horizon",
+      date: "Mar 26 2025",
+      content: ""
+    },
+    {
+      id: 5,
+      title: "The Strategic Imperative for Domestic Manufacturing Renaissance",
+      date: "Mar 26 2025",
+      content: ""
     }
   ];
 
