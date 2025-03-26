@@ -116,6 +116,12 @@ const Posts = () => {
       title: "The Strategic Imperative for Domestic Manufacturing Renaissance",
       date: "Mar 26 2025",
       content: ""
+    },
+    {
+      id: 6,
+      title: "Vibe Coding",
+      date: "Mar 26 2025",
+      content: ""
     }
   ];
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "../styles/Postdetail.css";
 
 
@@ -226,7 +226,31 @@ const PostDetail = () => {
       <p>Perhaps most importantly, we need to challenge the narrative that manufacturing decline is inevitable—a natural evolution of advanced economies. <span style="color: #00d1b2">The examples of Germany, Japan, and South Korea demonstrate that high-wage countries can maintain vibrant manufacturing sectors through strategic specialization, automation, and workforce development.</span></p>
       
       <p>The manufacturing plants we build today will shape our economic and strategic position for decades to come. They represent not just production capacity but innovation capability, economic opportunity, and national resilience. The time to invest in this future is now.</p>`
-    }
+    },
+{
+  id: 6,
+  title: "Vibe Coding",
+  date: "Mar 26 2025",
+  content: `
+    <p>Vibe Coding is a revolutionary approach to programming that transcends traditional methods. Imagine coding not with your hands, but with your mind. This concept, which once seemed like science fiction, is now becoming a reality.</p>
+    
+    <p>At its core, Vibe Coding leverages the power of neural interfaces to translate thoughts directly into code. <span style="color: #00d1b2">"The future of programming is not just about writing code, but about understanding and translating human intention,"</span> as Andrej Karpathy might suggest. The implications of this are profound.</p>
+    
+    <p>Consider the current state of programming. It requires a deep understanding of syntax, semantics, and the intricacies of various programming languages. This learning curve can be steep and discouraging for many. Vibe Coding, however, promises to democratize coding by making it more intuitive and accessible. <span style="color: #00d1b2">"The best technology is invisible, it just works,"</span> a sentiment echoed by Naval Ravikant.</p>
+    
+    <p>Imagine a world where anyone can code, regardless of their background or technical expertise. With Vibe Coding, the focus shifts from learning how to code to simply knowing what you want to achieve. The neural interface interprets your intentions and translates them into executable code.</p>
+    
+    <p>This shift has the potential to unleash a new wave of creativity and innovation. People who were previously excluded from the tech industry due to the steep learning curve can now participate and contribute. This could lead to a more diverse and inclusive tech landscape. <span style="color: #00d1b2">"Innovation is about seeing the world differently,"</span> as Peter Thiel often emphasizes.</p>
+    
+    <p>Moreover, Vibe Coding could significantly speed up the development process. Traditional coding involves a lot of trial and error, debugging, and iteration. By directly translating thoughts into code, Vibe Coding could streamline this process, making it faster and more efficient.</p>
+    
+    <p>However, this new approach is not without its challenges. The technology behind neural interfaces is still in its infancy, and there are significant technical and ethical hurdles to overcome. For instance, ensuring the accuracy and security of these interfaces is paramount. Misinterpretations or malicious interference could have serious consequences.</p>
+    
+    <p>Furthermore, the shift to Vibe Coding raises questions about the future of traditional programming skills. Will they become obsolete, or will they evolve to complement this new paradigm? It's likely that a hybrid approach will emerge, where traditional coding skills are still valuable but are augmented by the capabilities of Vibe Coding.</p>
+    
+    <p>In conclusion, Vibe Coding represents a bold new frontier in the world of programming. It has the potential to make coding more intuitive, accessible, and efficient. While there are challenges to overcome, the possibilities it presents are exciting and transformative. As we stand on the brink of this new era, it's worth considering how we can harness the power of Vibe Coding to create a more inclusive and innovative future.</p>
+  `
+}
   ];
 
   const post = posts.find((post) => post.id === parseInt(id));
@@ -235,7 +259,12 @@ const PostDetail = () => {
     <div className="post-detail-container">
       {post ? (
         <>
-          <h1>{post.title}</h1>
+          <div className="post-header">
+            <Link to="/posts" className="back-button">
+              <span className="back-arrow">←</span>
+            </Link>
+            <h1>{post.title}</h1>
+          </div>
           <p><em>{post.date}</em></p>
           <p dangerouslySetInnerHTML={{ __html: post.content }}></p>
         </>
