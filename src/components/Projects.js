@@ -30,8 +30,8 @@ class Projects extends React.Component {
       },
       "Anky - 5 DoF Robotic Arm": {
         title: "Anky - 5 DoF Robotic Arm",
-        desc: "A 5-DoF robotic arm that can move its joints to a specific position using a arduino and a servo motors.",
-        techStack: "Arduino, C++",
+        desc: "A desktop-scale 3D Printed 5-DoF robotic arm with precision control for pick-and-place operations. Features inverse kinematics implementation for intuitive positioning, and a user-friendly control interface. Capable of automated sequence programming and manual control via joystick.",
+        techStack: "Arduino, C++, Servo Control, Inverse Kinematics",
         image: "/assets/arm-1080.jpeg"
       },
       "Tiny OS": {
@@ -97,7 +97,7 @@ class Projects extends React.Component {
       },
       "CNN Architecture from Scratch in C": {
         title: "CNN Architecture from Scratch in C",
-        desc: "A CNN architecture from scratch in C.",
+        desc: "Built a convolutional neural network from first principles in C, peeling back the abstraction layers of modern ML frameworks. By manually implementing convolutions, pooling, and backpropagation, this project offers an intuitive understanding of how CNNs actually 'see' and process images at the most fundamental level.",
         techStack: "C",
         link: "https://github.com/Mustafa-khann/CNN-Architecture-from-Scratch-in-C",
       }
