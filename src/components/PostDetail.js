@@ -138,7 +138,7 @@ const PostDetail = () => {
     {
       id: 4,
       title: "The Future of AI: Navigating the Technological Horizon",
-      date: "Mar 26 2025",
+      date: "Feb 19 2025",
       content: `
         <p>The future of artificial intelligence stands as one of the most profound technological frontiers of our time—a subject that has captivated researchers, philosophers, and technologists for decades. As we venture deeper into the 21st century, <span style="color: #00d1b2">the evolution of AI has accelerated at a pace that would have seemed implausible even to the most optimistic futurists of previous generations.</span> In this extensive exploration, I'll delve into the multifaceted landscape of emerging AI technologies, their potential societal impacts, and the ethical considerations that must guide our journey forward.</p>
         
@@ -192,7 +192,7 @@ const PostDetail = () => {
     {
       id: 5,
       title: "The Strategic Imperative for Domestic Manufacturing Renaissance",
-      date: "Mar 26 2025",
+      date: "Jan 26 2025",
       content: `The decline of domestic manufacturing capacity represents one of the most significant economic shifts of the past half-century. While globalization has brought many benefits, the <span style="color: #00d1b2">hollowing out of our manufacturing base has created vulnerabilities that have become increasingly apparent.</span> I believe we need a renaissance in domestic manufacturing—not out of nostalgia, but as a strategic imperative for innovation, resilience, and economic vitality.
       
       There's a dangerous misconception that manufacturing is somehow separate from innovation—that we can design here and build elsewhere without consequences. The reality is far more complex. When manufacturing and R&D become geographically separated, innovation suffers in subtle but profound ways.
