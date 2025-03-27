@@ -1,7 +1,7 @@
 export const researchPapers = [
   {
     id: 1,
-    title: "Survey Note: Detailed Exploration of Integrating SLAM and Multimodal Language Models with 3D Maps for Robotic Task Execution",
+    title: "Detailed Exploration of Integrating SLAM and Multimodal Language Models with 3D Maps for Robotic Task Execution",
     date: "March 2025",
     author: "Mustafa Khan",
     abstract: "This paper provides a comprehensive overview of methodologies in robotics that integrate SLAM with multimodal language models, using 3D maps as context for understanding and executing natural language instructions.",
@@ -97,7 +97,7 @@ export const researchPapers = [
   },
   {
     id: 2,
-    title: "Survey Note: Enhancing Practicality in Robotics Research Papers: Integrating SLAM and Multimodal Language Models with 3D Maps",
+    title: "Enhancing Practicality in Robotics Research Papers: Integrating SLAM and Multimodal Language Models with 3D Maps",
     date: "March 2025",
     author: "Mustafa Khan",
     abstract: "This work presents a method integrating SLAM with multimodal language models using 3D maps, enabling robots to execute natural language commands in dynamic environments. Validated through experiments, it offers practical applications in smart homes and logistics.",
