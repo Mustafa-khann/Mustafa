@@ -253,7 +253,7 @@ const PostDetail = () => {
     {
       id: 7,
       title: "Why Robotics is Hard to Break Into (Personal Experience)",
-      date: "April 2, 2025",
+      date: "March 27, 2025",
       content: `
         <p>When I graduated eight months ago, I had one clear dream: to build robots. I didn't care if it was humanoids, drones, or industrial machines—I just wanted to create things that could move and think. I even built an autonomous drone designed for package delivery as my first project. But reality hit fast: the robotics industry is non-existent where I live.</p>
 
