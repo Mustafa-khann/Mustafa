@@ -226,30 +226,60 @@ const PostDetail = () => {
       
       <p>The manufacturing plants we build today will shape our economic and strategic position for decades to come. They represent not just production capacity but innovation capability, economic opportunity, and national resilience. The time to invest in this future is now.</p>`
     },
-{
-  id: 6,
-  title: "Vibe Coding",
-  date: "Mar 26 2025",
-  content: `
-    <p>Vibe Coding is a revolutionary approach to programming that transcends traditional methods. Imagine coding not with your hands, but with your mind. This concept, which once seemed like science fiction, is now becoming a reality.</p>
-    
-    <p>At its core, Vibe Coding leverages the power of neural interfaces to translate thoughts directly into code. <span style="color: #00d1b2">"The future of programming is not just about writing code, but about understanding and translating human intention,"</span> as Andrej Karpathy might suggest. The implications of this are profound.</p>
-    
-    <p>Consider the current state of programming. It requires a deep understanding of syntax, semantics, and the intricacies of various programming languages. This learning curve can be steep and discouraging for many. Vibe Coding, however, promises to democratize coding by making it more intuitive and accessible. <span style="color: #00d1b2">"The best technology is invisible, it just works,"</span> a sentiment echoed by Naval Ravikant.</p>
-    
-    <p>Imagine a world where anyone can code, regardless of their background or technical expertise. With Vibe Coding, the focus shifts from learning how to code to simply knowing what you want to achieve. The neural interface interprets your intentions and translates them into executable code.</p>
-    
-    <p>This shift has the potential to unleash a new wave of creativity and innovation. People who were previously excluded from the tech industry due to the steep learning curve can now participate and contribute. This could lead to a more diverse and inclusive tech landscape. <span style="color: #00d1b2">"Innovation is about seeing the world differently,"</span> as Peter Thiel often emphasizes.</p>
-    
-    <p>Moreover, Vibe Coding could significantly speed up the development process. Traditional coding involves a lot of trial and error, debugging, and iteration. By directly translating thoughts into code, Vibe Coding could streamline this process, making it faster and more efficient.</p>
-    
-    <p>However, this new approach is not without its challenges. The technology behind neural interfaces is still in its infancy, and there are significant technical and ethical hurdles to overcome. For instance, ensuring the accuracy and security of these interfaces is paramount. Misinterpretations or malicious interference could have serious consequences.</p>
-    
-    <p>Furthermore, the shift to Vibe Coding raises questions about the future of traditional programming skills. Will they become obsolete, or will they evolve to complement this new paradigm? It's likely that a hybrid approach will emerge, where traditional coding skills are still valuable but are augmented by the capabilities of Vibe Coding.</p>
-    
-    <p>In conclusion, Vibe Coding represents a bold new frontier in the world of programming. It has the potential to make coding more intuitive, accessible, and efficient. While there are challenges to overcome, the possibilities it presents are exciting and transformative. As we stand on the brink of this new era, it's worth considering how we can harness the power of Vibe Coding to create a more inclusive and innovative future.</p>
-  `
-}
+    {
+      id: 6,
+      title: "Vibe Coding",
+      date: "Mar 26 2025",
+      content: `
+        <p>Vibe Coding is a revolutionary approach to programming that transcends traditional methods. Imagine coding not with your hands, but with your mind. This concept, which once seemed like science fiction, is now becoming a reality.</p>
+        
+        <p>At its core, Vibe Coding leverages the power of neural interfaces to translate thoughts directly into code. <span style="color: #00d1b2">"The future of programming is not just about writing code, but about understanding and translating human intention,"</span> as Andrej Karpathy might suggest. The implications of this are profound.</p>
+        
+        <p>Consider the current state of programming. It requires a deep understanding of syntax, semantics, and the intricacies of various programming languages. This learning curve can be steep and discouraging for many. Vibe Coding, however, promises to democratize coding by making it more intuitive and accessible. <span style="color: #00d1b2">"The best technology is invisible, it just works,"</span> a sentiment echoed by Naval Ravikant.</p>
+        
+        <p>Imagine a world where anyone can code, regardless of their background or technical expertise. With Vibe Coding, the focus shifts from learning how to code to simply knowing what you want to achieve. The neural interface interprets your intentions and translates them into executable code.</p>
+        
+        <p>This shift has the potential to unleash a new wave of creativity and innovation. People who were previously excluded from the tech industry due to the steep learning curve can now participate and contribute. This could lead to a more diverse and inclusive tech landscape. <span style="color: #00d1b2">"Innovation is about seeing the world differently,"</span> as Peter Thiel often emphasizes.</p>
+        
+        <p>Moreover, Vibe Coding could significantly speed up the development process. Traditional coding involves a lot of trial and error, debugging, and iteration. By directly translating thoughts into code, Vibe Coding could streamline this process, making it faster and more efficient.</p>
+        
+        <p>However, this new approach is not without its challenges. The technology behind neural interfaces is still in its infancy, and there are significant technical and ethical hurdles to overcome. For instance, ensuring the accuracy and security of these interfaces is paramount. Misinterpretations or malicious interference could have serious consequences.</p>
+        
+        <p>Furthermore, the shift to Vibe Coding raises questions about the future of traditional programming skills. Will they become obsolete, or will they evolve to complement this new paradigm? It's likely that a hybrid approach will emerge, where traditional coding skills are still valuable but are augmented by the capabilities of Vibe Coding.</p>
+        
+        <p>In conclusion, Vibe Coding represents a bold new frontier in the world of programming. It has the potential to make coding more intuitive, accessible, and efficient. While there are challenges to overcome, the possibilities it presents are exciting and transformative. As we stand on the brink of this new era, it's worth considering how we can harness the power of Vibe Coding to create a more inclusive and innovative future.</p>
+      `
+    },
+    {
+      id: 7,
+      title: "Why Robotics is Hard to Break Into (Personal Experience)",
+      date: "April 2, 2025",
+      content: `
+        <p>When I graduated eight months ago, I had one clear dream: to build robots. I didn't care if it was humanoids, drones, or industrial machines—I just wanted to create things that could move and think. I even built an autonomous drone designed for package delivery as my first project. But reality hit fast: the robotics industry is non-existent where I live.</p>
+
+        <p>It's not just the lack of companies, jobs, or even an established community—it's the simple fact that no one here demands robots. People don't ask for them because they don't know what robots are capable of. And as long as there's no demand, there's no industry. It's a chicken-and-egg problem that I'm stuck in.</p>
+
+        <p>This is why getting into robotics, especially in countries where the industry isn't mature, feels impossible at times. Even though I've learned how to build robots on my own, the opportunities aren't here. The systems that should support aspiring engineers—companies, mentors, and a strong community—just aren't available. So, I had to pivot. I moved into embedded systems—low-level programming, bare-metal C, assembly.</p>
+
+        <p>It's not robotics, but it's a start.</p>
+
+        <p>In a way, embedded systems feel like a backdoor into the world of robotics. I'm still dealing with hardware, writing code that makes things work, and learning how to control systems at a granular level. It's not the dream job I thought I'd land straight out of school, but it's close enough. In fact, I find it enjoyable—there's a satisfaction in getting something physical to obey the code you've written. There's a certain joy in seeing a system come to life. But it doesn't change the fact that the path forward is tough.</p>
+
+        <p>What's harder than anything, though, is the loneliness of it all. Without a strong community, without meetups, and without mentors, you feel like you're walking through a fog, hoping to stumble upon the right path. Friends and family, even fellow tech enthusiasts, often look at you with skepticism. "Why bother? There's no robotics industry here," they'll say. They aren't wrong, and yet that mindset doesn't make the journey easier.</p>
+
+        <p>If I had landed a robotics job right after graduating, I'd be miles ahead by now. I could be working on refining the flight code of a drone or adjusting the precision of a robotic arm in a factory. But instead, I'm building a foundation in embedded systems—a different, but still valuable, skillset. It's not a shortcut to where I want to be, but I know that every step counts.</p>
+
+        <p>I'm not complaining. I'm young, eager, and driven. And though it's hard to keep pushing forward when the path is unclear, I know that persistence is key. I've built up the resilience to keep going, even when it feels like there's no immediate payoff. Sure, there are plenty of late nights debugging, wondering if I'm even heading in the right direction. But I remind myself that all these efforts are taking me closer to my goal.</p>
+
+        <p>The point I want to make is simple: don't let the lack of immediate opportunities stop you. If you're passionate about robotics—or anything else, really—keep going, even when it feels like there's no place for you yet. It may take years of hard work, frustration, and setbacks, but that's part of the process. If you're stubborn, curious, and unafraid to fail, you'll find your way eventually.</p>
+
+        <p>That's what I'm doing: building slowly, step by step. Robotics is more than just a career for me; it's a passion, a calling, and I know I won't stop until I get there. The road may be long and difficult, but that's exactly why it's worth it.</p>
+
+        <p>So, if you're in the same position, stuck on the outside looking in, don't give up. Keep learning, keep building, and keep going. The opportunities will eventually come—just not on your timeline.</p>
+
+        <p>#Robotics #KeepGoing #NeverStop</p>
+      `
+    }
   ];
 
   const post = posts.find((post) => post.id === parseInt(id));
