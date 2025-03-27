@@ -9,6 +9,7 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 import PinterestIcon from "@material-ui/icons/Pinterest";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import HomeIcon from "@material-ui/icons/Home";
+import ResearchIcon from "@material-ui/icons/Description";
 import {Link} from "react-router-dom"
 import "../styles/NavBar.css";
 
@@ -25,6 +26,7 @@ class NavBar extends React.Component {
               </Nav.Link>
               <Nav.Link as={Link} to="/books">Books</Nav.Link>
               <Nav.Link as={Link} to="/posts">Posts</Nav.Link>
+              <Nav.Link as={Link} to="/research">Research</Nav.Link>
             </Nav>
             <Nav className="ml-auto">
               {/* <Nav.Link href="mailto:mustafakhann050@gmail.com">
