@@ -265,19 +265,18 @@ const PostDetail = () => {
 
         <p>In a way, embedded systems feel like a backdoor into the world of robotics. I'm still dealing with hardware, writing code that makes things work, and learning how to control systems at a granular level. It's not the dream job I thought I'd land straight out of school, but it's close enough. In fact, I find it enjoyable—there's a satisfaction in getting something physical to obey the code you've written. There's a certain joy in seeing a system come to life. But it doesn't change the fact that the path forward is tough.</p>
 
-        <p>What's harder than anything, though, is the loneliness of it all. Without a strong community, without meetups, and without mentors, you feel like you're walking through a fog, hoping to stumble upon the right path. Friends and family, even fellow tech enthusiasts, often look at you with skepticism. "Why bother? There's no robotics industry here," they'll say. They aren't wrong, and yet that mindset doesn't make the journey easier.</p>
+        <p><span style="color: #00d1b2">What's harder than anything, though, is the loneliness of it all. Without a strong community, without meetups, and without mentors, you feel like you're walking through a fog, hoping to stumble upon the right path.</span> Friends and family, even fellow tech enthusiasts, often look at you with skepticism. "Why bother? There's no robotics industry here," they'll say. They aren't wrong, and yet that mindset doesn't make the journey easier.</p>
 
         <p>If I had landed a robotics job right after graduating, I'd be miles ahead by now. I could be working on refining the flight code of a drone or adjusting the precision of a robotic arm in a factory. But instead, I'm building a foundation in embedded systems—a different, but still valuable, skillset. It's not a shortcut to where I want to be, but I know that every step counts.</p>
 
         <p>I'm not complaining. I'm young, eager, and driven. And though it's hard to keep pushing forward when the path is unclear, I know that persistence is key. I've built up the resilience to keep going, even when it feels like there's no immediate payoff. Sure, there are plenty of late nights debugging, wondering if I'm even heading in the right direction. But I remind myself that all these efforts are taking me closer to my goal.</p>
 
-        <p>The point I want to make is simple: don't let the lack of immediate opportunities stop you. If you're passionate about robotics—or anything else, really—keep going, even when it feels like there's no place for you yet. It may take years of hard work, frustration, and setbacks, but that's part of the process. If you're stubborn, curious, and unafraid to fail, you'll find your way eventually.</p>
+        <p><span style="color: #00d1b2">The point I want to make is simple: don't let the lack of immediate opportunities stop you. If you're passionate about robotics—or anything else, really—keep going, even when it feels like there's no place for you yet.</span> It may take years of hard work, frustration, and setbacks, but that's part of the process. If you're stubborn, curious, and unafraid to fail, you'll find your way eventually.</p>
 
         <p>That's what I'm doing: building slowly, step by step. Robotics is more than just a career for me; it's a passion, a calling, and I know I won't stop until I get there. The road may be long and difficult, but that's exactly why it's worth it.</p>
 
         <p>So, if you're in the same position, stuck on the outside looking in, don't give up. Keep learning, keep building, and keep going. The opportunities will eventually come—just not on your timeline.</p>
 
-        <p>#Robotics #KeepGoing #NeverStop</p>
       `
     }
   ];
