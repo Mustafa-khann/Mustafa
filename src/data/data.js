@@ -3,6 +3,7 @@ export const researchPapers = [
     id: 1,
     title: "Survey Note: Detailed Exploration of Integrating SLAM and Multimodal Language Models with 3D Maps for Robotic Task Execution",
     date: "March 2025",
+    author: "Mustafa Khan",
     abstract: "This paper provides a comprehensive overview of methodologies in robotics that integrate SLAM with multimodal language models, using 3D maps as context for understanding and executing natural language instructions.",
     content: `
       <h2>Abstract</h2>
@@ -13,7 +14,7 @@ export const researchPapers = [
       <p>Object permanence, a concept from developmental psychology, is particularly relevant. It refers to the understanding that objects continue to exist even when not directly observed. In robotics, implementing object permanence means the robot can reason about an object's location in the 3D map, even if it's occluded or moved, which is essential for tasks like retrieval based on language instructions.</p>
 
       <h2>Methodologies for Integrating SLAM, 3D Maps, and Language Models</h2>
-      <p>Several methodologies have been developed to address these challenges, focusing on integrating SLAM-generated 3D maps with LMs for language grounding and task execution. Below, we detail key approaches, supported by recent studies.</p>
+      <p>Several methodologies have been developed to address these challenges, focusing on integrating SLAM-generated 3D maps with LMs for language grounding and task execution. Below are detailed key approaches, supported by recent studies.</p>
 
       <h3>SLAM and 3D Map Generation</h3>
       <p>SLAM is a foundational technique for robotic navigation and mapping. A study by <a href="https://arxiv.org/abs/2007.11898" target="_blank">Campos et al. (2021)</a> describes ORB-SLAM3, an accurate open-source library for visual, visual-inertial, and multi-map SLAM. The process involves:</p>
@@ -98,10 +99,11 @@ export const researchPapers = [
     id: 2,
     title: "Survey Note: Enhancing Practicality in Robotics Research Papers: Integrating SLAM and Multimodal Language Models with 3D Maps",
     date: "March 2025",
-    abstract: "We present a method integrating SLAM with multimodal language models using 3D maps, enabling robots to execute natural language commands in dynamic environments. Validated through experiments, it offers practical applications in smart homes and logistics.",
+    author: "Mustafa Khan",
+    abstract: "This work presents a method integrating SLAM with multimodal language models using 3D maps, enabling robots to execute natural language commands in dynamic environments. Validated through experiments, it offers practical applications in smart homes and logistics.",
     content: `
     <h2>Abstract</h2>
-    <p>This paper presents a practical methodology for integrating Simultaneous Localization and Mapping (SLAM) with multimodal language models (LMs) using 3D maps as context to enable robots to understand and execute natural language instructions, such as fetching objects in dynamic environments. By combining SLAM-generated 3D maps with language grounding techniques, we demonstrate how robots can maintain long-term spatial memory and perform tasks like retrieving a towel based on voice commands. The approach is validated through experiments in simulated and real-world settings, offering detailed implementation guidance, quantitative results, and real-world applications in smart homes and logistics. This work bridges theoretical advancements with practical robotics, providing actionable insights for researchers and practitioners.</p>
+    <p>This paper presents a practical methodology for integrating Simultaneous Localization and Mapping (SLAM) with multimodal language models (LMs) using 3D maps as context to enable robots to understand and execute natural language instructions, such as fetching objects in dynamic environments. By combining SLAM-generated 3D maps with language grounding techniques, the research demonstrates how robots can maintain long-term spatial memory and perform tasks like retrieving a towel based on voice commands. The approach is validated through experiments in simulated and real-world settings, offering detailed implementation guidance, quantitative results, and real-world applications in smart homes and logistics. This work bridges theoretical advancements with practical robotics, providing actionable insights for researchers and practitioners.</p>
 
     <h2>Background and Conceptual Framework</h2>
     <p>Robotics research increasingly aims to enable autonomous operation in unstructured environments like homes or offices, where robots must interpret and act on natural language instructions. A key challenge is maintaining long-term spatial memory of object locations while grounding linguistic references to these locations. Simultaneous Localization and Mapping (SLAM) provides a 3D map that serves as a persistent spatial context, allowing robots to localize themselves and map their surroundings. Multimodal LMs, which process text alongside spatial or visual data, offer a mechanism to interpret commands like "bring me the towel" by linking them to specific locations in the 3D map.</p>
@@ -248,7 +250,8 @@ export const researchPapers = [
     id: 3,
     title: "Integrating SLAM, 3D Maps, and Gemini for Robotic Task Execution",
     date: "March 2025",
-    abstract: "We present a method integrating SLAM with Google's Gemini LLM, using 3D maps to enhance robotic task execution. By converting maps to text, robots can process complex instructions like fetching objects across rooms. Validated through experiments, this approach bridges spatial mapping with language understanding for applications in smart homes, warehouses, and search/rescue.",
+    author: "Mustafa Khan",
+    abstract: "This paper presents a method integrating SLAM with Google's Gemini LLM, using 3D maps to enhance robotic task execution. By converting maps to text, robots can process complex instructions like fetching objects across rooms. Validated through experiments, this approach bridges spatial mapping with language understanding for applications in smart homes, warehouses, and search/rescue.",
     content: `<h2>Abstract</h2>
 <p>This paper presents a practical methodology for integrating Simultaneous Localization and Mapping (SLAM) with Google's Gemini large language model (LLM), using 3D maps as context to enhance robotic task execution with a larger context window. By converting SLAM-generated 3D maps into textual descriptions processable by Gemini, we enable robots to understand and execute complex natural language instructions, such as fetching objects across multi-room environments. The approach is validated through simulated and real-world experiments, providing detailed implementation guidance, quantitative results, and applications in smart homes, warehouses, and search and rescue. This work bridges spatial mapping with advanced language understanding, offering actionable insights for robotics research and deployment.</p>
 
@@ -257,7 +260,7 @@ export const researchPapers = [
 <p>Object permanence, a concept from developmental psychology, is critical. It refers to understanding that objects persist even when out of sight. In robotics, this means reasoning about object locations in the 3D map—whether occluded, contained, or moved—essential for practical, multi-step tasks. By integrating SLAM with Gemini’s large context window, this paper addresses this challenge, enhancing robots’ ability to handle extensive spatial and task-related information in real-world settings.</p>
 
 <h2>Methodologies for Integrating SLAM, 3D Maps, and Language Models</h2>
-<p>We propose a methodology that integrates SLAM-generated 3D maps with Gemini to leverage its large context window for language-based robotic tasks. Below, we detail the key components, supported by recent studies and practical implementation details.</p>
+<p>This paper proposes a methodology that integrates SLAM-generated 3D maps with Gemini to leverage its large context window for language-based robotic tasks. Below, the key components are detailed, supported by recent studies and practical implementation details.</p>
 
 <h3>SLAM and 3D Map Generation</h3>
 <p>SLAM forms the foundation for creating the 3D map as the robot’s spatial memory. We use <a href="https://arxiv.org/abs/2007.11898" target="_blank">ORB-SLAM3 by Campos et al. (2021)</a>, an open-source library for visual and visual-inertial SLAM. The process includes:</p>

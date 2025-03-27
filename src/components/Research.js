@@ -17,6 +17,7 @@ const Research = () => {
             <Link to={`/research/${paper.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
               <h2>{paper.title}</h2>
               <p><em>{paper.date}</em></p>
+              <p><strong>Author:</strong> {paper.author}</p>
               <p className="abstract">{paper.abstract}</p>
             </Link>
           </div>

@@ -32,6 +32,7 @@ const ResearchDetail = () => {
         <h1>{paper.title}</h1>
       </div>
       <p><em>{paper.date}</em></p>
+      <p><strong>Author:</strong> {paper.author}</p>
       <div dangerouslySetInnerHTML={{ __html: paper.content }}></div>
     </div>
   );
