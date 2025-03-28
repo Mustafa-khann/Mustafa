@@ -27,6 +27,7 @@ const Books = () => {
     { title: "Fundamentals of Materials Science and Engineering", author: "William D. Callister", cover: "./assets/bookCovers/materialscience.png", category: "Technology" },
     { title: "Fundamentals of Aerodynamics (6th Edition)", author: "John D. Anderson", cover: "./assets/bookCovers/aero.png", category: "Technology" },
     { title: "The Visual Display of Quantitative Information, 2nd Ed.", author: "Edward R. Tufte", cover: "./assets/bookCovers/vdqi.jpg", category: "Non-Fiction" },
+    { title: "Silicon Photonics Design", author: "Lukas Chrostowski & Micheal Hochberg", cover: "./assets/bookCovers/fstp.png", category: "Technology" },
     // Electronics
     { title: "The Art of Electronics", author: "Paul Horowitz, Winfield Hill", cover: "./assets/bookCovers/electronics.png", category: "Electronics" },
     

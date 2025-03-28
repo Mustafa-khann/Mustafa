@@ -3,9 +3,17 @@ import { useParams, Link } from "react-router-dom";
 import { posts } from "../data/data"; // Import posts from data.js
 import "../styles/PostDetail.css";
 
+function toSlug(title) {
+  return title
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '') // Remove special characters
+    .replace(/\s+/g, '-') // Replace spaces with -
+    .replace(/--+/g, '-'); // Replace multiple - with single -
+}
+
 const PostDetail = () => {
-  const { id } = useParams();
-  const post = posts.find((post) => post.id === parseInt(id));
+  const { title } = useParams();
+  const post = posts.find((post) => toSlug(post.title) === decodeURIComponent(title));
 
   return (
     <div className="post-detail-container">

@@ -23,7 +23,7 @@ function App() {
         <div id="content">
           <Switch>
             <Route path="/books" component={Books} />
-            <Route path="/posts/:id" component={PostDetail} />
+            <Route path="/posts/:title" component={PostDetail} />
             <Route path="/posts" component={Posts} />
             <Route path="/research/:id" component={ResearchDetail} />
             <Route path="/research" component={Research} />
