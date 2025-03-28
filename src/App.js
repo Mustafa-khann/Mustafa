@@ -25,7 +25,7 @@ function App() {
             <Route path="/books" component={Books} />
             <Route path="/posts/:title" component={PostDetail} />
             <Route path="/posts" component={Posts} />
-            <Route path="/research/:id" component={ResearchDetail} />
+            <Route path="/research/:title" component={ResearchDetail} />
             <Route path="/research" component={Research} />
             <Route path="/" exact>
               <Intro />
