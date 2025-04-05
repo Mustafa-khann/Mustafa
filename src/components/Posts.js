@@ -20,7 +20,10 @@ const Posts = () => {
       <p className="posts-intro">Here you can find a list of posts.</p>
       
       <div className="posts-grid">
-        {posts.map((post) => (
+        {posts
+          .slice()
+          .sort((a, b) => b.id - a.id)
+          .map((post) => (
           <div key={post.id} className="post-card">
             <Link to={`/posts/${toSlug(post.title)}`} style={{ textDecoration: 'none', color: 'inherit' }}>
               <h2>{post.title}</h2>

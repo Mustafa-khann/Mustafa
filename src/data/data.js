@@ -107,7 +107,7 @@ export const researchPapers = [
 
     <h2>Background and Conceptual Framework</h2>
     <p>Robotics research increasingly aims to enable autonomous operation in unstructured environments like homes or offices, where robots must interpret and act on natural language instructions. A key challenge is maintaining long-term spatial memory of object locations while grounding linguistic references to these locations. Simultaneous Localization and Mapping (SLAM) provides a 3D map that serves as a persistent spatial context, allowing robots to localize themselves and map their surroundings. Multimodal LMs, which process text alongside spatial or visual data, offer a mechanism to interpret commands like "bring me the towel" by linking them to specific locations in the 3D map.</p>
-    <p>Object permanence, a concept from developmental psychology, is critical here. It refers to the ability to understand that objects persist even when out of sight. In robotics, this translates to reasoning about object locations in the 3D map—whether occluded, contained, or moved—essential for practical tasks like object retrieval. This paper addresses this challenge by integrating SLAM with LMs, focusing on practical implementation and validation to ensure real-world applicability.</p>
+    <p>Object permanence, a concept from developmental psychology, is critical here. It refers to the ability to understand that objects persist even when out of sight. In robotics, this translates to reasoning about object locations in the 3D map; whether occluded, contained, or moved—essential for practical tasks like object retrieval. This paper addresses this challenge by integrating SLAM with LMs, focusing on practical implementation and validation to ensure real-world applicability.</p>
 
     <h2>Methodologies for Integrating SLAM, 3D Maps, and Language Models</h2>
     <p>We propose a methodology that integrates SLAM-generated 3D maps with multimodal LMs to enable robots to execute language-based tasks. Below, we detail the key components, supported by recent studies and practical implementation details.</p>
@@ -257,7 +257,7 @@ export const researchPapers = [
 
 <h2>Background and Conceptual Framework</h2>
 <p>Robotics research increasingly focuses on autonomous operation in dynamic, unstructured environments like homes or warehouses, where robots must interpret and act on natural language instructions. A key challenge is maintaining long-term spatial memory of object locations while grounding linguistic references to these locations across large, complex spaces. Simultaneous Localization and Mapping (SLAM) provides a 3D map as a persistent spatial context, enabling robots to localize themselves and map their surroundings. Large language models (LLMs) like Gemini, known for their expansive context windows, offer a mechanism to process detailed map descriptions and commands, such as "go to the bedroom and bring me the book on the desk," linking them to specific locations in the 3D map.</p>
-<p>Object permanence, a concept from developmental psychology, is critical. It refers to understanding that objects persist even when out of sight. In robotics, this means reasoning about object locations in the 3D map—whether occluded, contained, or moved—essential for practical, multi-step tasks. By integrating SLAM with Gemini’s large context window, this paper addresses this challenge, enhancing robots’ ability to handle extensive spatial and task-related information in real-world settings.</p>
+<p>Object permanence, a concept from developmental psychology, is critical. It refers to understanding that objects persist even when out of sight. In robotics, this means reasoning about object locations in the 3D ma—pwhether occluded, contained, or moved—essential for practical, multi-step tasks. By integrating SLAM with Gemini’s large context window, this paper addresses this challenge, enhancing robots’ ability to handle extensive spatial and task-related information in real-world settings.</p>
 
 <h2>Methodologies for Integrating SLAM, 3D Maps, and Language Models</h2>
 <p>This paper proposes a methodology that integrates SLAM-generated 3D maps with Gemini to leverage its large context window for language-based robotic tasks. Below, the key components are detailed, supported by recent studies and practical implementation details.</p>
@@ -836,7 +836,38 @@ export const posts = [
     <p>I’m late to this party, no question. Others have been at it for years—decades, some of them. <span style="color: #00d1b2">But robotics doesn’t gatekeep by experience; it opens doors to anyone willing to build.</span> The field’s still raw, still growing—self-driving cars, warehouse bots, space explorers—and I’m here for it. The earliest I can start is now, and that’s all that counts.</p>
     <p>There’s a bigger stakes here too. Robotics isn’t just a hobby; it’s the backbone of what’s next—manufacturing, healthcare, beyond. <span style="color: #00d1b2">Learning it now means grappling with problems that shape the world, not just my desk.</span> Simulation’s my entry, ML’s my edge, hardware’s my goal. It’s a jagged path, but it’s mine.</p>
     <p>The secret isn’t a perfect plan—it’s starting where you are and iterating relentlessly. <span style="color: #00d1b2">Robotics bends for the persistent; keep at it, and the chaos starts to look like home.</span></p>`
+  },
+  {
+    "id": 9,
+    "title": "Engineering Genius",
+    "date": "Apr 5, 2025",
+    "content": `What does it really mean to be an engineering genius?
+  
+    It’s not about scoring perfect grades or memorizing formulas like a robot. It's not about how many acronyms you can throw into a conversation or how many lines of code you've written. Engineering genius is raw. It’s messy. It’s the ability to stare at complexity, chaos, and constraints; and <span style="color: #00d1b2">see clarity</span>. It's not just solving problems; it's redefining them. It’s flipping a problem over, slicing it from a weird angle, and bending reality in your favor.
+    <br></br>
+    <h3>The Core of Engineering Genius? Systems Thinking.</h3>
+    The best engineers aren’t tinkerers; they’re <span style="color: #00d1b2">systems thinkers</span>. They zoom out and see how everything connects: mechanics with computation, biology with logistics, code with physics, and even psychology with UX design. Nature is their blueprint. Ant colonies inspire algorithms. Bird wings inspire drones. Fungi networks inspire internet protocols. A genius engineer doesn't just build things; they decode how the world already builds and then they <span style="color: #00d1b2">accelerate it</span>.
+    <br></br>
+    <h3>The “Why” Before the “How”</h3>
+    A true engineering mind always asks <i>why</i> before it jumps to <i>how</i>. Genius starts by <span style="color: #00d1b2">asking better questions</span>. Not “How do I make a faster drone?” but “What’s slowing it down? Why do I even need it to be faster? What if I didn't need speed, but autonomy? What if I didn't even need a drone?” Genius engineers aren't problem-solvers. They’re <span style="color: #00d1b2">problem assassins</span>. They remove the need for the problem to even exist.
+        <br></br>
 
+    <h3>Obsession Over Perfection</h3>
+    The genius part? It's not gifted; it’s <span style="color: #00d1b2">obsessed</span>. You don’t become a world-class engineer by accident. You live and breathe the thing. You dream about gyroscopes, wake up thinking about PID tuning, get emotional over a beautiful mechanical linkage. Engineering genius doesn’t just make you smart. It rewires how you see the world. Everything becomes a design problem, everything has an optimal pattern, and you just <span style="color: #00d1b2">have</span> to find it.
+        <br></br>
 
+    <h3>It's Not Just Intelligence; It's Grit + Imagination</h3>
+    Genius isn't about IQ. It’s about <span style="color: #00d1b2">relentlessness</span>. It’s the kind of brain that doesn’t let go. It loops on a problem until 3AM and makes sketches in the margins of receipts. It tries and fails and breaks and rebuilds. It sits in silence for three days trying to find a better control law. It doesn’t care if nobody gets it. It’s allergic to mediocrity. And it has <span style="color: #00d1b2">a touch of madness</span>; that necessary madness that allows you to believe something impossible could actually work if you just tweak it right.
+        <br></br>
+
+    <h3>Cross-Disciplinary is the Meta-Skill</h3>
+    The future belongs to engineering minds that <span style="color: #00d1b2">don’t stay in their lane</span>. Biology. Physics. Design. Psychology. Manufacturing. Economics. A real engineering genius raids them all. Because genius doesn’t happen inside silos; it happens at the edges where fields <span style="color: #00d1b2">collide</span>. That's where innovation lives.
+        <br></br>
+    <h3>Final Thoughts: Engineering Genius Is a Lifestyle</h3>
+    It’s not just about machines. It’s a mindset. A way of looking at the world where nothing is truly fixed and everything is potentially solvable. Genius engineers aren’t just building products; they’re building <span style="color: #00d1b2">new realities</span>. If you want to be one, start asking dangerous questions, build wildly, and stay obsessed.
+        <br></br>
+
+    And remember: nature’s already done most of the hard work. You just need to <span style="color: #00d1b2">reverse-engineer the genius hiding in plain sight</span>.`
   }
+  
 ]; 
