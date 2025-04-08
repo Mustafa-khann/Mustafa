@@ -871,7 +871,7 @@ export const posts = [
   },
   {
     "id": 10,
-    "title": "The Polymath's Playbook: Why Specialization is Overrated",
+    "title": "Why Specialization is Overrated",
     "date": "Apr 8, 2025",
     "content": `People ask me what I do? I never have a clean answer. The truth is, I don’t fit in a neat little title. I’m not just a robotics engineer. Not just a systems guy. Not just a designer. I’m all of that; and none of it. What I really am is someone trying to understand how nature builds, and then beat it at its own game using silicon, gears, electrons, and code.
   
@@ -901,7 +901,5 @@ export const posts = [
     <br></br>
   
     I’m not here to play the career game. I’m here to build the future. And I’ll borrow tools from every discipline I can get my hands on. If that makes me hard to define ; good. I’m not trying to fit in. I’m trying to build what doesn’t exist yet.`
-  }
-  
-  
+  }  
 ]; 
