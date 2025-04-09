@@ -870,36 +870,36 @@ export const posts = [
     And remember: nature’s already done most of the hard work. You just need to <span style="color: #00d1b2">reverse-engineer the genius hiding in plain sight</span>.`
   },
   {
-    "id": 10,
+  "id": 10,
     "title": "Why Specialization is Overrated",
     "date": "Apr 8, 2025",
-    "content": `People ask me what I do? I never have a clean answer. The truth is, I don’t fit in a neat little title. I’m not just a robotics engineer. Not just a systems guy. Not just a designer. I’m all of that; and none of it. What I really am is someone trying to understand how nature builds, and then beat it at its own game using silicon, gears, electrons, and code.
-  
+    "content": `People ask me what I do? I never have a clean answer. The truth is, I don't fit in a neat little title. I'm not just a robotics engineer. Not just a systems guy. Not just a designer. I'm all of that; and none of it. What I really am is someone trying to understand how nature builds, and then beat it at its own game using silicon, gears, electrons, and code.
+
     <br></br>
     <h3>Engineering as a Lens: Seeing Systems Everywhere</h3>
-    For me, engineering isn’t a degree. It’s a *way of seeing*. It’s how I look at the world; as a set of interlinked systems begging to be taken apart, understood, rebuilt, and improved. It’s not about theory on a whiteboard. It’s about touching real things, solving real problems, and building real solutions. I don’t chase elegance; I chase what works. The kind of work that makes you bleed, debug at 2AM, and fly a prototype straight into a wall just to know its limits.
+    For me, engineering isn't a degree. It's a *way of seeing*. It's how I look at the world; as a set of interlinked systems begging to be taken apart, understood, rebuilt, and improved. It's not about theory on a whiteboard. It's about touching real things, solving real problems, and building real solutions. I don't chase elegance; I chase what works. The kind of work that makes you bleed, debug at 2AM, and fly a prototype straight into a wall just to know its limits.
     <br></br>
-  
+
     <h3>The Generalist's Advantage: Depth Meets Breadth</h3>
-    I'm not here to "stay in my lane." I go wide, and I go deep. I dive into biology to understand swarm intelligence. I study control theory to build better drones. I read about manufacturing processes because that’s where ideas hit reality. I design interfaces because the best tech is useless if no one can use it. This isn’t jack-of-all-trades — it’s having a toolkit large enough to pull out whatever’s needed to attack a problem from *any* angle.
+    I'm not here to "stay in my lane." I go wide, and I go deep. I dive into biology to understand swarm intelligence. I study control theory to build better drones. I read about manufacturing processes because that's where ideas hit reality. I design interfaces because the best tech is useless if no one can use it. This isn't jack-of-all-trades — it's having a toolkit large enough to pull out whatever's needed to attack a problem from *any* angle.
     <br></br>
-  
+
     <h3>Robotics: Where All Disciplines Converge</h3>
-    Robotics is the one field where everything I love collides ; hardware, software, physics, algorithms, control theory, and design. You’re not just writing code. You’re writing behavior. You’re creating a body that senses, acts, adapts. It’s the closest thing to bringing an idea to life. And when you add autonomy, now you’re building something that makes decisions in the real world ; that’s real power. That’s where things get interesting.
+    Robotics is the one field where everything I love collides ; hardware, software, physics, algorithms, control theory, and design. You're not just writing code. You're writing behavior. You're creating a body that senses, acts, adapts. <span style="color: #00d1b2">It's the closest thing to bringing an idea to life.</span> And when you add autonomy, now you're building something that makes decisions in the real world ; that's real power. That's where things get interesting.
     <br></br>
-  
+
     <h3>Design as Cognitive Engineering</h3>
-    Everyone sleeps on design. They think it’s decoration. Nah. Design is how ideas get into human minds without friction. It's how you take something complex and make it *feel* simple. I design not just for aesthetics, but for cognition. If it feels wrong, it *is* wrong. If it feels natural, it probably means the system underneath is coherent. Whether it's interfaces or architecture or machines ; if you're not thinking about the user, you're not building for reality.
+    Everyone sleeps on design. They think it's decoration. Nah. Design is how ideas get into human minds without friction. <span style="color: #00d1b2">It's how you take something complex and make it *feel* simple.</span> I design not just for aesthetics, but for cognition. If it feels wrong, it *is* wrong. If it feels natural, it probably means the system underneath is coherent. Whether it's interfaces or architecture or machines ; if you're not thinking about the user, you're not building for reality.
     <br></br>
-  
+
     <h3>Biology: Nature's Masterclass in Engineering</h3>
-    I don’t study biology for the grades. I study it because it’s the OG engineering manual. Cells are factories. DNA is code. Evolution is optimization. The deeper you look, the more you realize; nature already solved most of our “hard” problems. We’re just late to the party. You want adaptive systems? Look at the immune system. You want decentralized coordination? Look at ants. You want efficient design? Look at bones. Biology isn’t soft science ; it’s *hardcore systems thinking*.
+    I don't study biology for the grades. I study it because it's the OG engineering manual. <span style="color: #00d1b2">Cells are factories. DNA is code. Evolution is optimization.</span> The deeper you look, the more you realize; nature already solved most of our "hard" problems. We're just late to the party. You want adaptive systems? Look at the immune system. You want decentralized coordination? Look at ants. You want efficient design? Look at bones. Biology isn't soft science ; it's *hardcore systems thinking*.
     <br></br>
-  
+
     <h3>The Vision: Building the Future Factory</h3>
-    My endgame? Build a complete, end-to-end, self-improving manufacturing pipeline that spans R&D to factory floor. I want to create a machine that eats an idea and spits out a product ; fast, cheap, scalable, automated. It’s not just about robotics. It’s not just about AI. It’s the convergence of everything ; from nature’s wisdom to industrial discipline ; synthesized into a new kind of infrastructure.
+    My endgame? Build a complete, end-to-end, self-improving manufacturing pipeline that spans R&D to factory floor. <span style="color: #00d1b2">I want to create a machine that eats an idea and spits out a product ; fast, cheap, scalable, automated.</span> It's not just about robotics. It's not just about AI. It's the convergence of everything ; from nature's wisdom to industrial discipline ; synthesized into a new kind of infrastructure.
     <br></br>
-  
-    I’m not here to play the career game. I’m here to build the future. And I’ll borrow tools from every discipline I can get my hands on. If that makes me hard to define ; good. I’m not trying to fit in. I’m trying to build what doesn’t exist yet.`
+
+    I'm not here to play the career game. I'm here to build the future. <span style="color: #00d1b2">And I'll borrow tools from every discipline I can get my hands on.</span> If that makes me hard to define ; good. I'm not trying to fit in. I'm trying to build what doesn't exist yet.`
   }  
 ]; 
