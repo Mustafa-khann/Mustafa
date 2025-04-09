@@ -873,15 +873,15 @@ export const posts = [
   "id": 10,
     "title": "Why Specialization is Overrated",
     "date": "Apr 8, 2025",
-    "content": `People ask me what I do? I never have a clean answer. The truth is, I don't fit in a neat little title. I'm not just a robotics engineer. Not just a systems guy. Not just a designer. I'm all of that; and none of it. What I really am is someone trying to understand how nature builds, and then beat it at its own game using silicon, gears, electrons, and code.
+    "content": `People ask me what I do? I never have a clean answer. The truth is, I don't fit in a neat little title. I'm not just a robotics engineer. Not just a systems guy. Not just a designer. I'm all of that; and none of it. What I really am is someone trying to <span style="color: #00d1b2">understand how nature builds</span>, and then beat it at its own game using silicon, gears, electrons, and code.
 
     <br></br>
     <h3>Engineering as a Lens: Seeing Systems Everywhere</h3>
-    For me, engineering isn't a degree. It's a *way of seeing*. It's how I look at the world; as a set of interlinked systems begging to be taken apart, understood, rebuilt, and improved. It's not about theory on a whiteboard. It's about touching real things, solving real problems, and building real solutions. I don't chase elegance; I chase what works. The kind of work that makes you bleed, debug at 2AM, and fly a prototype straight into a wall just to know its limits.
+    For me, engineering isn't a degree. It's a *way of seeing*. It's how I look at the world; as a set of interlinked systems begging to be taken apart, understood, rebuilt, and improved. It's not about theory on a whiteboard. It's about <span style="color: #00d1b2">touching real things</span>, solving real problems, and building real solutions. I don't chase elegance; I chase what works. The kind of work that makes you bleed, debug at 2AM, and <span style="color: #00d1b2">fly a prototype straight into a wall</span> just to know its limits.
     <br></br>
 
     <h3>The Generalist's Advantage: Depth Meets Breadth</h3>
-    I'm not here to "stay in my lane." I go wide, and I go deep. I dive into biology to understand swarm intelligence. I study control theory to build better drones. I read about manufacturing processes because that's where ideas hit reality. I design interfaces because the best tech is useless if no one can use it. This isn't jack-of-all-trades — it's having a toolkit large enough to pull out whatever's needed to attack a problem from *any* angle.
+    I'm not here to "stay in my lane." I go wide, and I go deep. I dive into biology to <span style="color: #00d1b2">understand swarm intelligence</span>. I study control theory to build better drones. I read about manufacturing processes because that's where ideas hit reality. I design interfaces because the best tech is useless if no one can use it. This isn't jack-of-all-trades — it's having a toolkit large enough to <span style="color: #00d1b2">pull out whatever's needed</span> to attack a problem from *any* angle.
     <br></br>
 
     <h3>Robotics: Where All Disciplines Converge</h3>
