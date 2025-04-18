@@ -761,7 +761,7 @@ const RoboticArm = () => {
     };
 
     // Add a debug message with shorter text that will definitely fit
-    const debugText = addDebugText("It's not broken, it's just artistic.", new THREE.Vector3(0, 2.2, 0));
+    const debugText = addDebugText("coz, why not?", new THREE.Vector3(0, 2.2, 0));
     debugText.lookAt(camera.position);
     
     // Implement forward kinematics to calculate end effector position from joint angles
