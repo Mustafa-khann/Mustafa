@@ -10,7 +10,7 @@ import PinterestIcon from "@material-ui/icons/Pinterest";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import HomeIcon from "@material-ui/icons/Home";
 import ResearchIcon from "@material-ui/icons/Description";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 import "../styles/NavBar.css";
 
 class NavBar extends React.Component {
@@ -18,15 +18,21 @@ class NavBar extends React.Component {
     return (
       <Navbar fixed="top" className="custom-navbar">
         <Container>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link as={Link} to="/">
                 <HomeIcon style={{ fontSize: 20 }} />
               </Nav.Link>
-              <Nav.Link as={Link} to="/books">Books</Nav.Link>
-              <Nav.Link as={Link} to="/posts">Posts</Nav.Link>
-              <Nav.Link as={Link} to="/research">Research</Nav.Link>
+              <Nav.Link as={Link} to="/books">
+                Books
+              </Nav.Link>
+              <Nav.Link as={Link} to="/posts">
+                Posts
+              </Nav.Link>
+              <Nav.Link as={Link} to="/research">
+                Ideas
+              </Nav.Link>
             </Nav>
             <Nav className="ml-auto">
               {/* <Nav.Link href="mailto:mustafakhann050@gmail.com">
@@ -38,10 +44,16 @@ class NavBar extends React.Component {
               <Nav.Link href="https://x.com/mustafa_kh4n" target="_blank">
                 <TwitterIcon style={{ fontSize: 20 }} />
               </Nav.Link>
-              <Nav.Link href="https://www.linkedin.com/in/mustafa-kh4n/" target="_blank">
+              <Nav.Link
+                href="https://www.linkedin.com/in/mustafa-kh4n/"
+                target="_blank"
+              >
                 <LinkedInIcon style={{ fontSize: 20 }} />
               </Nav.Link>
-              <Nav.Link href="https://www.instagram.com/mstfa.khan/" target="_blank">
+              <Nav.Link
+                href="https://www.instagram.com/mstfa.khan/"
+                target="_blank"
+              >
                 <InstagramIcon style={{ fontSize: 20 }} />
               </Nav.Link>
               {/* <Nav.Link href="https://www.pinterest.com/mstfa_x/" target="_blank">
