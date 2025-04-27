@@ -30,7 +30,7 @@ class NavBar extends React.Component {
               <Nav.Link as={Link} to="/posts">
                 Posts
               </Nav.Link>
-              <Nav.Link as={Link} to="/research">
+              <Nav.Link as={Link} to="/ideas">
                 Ideas
               </Nav.Link>
             </Nav>

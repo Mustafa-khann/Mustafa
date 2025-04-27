@@ -1,10 +1,12 @@
 export const researchPapers = [
   {
     id: 1,
-    title: "Detailed Exploration of Integrating SLAM and Multimodal Language Models with 3D Maps for Robotic Task Execution",
+    title:
+      "Exploration of Integrating SLAM and Multimodal Language Models with 3D Maps for Robotic Task Execution",
     date: "March 2025",
     author: "Mustafa Khan",
-    abstract: "This paper provides a comprehensive overview of methodologies in robotics that integrate SLAM with multimodal language models, using 3D maps as context for understanding and executing natural language instructions.",
+    abstract:
+      "This paper provides a comprehensive overview of methodologies in robotics that integrate SLAM with multimodal language models, using 3D maps as context for understanding and executing natural language instructions.",
     content: `
       <h2>Abstract</h2>
       <p>This note provides a comprehensive overview of methodologies in robotics that integrate Simultaneous Localization and Mapping (SLAM) with multimodal language models (LMs), using 3D maps as context for understanding and executing natural language instructions, particularly for tasks like object retrieval. The discussion is grounded in recent research and aims to address the fusion of spatial mapping, language grounding, and task planning, offering insights for both technical and lay audiences.</p>
@@ -93,14 +95,16 @@ export const researchPapers = [
         <li><a href="https://arxiv.org/abs/2110.00238" target="_blank">Improving Object Permanence using Agent Actions and Reasoning</a></li>
         <li><a href="https://github.com/OpenRobotLab/awesome-llm-3d" target="_blank">Awesome-LLM-3D: a curated list of Multi-modal Large Language Model in 3D world Resources</a></li>
       </ol>
-    `
+    `,
   },
   {
     id: 2,
-    title: "Enhancing Practicality in Robotics Research Papers: Integrating SLAM and Multimodal Language Models with 3D Maps",
+    title:
+      "Enhancing Practicality in Robotics Research Papers: Integrating SLAM and Multimodal Language Models with 3D Maps",
     date: "March 2025",
     author: "Mustafa Khan",
-    abstract: "This work presents a method integrating SLAM with multimodal language models using 3D maps, enabling robots to execute natural language commands in dynamic environments. Validated through experiments, it offers practical applications in smart homes and logistics.",
+    abstract:
+      "This work presents a method integrating SLAM with multimodal language models using 3D maps, enabling robots to execute natural language commands in dynamic environments. Validated through experiments, it offers practical applications in smart homes and logistics.",
     content: `
     <h2>Abstract</h2>
     <p>This paper presents a practical methodology for integrating Simultaneous Localization and Mapping (SLAM) with multimodal language models (LMs) using 3D maps as context to enable robots to understand and execute natural language instructions, such as fetching objects in dynamic environments. By combining SLAM-generated 3D maps with language grounding techniques, the research demonstrates how robots can maintain long-term spatial memory and perform tasks like retrieving a towel based on voice commands. The approach is validated through experiments in simulated and real-world settings, offering detailed implementation guidance, quantitative results, and real-world applications in smart homes and logistics. This work bridges theoretical advancements with practical robotics, providing actionable insights for researchers and practitioners.</p>
@@ -244,14 +248,15 @@ export const researchPapers = [
     <li><a href="https://link.springer.com/article/10.1007/s11370-018-0257-x" target="_blank">Scene understanding using natural language description based on 3D semantic graph map</a></li>
     <li><a href="https://arxiv.org/abs/2110.00238" target="_blank">Improving Object Permanence using Agent Actions and Reasoning</a></li>
     <li><a href="https://github.com/ActiveVisionLab/Awesome-LLM-3D" target="_blank">Awesome-LLM-3D: a curated list of Multi-modal Large Language Model in 3D world Resources</a></li>
-    </ol>`
+    </ol>`,
   },
   {
     id: 3,
     title: "Integrating SLAM, 3D Maps, and Gemini for Robotic Task Execution",
     date: "March 2025",
     author: "Mustafa Khan",
-    abstract: "This paper presents a method integrating SLAM with Google's Gemini LLM, using 3D maps to enhance robotic task execution. By converting maps to text, robots can process complex instructions like fetching objects across rooms. Validated through experiments, this approach bridges spatial mapping with language understanding for applications in smart homes, warehouses, and search/rescue.",
+    abstract:
+      "This paper presents a method integrating SLAM with Google's Gemini LLM, using 3D maps to enhance robotic task execution. By converting maps to text, robots can process complex instructions like fetching objects across rooms. Validated through experiments, this approach bridges spatial mapping with language understanding for applications in smart homes, warehouses, and search/rescue.",
     content: `<h2>Abstract</h2>
 <p>This paper presents a practical methodology for integrating Simultaneous Localization and Mapping (SLAM) with Google's Gemini large language model (LLM), using 3D maps as context to enhance robotic task execution with a larger context window. By converting SLAM-generated 3D maps into textual descriptions processable by Gemini, we enable robots to understand and execute complex natural language instructions, such as fetching objects across multi-room environments. The approach is validated through simulated and real-world experiments, providing detailed implementation guidance, quantitative results, and applications in smart homes, warehouses, and search and rescue. This work bridges spatial mapping with advanced language understanding, offering actionable insights for robotics research and deployment.</p>
 
@@ -388,14 +393,16 @@ export const researchPapers = [
   <li><a href="https://link.springer.com/article/10.1007/s11370-018-0257-x" target="_blank">Scene understanding using natural language description based on 3D semantic graph map</a></li>
   <li><a href="https://arxiv.org/abs/2110.00238" target="_blank">Improving Object Permanence using Agent Actions and Reasoning</a></li>
   <li><a href="https://github.com/ActiveVisionLab/Awesome-LLM-3D" target="_blank">Awesome-LLM-3D: a curated list of Multi-modal Large Language Model in 3D world Resources</a></li>
-</ol>`
+</ol>`,
   },
   {
     id: 4,
-    title: "Integrating SLAM and 3D Mapping with Relational Attention Graphs for Contextual Language Understanding in Robotics",
+    title:
+      "Integrating SLAM and 3D Mapping with Relational Attention Graphs for Contextual Language Understanding in Robotics",
     date: "Mar, 2025",
     author: "Mustafa Khan",
-    abstract: "This paper presents a novel integration of SLAM, 3D mapping, and Relational Attention Graphs (RAGs) to enhance robots' contextual understanding of natural language commands. Our approach combines real-time SLAM mapping, RAG-based spatial reasoning, and language models to improve task execution in dynamic environments. Experiments demonstrate enhanced task accuracy and navigation through adaptive spatial context awareness.",
+    abstract:
+      "This paper presents a novel integration of SLAM, 3D mapping, and Relational Attention Graphs (RAGs) to enhance robots' contextual understanding of natural language commands. Our approach combines real-time SLAM mapping, RAG-based spatial reasoning, and language models to improve task execution in dynamic environments. Experiments demonstrate enhanced task accuracy and navigation through adaptive spatial context awareness.",
     content: `
     <h2>Abstract</h2>
     <p>This paper introduces an innovative methodology that integrates Simultaneous Localization and Mapping (SLAM) with 3D mapping and Relational Attention Graphs (RAGs) to enhance robots’ contextual understanding of natural language instructions in dynamic environments. By combining real-time SLAM-generated 3D maps with RAGs for spatial relationship reasoning and advanced language models for task execution, our approach enables robots to perform complex tasks, such as retrieving a towel or navigating to a specific room, with improved accuracy and adaptability. We validate this method through extensive experiments in both simulated and real-world settings, providing quantitative results, implementation details, and practical applications in smart homes, industrial automation, and assistive robotics. This work bridges cutting-edge theoretical advancements with actionable robotic solutions, offering a scalable framework for researchers and engineers.</p>
@@ -544,8 +551,8 @@ export const researchPapers = [
     <li><a href="https://www.roboticsproceedings.org/rss17/p074.pdf" target="_blank">LP-SLAM: Language-Perceptive SLAM for Robotics</a></li>
     <li><a href="https://arxiv.org/abs/2110.00238" target="_blank">Improving Object Permanence using Agent Actions and Reasoning</a></li>
     <li><a href="https://github.com/ActiveVisionLab/Awesome-LLM-3D" target="_blank">Awesome-LLM-3D: A Curated List of Multi-modal Large Language Model in 3D World Resources</a></li>
-    </ol>`
-  }
+    </ol>`,
+  },
 ];
 
 export const posts = [
@@ -558,7 +565,7 @@ export const posts = [
     The same applies to our daily lives, where we must continually apply what we know to reinforce our understanding and make it a part of our being.<br><br>
     In other words, <a href="https://en.wikipedia.org/wiki/Situated_cognition" target="_blank" rel="noopener noreferrer">knowing is a skill</a>, like playing an instrument or playing chess, that can be honed with practice.
 
-    How do we create tools for thought that support knowing as an active process?`
+    How do we create tools for thought that support knowing as an active process?`,
   },
   {
     id: 2,
@@ -647,7 +654,7 @@ export const posts = [
         <li>How does the speed of light limit our ability to travel through space?</li>
         <li>How does the internet really work?</li>
       </ol>
-    </ol>`
+    </ol>`,
   },
   {
     id: 3,
@@ -675,99 +682,99 @@ export const posts = [
         <p>And then there's the data. These robots are packed with sensors, soaking up information we can use to get smarter about everything we do. Musk loves this stuff—Isaacson writes, "Musk loved the idea of sensors everywhere. 'With Starlink and Tesla, we're drowning in data,' he told his team. 'That's our edge—using it to make decisions faster than anyone else.'" Toyota's lean system thrives on feedback too, though it's more about people watching the line than machines spitting out numbers. Either way, robots turn factories into data goldmines, sharpening every choice we make.</p>
 
         <p>So here's where I land: physical AI and robotics aren't just tweaking industrialism—they're rewriting it from the ground up. The wins are huge: efficiency that boggles the mind, savings that pile up over time, workplaces that feel safer, flexibility to roll with the punches, quality you can bank on, innovation that sparks new ideas, and data that keeps us ahead of the curve. Musk's wild ambition and Toyota's grounded wisdom both point to the same truth—this is the future, and it's already started. I can't wait to see where it takes us.</p>
-      `
-    },
-    {
-      id: 4,
-      title: "The Future of AI: Navigating the Technological Horizon",
-      date: "Feb 19 2025",
-      content: `
+      `,
+  },
+  {
+    id: 4,
+    title: "The Future of AI: Navigating the Technological Horizon",
+    date: "Feb 19 2025",
+    content: `
         <p>The future of artificial intelligence stands as one of the most profound technological frontiers of our time—a subject that has captivated researchers, philosophers, and technologists for decades. As we venture deeper into the 21st century, <span style="color: #00d1b2">the evolution of AI has accelerated at a pace that would have seemed implausible even to the most optimistic futurists of previous generations.</span> In this extensive exploration, I'll delve into the multifaceted landscape of emerging AI technologies, their potential societal impacts, and the ethical considerations that must guide our journey forward.</p>
-        
+
         <p>Perhaps the most revolutionary development in recent AI history has been the meteoric rise of generative artificial intelligence. These systems—trained on vast datasets encompassing human creativity across millennia—have demonstrated an astonishing capacity to produce content that blurs the line between human and machine creation. <span style="color: #00d1b2">The implications of this technology extend far beyond simple automation; we're witnessing nothing less than a fundamental reconfiguration of creative processes across disciplines.</span></p>
-        
+
         <p>Consider the case of visual arts: tools like DALL-E, Midjourney, and Stable Diffusion have democratized image creation to an unprecedented degree. A person with no formal artistic training can now generate museum-quality imagery through carefully crafted prompts. This represents both an extraordinary opportunity for creative expression and a profound challenge to our traditional understanding of artistry. <span style="color: #00d1b2">The philosophical question looms large: if an AI can create a painting indistinguishable from one produced by a human master, what does this tell us about the nature of creativity itself?</span> Is there something quintessentially human about artistic expression, or have we simply been engaging in pattern recognition and recombination all along—processes that machines can now emulate with startling fidelity?</p>
-        
+
         <p>In the realm of music, generative AI is composing symphonies, creating pop hits, and even mimicking the distinctive styles of legendary musicians. Companies like OpenAI have developed models capable of generating original compositions that capture the essence of specific genres or artists. <span style="color: #00d1b2">This technology raises fascinating questions about musical authorship and the future of composition.</span> Will tomorrow's composers function more as curators and prompt engineers, guiding AI systems toward particular aesthetic outcomes rather than creating every note themselves? The boundary between human and machine creativity becomes increasingly permeable with each technological advancement.</p>
-        
+
         <p>Perhaps most relevant to my own medium, text generation has undergone a transformation that borders on the miraculous. Large language models (LLMs) like GPT-4 can now produce prose, poetry, code, and analysis that frequently passes for human-written content. <span style="color: #00d1b2">These systems have moved beyond simple pattern matching to demonstrate capabilities that suggest a form of understanding—albeit one fundamentally different from human comprehension.</span> The implications for fields ranging from journalism to legal document preparation are profound and still unfolding. As these systems continue to evolve, we may need to reconsider fundamental assumptions about written communication and knowledge work.</p>
-        
+
         <p>The underlying architectures powering AI systems have undergone several paradigm shifts in recent years, each bringing substantial improvements in capability and efficiency. The transformer architecture, introduced in 2017, catalyzed a revolution in natural language processing that continues to reverberate throughout the field. <span style="color: #00d1b2">This innovation enabled models to process text with a contextual understanding previously thought impossible, leading directly to the development of increasingly sophisticated language models.</span></p>
-        
+
         <p>More recently, we've witnessed the emergence of multimodal AI systems capable of processing and generating content across different forms of media simultaneously. These models can understand the relationship between text and images, audio and video, creating a more holistic form of machine perception that more closely mimics human cognitive processes. <span style="color: #00d1b2">For instance, systems can now generate images based on textual descriptions, describe the content of photographs in natural language, or even create videos from written scenarios.</span></p>
-        
+
         <p>The computational efficiency of these models has also improved dramatically. Techniques like quantization, distillation, and sparse attention mechanisms have reduced the resources required to deploy advanced AI systems, making them accessible on consumer devices rather than requiring massive data centers. <span style="color: #00d1b2">This democratization of AI capability represents a significant shift in how these technologies will integrate into everyday life.</span></p>
-        
+
         <p>Perhaps most intriguing is the development of few-shot and zero-shot learning capabilities. Traditional machine learning required extensive training on labeled examples specific to a particular task. Modern foundation models can now perform tasks they were never explicitly trained to do, generalizing from their broad training to solve novel problems with minimal additional instruction. <span style="color: #00d1b2">This emergent capability suggests a form of flexibility previously thought to be uniquely human.</span></p>
-        
+
         <p>As AI systems become more capable and computationally efficient, we're witnessing their integration into the fabric of everyday life—a phenomenon sometimes called "ambient intelligence." This represents a fundamental shift from AI as a distinct technology to AI as an omnipresent layer enhancing virtually every aspect of our technological infrastructure.</p>
-        
+
         <p>Consider the evolution of virtual assistants. What began as simple voice-activated systems capable of performing basic tasks has evolved into sophisticated ambient computing platforms that understand context, remember preferences, and anticipate needs. <span style="color: #00d1b2">These systems increasingly fade into the background of our awareness while simultaneously becoming more deeply integrated into our daily routines.</span> The voice assistant that once required explicit activation is evolving into an ambient presence that understands when intervention would be helpful and when to remain silent.</p>
-        
+
         <p>Smart homes represent another frontier of ambient intelligence. Beyond simple automation of lighting or temperature control, these environments are becoming responsive ecosystems that learn patterns of behavior and adapt accordingly. <span style="color: #00d1b2">A truly intelligent home might adjust lighting based not just on time of day but on the specific activities being performed, the mood of the occupants (detected through voice patterns or facial expressions), or even anticipated needs based on historical patterns.</span></p>
-        
+
         <p>In healthcare, AI is enabling continuous monitoring and analysis that was previously impossible. Wearable devices equipped with AI can detect subtle changes in vital signs that might indicate developing health issues, potentially allowing for intervention before symptoms become apparent. <span style="color: #00d1b2">This shift from reactive to preventative medicine represents one of the most promising applications of ambient intelligence.</span></p>
-        
+
         <p>As AI systems become more powerful and pervasive, the ethical questions surrounding their development and deployment take on increased urgency. These questions span domains from privacy and surveillance to bias and discrimination, from economic displacement to existential risk. <span style="color: #00d1b2">How we navigate these challenges will determine whether AI serves as a force for human flourishing or exacerbates existing inequalities and creates new forms of harm.</span></p>
-        
+
         <p>The issue of algorithmic bias has received significant attention, and rightly so. AI systems trained on historical data inevitably reflect and potentially amplify the biases present in that data. Without careful attention to this problem, automated decision systems risk perpetuating discrimination in areas like hiring, lending, criminal justice, and healthcare. <span style="color: #00d1b2">Addressing this challenge requires not just technical solutions but a deep engagement with questions of fairness, representation, and social justice.</span></p>
-        
+
         <p>Privacy concerns become increasingly acute as AI systems process more personal data and generate increasingly accurate models of individual behavior and preferences. The same capabilities that enable personalized services also create unprecedented opportunities for surveillance and manipulation. <span style="color: #00d1b2">Establishing appropriate boundaries around data collection and use represents one of the central ethical challenges of the AI era.</span></p>
-        
+
         <p>Perhaps most profound are questions about autonomy and human agency. As AI systems make more decisions on our behalf—from small choices like what content we see to potentially life-altering determinations about medical treatment or financial opportunities—how do we ensure that human autonomy is preserved? <span style="color: #00d1b2">The convenience of automation must be balanced against the fundamental human need for self-determination and meaningful choice.</span></p>
-        
+
         <p>Navigating the future of AI requires a multidisciplinary approach that brings together technical expertise, ethical reasoning, and democratic deliberation. The decisions we make about how to develop and deploy these technologies will shape society for generations to come.</p>
-        
+
         <p>Technical research must continue to address challenges like alignment (ensuring AI systems act in accordance with human values), interpretability (making AI decision-making transparent and understandable), and safety (preventing unintended harmful consequences). <span style="color: #00d1b2">These are not merely engineering problems but deeply interdisciplinary challenges that require collaboration across fields.</span></p>
-        
+
         <p>Policy frameworks must evolve to address the unique challenges posed by AI. Existing regulatory approaches designed for previous technologies may be inadequate for systems that can adapt, learn, and make autonomous decisions. <span style="color: #00d1b2">Developing appropriate governance mechanisms requires both technical understanding and democratic legitimacy.</span></p>
-        
+
         <p>Perhaps most importantly, the conversation about AI's future must include diverse perspectives. The benefits and risks of these technologies will not be distributed equally, and those most vulnerable to potential harms must have a voice in determining how AI is developed and deployed. <span style="color: #00d1b2">This includes ensuring global equity in AI development, preventing the concentration of AI capability in a small number of corporations or nations.</span></p>
-        
+
         <p>As we stand at this technological crossroads, it's worth reflecting on what makes us distinctly human. AI systems may increasingly match or exceed human capabilities in specific domains, from game playing to image recognition to language generation. <span style="color: #00d1b2">Yet the essence of humanity encompasses more than discrete capabilities—it includes consciousness, subjective experience, moral agency, and forms of social connection that remain uniquely human.</span></p>
-        
+
         <p>The most promising vision of AI's future is not one where machines replace humans but where human-AI collaboration enables achievements neither could accomplish alone. This requires designing AI systems that complement human strengths rather than simply mimicking human capabilities, <span style="color: #00d1b2">creating partnerships that enhance rather than diminish human potential.</span></p>
-        
+
         <p>The future of AI is neither predetermined nor beyond our influence. Through thoughtful development, ethical deployment, and inclusive governance, we can shape these technologies to serve human flourishing. <span style="color: #00d1b2">The choices we make today will echo through generations, determining whether artificial intelligence becomes one of humanity's greatest achievements or one of our most profound challenges.</span> The responsibility—and the opportunity—belongs to all of us.</p>
-      `
+      `,
   },
   {
     id: 5,
     title: "The Strategic Imperative for Domestic Manufacturing Renaissance",
     date: "Mar 26 2025",
     content: `The decline of domestic manufacturing capacity represents one of the most significant economic shifts of the past half-century. While globalization has brought many benefits, the <span style="color: #00d1b2">hollowing out of our manufacturing base has created vulnerabilities that have become increasingly apparent.</span> I believe we need a renaissance in domestic manufacturing—not out of nostalgia, but as a strategic imperative for innovation, resilience, and economic vitality.
-      
+
       There's a dangerous misconception that manufacturing is somehow separate from innovation—that we can design here and build elsewhere without consequences. The reality is far more complex. When manufacturing and R&D become geographically separated, innovation suffers in subtle but profound ways.
-      
+
       <p>The knowledge gained on factory floors—the tacit understanding of materials, processes, and constraints—feeds back into design and engineering in ways that are difficult to quantify but impossible to replace. <span style="color: #00d1b2">Engineers who regularly walk manufacturing lines think differently about product development than those who never see their designs built.</span> This proximity between design and production creates a virtuous cycle of innovation that's difficult to maintain across oceans and time zones.</p>
-      
+
       <p>Consider the semiconductor industry, where the most advanced manufacturing has largely moved overseas. As we've lost production capacity, we've also seen a gradual erosion of the ecosystem of suppliers, specialized knowledge, and engineering talent that enables cutting-edge development. <span style="color: #00d1b2">The path from laboratory breakthrough to mass production becomes longer and more uncertain when the manufacturing expertise exists elsewhere.</span></p>
-      
+
       <p>The pandemic exposed the fragility of global supply chains with unprecedented clarity. From personal protective equipment to semiconductor chips, we discovered that just-in-time global supply networks optimize for cost under ideal conditions but break down catastrophically under stress.</p>
-      
+
       <p><span style="color: #00d1b2">Building domestic manufacturing capacity isn't about economic isolationism—it's about creating resilient systems that can withstand shocks.</span> A balanced approach that includes domestic production capacity for critical goods provides insurance against disruption, whether from pandemics, natural disasters, or geopolitical tensions.</p>
-      
+
       <p>This resilience has national security implications as well. Defense capabilities depend on secure supply chains for everything from advanced materials to electronic components. When critical manufacturing exists entirely overseas, it creates vulnerabilities that potential adversaries could exploit.</p>
-      
+
       <p>Manufacturing has historically provided pathways to middle-class stability for workers without advanced degrees. As these jobs have disappeared, we've seen growing inequality and regional economic divergence. <span style="color: #00d1b2">While not all manufacturing jobs of the future will resemble those of the past, modern manufacturing facilities create diverse employment opportunities across skill levels.</span></p>
-      
+
       <p>Advanced manufacturing plants anchor economic ecosystems that extend far beyond their walls. They support networks of suppliers, service providers, and complementary businesses that multiply their economic impact. These ecosystems create opportunities for entrepreneurship and innovation that benefit entire regions.</p>
-      
+
       <p>Perhaps most importantly, manufacturing provides economic dignity—the opportunity to create tangible value and see the direct results of one's work. <span style="color: #00d1b2">This sense of contribution and purpose represents something our service economy has struggled to replace.</span></p>
-      
+
       <p>The environmental case for domestic manufacturing may seem counterintuitive, but it's compelling. Global shipping accounts for approximately 3% of worldwide carbon emissions. Manufacturing closer to points of consumption can significantly reduce this transportation footprint.</p>
-      
+
       <p>Moreover, domestic manufacturing operates under environmental regulations that are often more stringent than those in developing nations. <span style="color: #00d1b2">Rather than exporting pollution along with production, we can build cleaner factories that set global standards for sustainable manufacturing.</span></p>
-      
+
       <p>The transition to green energy and transportation will require massive manufacturing capacity—from solar panels and wind turbines to batteries and electric vehicles. Building this capacity domestically ensures we capture both the environmental and economic benefits of this transition.</p>
-      
+
       <p>Rebuilding manufacturing capacity requires a coordinated approach across public and private sectors. Strategic investments in infrastructure, workforce development, and R&D can create the conditions for manufacturing renaissance. <span style="color: #00d1b2">Tax policies that encourage capital investment in production facilities and regulatory frameworks that provide certainty without unnecessary burden are equally important.</span></p>
-      
+
       <p>Educational systems must evolve to provide the technical skills modern manufacturing requires, from robotics and automation to advanced materials and digital systems. Community colleges and technical training programs have vital roles to play in building these capabilities.</p>
-      
+
       <p>Perhaps most importantly, we need to challenge the narrative that manufacturing decline is inevitable—a natural evolution of advanced economies. <span style="color: #00d1b2">The examples of Germany, Japan, and South Korea demonstrate that high-wage countries can maintain vibrant manufacturing sectors through strategic specialization, automation, and workforce development.</span></p>
-      
-      <p>The manufacturing plants we build today will shape our economic and strategic position for decades to come. They represent not just production capacity but innovation capability, economic opportunity, and national resilience. The time to invest in this future is now.</p>`
+
+      <p>The manufacturing plants we build today will shape our economic and strategic position for decades to come. They represent not just production capacity but innovation capability, economic opportunity, and national resilience. The time to invest in this future is now.</p>`,
   },
   {
     id: 6,
@@ -775,23 +782,23 @@ export const posts = [
     date: "Mar 26 2025",
     content: `
         <p>Vibe Coding is a revolutionary approach to programming that transcends traditional methods. Imagine coding not with your hands, but with your mind. This concept, which once seemed like science fiction, is now becoming a reality.</p>
-        
+
         <p>At its core, Vibe Coding leverages the power of neural interfaces to translate thoughts directly into code. <span style="color: #00d1b2">"The future of programming is not just about writing code, but about understanding and translating human intention,"</span> as Andrej Karpathy might suggest. The implications of this are profound.</p>
-        
+
         <p>Consider the current state of programming. It requires a deep understanding of syntax, semantics, and the intricacies of various programming languages. This learning curve can be steep and discouraging for many. Vibe Coding, however, promises to democratize coding by making it more intuitive and accessible. <span style="color: #00d1b2">"The best technology is invisible, it just works,"</span> a sentiment echoed by Naval Ravikant.</p>
-        
+
         <p>Imagine a world where anyone can code, regardless of their background or technical expertise. With Vibe Coding, the focus shifts from learning how to code to simply knowing what you want to achieve. The neural interface interprets your intentions and translates them into executable code.</p>
-        
+
         <p>This shift has the potential to unleash a new wave of creativity and innovation. People who were previously excluded from the tech industry due to the steep learning curve can now participate and contribute. This could lead to a more diverse and inclusive tech landscape. <span style="color: #00d1b2">"Innovation is about seeing the world differently,"</span> as Peter Thiel often emphasizes.</p>
-        
+
         <p>Moreover, Vibe Coding could significantly speed up the development process. Traditional coding involves a lot of trial and error, debugging, and iteration. By directly translating thoughts into code, Vibe Coding could streamline this process, making it faster and more efficient.</p>
-        
+
         <p>However, this new approach is not without its challenges. The technology behind neural interfaces is still in its infancy, and there are significant technical and ethical hurdles to overcome. For instance, ensuring the accuracy and security of these interfaces is paramount. Misinterpretations or malicious interference could have serious consequences.</p>
-        
+
         <p>Furthermore, the shift to Vibe Coding raises questions about the future of traditional programming skills. Will they become obsolete, or will they evolve to complement this new paradigm? It's likely that a hybrid approach will emerge, where traditional coding skills are still valuable but are augmented by the capabilities of Vibe Coding.</p>
-        
+
         <p>In conclusion, Vibe Coding represents a bold new frontier in the world of programming. It has the potential to make coding more intuitive, accessible, and efficient. While there are challenges to overcome, the possibilities it presents are exciting and transformative. As we stand on the brink of this new era, it's worth considering how we can harness the power of Vibe Coding to create a more inclusive and innovative future.</p>
-      `
+      `,
   },
   {
     id: 7,
@@ -820,10 +827,10 @@ export const posts = [
 
         <p>So, if you're in the same position, stuck on the outside looking in, don't give up. Keep learning, keep building, and keep going. The opportunities will eventually come—just not on your timeline.</p>
 
-      `
+      `,
   },
   {
-    id: 8, 
+    id: 8,
     title: "How do you even start in robotics? The path is a mess!",
     date: "Mar 28, 2025",
     content: `Breaking into robotics feels like trying to map an uncharted wilderness. It’s not a field with a single, well-trodden path; it’s a sprawling expanse of disciplines that can leave you spinning. <span style="color: #00d1b2">The sheer breadth of it—hardware, software, theory, practice—has paralyzed me more than once.</span> I’ve come to believe the way forward isn’t about finding the perfect starting point but picking a corner, digging in, and letting the rest unfold as you go.
@@ -835,14 +842,14 @@ export const posts = [
     <p>Community’s the piece I missed early on. Robotics isn’t a solo sprint; it’s a collective climb. Forums, open-source projects, and veterans who’ve fought these battles are goldmines. <span style="color: #00d1b2">The open-source ecosystem—ROS, Gazebo, countless libraries—means I’m not starting from zero; it’s a leg up I’d be dumb to ignore.</span> I’ll lean on it, ask questions, share what I stumble into.</p>
     <p>I’m late to this party, no question. Others have been at it for years—decades, some of them. <span style="color: #00d1b2">But robotics doesn’t gatekeep by experience; it opens doors to anyone willing to build.</span> The field’s still raw, still growing—self-driving cars, warehouse bots, space explorers—and I’m here for it. The earliest I can start is now, and that’s all that counts.</p>
     <p>There’s a bigger stakes here too. Robotics isn’t just a hobby; it’s the backbone of what’s next—manufacturing, healthcare, beyond. <span style="color: #00d1b2">Learning it now means grappling with problems that shape the world, not just my desk.</span> Simulation’s my entry, ML’s my edge, hardware’s my goal. It’s a jagged path, but it’s mine.</p>
-    <p>The secret isn’t a perfect plan—it’s starting where you are and iterating relentlessly. <span style="color: #00d1b2">Robotics bends for the persistent; keep at it, and the chaos starts to look like home.</span></p>`
+    <p>The secret isn’t a perfect plan—it’s starting where you are and iterating relentlessly. <span style="color: #00d1b2">Robotics bends for the persistent; keep at it, and the chaos starts to look like home.</span></p>`,
   },
   {
-    "id": 9,
-    "title": "Engineering Genius",
-    "date": "Apr 5, 2025",
-    "content": `What does it really mean to be an engineering genius?
-  
+    id: 9,
+    title: "Engineering Genius",
+    date: "Apr 5, 2025",
+    content: `What does it really mean to be an engineering genius?
+
     It’s not about scoring perfect grades or memorizing formulas like a robot. It's not about how many acronyms you can throw into a conversation or how many lines of code you've written. Engineering genius is raw. It’s messy. It’s the ability to stare at complexity, chaos, and constraints; and <span style="color: #00d1b2">see clarity</span>. It's not just solving problems; it's redefining them. It’s flipping a problem over, slicing it from a weird angle, and bending reality in your favor.
     <br></br>
     <h3>The Core of Engineering Genius? Systems Thinking.</h3>
@@ -867,13 +874,13 @@ export const posts = [
     It’s not just about machines. It’s a mindset. A way of looking at the world where nothing is truly fixed and everything is potentially solvable. Genius engineers aren’t just building products; they’re building <span style="color: #00d1b2">new realities</span>. If you want to be one, start asking dangerous questions, build wildly, and stay obsessed.
         <br></br>
 
-    And remember: nature’s already done most of the hard work. You just need to <span style="color: #00d1b2">reverse-engineer the genius hiding in plain sight</span>.`
+    And remember: nature’s already done most of the hard work. You just need to <span style="color: #00d1b2">reverse-engineer the genius hiding in plain sight</span>.`,
   },
   {
-  "id": 10,
-    "title": "Why Specialization is Overrated",
-    "date": "Apr 8, 2025",
-    "content": `People ask me what I do? I never have a clean answer. The truth is, I don't fit in a neat little title. I'm not just a robotics engineer. Not just a systems guy. Not just a designer. I'm all of that; and none of it. What I really am is someone trying to <span style="color: #00d1b2">understand how nature builds</span>, and then beat it at its own game using silicon, gears, electrons, and code.
+    id: 10,
+    title: "Why Specialization is Overrated",
+    date: "Apr 8, 2025",
+    content: `People ask me what I do? I never have a clean answer. The truth is, I don't fit in a neat little title. I'm not just a robotics engineer. Not just a systems guy. Not just a designer. I'm all of that; and none of it. What I really am is someone trying to <span style="color: #00d1b2">understand how nature builds</span>, and then beat it at its own game using silicon, gears, electrons, and code.
 
     <br></br>
     <h3>Engineering as a Lens: Seeing Systems Everywhere</h3>
@@ -900,60 +907,59 @@ export const posts = [
     My endgame? Build a complete, end-to-end, self-improving manufacturing pipeline that spans R&D to factory floor. <span style="color: #00d1b2">I want to create a machine that eats an idea and spits out a product ; fast, cheap, scalable, automated.</span> It's not just about robotics. It's not just about AI. It's the convergence of everything ; from nature's wisdom to industrial discipline ; synthesized into a new kind of infrastructure.
     <br></br>
 
-    I'm not here to play the career game. I'm here to build the future. <span style="color: #00d1b2">And I'll borrow tools from every discipline I can get my hands on.</span> If that makes me hard to define ; good. I'm not trying to fit in. I'm trying to build what doesn't exist yet.`
+    I'm not here to play the career game. I'm here to build the future. <span style="color: #00d1b2">And I'll borrow tools from every discipline I can get my hands on.</span> If that makes me hard to define ; good. I'm not trying to fit in. I'm trying to build what doesn't exist yet.`,
   },
   {
-    "id": 11,
-    "title": "Reality is an Algorithm",
-    "date": "Apr 18, 2025", 
-    "content": `<h3>In me, I found <span style="color: #00d1b2">God</span></h3>
-  
-    The more you face reality as it is; raw, logical, unfiltered; the more you realize: this isn't chaos. This is <span style="color: #00d1b2">code</span>. The entire universe behaves like an algorithm. That's why people call it <i>destiny</i>. 
+    id: 11,
+    title: "Reality is an Algorithm",
+    date: "Apr 18, 2025",
+    content: `<h3>In me, I found <span style="color: #00d1b2">God</span></h3>
+
+    The more you face reality as it is; raw, logical, unfiltered; the more you realize: this isn't chaos. This is <span style="color: #00d1b2">code</span>. The entire universe behaves like an algorithm. That's why people call it <i>destiny</i>.
     <br></br>
-  
+
     <h3>The Future is a Conditional Probability</h3>
     Reality doesn't roll dice. It <span style="color: #00d1b2">stacks conditions</span>. Tomorrow depends on today, and today depends on everything before it. That's Bayes' Theorem in action. What looks like fate is just the highest probability path, given past data. If you study your life's timeline hard enough, you can start predicting the next steps. You can even <span style="color: #00d1b2">bend</span> them.
     <br></br>
-  
+
     <h3>Everything in Your Life Is Either an Action You Took or Didn't</h3>
     That's it. Strip everything else away; stories, excuses, trauma, dreams; and what you're left with is a <span style="color: #00d1b2">binary tree of decisions</span>. The only difference between who you are and who you could've been is how often you chose to act vs. freeze.
     <br></br>
-  
+
     <h3>Destiny Is Just a System</h3>
     People romanticize destiny like it's some divine puppet master. Nah. Destiny is just the result of a system; one so consistent and deeply layered that it feels spiritual. God isn't intervening in your daily choices. He already <span style="color: #00d1b2">wrote the rules</span>. He's a systems designer, not a helicopter parent.
     <br></br>
-  
+
     <h3>Willpower Is the Interface</h3>
     You can't escape the system, but you can <span style="color: #00d1b2">interface</span> with it. That interface is your will. It's the torque you apply to shift the trajectory. But torque only works if you have leverage. And leverage only comes when you understand the system you're operating inside.
     <br></br>
-  
+
     <h3>Emotion Is Just Another Sensor</h3>
     Logic isn't superior to emotion. It's just a different channel. Emotions are <span style="color: #00d1b2">real-time signals</span> telling you what the algorithm is doing to your system. We get stuck when we ignore them; or worse, let them run wild. The smart move is to integrate both: reason to map the world, emotion to tune your response to it.
     <br></br>
-  
+
     <h3>Stop Blaming. Start Calculating.</h3>
     Life isn't unfair. Life is <span style="color: #00d1b2">uncalculated</span>. If your outcomes suck, it's not because reality betrayed you. It's because your model of it was wrong. Blame is useless. Blame doesn't update your parameters. Calculations do.
     <br></br>
-  
+
     <h3>The Present Is a Computational Interface</h3>
     Right now is not just "now." It's the <span style="color: #00d1b2">touchpoint between your past and your potential</span>. The wider the gap between who you are and who you want to be, the sharper your attention needs to be in the present. That's where the molding happens.
     <br></br>
-  
+
     <h3>Reality Is Moldable; But Only Under Pressure</h3>
     You don't get to change the laws of the system. But you can <span style="color: #00d1b2">work with them</span>. Willpower is your heat source. Pressure is the constraint. The right amount of both? That's when reality becomes plastic. That's when you shape your fate.
     <br></br>
-  
+
     <h3>Final Thought: You Are the Algorithm's Co-Author</h3>
     Most people live like they're stuck in read-only mode. But the truth is: you can <span style="color: #00d1b2">write back to the system</span>. Every decision, every ounce of awareness, every brutally honest recalibration is you editing the next line of your life's code.
     <br></br>
-  
+
     Understand the system. Master the interface. Accept the data. <span style="color: #00d1b2">Update your parameters</span>.
     <br></br>
-  
+
     And when the path is clear, <span style="color: #00d1b2">execute with full force</span>.
     <br></br>
-  
-    That's how you stop being a victim of the algorithm; and start becoming its <span style="color: #00d1b2">co-architect</span>.`
-  }
-  
-]; 
+
+    That's how you stop being a victim of the algorithm; and start becoming its <span style="color: #00d1b2">co-architect</span>.`,
+  },
+];

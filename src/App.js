@@ -12,8 +12,8 @@ import "rsuite/dist/styles/rsuite-default.css";
 import Posts from "./components/Posts";
 import PostDetail from "./components/PostDetail";
 import Books from "./components/Books";
-import Research from "./components/Research";
-import ResearchDetail from "./components/ResearchDetail";
+import Ideas from "./components/Ideas";
+import IdeaDetail from "./components/IdeaDetail";
 
 function App() {
   return (
@@ -25,8 +25,8 @@ function App() {
             <Route path="/books" component={Books} />
             <Route path="/posts/:title" component={PostDetail} />
             <Route path="/posts" component={Posts} />
-            <Route path="/research/:title" component={ResearchDetail} />
-            <Route path="/research" component={Research} />
+            <Route path="/ideas/:title" component={IdeaDetail} />
+            <Route path="/ideas" component={Ideas} />
             <Route path="/" exact>
               <Intro />
               <About />
