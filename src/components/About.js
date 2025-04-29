@@ -26,7 +26,7 @@ class About extends React.Component {
     );
     const two = (
       <p>
-        Outside of work, I explore philosophy, psychology, engineering, art and design. I also enjoy reading, experimenting with robotics, and getting lost in deep introspection. 
+        Outside of work, I explore philosophy, psychology, engineering, art and design. I also enjoy reading, experimenting with robotics, and getting lost. 
         <br></br>Sometimes, I sprint, to clear my mind.
         </p>
     );
