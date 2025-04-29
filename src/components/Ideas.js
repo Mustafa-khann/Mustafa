@@ -16,17 +16,17 @@ const Research = () => {
   return (
     <div className="research-container">
       <div className="section-header">
-        <span className="section-title">/ research</span>
+        <span className="section-title">/ ideas</span>
       </div>
       <p className="research-intro">
-        Here you can find a list of my research papers and publications.
+        Here you can find a list of my ideas.
       </p>
 
       <div className="research-grid">
         {researchPapers.map((paper) => (
           <div key={paper.id} className="research-card">
             <Link
-              to={`/research/${toSlug(paper.title)}`}
+              to={`/ideas/${toSlug(paper.title)}`}
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <h2>{paper.title}</h2>

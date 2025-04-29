@@ -24,7 +24,7 @@ const IdeasDetail = () => {
 
   if (!paper) {
     return (
-      <div className="ideas-detail-container">
+      <div className="research-detail-container">
         <p>Idea not found.</p>
         <Link to="/ideas" className="back-button">
           Go back to Ideas
@@ -34,8 +34,8 @@ const IdeasDetail = () => {
   }
 
   return (
-    <div className="ideas-detail-container">
-      <div className="ideas-header">
+    <div className="research-detail-container">
+      <div className="research-header">
         <Link to="/ideas" className="back-button">
           <span className="back-arrow">←</span>
         </Link>
