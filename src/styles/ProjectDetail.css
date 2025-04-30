@@ -54,23 +54,31 @@
   line-height: 1.6;
 }
 
+/* Remove or comment out the old .project-link style */
+/*
 .project-link {
   margin-bottom: 20px;
 }
+*/
 
-.project-link a {
-  display: inline-block;
-  padding: 8px 16px;
+/* Update the selector to use the new class and ensure proper button styling */
+.project-link-button {
+  display: inline-block; /* Keep as inline-block or block depending on desired layout */
+  padding: 10px 20px; /* Adjust padding as needed */
+  margin-bottom: 20px; /* Add margin if needed */
   background-color: var(--green-bright);
-  color: var(--navy);
+  color: var(--navy) !important; /* Ensure text color overrides global 'a' style */
   border-radius: 4px;
-  text-decoration: none;
+  text-decoration: none !important; /* Ensure text decoration overrides global 'a' style */
   font-weight: 600;
+  text-align: center;
+  cursor: pointer;
   transition: opacity 0.2s ease;
 }
 
-.project-link a:hover {
+.project-link-button:hover {
   opacity: 0.8;
+  text-decoration: none !important; /* Keep text decoration consistent on hover */
 }
 
 .project-content {

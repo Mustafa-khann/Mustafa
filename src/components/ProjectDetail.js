@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import { projectDetails } from "../data/projects"; // Import project details from data.js
+import { projectDetails } from "../data/projects"; 
 import "../styles/ProjectDetail.css";
 
 function toSlug(title) {
@@ -41,11 +41,14 @@ const ProjectDetail = () => {
       )}
       <p className="project-tech"><strong>Tech Stack:</strong> {project.techStack}</p>
       {project.link && (
-        <p className="project-link">
-          <a href={project.link} target="_blank" rel="noopener noreferrer">
-            View Source Code
-          </a>
-        </p>
+        <a 
+          href={project.link} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="project-link-button"
+        >
+          View Source Code
+        </a>
       )}
       <div className="project-content" dangerouslySetInnerHTML={{ __html: project.content }}></div>
     </div>
