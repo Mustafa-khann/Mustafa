@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import { posts } from "../data/data"; // Import posts from data.js
+import { posts } from "../data/data";
 import "../styles/PostDetail.css";
 
 function toSlug(title) {

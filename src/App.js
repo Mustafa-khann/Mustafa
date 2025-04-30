@@ -14,6 +14,8 @@ import PostDetail from "./components/PostDetail";
 import Books from "./components/Books";
 import Ideas from "./components/Ideas";
 import IdeaDetail from "./components/IdeaDetail";
+import ProjectList from "./components/ProjectList";
+import ProjectDetail from "./components/ProjectDetail";
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
             <Route path="/posts" component={Posts} />
             <Route path="/ideas/:title" component={IdeaDetail} />
             <Route path="/ideas" component={Ideas} />
+            <Route path="/projects/:title" component={ProjectDetail} />
+            <Route path="/projects" component={ProjectList} />
             <Route path="/" exact>
               <Intro />
               <About />

@@ -1,5 +1,6 @@
 html {
   scroll-behavior: smooth;
+  background-color: var(--navy);
 }
 
 /* Animation */

@@ -1,0 +1,129 @@
+.projects-container {
+  margin: auto;
+  max-width: 800px;
+  padding-top: 100px;
+  min-height: 100vh;
+}
+
+.section-header {
+  display: flex;
+  padding-bottom: 42px;
+  width: 100%;
+}
+
+.section-header::after {
+  content: "";
+  display: block;
+  width: 300px;
+  margin-top: 39px;
+  height: 1px;
+  margin-left: 20px;
+  background-color: var(--lightest-navy);
+}
+
+.section-title {
+  font-family: "NTR", sans-serif;
+  color: var(--lightest-slate);
+  font-size: 46px;
+  font-weight: bold;
+}
+
+.projects-intro {
+  font-family: "NTR", sans-serif;
+  color: var(--slate);
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.project-card {
+  background-color: var(--lightest-navy);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: left;
+  color: var(--lightest-slate);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+.project-card h2 {
+  font-size: 18px;
+  margin: 10px 0 5px;
+  color: var(--green-bright);
+  font-family: "NTR", sans-serif;
+}
+
+.project-card-tech {
+  font-size: 16px;
+  color: var(--slate);
+  font-family: "NTR", sans-serif;
+  margin-bottom: 10px;
+}
+
+.project-card-desc {
+  font-size: 16px;
+  color: var(--slate);
+  font-family: "NTR", sans-serif;
+}
+
+.project-card-image {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.project-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .section-header::after {
+    width: 100px;
+  }
+  
+  .section-title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section-header::after {
+    display: none;
+  }
+} 
