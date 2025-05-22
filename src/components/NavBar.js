@@ -33,9 +33,9 @@ class NavBar extends React.Component {
               <Nav.Link as={Link} to="/ideas">
                 Ideas
               </Nav.Link>
-              <Nav.Link as={Link} to="/projects">
+              {/* <Nav.Link as={Link} to="/projects">
               Projects
-              </Nav.Link>
+              </Nav.Link> */}
             </Nav>
             <Nav className="ml-auto">
               {/* <Nav.Link href="mailto:mustafakhann050@gmail.com">
