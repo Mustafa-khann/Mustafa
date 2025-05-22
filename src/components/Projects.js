@@ -100,6 +100,12 @@ class Projects extends React.Component {
         desc: "Built a convolutional neural network in C, implementing convolutions, pooling, and backpropagation to understand how CNNs process images.",
         techStack: "C",
         link: "https://github.com/Mustafa-khann/CNN-Architecture-from-Scratch-in-C",
+      },
+        "Video Stabilizing tool in C++": {
+          title: "Video Stabilizer Tool leveraging OpenCV",
+          "desc": "A basic level Video Stabilizing tool written in C++ leveraging the OpenCV library for all the mathy work! ",
+          techStack: "C++",
+          link: "https://github.com/Mustafa-khann/Video-Stabilizer"
       }
     };
 
