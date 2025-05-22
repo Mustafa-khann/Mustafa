@@ -54,7 +54,7 @@ class NavBar extends React.Component {
                 <LinkedInIcon style={{ fontSize: 20 }} />
               </Nav.Link>
               <Nav.Link
-                href="https://www.instagram.com/mstfa.khan/"
+                href="https://www.instagram.com/mstfa.afridi/"
                 target="_blank"
               >
                 <InstagramIcon style={{ fontSize: 20 }} />

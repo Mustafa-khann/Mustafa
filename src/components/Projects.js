@@ -52,7 +52,7 @@ class Projects extends React.Component {
         title: "MNIST Digit Recognizer Neural Network in C",
         desc: "A MNIST digit recognizer neural network purely written in C. Yeilds 90% accuracy.",
         techStack: "C",
-        link: "https://github.com/Mustafa-khann/MNIST-Digit-Recognizer",
+        link: "https://github.com/Mustafa-khann/MNIST-Digit-Recognizer-in-C",
         image: "/assets/digitrecognizer.jpeg"
       },
     }
@@ -75,7 +75,7 @@ class Projects extends React.Component {
         title: "Urdu Text Generation Using GAN Architecture",
         desc:
           "Developed a GAN-based Urdu text generator, leveraging transformer architecture to overcome long-range text dependencies.",
-        techStack: "Python, PyTorch, Transformer",
+        techStack: "Python, Transformer",
       },
       "Rusty Transformer": {
         desc:
@@ -133,7 +133,6 @@ class Projects extends React.Component {
                   </p>
                   <ExternalLinks
                     githubLink={spotlightProjects[key]["link"]}
-                    openLink={spotlightProjects[key]["open"]}
                   ></ExternalLinks>
                 </Carousel.Caption>
               </div>
