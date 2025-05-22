@@ -89,7 +89,6 @@ const JobList = () => {
         "Designing touch screen user interfaces and developing embedded system firmware using C/C++/Arduino.",
         "Conducting R&D to address product design challenges and enhance efficiency/performance of various components.",
         "Learning to design circuitry, create 3D models for product casings, and researching potential game-changing ICs.",
-        "Developing programming skills in Python/C/C++ for implementation in product solutions.",
       ]
     },
     AntonX: {
