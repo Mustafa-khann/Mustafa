@@ -131,9 +131,11 @@ class Projects extends React.Component {
                       {spotlightProjects[key]["techStack"]}
                     </p>
                   </p>
-                  <ExternalLinks
-                    githubLink={spotlightProjects[key]["link"]}
-                  ></ExternalLinks>
+                  {spotlightProjects[key]["link"] && (
+                    <ExternalLinks
+                      githubLink={spotlightProjects[key]["link"]}
+                    ></ExternalLinks>
+                  )}
                 </Carousel.Caption>
               </div>
             </Carousel.Item>
