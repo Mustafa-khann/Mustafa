@@ -1008,18 +1008,18 @@ export const posts = [
       content: `
       <p>In the digital era, not all minds are wired the same.</p>
 
-      <p>There's a silent but powerful shift happening under the surface — the transformation of thought into structure, of cognition into code. You could call it cognitive digitization: the alignment of one's mental architecture with the architecture of the internet itself. And those who write code? They're naturally ahead of the curve.</p>
+      <p>There's a silent but powerful shift happening under the surface — the transformation of thought into structure, of cognition into code. You could call it cognitive digitization: the alignment of one's mental architecture with the architecture of the internet itself. And those who write code? Programmers (high signal technical people) are naturally ahead of the curve.</p>
 
-      <h3>Coders Think in Systems, Not Just Sentences</h3>
-      <p>Writers shape thoughts into stories. Coders shape thoughts into logic, into flows, into abstractions. A coder doesn't just think, they <strong>encode**. They build modular, reusable, and recursive blocks of meaning. That's fundamentally different from linear storytelling.</p>
-      <p>The internet, at its core, is a system of systems — nested abstractions, APIs calling APIs, networks talking to networks. Coders already *speak its native language*. Writers might describe the machine; coders can *reprogram* it.</p>
+      <h3>Programmers Think in Systems, Not Just Sentences</h3>
+      <p>Writers shape thoughts into stories. Programmers shape thoughts into logic, into flows, into abstractions. A programmer doesn't just think, they <strong>encode**. They build modular, reusable, and recursive blocks of meaning. That's fundamentally different from linear storytelling.</p>
+      <p>The internet, at its core, is a system of systems — nested abstractions, APIs calling APIs, networks talking to networks. Programmers already *speak its native language*. Writers might describe the machine; programmers can *reprogram* it.</p>
 
       <h3>Tech Resonance and Cognitive Impedance Matching</h3>
       <p>Technologists, especially the deeply technical ones, are often more successful in digital spaces — not just because of their skills, but because their <strong>minds resonate** with the digital world's frequency. It's like impedance matching in electronics: when two systems are aligned in properties, the signal flows with maximum efficiency.</p>
-      <p>The deeper a coder goes — into stack traces, architecture, optimization — the more their thinking begins to mirror the layered, modular nature of digital systems. It's not just conscious alignment; it's <strong>subconscious isomorphism** with the medium itself.</p>
+      <p>The deeper a programmer goes — into stack traces, architecture, optimization — the more their thinking begins to mirror the layered, modular nature of digital systems. It's not just conscious alignment; it's <strong>subconscious isomorphism** with the medium itself.</p>
 
       <h3>Expression: Clarity Through Structure</h3>
-      <p>A surprising truth: coders may express themselves with more clarity online than writers. Why? Because the internet rewards <strong>structured, compressed, and logic-oriented content**. Coders are naturally trained to compress complex ideas into elegant solutions. They think in functions, loops, and systems. That's the native shape of the digital world.</p>
+      <p>A surprising truth: programmers may express themselves with more clarity online than writers. Why? Because the internet rewards <strong>structured, compressed, and logic-oriented content**. Programmers are naturally trained to compress complex ideas into elegant solutions. They think in functions, loops, and systems. That's the native shape of the digital world.</p>
       <p>Meanwhile, traditional writers often operate in fuzzy abstractions. Their strength is narrative and emotional resonance — but without structural clarity, they risk getting lost in noise.</p>
 
       <h3>Success Comes From Second and Third Derivative Alignment</h3>
@@ -1044,13 +1044,13 @@ export const posts = [
       </ul>
       <p>The most dangerous mind in the digital world? A technologist who has also developed <strong>taste, vision, and empathy**.</p>
 
-      <h3>Final Thought: Coders as Jazz Musicians of the Digital Era</h3>
-      <p>Coders don't just follow instructions — they improvise with structure. They treat code like a language, systems like canvases. They jam with logic. They build recursive music in a world obsessed with linear noise.</p>
-      <p>In a world where cognition and code are merging, coders have the home-field advantage. But the next evolution? The <strong>technologist-poet**, the <strong>engineer-designer**, the <strong>coder with taste**. That's who shapes the future.</p>
+      <h3>Final Thought: Programmers as Jazz Musicians of the Digital Era</h3>
+      <p>Programmers (high signal technical people) don't just follow instructions — they improvise with structure. They treat code like a language, systems like canvases. They jam with logic. They build recursive music in a world obsessed with linear noise.</p>
+      <p>In a world where cognition and code are merging, programmers (high signal technical people) have the home-field advantage. But the next evolution? The <strong>technologist-poet**, the <strong>engineer-designer**, the <strong>programmer with taste**. That's who shapes the future.</p>
       <p>The digital paradigm doesn't just need builders.<br>
       It needs those who think <strong>like it**.
 
-      And right now, that's the coder.</p>
+      And right now, that's the programmer (a high signal technical person).</p>
       <hr>
       <p><em>Written by Mustafa Khan: polymath, builder, systems thinker.</em></p>
     `
