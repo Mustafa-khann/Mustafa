@@ -1011,7 +1011,7 @@ export const posts = [
       <p>There's a silent but powerful shift happening under the surface — the transformation of thought into structure, of cognition into code. You could call it cognitive digitization: the alignment of one's mental architecture with the architecture of the internet itself. And those who write code? Programmers (high signal technical people) are naturally ahead of the curve.</p>
 
       <h3>Programmers Think in Systems, Not Just Sentences</h3>
-      <p>Writers shape thoughts into stories. Programmers shape thoughts into logic, into flows, into abstractions. A programmer doesn't just think, they <strong>encode**. They build modular, reusable, and recursive blocks of meaning. That's fundamentally different from linear storytelling.</p>
+      <p>Writers shape thoughts into stories. Programmers shape thoughts into logic, into flows, into abstractions. A programmer doesn't just think, they <span style="color: #00d1b2">encode**. They build modular, reusable, and recursive blocks of meaning. That's fundamentally different from linear storytelling.</p>
       <p>The internet, at its core, is a system of systems — nested abstractions, APIs calling APIs, networks talking to networks. Programmers already *speak its native language*. Writers might describe the machine; programmers can *reprogram* it.</p>
 
       <h3>Tech Resonance and Cognitive Impedance Matching</h3>
@@ -1051,8 +1051,6 @@ export const posts = [
       It needs those who think <strong>like it**.
 
       And right now, that's the programmer (a high signal technical person).</p>
-      <hr>
-      <p><em>Written by Mustafa Khan: polymath, builder, systems thinker.</em></p>
-    `
+      <hr>`
     },
 ];
