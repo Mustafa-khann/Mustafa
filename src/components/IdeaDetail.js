@@ -1,26 +1,15 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { researchPapers } from "../data/data"; // Import the shared data
 import "../styles/IdeasDetail.css";
-
-function toSlug(title) {
-  return title
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, "") // Remove special characters
-    .replace(/\s+/g, "-") // Replace spaces with -
-    .replace(/--+/g, "-"); // Replace multiple - with single -
-}
+import { slugify } from "../utils/slug";
 
 const IdeasDetail = () => {
   const { title } = useParams();
-  console.log("Title from URL:", title); // Add this line
-
-  const paper = researchPapers.find(
-    (paper) => toSlug(paper.title) === decodeURIComponent(title),
-  );
-  console.log("Fetched Paper:", paper); // Add this line
-
-  console.log("Component is rendering"); // Add this line
+  const paper = useMemo(() => {
+    const decoded = decodeURIComponent(title);
+    return researchPapers.find((p) => slugify(p.title) === decoded);
+  }, [title]);
 
   if (!paper) {
     return (

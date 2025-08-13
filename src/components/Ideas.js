@@ -1,18 +1,11 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { researchPapers } from "../data/data"; // Import the shared data
 import "../styles/Ideas.css";
-
-// Add the toSlug function
-function toSlug(title) {
-  return title
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, "") // Remove special characters
-    .replace(/\s+/g, "-") // Replace spaces with -
-    .replace(/--+/g, "-"); // Replace multiple - with single -
-}
+import { slugify } from "../utils/slug";
 
 const Research = () => {
+  const items = useMemo(() => researchPapers, []);
   return (
     <div className="research-container">
       <div className="section-header">
@@ -23,10 +16,10 @@ const Research = () => {
       </p>
 
       <div className="research-grid">
-        {researchPapers.map((paper) => (
+        {items.map((paper) => (
           <div key={paper.id} className="research-card">
             <Link
-              to={`/ideas/${toSlug(paper.title)}`}
+              to={`/ideas/${slugify(paper.title)}`}
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <h2>{paper.title}</h2>

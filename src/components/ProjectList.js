@@ -1,15 +1,8 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { projectDetails } from "../data/projects"; // Import projects from data.js
 import "../styles/ProjectList.css";
-
-function toSlug(title) {
-  return title
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '') // Remove special characters
-    .replace(/\s+/g, '-') // Replace spaces with -
-    .replace(/--+/g, '-'); // Replace multiple - with single -
-}
+import { slugify } from "../utils/slug";
 
 const truncateText = (text, maxLength) => {
   if (text && text.length > maxLength) {
@@ -19,6 +12,9 @@ const truncateText = (text, maxLength) => {
 };
 
 const ProjectList = () => {
+  const sortedProjects = useMemo(() => {
+    return projectDetails.slice().sort((a, b) => a.id - b.id);
+  }, []);
   return (
     <div className="projects-container">
       <div className="section-header">
@@ -29,12 +25,9 @@ const ProjectList = () => {
       </p>
       
       <div className="projects-grid">
-        {projectDetails
-          .slice()
-          .sort((a, b) => a.id - b.id)
-          .map((project) => (
+        {sortedProjects.map((project) => (
           <div key={project.id} className="project-card">
-            <Link to={`/projects/${toSlug(project.title)}`} className="project-link">
+            <Link to={`/projects/${slugify(project.title)}`} className="project-link">
               {project.image && (
                 <div className="project-card-image">
                   <img src={project.image} alt={project.title} />

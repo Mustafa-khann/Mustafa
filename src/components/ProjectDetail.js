@@ -1,19 +1,15 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { projectDetails } from "../data/projects"; 
 import "../styles/ProjectDetail.css";
-
-function toSlug(title) {
-  return title
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '') // Remove special characters
-    .replace(/\s+/g, '-') // Replace spaces with -
-    .replace(/--+/g, '-'); // Replace multiple - with single -
-}
+import { slugify } from "../utils/slug";
 
 const ProjectDetail = () => {
   const { title } = useParams();
-  const project = projectDetails.find((project) => toSlug(project.title) === decodeURIComponent(title));
+  const project = useMemo(() => {
+    const decoded = decodeURIComponent(title);
+    return projectDetails.find((p) => slugify(p.title) === decoded);
+  }, [title]);
 
   if (!project) {
     return (
