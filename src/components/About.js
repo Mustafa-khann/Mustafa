@@ -19,26 +19,36 @@ class About extends React.Component {
   render() {
     const one = (
       <p>
-        
-         I am currently an <b>Embedded Systems R&D Engineer</b> at 
-         <a href="https://www.veevotech.com/"> VeevoTech</a>, working with the System Firmware team. 
+        I’m a <b>Full-Stack Web & Mobile Developer</b> who builds apps powered by 
+        modern AI and intelligent agents. I design end-to-end solutions — from 
+        backend APIs and databases to clean, responsive frontends. 
       </p>
     );
+    
     const two = (
       <p>
-        Outside of work, I explore philosophy, psychology, engineering, art and design. I also enjoy reading, experimenting with robotics, and getting lost. 
-        <br></br>Sometimes, I sprint, to clear my mind.
-        </p>
+        I’ve worked on projects ranging from <b>AI-powered learning platforms </b> 
+        to <b>habit-tracking apps</b>, with experience in React, React Native, 
+        Golang, Node.js, MongoDB, and LLM integrations. If you’ve got an idea, 
+        I can turn it into a working product.  
+      </p>
     );
+    
+    const three = (
+      <p>
+        Beyond code, I’m endlessly curious about how technology, psychology, 
+        and design intersect. I read, experiment, and sometimes sprint to clear 
+        my head — but I always come back with sharper ideas. 
+      </p>
+    );
+    
 
     const tech_stack = [
-      "C/C++",
-      "Assembly",
-      "Python",
-      "ML & AI",
-      "ROS",
-      "MERN Stack"
-    ];
+      "Web & Mobile: React, React Native, MERN, Laravel",
+      "Backend & APIs: Node.js, Golang, Python",
+      "AI & Agents: LLMs, LangChain, Python (ML/AI frameworks)",
+      "Robotics/Systems: C/C++, ROS, RL"
+    ];    
 
     return (
       <div id="about">
@@ -50,16 +60,28 @@ class About extends React.Component {
             <div className="about-description">
               {[one]}
               {"Here are some technologies I have been working with:"}
-              <ul className="tech-stack">
+              <ul
+                className="tech-stack"
+                style={{
+                  width: "520px", // Increased width for better layout
+                  maxWidth: "100%",
+                  display: "grid",
+                  gridTemplateColumns: "repeat(2, 1fr)",
+                  gap: "0.5rem 2.5rem",
+                  marginTop: "1rem",
+                  marginBottom: "1.5rem"
+                }}
+              >
                 {tech_stack.map(function (tech_item, i) {
                   return (
-                    <FadeInSection delay={`${i + 1}00ms`}>
-                      <li>{tech_item}</li>
+                    <FadeInSection delay={`${i + 1}00ms`} key={tech_item}>
+                      <li style={{ whiteSpace: "pre-line" }}>{tech_item}</li>
                     </FadeInSection>
                   );
                 })}
               </ul>
               {[two]}
+              {[three]}
             </div>
             <div className="about-image">
               <img alt="Mustafa Khan" src={"/assets/mustafa.jpeg"} />

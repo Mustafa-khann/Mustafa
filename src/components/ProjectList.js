@@ -1,20 +1,66 @@
-import React, { useMemo } from "react";
-import { Link } from "react-router-dom";
-import { projectDetails } from "../data/projects"; // Import projects from data.js
+import React from "react";
+import { useData } from "../context/DataContext";
+import SearchBar from "./SearchBar";
+import ProjectCard from "./ProjectCard";
+import Button from "./Button";
 import "../styles/ProjectList.css";
 import { slugify } from "../utils/slug";
 
-const truncateText = (text, maxLength) => {
-  if (text && text.length > maxLength) {
-    return text.substring(0, maxLength) + '...';
-  }
-  return text;
-};
+// Skeleton loading component
+const ProjectCardSkeleton = () => (
+  <div className="project-card skeleton">
+    <div className="project-card-image skeleton" style={{ height: '200px' }}></div>
+    <div className="project-card-content">
+      <div className="skeleton" style={{ height: '24px', width: '80%', marginBottom: '12px' }}></div>
+      <div className="skeleton" style={{ height: '20px', width: '60%', marginBottom: '12px' }}></div>
+      <div className="skeleton" style={{ height: '16px', width: '100%', marginBottom: '8px' }}></div>
+      <div className="skeleton" style={{ height: '16px', width: '90%', marginBottom: '8px' }}></div>
+      <div className="skeleton" style={{ height: '16px', width: '70%' }}></div>
+    </div>
+  </div>
+);
 
 const ProjectList = () => {
-  const sortedProjects = useMemo(() => {
-    return projectDetails.slice().sort((a, b) => a.id - b.id);
-  }, []);
+  const { filteredProjects, loading, error } = useData();
+
+  if (loading) {
+    return (
+      <div className="projects-container">
+        <div className="section-header">
+          <span className="section-title">/ projects</span>
+        </div>
+        <p className="projects-intro">
+          Here you can find detailed guides for all my projects. Click on any project to see a step-by-step guide on how to build it.
+        </p>
+        
+        <SearchBar placeholder="Search projects..." />
+        
+        <div className="projects-grid">
+          {[...Array(6)].map((_, index) => (
+            <ProjectCardSkeleton key={index} />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="projects-container">
+        <div className="error-message">
+          <p>Error loading projects: {error}</p>
+          <Button 
+            variant="primary"
+            onClick={() => window.location.reload()}
+            className="mt-2"
+          >
+            Try Again
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="projects-container">
       <div className="section-header">
@@ -24,26 +70,22 @@ const ProjectList = () => {
         Here you can find detailed guides for all my projects. Click on any project to see a step-by-step guide on how to build it.
       </p>
       
-      <div className="projects-grid">
-        {sortedProjects.map((project) => (
-          <div key={project.id} className="project-card">
-            <Link to={`/projects/${slugify(project.title)}`} className="project-link">
-              {project.image && (
-                <div className="project-card-image">
-                  <img src={project.image} alt={project.title} />
-                </div>
-              )}
-              <div className="project-card-content">
-                <h2 title={project.title}>
-                  {project.title.length > 40 ? truncateText(project.title, 37) : project.title}
-                </h2>
-                <p className="project-card-tech">{project.techStack}</p>
-                <p className="project-card-desc">{truncateText(project.abstract, 100)}</p>
-              </div>
-            </Link>
-          </div>
-        ))}
-      </div>
+      <SearchBar placeholder="Search projects..." />
+
+      {filteredProjects.length === 0 ? (
+        <div className="no-results">
+          <p>No projects found matching your search.</p>
+          <p style={{ fontSize: '0.9rem', marginTop: '10px' }}>
+            Try adjusting your search terms or browse all projects.
+          </p>
+        </div>
+      ) : (
+        <div className="projects-grid">
+          {filteredProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

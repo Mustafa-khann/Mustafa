@@ -82,9 +82,19 @@ const JobList = () => {
   const [value, setValue] = React.useState(0);
 
   const experienceItems = {
+    "Self Employed" : {
+      jobTitle: "Software Engineer",
+      duration: "JUN 2025 - PRESENT",
+      desc: [
+        "Building AI-powered web and mobile applications with React, React Native, and MERN stack.",
+        "Designing and integrating intelligent agents (LLMs, LangChain) to automate workflows and enhance user experience.",
+        "Developing custom APIs and backend systems in Node.js/Golang with scalable database solutions (MongoDB, PostgreSQL).",
+        "Helping startups and businesses turn ideas into production-ready products, from MVPs to full-scale deployments."
+      ]
+    },
     VeevoTech: {
-      jobTitle: "Embedded Systems Engineer @",
-      duration: "APR 2025 - PRESENT",
+      jobTitle: "Software Engineer @",
+      duration: "APR 2025 - May 2025",
       desc: [
         "Designing touch screen user interfaces and developing embedded system firmware using C/C++/Arduino.",
         "Conducting R&D to address product design challenges and enhance efficiency/performance of various components.",
@@ -124,7 +134,9 @@ const JobList = () => {
           <span className="joblist-job-title">
             {experienceItems[key]["jobTitle"] + " "}
           </span>
-          <span className="joblist-job-company">{key}</span>
+          <span className="joblist-job-company">
+            {key == "Self Employed" ? "" : key}
+          </span>
           <div className="joblist-duration">
             {experienceItems[key]["duration"]}
           </div>

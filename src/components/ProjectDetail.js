@@ -1,23 +1,43 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { useParams, Link } from "react-router-dom";
-import { projectDetails } from "../data/projects"; 
+import { useData } from "../context/DataContext";
+import LoadingSpinner from "./LoadingSpinner";
 import "../styles/ProjectDetail.css";
-import { slugify } from "../utils/slug";
 
 const ProjectDetail = () => {
   const { title } = useParams();
-  const project = useMemo(() => {
-    const decoded = decodeURIComponent(title);
-    return projectDetails.find((p) => slugify(p.title) === decoded);
-  }, [title]);
+  const { getProjectBySlug, loading, error } = useData();
+  
+  const decoded = decodeURIComponent(title);
+  const project = getProjectBySlug(decoded);
+
+  if (loading) {
+    return (
+      <div className="project-detail-container">
+        <LoadingSpinner size="large" message="Loading project..." />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="project-detail-container">
+        <div className="error-message">
+          <p>Error loading project: {error}</p>
+        </div>
+      </div>
+    );
+  }
 
   if (!project) {
     return (
       <div className="project-detail-container">
-        <p>Project not found.</p>
-        <Link to="/projects" className="back-button">
-          Go back to Projects
-        </Link>
+        <div className="error-message">
+          <p>Project not found.</p>
+          <Link to="/projects" className="back-button">
+            ← Back to Projects
+          </Link>
+        </div>
       </div>
     );
   }

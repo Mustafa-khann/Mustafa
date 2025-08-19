@@ -103,6 +103,7 @@ const Books = () => {
       <div className="books-grid">
         {filteredBooks.map((book, index) => (
           <div className="book-card" key={index}>
+            <div className="category-badge">{book.category}</div>
             <a href={book.link} target="_blank" rel="noopener noreferrer">
               <img 
                 src={book.cover} 

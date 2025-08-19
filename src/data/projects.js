@@ -6,7 +6,7 @@ export const projectDetails = [
       techStack: "Pixhawk, ROS, Python, C++, React Native",
       abstract: "Learn how to build a fully functional autonomous drone prototype that delivers packages to a specific GPS location via a mobile app.",
       image: "/assets/drone-1080.jpg",
-      link: "https://github.com/yourusername/hermesx",
+      link: "",
       content: `
         <h2>Project Guide: Autonomous Delivery Drone (Conceptual)</h2>
 
@@ -45,7 +45,7 @@ export const projectDetails = [
       techStack: "Arduino, C++, Servo Control, Inverse Kinematics",
       abstract: "A step-by-step guide to building a desktop-scale 3D printed 5-DoF robotic arm with precision control for pick-and-place operations.",
       image: "/assets/arm-1080.jpeg",
-      link: "https://github.com/yourusername/anky-arm",
+      link: "",
       content: `
         <h2>Project Guide: 5 DoF Robotic Arm (Conceptual)</h2>
 
@@ -87,7 +87,7 @@ export const projectDetails = [
       techStack: "C, Assembly",
       abstract: "A tiny operating system for the Raspberry Pi written purely in C, with the bootloader in assembly.",
       image: "/assets/tinyos.jpeg",
-      link: "https://github.com/yourusername/TinyOS",
+      link: "https://github.com/Mustafa-khann/TinyOS",
       content: 
       `
         <h2>Project Guide: Minimalist Operating System (Conceptual)</h2>

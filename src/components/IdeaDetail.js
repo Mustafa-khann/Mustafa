@@ -1,23 +1,43 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { useParams, Link } from "react-router-dom";
-import { researchPapers } from "../data/data"; // Import the shared data
+import { useData } from "../context/DataContext";
+import LoadingSpinner from "./LoadingSpinner";
 import "../styles/IdeasDetail.css";
-import { slugify } from "../utils/slug";
 
-const IdeasDetail = () => {
+const IdeaDetail = () => {
   const { title } = useParams();
-  const paper = useMemo(() => {
-    const decoded = decodeURIComponent(title);
-    return researchPapers.find((p) => slugify(p.title) === decoded);
-  }, [title]);
+  const { getResearchPaperBySlug, loading, error } = useData();
+  
+  const decoded = decodeURIComponent(title);
+  const paper = getResearchPaperBySlug(decoded);
+
+  if (loading) {
+    return (
+      <div className="research-detail-container">
+        <LoadingSpinner size="large" message="Loading idea..." />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="research-detail-container">
+        <div className="error-message">
+          <p>Error loading idea: {error}</p>
+        </div>
+      </div>
+    );
+  }
 
   if (!paper) {
     return (
       <div className="research-detail-container">
-        <p>Idea not found.</p>
-        <Link to="/ideas" className="back-button">
-          Go back to Ideas
-        </Link>
+        <div className="error-message">
+          <p>Idea not found.</p>
+          <Link to="/ideas" className="back-button">
+            ← Back to Ideas
+          </Link>
+        </div>
       </div>
     );
   }

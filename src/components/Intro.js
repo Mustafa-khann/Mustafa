@@ -34,16 +34,18 @@ class Intro extends React.Component {
           </span>
         </Typist>
         <FadeInSection>
-          <div className="intro-subtitle">I engineer.</div>
+        <div className="intro-subtitle">I build apps.</div>
           <div className="intro-desc">
-          I'm Mustafa Khan, an Embedded Systems Engineer and Robotics enthusiast focused on AI-driven automation, industrial robotics, and large-scale manufacturing. 
+            I'm Mustafa Khan; a Full-Stack Engineer who builds AI-powered Web and Mobile applications. 
+            I combine engineering depth with creativity, whether it’s crafting smooth user experiences, 
+            integrating intelligent agents, or taking an idea from MVP to production. 
           </div>
           <a
             href="mailto:mustafakhann050@gmail.com"
             className="intro-contact"
           >
             <EmailRoundedIcon></EmailRoundedIcon>
-            {" Say hi!"}
+            {" Let's talk!"}
           </a>
         </FadeInSection>
       </div>
