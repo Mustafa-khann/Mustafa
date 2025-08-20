@@ -1,59 +1,59 @@
 .navbar {
-    background-color: var(--navy);
-    color: var(--lightest-slate);
-    font-family: 'NTR';
-    font-weight: bold;
+  background-color: var(--navy);
+  color: var(--lightest-slate);
+  font-family: 'NTR';
+  font-weight: bold;
+}
+
+.navbar-logo {
+  height: 40px; /* Adjust as needed */
+}
+
+.navbar-light .navbar-brand {
+  color: var(--lightest-slate) !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: var(--lightest-slate) !important;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: var(--green-bright) !important;
+}
+
+.navbar-light .navbar-nav .nav-link svg:hover {
+  color: var(--green-bright) !important;
+}
+
+.form-control {
+  width: 200px; /* Adjust width as needed */
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar-light .navbar-brand {
+    display: none;
   }
 
-  .navbar-logo {
-    height: 40px; /* Adjust as needed */
-  }
-
-  .navbar-light .navbar-brand  {
-    color: var(--lightest-slate) !important;
+  /* Adjust mobile nav styling */
+  .navbar-nav {
+    text-align: center;
   }
 
   .navbar-light .navbar-nav .nav-link {
-    color: var(--lightest-slate) !important;
+    padding: 0.5rem 1rem;
   }
 
-  .navbar-light .navbar-nav .nav-link:hover {
-    color: var(--green-bright) !important;
+  /* Adjust spacing for social icons on mobile */
+  .navbar-nav.ml-auto {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
   }
 
-  .navbar-light .navbar-nav .nav-link svg:hover {
-    color: var(--green-bright) !important;
+  .navbar-nav.ml-auto .nav-link {
+    padding: 0.5rem;
   }
-
-  .form-control {
-    width: 200px; /* Adjust width as needed */
-  }
-
-  @media only screen and (max-width: 600px) {
-    .navbar-light .navbar-brand {
-        display: none;
-    }
-
-    /* Adjust mobile nav styling */
-    .navbar-nav {
-        text-align: center;
-    }
-
-    .navbar-light .navbar-nav .nav-link {
-        padding: 0.5rem 1rem;
-    }
-
-    /* Adjust spacing for social icons on mobile */
-    .navbar-nav.ml-auto {
-        flex-direction: row;
-        justify-content: center;
-        margin-top: 10px;
-    }
-
-    .navbar-nav.ml-auto .nav-link {
-        padding: 0.5rem;
-    }
-  }
+}
 
 .bg-body-tertiary {
   background-color: var(--navy) !important; /* Add !important to override Bootstrap */
@@ -171,14 +171,14 @@
     padding: 1rem;
     border: 1px solid rgba(100, 255, 218, 0.1);
   }
-  
+
   .custom-navbar .nav-link {
     margin: 0.25rem 0;
     padding: 0.75rem 1rem !important;
     border-radius: 8px;
     text-align: center;
   }
-  
+
   .custom-navbar .navbar-nav.ml-auto {
     flex-direction: row;
     justify-content: center;
@@ -186,7 +186,7 @@
     padding-top: 1rem;
     border-top: 1px solid rgba(100, 255, 218, 0.1);
   }
-  
+
   .custom-navbar .navbar-nav.ml-auto .nav-link {
     margin: 0 0.5rem;
   }
@@ -196,16 +196,16 @@
   .custom-navbar {
     padding: 0.25rem 0;
   }
-  
+
   .custom-navbar .navbar-brand {
     font-size: 1.25rem;
   }
-  
+
   .custom-navbar .nav-link {
     font-size: 0.9rem;
     padding: 0.5rem 0.75rem !important;
   }
-  
+
   .custom-navbar .navbar-nav.ml-auto .nav-link {
     width: 35px;
     height: 35px;

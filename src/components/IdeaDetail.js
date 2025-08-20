@@ -1,28 +1,28 @@
-import React from "react";
-import { useParams, Link } from "react-router-dom";
-import { useData } from "../context/DataContext";
-import LoadingSpinner from "./LoadingSpinner";
-import "../styles/IdeasDetail.css";
+import React from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { useData } from '../context/DataContext';
+import LoadingSpinner from './common/LoadingSpinner';
+import '../styles/IdeasDetail.css';
 
 const IdeaDetail = () => {
   const { title } = useParams();
   const { getResearchPaperBySlug, loading, error } = useData();
-  
+
   const decoded = decodeURIComponent(title);
   const paper = getResearchPaperBySlug(decoded);
 
   if (loading) {
     return (
-      <div className="research-detail-container">
-        <LoadingSpinner size="large" message="Loading idea..." />
+      <div className='research-detail-container'>
+        <LoadingSpinner size='large' message='Loading idea...' />
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="research-detail-container">
-        <div className="error-message">
+      <div className='research-detail-container'>
+        <div className='error-message'>
           <p>Error loading idea: {error}</p>
         </div>
       </div>
@@ -31,10 +31,10 @@ const IdeaDetail = () => {
 
   if (!paper) {
     return (
-      <div className="research-detail-container">
-        <div className="error-message">
+      <div className='research-detail-container'>
+        <div className='error-message'>
           <p>Idea not found.</p>
-          <Link to="/ideas" className="back-button">
+          <Link to='/ideas' className='back-button'>
             ← Back to Ideas
           </Link>
         </div>
@@ -43,10 +43,10 @@ const IdeaDetail = () => {
   }
 
   return (
-    <div className="research-detail-container">
-      <div className="research-header">
-        <Link to="/ideas" className="back-button">
-          <span className="back-arrow">←</span>
+    <div className='research-detail-container'>
+      <div className='research-header'>
+        <Link to='/ideas' className='back-button'>
+          <span className='back-arrow'>←</span>
         </Link>
         <h1>{paper.title}</h1>
       </div>
@@ -61,4 +61,4 @@ const IdeaDetail = () => {
   );
 };
 
-export default IdeasDetail;
+export default IdeaDetail;

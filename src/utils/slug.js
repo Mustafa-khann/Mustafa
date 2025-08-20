@@ -1,9 +1,8 @@
 export function slugify(title) {
-  if (!title) return "";
+  if (!title) return '';
   return String(title)
     .toLowerCase()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/\s+/g, "-")
-    .replace(/--+/g, "-");
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/--+/g, '-');
 }
-

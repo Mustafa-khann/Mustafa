@@ -2,11 +2,11 @@ export const researchPapers = [
   {
     id: 1,
     title:
-      "Exploration of Integrating SLAM and Multimodal Language Models with 3D Maps for Robotic Task Execution",
-    date: "March 2025",
-    author: "Mustafa Khan",
+      'Exploration of Integrating SLAM and Multimodal Language Models with 3D Maps for Robotic Task Execution',
+    date: 'March 2025',
+    author: 'Mustafa Khan',
     abstract:
-      "This paper provides a comprehensive overview of methodologies in robotics that integrate SLAM with multimodal language models, using 3D maps as context for understanding and executing natural language instructions.",
+      'This paper provides a comprehensive overview of methodologies in robotics that integrate SLAM with multimodal language models, using 3D maps as context for understanding and executing natural language instructions.',
     content: `
       <h2>Abstract</h2>
       <p>This note provides a comprehensive overview of methodologies in robotics that integrate Simultaneous Localization and Mapping (SLAM) with multimodal language models (LMs), using 3D maps as context for understanding and executing natural language instructions, particularly for tasks like object retrieval. The discussion is grounded in recent research and aims to address the fusion of spatial mapping, language grounding, and task planning, offering insights for both technical and lay audiences.</p>
@@ -100,11 +100,11 @@ export const researchPapers = [
   {
     id: 2,
     title:
-      "Enhancing Practicality in Robotics Research Papers: Integrating SLAM and Multimodal Language Models with 3D Maps",
-    date: "March 2025",
-    author: "Mustafa Khan",
+      'Enhancing Practicality in Robotics Research Papers: Integrating SLAM and Multimodal Language Models with 3D Maps',
+    date: 'March 2025',
+    author: 'Mustafa Khan',
     abstract:
-      "This work presents a method integrating SLAM with multimodal language models using 3D maps, enabling robots to execute natural language commands in dynamic environments. Validated through experiments, it offers practical applications in smart homes and logistics.",
+      'This work presents a method integrating SLAM with multimodal language models using 3D maps, enabling robots to execute natural language commands in dynamic environments. Validated through experiments, it offers practical applications in smart homes and logistics.',
     content: `
     <h2>Abstract</h2>
     <p>This paper presents a practical methodology for integrating Simultaneous Localization and Mapping (SLAM) with multimodal language models (LMs) using 3D maps as context to enable robots to understand and execute natural language instructions, such as fetching objects in dynamic environments. By combining SLAM-generated 3D maps with language grounding techniques, the research demonstrates how robots can maintain long-term spatial memory and perform tasks like retrieving a towel based on voice commands. The approach is validated through experiments in simulated and real-world settings, offering detailed implementation guidance, quantitative results, and real-world applications in smart homes and logistics. This work bridges theoretical advancements with practical robotics, providing actionable insights for researchers and practitioners.</p>
@@ -252,9 +252,9 @@ export const researchPapers = [
   },
   {
     id: 3,
-    title: "Integrating SLAM, 3D Maps, and Gemini for Robotic Task Execution",
-    date: "March 2025",
-    author: "Mustafa Khan",
+    title: 'Integrating SLAM, 3D Maps, and Gemini for Robotic Task Execution',
+    date: 'March 2025',
+    author: 'Mustafa Khan',
     abstract:
       "This paper presents a method integrating SLAM with Google's Gemini LLM, using 3D maps to enhance robotic task execution. By converting maps to text, robots can process complex instructions like fetching objects across rooms. Validated through experiments, this approach bridges spatial mapping with language understanding for applications in smart homes, warehouses, and search/rescue.",
     content: `<h2>Abstract</h2>
@@ -398,9 +398,9 @@ export const researchPapers = [
   {
     id: 4,
     title:
-      "Integrating SLAM and 3D Mapping with Relational Attention Graphs for Contextual Language Understanding in Robotics",
-    date: "Mar, 2025",
-    author: "Mustafa Khan",
+      'Integrating SLAM and 3D Mapping with Relational Attention Graphs for Contextual Language Understanding in Robotics',
+    date: 'Mar, 2025',
+    author: 'Mustafa Khan',
     abstract:
       "This paper presents a novel integration of SLAM, 3D mapping, and Relational Attention Graphs (RAGs) to enhance robots' contextual understanding of natural language commands. Our approach combines real-time SLAM mapping, RAG-based spatial reasoning, and language models to improve task execution in dynamic environments. Experiments demonstrate enhanced task accuracy and navigation through adaptive spatial context awareness.",
     content: `
@@ -557,8 +557,8 @@ export const researchPapers = [
 export const posts = [
   {
     id: 1,
-    title: "Knowing as Inseparable from Doing",
-    date: "March 25, 2025",
+    title: 'Knowing as Inseparable from Doing',
+    date: 'March 25, 2025',
     content: `We treat pieces of knowledge as something to be acquired once and kept forever, preserved forever on a timeless mental shelf of some kind. But the reality that we can all attest to is that knowing requires diligent practice and constant maintenance.
     This is evident in the way we approach learning new skills or subjects. At first, we may grasp the concepts quickly, but as time passes, our understanding begins to fade if we don't continue to engage with the material.<br><br>
     The same applies to our daily lives, where we must continually apply what we know to reinforce our understanding and make it a part of our being.<br><br>
@@ -568,8 +568,8 @@ export const posts = [
   },
   {
     id: 2,
-    title: "Open Questions",
-    date: "January 27, 2025",
+    title: 'Open Questions',
+    date: 'January 27, 2025',
     content: `Paul Graham has written that <a href="https://arc.net/l/quote/qywfpqso" rel="nofollow">great essays tell the reader something surprising about an important or relevant topic</a>, perhaps one <a href="https://arc.net/l/quote/hwnwuzbn" rel="nofollow">with wide breadth of applicability</a> in some way (chronological, fields of study, etc.).<br><br>
 
     Assuming that knowledge is a strongly connected graph, he also writes that <a href="https://arc.net/l/quote/cwjqzbvx" rel="nofollow">it should be sufficient to start with any sufficiently interesting question</a>, and by exploring the subquestions instigated by that initial question you will inevitably arrive at an essay topic that is both interesting/surprising and important/relevant, ie. a great essay.<br><br>
@@ -657,8 +657,8 @@ export const posts = [
   },
   {
     id: 3,
-    title: "Why Physical AI (Robotics) is Going to Revolutionize Industrialism",
-    date: "Jan 14 2025",
+    title: 'Why Physical AI (Robotics) is Going to Revolutionize Industrialism',
+    date: 'Jan 14 2025',
     content: `
         <p>Lately, I've been turning over this idea in my head: physical AI; especially robotics; is about to flip industrialism on its head, and we're living through the start of it. This isn't some far-off vision anymore; it's happening right now, and it's hard not to get excited about what's unfolding. I've been digging into some books that have shaped how I see this; Walter Isaacson's <em>Elon Musk</em> and Jeffrey Liker's <em>The Toyota Way</em>; and they've given me a lot to chew on. Let me walk you through why I think this is such a big deal.</p>
 
@@ -685,8 +685,8 @@ export const posts = [
   },
   {
     id: 4,
-    title: "The Future of AI: Navigating the Technological Horizon",
-    date: "Feb 19 2025",
+    title: 'The Future of AI: Navigating the Technological Horizon',
+    date: 'Feb 19 2025',
     content: `
         <p>The future of artificial intelligence stands as one of the most profound technological frontiers of our time—a subject that has captivated researchers, philosophers, and technologists for decades. As we venture deeper into the 21st century, <span style="color: #00d1b2">the evolution of AI has accelerated at a pace that would have seemed implausible even to the most optimistic futurists of previous generations.</span> In this extensive exploration, I'll delve into the multifaceted landscape of emerging AI technologies, their potential societal impacts, and the ethical considerations that must guide our journey forward.</p>
 
@@ -739,8 +739,8 @@ export const posts = [
   },
   {
     id: 5,
-    title: "The Strategic Imperative for Domestic Manufacturing Renaissance",
-    date: "Mar 26 2025",
+    title: 'The Strategic Imperative for Domestic Manufacturing Renaissance',
+    date: 'Mar 26 2025',
     content: `The decline of domestic manufacturing capacity represents one of the most significant economic shifts of the past half-century. While globalization has brought many benefits, the <span style="color: #00d1b2">hollowing out of our manufacturing base has created vulnerabilities that have become increasingly apparent.</span> I believe we need a renaissance in domestic manufacturing—not out of nostalgia, but as a strategic imperative for innovation, resilience, and economic vitality.
 
       There's a dangerous misconception that manufacturing is somehow separate from innovation—that we can design here and build elsewhere without consequences. The reality is far more complex. When manufacturing and R&D become geographically separated, innovation suffers in subtle but profound ways.
@@ -777,8 +777,8 @@ export const posts = [
   },
   {
     id: 6,
-    title: "Vibe Coding",
-    date: "Mar 26 2025",
+    title: 'Vibe Coding',
+    date: 'Mar 26 2025',
     content: `
         <p>Vibe Coding is a revolutionary approach to programming that transcends traditional methods. Imagine coding not with your hands, but with your mind. This concept, which once seemed like science fiction, is now becoming a reality.</p>
 
@@ -801,8 +801,8 @@ export const posts = [
   },
   {
     id: 7,
-    title: "Why Robotics is Hard to Break Into (Personal Experience)",
-    date: "Mar 27 2025",
+    title: 'Why Robotics is Hard to Break Into (Personal Experience)',
+    date: 'Mar 27 2025',
     content: `
         <p>When I graduated eight months ago, I had one clear dream: to build robots. I didn't care if it was humanoids, drones, or industrial machines—I just wanted to create things that could move and think. I even built an autonomous drone designed for package delivery as my first project. But reality hit fast: the robotics industry is non-existent where I live.</p>
 
@@ -830,8 +830,8 @@ export const posts = [
   },
   {
     id: 8,
-    title: "How do you even start in robotics? The path is a mess!",
-    date: "Mar 28, 2025",
+    title: 'How do you even start in robotics? The path is a mess!',
+    date: 'Mar 28, 2025',
     content: `Breaking into robotics feels like trying to map an uncharted wilderness. It's not a field with a single, well-trodden path; it's a sprawling expanse of disciplines that can leave you spinning. <span style="color: #00d1b2">The sheer breadth of it—hardware, software, theory, practice—has paralyzed me more than once.</span> I've come to believe the way forward isn't about finding the perfect starting point but picking a corner, digging in, and letting the rest unfold as you go.
     Robotics is a field of relentless complexity. Hardware alone forks into electronics—circuits, sensors, power systems—and mechanics—kinematics, materials, physical design. Then there's software; coding to make things move, algorithms to make them efficient, and the cutting edge of machine learning, AI, and computer vision to make them smart. <span style="color: #00d1b2">It's a domain that thrives on integration; no single piece stands alone, and that's what makes it both daunting and magnetic.</span> For someone like me, drawn to the intersections, it's a puzzle I can't resist.
     <p>My early attempts were a mess. I'd dabble in hardware—wiring motors, frying a board or two—then pivot to software, wrestling with Python scripts or ML frameworks, only to stall when I couldn't get my hands on the right gear. <span style="color: #00d1b2">The real challenge wasn't the learning curve; it was the lack of a clear runway to build something tangible.</span> Tutorials pointed me in circles, and the field's vastness left me wondering: how do you go from nothing to a robot that actually works?</p>
@@ -845,8 +845,8 @@ export const posts = [
   },
   {
     id: 9,
-    title: "Engineering Genius",
-    date: "Apr 5, 2025",
+    title: 'Engineering Genius',
+    date: 'Apr 5, 2025',
     content: `What does it really mean to be an engineering genius?
 
     It's not about scoring perfect grades or memorizing formulas like a robot. It's not about how many acronyms you can throw into a conversation or how many lines of code you've written. Engineering genius is raw. It's messy. It's the ability to stare at complexity, chaos, and constraints; and <span style="color: #00d1b2">see clarity</span>. It's not just solving problems; it's redefining them. It's flipping a problem over, slicing it from a weird angle, and bending reality in your favor.
@@ -877,8 +877,8 @@ export const posts = [
   },
   {
     id: 10,
-    title: "Why Specialization is Overrated",
-    date: "Apr 8, 2025",
+    title: 'Why Specialization is Overrated',
+    date: 'Apr 8, 2025',
     content: `People ask me what I do? I never have a clean answer. The truth is, I don't fit in a neat little title. I'm not just a robotics engineer. Not just a systems guy. Not just a designer. I'm all of that; and none of it. What I really am is someone trying to <span style="color: #00d1b2">understand how nature builds</span>, and then beat it at its own game using silicon, gears, electrons, and code.
 
     <br></br>
@@ -910,8 +910,8 @@ export const posts = [
   },
   {
     id: 11,
-    title: "Reality is an Algorithm",
-    date: "Apr 18, 2025",
+    title: 'Reality is an Algorithm',
+    date: 'Apr 18, 2025',
     content: `<h3>In me, I found <span style="color: #00d1b2">God</span></h3>
 
     The more you face reality as it is; raw, logical, unfiltered; the more you realize: this isn't chaos. This is <span style="color: #00d1b2">code</span>. The entire universe behaves like an algorithm. That's why people call it <i>destiny</i>.
@@ -960,12 +960,12 @@ export const posts = [
     <br></br>
 
     That's how you stop being a victim of the algorithm; and start becoming its <span style="color: #00d1b2">co-architect</span>.`,
-    },
-    {
-      id: 12,
-      title: "Why Learning C Programming is Essential in 2025",
-      date: "May 24 2025",
-      content: `
+  },
+  {
+    id: 12,
+    title: 'Why Learning C Programming is Essential in 2025',
+    date: 'May 24 2025',
+    content: `
         <p>In an era dominated by high-level languages and frameworks, C programming might seem like a relic of the past. But here's the truth: C is more relevant than ever. It's not just a language; it's the <span style="color: #00d1b2">foundation of computing itself</span>.</p>
 
         <h3>The Language That Powers Everything</h3>
@@ -999,13 +999,14 @@ export const posts = [
         <p>Learning C in 2025 isn't about nostalgia. It's about <span style="color: #00d1b2">understanding the foundation of everything you use</span>. It's about having the power to make things faster, more efficient, and more reliable. It's about being a better programmer, period.</p>
 
         <p>So if you're thinking about learning C, don't hesitate. The language that built the digital world isn't going anywhere. In fact, it's more relevant than ever. <span style="color: #00d1b2">The future belongs to those who understand the past</span>.</p>
-      `
-    },
-    {
-      id: 13,
-      title: "Why Programmers (high signal technical person) Are More Aligned with the Digital Paradigm",
-      date: "June 23, 2025",
-      content: `
+      `,
+  },
+  {
+    id: 13,
+    title:
+      'Why Programmers (high signal technical person) Are More Aligned with the Digital Paradigm',
+    date: 'June 23, 2025',
+    content: `
         <p>In the digital era, not all minds are wired the same. Programmers—high signal technical people—are uniquely attuned to the architecture of the internet and the systems that power our world. Their way of thinking is not just compatible with the digital paradigm; it's built for it.</p>
 
         <h3>The Systemic Mindset</h3>
@@ -1041,6 +1042,6 @@ export const posts = [
         <h3>Final Thoughts</h3>
         <p>Programmers (high signal technical people) don't just follow instructions—they improvise with structure. They treat code like a language, systems like canvases. In a world where cognition and code are merging, programmers have the home-field advantage. But the next evolution? The <span style="color: #00d1b2">technologist-poet</span>, the <span style="color: #00d1b2">engineer-designer</span>, the <span style="color: #00d1b2">programmer with taste</span>. That's who shapes the future.</p>
         <p>The digital paradigm doesn't just need builders. It needs those who <span style="color: #00d1b2">think like it</span>. And right now, that's the programmer—a high signal technical person.</p>
-      `
-    },
+      `,
+  },
 ];

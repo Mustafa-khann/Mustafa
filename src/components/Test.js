@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import * as THREE from "three";
-import Stats from "./jsm/libs/stats.module.js";
+import React, { Component } from 'react';
+import * as THREE from 'three';
+import Stats from './jsm/libs/stats.module.js';
 
-import { TrackballControls } from "./jsm/controls/TrackballControls.js";
-import { PCDLoader } from "./jsm/loaders/PCDLoader.js";
+import { TrackballControls } from './jsm/controls/TrackballControls.js';
+import { PCDLoader } from './jsm/loaders/PCDLoader.js';
 
 class ThreeJSAnimation extends Component {
   componentDidMount() {
@@ -16,12 +16,7 @@ class ThreeJSAnimation extends Component {
       scene = new THREE.Scene();
       scene.background = new THREE.Color(0x000000);
 
-      camera = new THREE.PerspectiveCamera(
-        15,
-        window.innerWidth / window.innerHeight,
-        0.01,
-        40
-      );
+      camera = new THREE.PerspectiveCamera(15, window.innerWidth / window.innerHeight, 0.01, 40);
       camera.position.x = 0.4;
       camera.position.z = -2;
       camera.up.set(0, 0, 1);
@@ -34,14 +29,14 @@ class ThreeJSAnimation extends Component {
       document.body.appendChild(renderer.domElement);
 
       const loader = new PCDLoader();
-      loader.load("./models/pcd/binary/Zaghetto.pcd", function (points) {
+      loader.load('./models/pcd/binary/Zaghetto.pcd', function (points) {
         scene.add(points);
         const center = points.geometry.boundingSphere.center;
         controls.target.set(center.x, center.y, center.z);
         controls.update();
       });
 
-      container = document.createElement("div");
+      container = document.createElement('div');
       document.body.appendChild(container);
       container.appendChild(renderer.domElement);
 
@@ -59,9 +54,9 @@ class ThreeJSAnimation extends Component {
       stats = new Stats();
       container.appendChild(stats.dom);
 
-      window.addEventListener("resize", onWindowResize);
+      window.addEventListener('resize', onWindowResize);
 
-      window.addEventListener("keypress", keyboard);
+      window.addEventListener('keypress', keyboard);
     }
 
     function onWindowResize() {
@@ -72,20 +67,20 @@ class ThreeJSAnimation extends Component {
     }
 
     function keyboard(ev) {
-      const points = scene.getObjectByName("Zaghetto.pcd");
+      const points = scene.getObjectByName('Zaghetto.pcd');
 
       switch (ev.key || String.fromCharCode(ev.keyCode || ev.charCode)) {
-        case "+":
+        case '+':
           points.material.size *= 1.2;
           points.material.needsUpdate = true;
           break;
 
-        case "-":
+        case '-':
           points.material.size /= 1.2;
           points.material.needsUpdate = true;
           break;
 
-        case "c":
+        case 'c':
           points.material.color.setHex(Math.random() * 0xffffff);
           points.material.needsUpdate = true;
           break;

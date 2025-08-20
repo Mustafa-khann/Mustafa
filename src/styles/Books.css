@@ -6,7 +6,7 @@
 }
 
 .books-intro {
-  font-family: "NTR", sans-serif;
+  font-family: 'NTR', sans-serif;
   color: var(--slate);
   font-size: 1.25rem;
   margin-bottom: 2rem;
@@ -17,7 +17,7 @@
 
 .category-filter {
   margin-bottom: 3rem;
-  font-family: "NTR", sans-serif;
+  font-family: 'NTR', sans-serif;
   color: var(--lightest-slate);
   display: flex;
   align-items: center;
@@ -39,7 +39,7 @@
   padding: 12px 20px;
   font-size: 1rem;
   cursor: pointer;
-  font-family: "NTR", sans-serif;
+  font-family: 'NTR', sans-serif;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   min-width: 200px;
@@ -80,9 +80,7 @@
   text-align: center;
   color: var(--lightest-slate);
   backdrop-filter: blur(20px);
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.3),
-    0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -103,9 +101,7 @@
 .book-card:hover {
   transform: translateY(-8px) scale(1.02);
   border-color: rgba(100, 255, 218, 0.3);
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.4),
-    0 8px 16px rgba(100, 255, 218, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 8px 16px rgba(100, 255, 218, 0.1);
 }
 
 .book-card:hover::before {
@@ -208,26 +204,26 @@
   .books-container {
     padding: 100px 16px 40px;
   }
-  
+
   .books-grid {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 1.25rem;
   }
-  
+
   .book-card {
     padding: 1.25rem;
   }
-  
+
   .book-cover {
     max-width: 160px;
   }
-  
+
   .category-filter {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.75rem;
   }
-  
+
   .category-dropdown {
     width: 100%;
     min-width: auto;
@@ -239,19 +235,19 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
-  
+
   .book-card {
     padding: 1rem;
   }
-  
+
   .book-card h3 {
     font-size: 1rem;
   }
-  
+
   .book-card p {
     font-size: 0.85rem;
   }
-  
+
   .book-cover {
     max-width: 140px;
   }
@@ -262,11 +258,11 @@
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .book-cover {
     max-width: 180px;
   }
-  
+
   .books-intro {
     font-size: 1.1rem;
   }
@@ -275,10 +271,18 @@
 /* Dark mode enhancements */
 @media (prefers-color-scheme: dark) {
   .book-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
   }
-  
+
   .category-dropdown {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.03) 100%
+    );
   }
 }

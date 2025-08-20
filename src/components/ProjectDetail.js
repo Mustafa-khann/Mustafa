@@ -1,28 +1,28 @@
-import React from "react";
-import { useParams, Link } from "react-router-dom";
-import { useData } from "../context/DataContext";
-import LoadingSpinner from "./LoadingSpinner";
-import "../styles/ProjectDetail.css";
+import React from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { useData } from '../context/DataContext';
+import LoadingSpinner from './common/LoadingSpinner';
+import '../styles/ProjectDetail.css';
 
 const ProjectDetail = () => {
   const { title } = useParams();
   const { getProjectBySlug, loading, error } = useData();
-  
+
   const decoded = decodeURIComponent(title);
   const project = getProjectBySlug(decoded);
 
   if (loading) {
     return (
-      <div className="project-detail-container">
-        <LoadingSpinner size="large" message="Loading project..." />
+      <div className='project-detail-container'>
+        <LoadingSpinner size='large' message='Loading project...' />
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="project-detail-container">
-        <div className="error-message">
+      <div className='project-detail-container'>
+        <div className='error-message'>
           <p>Error loading project: {error}</p>
         </div>
       </div>
@@ -31,10 +31,10 @@ const ProjectDetail = () => {
 
   if (!project) {
     return (
-      <div className="project-detail-container">
-        <div className="error-message">
+      <div className='project-detail-container'>
+        <div className='error-message'>
           <p>Project not found.</p>
-          <Link to="/projects" className="back-button">
+          <Link to='/projects' className='back-button'>
             ← Back to Projects
           </Link>
         </div>
@@ -43,32 +43,34 @@ const ProjectDetail = () => {
   }
 
   return (
-    <div className="project-detail-container">
-      <div className="project-header">
-        <Link to="/projects" className="back-button">
-          <span className="back-arrow">←</span>
+    <div className='project-detail-container'>
+      <div className='project-header'>
+        <Link to='/projects' className='back-button'>
+          <span className='back-arrow'>←</span>
         </Link>
         <h1>{project.title}</h1>
       </div>
       {project.image && (
-        <div className="project-image-container">
-          <img src={project.image} alt={project.title} className="project-detail-image" />
+        <div className='project-image-container'>
+          <img src={project.image} alt={project.title} className='project-detail-image' />
         </div>
       )}
-      <p className="project-tech"><strong>Tech Stack:</strong> {project.techStack}</p>
+      <p className='project-tech'>
+        <strong>Tech Stack:</strong> {project.techStack}
+      </p>
       {project.link && (
-        <a 
-          href={project.link} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="project-link-button"
+        <a
+          href={project.link}
+          target='_blank'
+          rel='noopener noreferrer'
+          className='project-link-button'
         >
           View Source Code
         </a>
       )}
-      <div className="project-content" dangerouslySetInnerHTML={{ __html: project.content }}></div>
+      <div className='project-content' dangerouslySetInnerHTML={{ __html: project.content }}></div>
     </div>
   );
 };
 
-export default ProjectDetail; 
+export default ProjectDetail;

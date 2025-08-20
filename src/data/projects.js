@@ -1,13 +1,14 @@
 export const projectDetails = [
-    {
-      id: 1,
-      title: "HermesX - Autonomous Drone for Package Delivery",
-      date: "May 2023",
-      techStack: "Pixhawk, ROS, Python, C++, React Native",
-      abstract: "Learn how to build a fully functional autonomous drone prototype that delivers packages to a specific GPS location via a mobile app.",
-      image: "/assets/drone-1080.jpg",
-      link: "",
-      content: `
+  {
+    id: 1,
+    title: 'HermesX - Autonomous Drone for Package Delivery',
+    date: 'May 2023',
+    techStack: 'Pixhawk, ROS, Python, C++, React Native',
+    abstract:
+      'Learn how to build a fully functional autonomous drone prototype that delivers packages to a specific GPS location via a mobile app.',
+    image: '/assets/drone-1080.jpg',
+    link: '',
+    content: `
         <h2>Project Guide: Autonomous Delivery Drone (Conceptual)</h2>
 
         <h3>Project Overview</h3>
@@ -36,17 +37,18 @@ export const projectDetails = [
         
         <h3>Conclusion & Future Directions</h3>
         <p>Building such a drone integrates concepts from embedded systems, robotics (control theory, navigation), software engineering, and potentially mobile development. Theoretical future improvements involve adding obstacle avoidance capabilities (requiring additional sensors like LIDAR or cameras and perception algorithms), refining path planning, enhancing the package mechanism, and improving overall system robustness and safety.</p>
-      `
-    },
-    {
-      id: 2,
-      title: "Anky - 5 DoF Robotic Arm",
-      date: "January 2023",
-      techStack: "Arduino, C++, Servo Control, Inverse Kinematics",
-      abstract: "A step-by-step guide to building a desktop-scale 3D printed 5-DoF robotic arm with precision control for pick-and-place operations.",
-      image: "/assets/arm-1080.jpeg",
-      link: "",
-      content: `
+      `,
+  },
+  {
+    id: 2,
+    title: 'Anky - 5 DoF Robotic Arm',
+    date: 'January 2023',
+    techStack: 'Arduino, C++, Servo Control, Inverse Kinematics',
+    abstract:
+      'A step-by-step guide to building a desktop-scale 3D printed 5-DoF robotic arm with precision control for pick-and-place operations.',
+    image: '/assets/arm-1080.jpeg',
+    link: '',
+    content: `
         <h2>Project Guide: 5 DoF Robotic Arm (Conceptual)</h2>
 
         <h3>Introduction</h3>
@@ -78,18 +80,18 @@ export const projectDetails = [
         
         <h3>Conclusion & Future Directions</h3>
         <p>This project provides a practical understanding of robotics fundamentals. Theoretical extensions include adding closed-loop control using position feedback (e.g., potentiometers or encoders on joints), integrating computer vision for object detection, interfacing with ROS for more complex planning, or designing more sophisticated end-effectors.</p>
-      `
-    },
-    {
-      id: 3,
-      title: "Tiny OS",
-      date: "December 2022",
-      techStack: "C, Assembly",
-      abstract: "A tiny operating system for the Raspberry Pi written purely in C, with the bootloader in assembly.",
-      image: "/assets/tinyos.jpeg",
-      link: "https://github.com/Mustafa-khann/TinyOS",
-      content: 
-      `
+      `,
+  },
+  {
+    id: 3,
+    title: 'Tiny OS',
+    date: 'December 2022',
+    techStack: 'C, Assembly',
+    abstract:
+      'A tiny operating system for the Raspberry Pi written purely in C, with the bootloader in assembly.',
+    image: '/assets/tinyos.jpeg',
+    link: 'https://github.com/Mustafa-khann/TinyOS',
+    content: `
         <h2>Project Guide: Minimalist Operating System (Conceptual)</h2>
         
         <h3>Project Overview</h3>
@@ -121,17 +123,18 @@ export const projectDetails = [
 
         <h3>Conclusion</h3>
         <p>Building even a minimal OS touches upon fundamental concepts like hardware initialization, low-level I/O, memory management, interrupts, and scheduling. It provides deep insights into the hardware-software interface. Potential extensions include implementing a simple filesystem, basic networking, or more sophisticated memory and process management.</p>
-      `
-    },
-    {
-      id: 4,
-      title: "Tiny Compiler",
-      date: null,
-      techStack: "C",
-      abstract: "A tiny compiler for C like language, with a complete lexer, parser, and code generator.",
-      image: null,
-      link: null,
-      content: `
+      `,
+  },
+  {
+    id: 4,
+    title: 'Tiny Compiler',
+    date: null,
+    techStack: 'C',
+    abstract:
+      'A tiny compiler for C like language, with a complete lexer, parser, and code generator.',
+    image: null,
+    link: null,
+    content: `
         <h2>Project Guide: Compiler Construction (Conceptual)</h2>
 
         <h3>Project Overview</h3>
@@ -157,17 +160,17 @@ export const projectDetails = [
 
         <h3>Conclusion</h3>
         <p>Building a compiler, even a tiny one, requires understanding concepts from formal languages, data structures (trees, symbol tables), algorithms, and potentially computer architecture. It provides insight into how programming languages are processed and executed.</p>
-      `
-    },
-    {
-      id: 5,
-      title: "MNIST Digit Recognizer Neural Network in C",
-      date: "August 2022",
-      techStack: "C",
-      abstract: "A MNIST digit recognizer neural network purely written in C. Yields 90% accuracy.",
-      image: "/assets/digitrecognizer.jpeg",
-      link: "https://github.com/Mustafa-khann/MNIST-Digit-Recognizer-in-C",
-      content: `
+      `,
+  },
+  {
+    id: 5,
+    title: 'MNIST Digit Recognizer Neural Network in C',
+    date: 'August 2022',
+    techStack: 'C',
+    abstract: 'A MNIST digit recognizer neural network purely written in C. Yields 90% accuracy.',
+    image: '/assets/digitrecognizer.jpeg',
+    link: 'https://github.com/Mustafa-khann/MNIST-Digit-Recognizer-in-C',
+    content: `
         <h2>Project Guide: Feedforward Neural Network in C (Conceptual)</h2>
 
         <h3>Project Overview</h3>
@@ -196,17 +199,18 @@ export const projectDetails = [
 
         <h3>Conclusion</h3>
         <p>Implementing a neural network from scratch reinforces fundamental concepts of machine learning, matrix math, and low-level programming. It provides a solid base for understanding how more complex deep learning models function internally.</p>
-      `
-    },
-    {
-      id: 6,
-      title: "Urdu Text Generation Using GAN Architecture",
-      date: "June 2022",
-      techStack: "Python, PyTorch, Transformer",
-      abstract: "Developed a GAN-based Urdu text generator, leveraging transformer architecture to overcome long-range text dependencies.",
-      image: "/assets/urdugan.jpeg",
-      link: "https://github.com/yourusername/urdu-text-generator",
-      content: `
+      `,
+  },
+  {
+    id: 6,
+    title: 'Urdu Text Generation Using GAN Architecture',
+    date: 'June 2022',
+    techStack: 'Python, PyTorch, Transformer',
+    abstract:
+      'Developed a GAN-based Urdu text generator, leveraging transformer architecture to overcome long-range text dependencies.',
+    image: '/assets/urdugan.jpeg',
+    link: 'https://github.com/yourusername/urdu-text-generator',
+    content: `
         <h2>Project Guide: GAN + Transformer for Urdu Text Generation (Conceptual)</h2>
 
         <h3>Project Overview</h3>
@@ -237,17 +241,18 @@ export const projectDetails = [
 
         <h3>Conclusion</h3>
         <p>Combining GANs and Transformers for text generation is an advanced technique aiming to leverage the strengths of both. It addresses challenges in generating diverse and high-quality sequences, particularly for complex languages like Urdu. Success depends heavily on data quality, model architecture choices, and careful tuning of the adversarial training process.</p>
-      `
-    },
-    {
-      id: 7,
-      title: "Rusty Transformer",
-      date: "April 2022",
-      techStack: "Rust",
-      abstract: "The Transformer architecture implemented in Rust for high performance and memory safety, focusing on efficient natural language processing.",
-      image: "/assets/rustytransformer.jpeg",
-      link: "https://github.com/Mustafa-khann/rusty-transformer",
-      content: `
+      `,
+  },
+  {
+    id: 7,
+    title: 'Rusty Transformer',
+    date: 'April 2022',
+    techStack: 'Rust',
+    abstract:
+      'The Transformer architecture implemented in Rust for high performance and memory safety, focusing on efficient natural language processing.',
+    image: '/assets/rustytransformer.jpeg',
+    link: 'https://github.com/Mustafa-khann/rusty-transformer',
+    content: `
         <h2>Project Guide: Transformer Implementation in Rust (Conceptual)</h2>
 
         <h3>Project Overview</h3>
@@ -285,17 +290,18 @@ export const projectDetails = [
 
         <h3>Conclusion</h3>
         <p>Implementing a Transformer in Rust is a significant undertaking that combines deep learning knowledge with systems programming skills. It highlights the trade-offs between development speed (often faster in Python) and runtime performance/safety (potential advantages in Rust). It demonstrates Rust's capability for high-performance computing tasks beyond its traditional domains.</p>
-      `
-    },
-    {
-      id: 8,
-      title: "LLama 3.0 Resume Analyzer",
-      date: null,
-      techStack: "Python, Nodejs, Ollama",
-      abstract: "LLama 3.0 based resume analyzer that analyzes your resume and gives you a score and suggestions on how to improve it.",
-      image: null,
-      link: null,
-      content: `
+      `,
+  },
+  {
+    id: 8,
+    title: 'LLama 3.0 Resume Analyzer',
+    date: null,
+    techStack: 'Python, Nodejs, Ollama',
+    abstract:
+      'LLama 3.0 based resume analyzer that analyzes your resume and gives you a score and suggestions on how to improve it.',
+    image: null,
+    link: null,
+    content: `
         <h2>Project Guide: LLM-Based Resume Analyzer (Conceptual)</h2>
 
         <h3>Project Overview</h3>
@@ -329,17 +335,18 @@ export const projectDetails = [
 
         <h3>Conclusion</h3>
         <p>An LLM-based resume analyzer leverages the power of modern AI for a practical task. The main challenges lie in effective prompt engineering to elicit the desired analysis and in building a user-friendly system around the LLM interaction. The quality of the output is highly dependent on the chosen LLM and the quality of the prompts.</p>
-      `
-    },
-    {
-      id: 9,
-      title: "Sign Language Recognizer Neural Network in C",
-      date: null,
-      techStack: "C",
-      abstract: "A sign language recognizer neural network purely written in C. Yeilds 73% accuracy on the MNIST Sign Language Dataset.",
-      image: null,
-      link: null,
-      content: `
+      `,
+  },
+  {
+    id: 9,
+    title: 'Sign Language Recognizer Neural Network in C',
+    date: null,
+    techStack: 'C',
+    abstract:
+      'A sign language recognizer neural network purely written in C. Yeilds 73% accuracy on the MNIST Sign Language Dataset.',
+    image: null,
+    link: null,
+    content: `
         <h2>Project Guide: Sign Language NN in C (Conceptual)</h2>
 
         <h3>Project Overview</h3>
@@ -362,17 +369,18 @@ export const projectDetails = [
 
         <h3>Conclusion</h3>
         <p>Building a sign language recognizer in C reinforces the core concepts of neural networks while applying them to a slightly more complex image classification task. It highlights the universal nature of the underlying algorithms and the importance of data handling and hyperparameter tuning for achieving good performance, all while managing low-level implementation details in C.</p>
-      `
-    },
-    {
-      id: 10,
-      title: "CNN Architecture from Scratch in C",
-      date: null,
-      techStack: "C",
-      abstract: "Built a convolutional neural network in C, implementing convolutions, pooling, and backpropagation to understand how CNNs process images.",
-      image: null,
-      link: null,
-      content: `
+      `,
+  },
+  {
+    id: 10,
+    title: 'CNN Architecture from Scratch in C',
+    date: null,
+    techStack: 'C',
+    abstract:
+      'Built a convolutional neural network in C, implementing convolutions, pooling, and backpropagation to understand how CNNs process images.',
+    image: null,
+    link: null,
+    content: `
         <h2>Project Guide: CNN Implementation in C (Conceptual)</h2>
 
         <h3>Project Overview</h3>
@@ -406,6 +414,6 @@ export const projectDetails = [
 
         <h3>Conclusion</h3>
         <p>Implementing a CNN in C is a demanding project that provides unparalleled understanding of how these powerful image processing models work at a fundamental level. The main challenges lie in correctly and efficiently implementing the convolution and pooling operations and their corresponding backpropagation steps, along with careful memory management.</p>
-      `
-    }
-  ];
+      `,
+  },
+];

@@ -1,8 +1,8 @@
 #projects {
   margin: auto;
   padding-top: 100px;
-max-width: 1000px;
-min-height: 50vh;
+  max-width: 1000px;
+  min-height: 50vh;
 }
 
 .projects-grid {
@@ -58,21 +58,21 @@ min-height: 50vh;
 }
 
 .card-title {
-  font-family: "NTR", sans-serif;
+  font-family: 'NTR', sans-serif;
   color: var(--lightest-slate);
   font-size: 24px;
   font-weight: bold;
 }
 
 .card-desc {
-  font-family: "NTR", sans-serif;
+  font-family: 'NTR', sans-serif;
   color: var(--slate);
   font-size: 18px;
   padding-bottom: 40px;
 }
 
 .card-tech {
-  font-family: "NTR", sans-serif;
+  font-family: 'NTR', sans-serif;
   color: var(--slate);
   font-size: 16px;
 }
@@ -101,7 +101,7 @@ min-height: 50vh;
 }
 
 .carousel-caption {
-  font-family: "NTR", sans-serif;
+  font-family: 'NTR', sans-serif;
   max-width: 500px;
   right: unset !important;
   left: 25% !important;
@@ -115,14 +115,14 @@ min-height: 50vh;
 }
 
 .carousel-caption p {
-  font-family: "NTR", sans-serif;
+  font-family: 'NTR', sans-serif;
   font-weight: bold;
   font-size: 18px;
   color: var(--lightest-slate);
 }
 
 .carousel-caption p.techStack {
-  font-family: "NTR", sans-serif;
+  font-family: 'NTR', sans-serif;
   font-size: 14px;
   font-weight: bold;
   color: var(--green-bright);
@@ -138,36 +138,36 @@ min-height: 50vh;
     padding-left: unset;
     padding-right: unset;
   }
-  
+
   /* Remove this to keep carousel visible on mobile */
   /* .carousel {
     display: none;
   } */
-  
+
   /* Add mobile-specific carousel styling */
   .carousel.slide {
     max-width: 100%;
     padding-bottom: 30px;
   }
-  
+
   .carousel-inner {
     height: 400px;
   }
-  
+
   .carousel-caption {
     max-width: 90%;
     left: 5% !important;
     right: 5% !important;
   }
-  
+
   .carousel-caption h3 {
     font-size: 28px;
   }
-  
+
   .carousel-caption p {
     font-size: 16px;
   }
-  
+
   .carousel-caption p.techStack {
     font-size: 12px;
   }

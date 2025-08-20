@@ -20,7 +20,7 @@
 }
 
 .about-description li::before {
-  content: "▹    ";
+  content: '▹    ';
   color: var(--green-bright);
   position: absolute;
   left: 0;
@@ -32,7 +32,7 @@
 }
 
 .about-description {
-  font-family: "NTR", sans-serif;
+  font-family: 'NTR', sans-serif;
   color: var(--slate);
   max-width: 600px;
   font-size: 22px;

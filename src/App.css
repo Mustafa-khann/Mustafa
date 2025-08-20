@@ -19,7 +19,7 @@ html {
 }
 
 .App {
-  font-family: "NTR";
+  font-family: 'NTR';
   background-color: var(--navy);
   min-height: 100vh;
   display: flex;
@@ -76,19 +76,24 @@ a {
 }
 
 .section-header::after {
-  content: "";
+  content: '';
   display: block;
   width: 300px;
   height: 2px;
   margin-left: 2rem;
-  background: linear-gradient(90deg, var(--green-bright) 0%, rgba(100, 255, 218, 0.3) 50%, transparent 100%);
+  background: linear-gradient(
+    90deg,
+    var(--green-bright) 0%,
+    rgba(100, 255, 218, 0.3) 50%,
+    transparent 100%
+  );
   border-radius: 1px;
   position: relative;
   overflow: hidden;
 }
 
 .section-header::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -112,7 +117,7 @@ a {
 }
 
 .section-title {
-  font-family: "NTR", sans-serif;
+  font-family: 'NTR', sans-serif;
   color: var(--lightest-slate);
   font-size: 2.5rem;
   font-weight: 700;
@@ -157,7 +162,7 @@ a {
   .section-title {
     font-size: 1.75rem;
   }
-  
+
   .section-header {
     padding-bottom: 1.5rem;
   }

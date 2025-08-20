@@ -1,29 +1,14 @@
-import React, { lazy } from 'react';
+import { lazy } from 'react';
 
-// Lazy load components for better performance
-const Intro = lazy(() => import('../components/Intro'));
-const Experience = lazy(() => import('../components/Experience'));
-const About = lazy(() => import('../components/About'));
-const Projects = lazy(() => import('../components/Projects'));
-const Credits = lazy(() => import('../components/Credits'));
-const Posts = lazy(() => import('../components/Posts'));
+// Lazy load pages for better performance
+const HomePage = lazy(() => import('../pages/HomePage'));
+const BooksPage = lazy(() => import('../pages/BooksPage'));
+const PostsPage = lazy(() => import('../pages/PostsPage'));
 const PostDetail = lazy(() => import('../components/PostDetail'));
-const Books = lazy(() => import('../components/Books'));
-const Ideas = lazy(() => import('../components/Ideas'));
+const IdeasPage = lazy(() => import('../pages/IdeasPage'));
 const IdeaDetail = lazy(() => import('../components/IdeaDetail'));
-const ProjectList = lazy(() => import('../components/ProjectList'));
+const ProjectsPage = lazy(() => import('../pages/ProjectsPage'));
 const ProjectDetail = lazy(() => import('../components/ProjectDetail'));
-
-// Home page component that combines all sections
-const HomePage = () => (
-  <div className="home-page">
-    <Intro />
-    <About />
-    <Experience />
-    <Projects />
-    <Credits />
-  </div>
-);
 
 // Route configuration
 export const routes = [
@@ -31,47 +16,47 @@ export const routes = [
     path: '/',
     exact: true,
     component: HomePage,
-    title: 'Home'
+    title: 'Home',
   },
   {
     path: '/books',
     exact: true,
-    component: Books,
-    title: 'Books'
+    component: BooksPage,
+    title: 'Books',
   },
   {
     path: '/posts',
     exact: true,
-    component: Posts,
-    title: 'Posts'
+    component: PostsPage,
+    title: 'Posts',
   },
   {
     path: '/posts/:title',
     component: PostDetail,
-    title: 'Post Detail'
+    title: 'Post Detail',
   },
   {
     path: '/ideas',
     exact: true,
-    component: Ideas,
-    title: 'Ideas'
+    component: IdeasPage,
+    title: 'Ideas',
   },
   {
     path: '/ideas/:title',
     component: IdeaDetail,
-    title: 'Idea Detail'
+    title: 'Idea Detail',
   },
   {
     path: '/projects',
     exact: true,
-    component: ProjectList,
-    title: 'Projects'
+    component: ProjectsPage,
+    title: 'Projects',
   },
   {
     path: '/projects/:title',
     component: ProjectDetail,
-    title: 'Project Detail'
-  }
+    title: 'Project Detail',
+  },
 ];
 
 // Navigation links for the navbar
@@ -80,7 +65,7 @@ export const navigationLinks = [
   { path: '/books', label: 'Books' },
   { path: '/posts', label: 'Posts' },
   { path: '/ideas', label: 'Ideas' },
-  { path: '/projects', label: 'Projects' }
+  { path: '/projects', label: 'Projects' },
 ];
 
 // Social media links
@@ -88,27 +73,27 @@ export const socialLinks = [
   {
     name: 'GitHub',
     url: 'https://github.com/mustafa-khann',
-    icon: 'GitHubIcon'
+    icon: 'GitHubIcon',
   },
   {
     name: 'Twitter',
-    url: 'https://x.com/mustafa_kh4n',
-    icon: 'TwitterIcon'
+    url: 'https://x.com/oprydai',
+    icon: 'TwitterIcon',
   },
   {
     name: 'LinkedIn',
     url: 'https://www.linkedin.com/in/mustafa-kh4n/',
-    icon: 'LinkedInIcon'
+    icon: 'LinkedInIcon',
   },
   {
     name: 'Instagram',
-    url: 'https://www.instagram.com/mstfa.afridi/',
-    icon: 'InstagramIcon'
-  }
+    url: 'https://www.instagram.com/oprydai/',
+    icon: 'InstagramIcon',
+  },
 ];
 
 // Helper function to get route by path
-export const getRouteByPath = (path) => {
+export const getRouteByPath = path => {
   return routes.find(route => route.path === path);
 };
 
@@ -118,4 +103,4 @@ export const isActivePath = (currentPath, routePath) => {
     return currentPath === '/';
   }
   return currentPath.startsWith(routePath);
-}; 
+};

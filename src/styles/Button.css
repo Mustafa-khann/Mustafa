@@ -158,8 +158,12 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Icon button */
@@ -191,7 +195,7 @@
     font-size: 0.95rem;
     min-height: 40px;
   }
-  
+
   .btn-large {
     padding: 14px 28px;
     font-size: 1rem;
@@ -205,10 +209,10 @@
     font-size: 0.9rem;
     min-height: 36px;
   }
-  
+
   .btn-large {
     padding: 12px 24px;
     font-size: 0.95rem;
     min-height: 44px;
   }
-} 
+}

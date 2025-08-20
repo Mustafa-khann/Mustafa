@@ -109,7 +109,8 @@
   color: var(--green-bright);
 }
 
-.project-content ul, .project-content ol {
+.project-content ul,
+.project-content ol {
   list-style-type: none;
   padding-left: 20px;
   margin: 15px 0;
@@ -123,7 +124,7 @@
 }
 
 .project-content li::before {
-  content: "•";
+  content: '•';
   position: absolute;
   left: 0;
   color: var(--green-bright);
@@ -137,7 +138,7 @@
 }
 
 .project-content ul ul li::before {
-  content: "◦";
+  content: '◦';
   color: var(--light-slate);
   font-size: 16px;
 }
@@ -180,16 +181,16 @@
   .project-detail-container {
     padding: 0 20px;
   }
-  
+
   .project-header h1 {
     font-size: 24px;
   }
-  
+
   .project-content h2 {
     font-size: 20px;
   }
-  
+
   .project-content h3 {
     font-size: 18px;
   }
-} 
+}

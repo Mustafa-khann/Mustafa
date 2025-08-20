@@ -10,7 +10,7 @@ const ACTIONS = {
   SET_RESEARCH_PAPERS: 'SET_RESEARCH_PAPERS',
   SET_PROJECTS: 'SET_PROJECTS',
   SET_FILTER: 'SET_FILTER',
-  SET_SEARCH: 'SET_SEARCH'
+  SET_SEARCH: 'SET_SEARCH',
 };
 
 // Initial state
@@ -22,9 +22,9 @@ const initialState = {
   error: null,
   filters: {
     category: 'all',
-    dateRange: 'all'
+    dateRange: 'all',
   },
-  search: ''
+  search: '',
 };
 
 // Reducer function
@@ -61,10 +61,10 @@ export const DataProvider = ({ children }) => {
     const loadData = async () => {
       try {
         dispatch({ type: ACTIONS.SET_LOADING, payload: true });
-        
+
         // Simulate async loading (in real app, this would be API calls)
         await new Promise(resolve => setTimeout(resolve, 100));
-        
+
         dispatch({ type: ACTIONS.SET_POSTS, payload: posts });
         dispatch({ type: ACTIONS.SET_RESEARCH_PAPERS, payload: researchPapers });
         dispatch({ type: ACTIONS.SET_PROJECTS, payload: projectDetails });
@@ -79,58 +79,61 @@ export const DataProvider = ({ children }) => {
   // Computed values
   const filteredPosts = React.useMemo(() => {
     let filtered = state.posts;
-    
+
     if (state.search) {
-      filtered = filtered.filter(post => 
-        post.title.toLowerCase().includes(state.search.toLowerCase()) ||
-        post.content.toLowerCase().includes(state.search.toLowerCase())
+      filtered = filtered.filter(
+        post =>
+          post.title.toLowerCase().includes(state.search.toLowerCase()) ||
+          post.content.toLowerCase().includes(state.search.toLowerCase())
       );
     }
-    
+
     return filtered.sort((a, b) => b.id - a.id);
   }, [state.posts, state.search]);
 
   const filteredResearchPapers = React.useMemo(() => {
     let filtered = state.researchPapers;
-    
+
     if (state.search) {
-      filtered = filtered.filter(paper => 
-        paper.title.toLowerCase().includes(state.search.toLowerCase()) ||
-        paper.abstract.toLowerCase().includes(state.search.toLowerCase())
+      filtered = filtered.filter(
+        paper =>
+          paper.title.toLowerCase().includes(state.search.toLowerCase()) ||
+          paper.abstract.toLowerCase().includes(state.search.toLowerCase())
       );
     }
-    
+
     return filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
   }, [state.researchPapers, state.search]);
 
   const filteredProjects = React.useMemo(() => {
     let filtered = state.projects;
-    
+
     if (state.search) {
-      filtered = filtered.filter(project => 
-        project.title.toLowerCase().includes(state.search.toLowerCase()) ||
-        project.abstract.toLowerCase().includes(state.search.toLowerCase()) ||
-        project.techStack.toLowerCase().includes(state.search.toLowerCase())
+      filtered = filtered.filter(
+        project =>
+          project.title.toLowerCase().includes(state.search.toLowerCase()) ||
+          project.abstract.toLowerCase().includes(state.search.toLowerCase()) ||
+          project.techStack.toLowerCase().includes(state.search.toLowerCase())
       );
     }
-    
+
     return filtered.sort((a, b) => a.id - b.id);
   }, [state.projects, state.search]);
 
   // Helper functions
-  const getPostBySlug = (slug) => {
+  const getPostBySlug = slug => {
     return state.posts.find(post => slugify(post.title) === slug);
   };
 
-  const getResearchPaperBySlug = (slug) => {
+  const getResearchPaperBySlug = slug => {
     return state.researchPapers.find(paper => slugify(paper.title) === slug);
   };
 
-  const getProjectBySlug = (slug) => {
+  const getProjectBySlug = slug => {
     return state.projects.find(project => slugify(project.title) === slug);
   };
 
-  const setSearch = (searchTerm) => {
+  const setSearch = searchTerm => {
     dispatch({ type: ACTIONS.SET_SEARCH, payload: searchTerm });
   };
 
@@ -147,14 +150,10 @@ export const DataProvider = ({ children }) => {
     getResearchPaperBySlug,
     getProjectBySlug,
     setSearch,
-    setFilter
+    setFilter,
   };
 
-  return (
-    <DataContext.Provider value={value}>
-      {children}
-    </DataContext.Provider>
-  );
+  return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
 };
 
 // Custom hook to use the context
@@ -168,10 +167,10 @@ export const useData = () => {
 
 // Helper function for slugification
 function slugify(title) {
-  if (!title) return "";
+  if (!title) return '';
   return String(title)
     .toLowerCase()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/\s+/g, "-")
-    .replace(/--+/g, "-");
-} 
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/--+/g, '-');
+}

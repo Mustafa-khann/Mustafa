@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core/styles";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import FadeInSection from "./FadeInSection";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core/styles';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import FadeInSection from './common/FadeInSection';
 
 const isHorizontal = window.innerWidth < 600;
 
@@ -15,7 +15,7 @@ function TabPanel(props) {
   if (isHorizontal) {
     return (
       <div
-        role="tabpanel"
+        role='tabpanel'
         hidden={value !== index}
         id={`full-width-tabpanel-${index}`}
         aria-labelledby={`full-width-tab-${index}`}
@@ -30,12 +30,7 @@ function TabPanel(props) {
     );
   } else {
     return (
-      <div
-        role="tabpanel"
-        hidden={value !== index}
-        id={`vertical-tabpanel`}
-        {...other}
-      >
+      <div role='tabpanel' hidden={value !== index} id={`vertical-tabpanel`} {...other}>
         {value === index && (
           <Box p={3}>
             <Typography>{children}</Typography>
@@ -49,18 +44,18 @@ function TabPanel(props) {
 TabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired
+  value: PropTypes.any.isRequired,
 };
 
 function a11yProps(index) {
   if (isHorizontal) {
     return {
       id: `full-width-tab-${index}`,
-      "aria-controls": `full-width-tabpanel-${index}`
+      'aria-controls': `full-width-tabpanel-${index}`,
     };
   } else {
     return {
-      id: `vertical-tab-${index}`
+      id: `vertical-tab-${index}`,
     };
   }
 }
@@ -68,13 +63,13 @@ function a11yProps(index) {
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    backgroundColor: "theme.palette.background.paper",
-    display: "flex",
-    height: 300
+    backgroundColor: 'theme.palette.background.paper',
+    display: 'flex',
+    height: 300,
   },
   tabs: {
-    borderRight: `1px solid ${theme.palette.divider}`
-  }
+    borderRight: `1px solid ${theme.palette.divider}`,
+  },
 }));
 
 const JobList = () => {
@@ -82,33 +77,33 @@ const JobList = () => {
   const [value, setValue] = React.useState(0);
 
   const experienceItems = {
-    "Self Employed" : {
-      jobTitle: "Software Engineer",
-      duration: "JUN 2025 - PRESENT",
+    'Self Employed': {
+      jobTitle: 'Software Engineer',
+      duration: 'JUN 2025 - PRESENT',
       desc: [
-        "Building AI-powered web and mobile applications with React, React Native, and MERN stack.",
-        "Designing and integrating intelligent agents (LLMs, LangChain) to automate workflows and enhance user experience.",
-        "Developing custom APIs and backend systems in Node.js/Golang with scalable database solutions (MongoDB, PostgreSQL).",
-        "Helping startups and businesses turn ideas into production-ready products, from MVPs to full-scale deployments."
-      ]
+        'Building AI-powered web and mobile applications with React, React Native, and MERN stack.',
+        'Designing and integrating intelligent agents (LLMs, LangChain) to automate workflows and enhance user experience.',
+        'Developing custom APIs and backend systems in Node.js/Golang with scalable database solutions (MongoDB, PostgreSQL).',
+        'Helping startups and businesses turn ideas into production-ready products, from MVPs to full-scale deployments.',
+      ],
     },
     VeevoTech: {
-      jobTitle: "Software Engineer @",
-      duration: "APR 2025 - May 2025",
+      jobTitle: 'Software Engineer @',
+      duration: 'APR 2025 - May 2025',
       desc: [
-        "Designing touch screen user interfaces and developing embedded system firmware using C/C++/Arduino.",
-        "Conducting R&D to address product design challenges and enhance efficiency/performance of various components.",
-        "Learning to design circuitry, create 3D models for product casings, and researching potential game-changing ICs.",
-      ]
+        'Designing touch screen user interfaces and developing embedded system firmware using C/C++/Arduino.',
+        'Conducting R&D to address product design challenges and enhance efficiency/performance of various components.',
+        'Learning to design circuitry, create 3D models for product casings, and researching potential game-changing ICs.',
+      ],
     },
     AntonX: {
-      jobTitle: "Software Engineer @",
-      duration: "SEP 2024 - APR 2025",
+      jobTitle: 'Software Engineer @',
+      duration: 'SEP 2024 - APR 2025',
       desc: [
-        "Collaborating with senior engineers to design and implement features across the full tech stack, ensuring seamless functionality and user experience.",
-        "Writing clean, efficient, and well-documented code in Javascript & PHP Laravel to meet project requirements and improve overall system performance.",
-        "Testing and debugging applications, resolving issues, and ensuring the delivery of high-quality, reliable software."
-      ]
+        'Collaborating with senior engineers to design and implement features across the full tech stack, ensuring seamless functionality and user experience.',
+        'Writing clean, efficient, and well-documented code in Javascript & PHP Laravel to meet project requirements and improve overall system performance.',
+        'Testing and debugging applications, resolving issues, and ensuring the delivery of high-quality, reliable software.',
+      ],
     },
   };
 
@@ -119,8 +114,8 @@ const JobList = () => {
   return (
     <div className={classes.root}>
       <Tabs
-        orientation={!isHorizontal ? "vertical" : null}
-        variant={isHorizontal ? "fullWidth" : "scrollable"}
+        orientation={!isHorizontal ? 'vertical' : null}
+        variant={isHorizontal ? 'fullWidth' : 'scrollable'}
         value={value}
         onChange={handleChange}
         className={classes.tabs}
@@ -131,17 +126,11 @@ const JobList = () => {
       </Tabs>
       {Object.keys(experienceItems).map((key, i) => (
         <TabPanel value={value} index={i}>
-          <span className="joblist-job-title">
-            {experienceItems[key]["jobTitle"] + " "}
-          </span>
-          <span className="joblist-job-company">
-            {key == "Self Employed" ? "" : key}
-          </span>
-          <div className="joblist-duration">
-            {experienceItems[key]["duration"]}
-          </div>
-          <ul className="job-description">
-            {experienceItems[key]["desc"].map(function (descItem, i) {
+          <span className='joblist-job-title'>{experienceItems[key]['jobTitle'] + ' '}</span>
+          <span className='joblist-job-company'>{key == 'Self Employed' ? '' : key}</span>
+          <div className='joblist-duration'>{experienceItems[key]['duration']}</div>
+          <ul className='job-description'>
+            {experienceItems[key]['desc'].map(function (descItem, i) {
               return (
                 <FadeInSection delay={`${i + 1}00ms`}>
                   <li key={i}>{descItem}</li>

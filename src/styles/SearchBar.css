@@ -12,9 +12,7 @@
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.2),
-    0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(20px);
   overflow: hidden;
 }
@@ -33,9 +31,7 @@
 
 .search-input-wrapper:focus-within {
   border-color: rgba(100, 255, 218, 0.4);
-  box-shadow: 
-    0 12px 40px rgba(0, 0, 0, 0.3),
-    0 4px 16px rgba(100, 255, 218, 0.15);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(100, 255, 218, 0.15);
   transform: translateY(-2px);
 }
 
@@ -65,7 +61,7 @@
   background: transparent;
   color: var(--lightest-slate);
   font-size: 1rem;
-  font-family: "NTR", sans-serif;
+  font-family: 'NTR', sans-serif;
   transition: all 0.3s ease;
   position: relative;
   z-index: 1;
@@ -126,7 +122,7 @@
   font-size: 0.85rem;
   color: var(--slate);
   opacity: 0.7;
-  font-family: "NTR", sans-serif;
+  font-family: 'NTR', sans-serif;
   padding: 8px 16px;
   background: linear-gradient(135deg, rgba(100, 255, 218, 0.05) 0%, transparent 100%);
   border-radius: 12px;
@@ -153,15 +149,12 @@
 }
 
 @keyframes pulse {
-  0%, 100% {
-    box-shadow: 
-      0 8px 32px rgba(0, 0, 0, 0.2),
-      0 2px 8px rgba(0, 0, 0, 0.1);
+  0%,
+  100% {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.1);
   }
   50% {
-    box-shadow: 
-      0 8px 32px rgba(0, 0, 0, 0.2),
-      0 2px 8px rgba(0, 0, 0, 0.1),
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.1),
       0 0 20px rgba(100, 255, 218, 0.2);
   }
 }
@@ -171,27 +164,27 @@
     max-width: 100%;
     margin: 1.5rem 0;
   }
-  
+
   .search-input {
     font-size: 0.95rem;
     padding: 16px 44px 16px 48px;
   }
-  
+
   .search-icon {
     left: 16px;
     font-size: 18px !important;
   }
-  
+
   .search-clear-btn {
     right: 10px;
     width: 28px;
     height: 28px;
   }
-  
+
   .search-clear-btn svg {
     font-size: 16px !important;
   }
-  
+
   .search-info {
     font-size: 0.8rem;
     padding: 6px 12px;
@@ -203,17 +196,17 @@
     font-size: 0.9rem;
     padding: 14px 40px 14px 44px;
   }
-  
+
   .search-icon {
     left: 14px;
     font-size: 16px !important;
   }
-  
+
   .search-clear-btn {
     width: 26px;
     height: 26px;
   }
-  
+
   .search-clear-btn svg {
     font-size: 14px !important;
   }
@@ -222,6 +215,10 @@
 /* Dark mode enhancements */
 @media (prefers-color-scheme: dark) {
   .search-input-wrapper {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.03) 100%
+    );
   }
-} 
+}
