@@ -24,14 +24,15 @@ class Intro extends React.Component {
   render() {
     return (
       <div id='intro' style={{ paddingTop: 10 }}>
-        <RoboticArm></RoboticArm>
-        <TypeAnimation
+        {/* <RoboticArm></RoboticArm> */}
+        {/* <TypeAnimation
           sequence={['hi, Mustafa here.']}
           wrapper='span'
           speed={50}
           className='intro-title'
           cursor={false}
-        />
+        /> */}
+        <h1 className='intro-title'>hi, Mustafa here.</h1>
         <FadeInSection>
           <div className='intro-subtitle'>I build apps.</div>
           <div className='intro-desc'>
