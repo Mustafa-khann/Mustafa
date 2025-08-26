@@ -1044,4 +1044,183 @@ export const posts = [
         <p>The digital paradigm doesn't just need builders. It needs those who <span style="color: #00d1b2">think like it</span>. And right now, that's the programmer—a high signal technical person.</p>
       `,
   },
+  {
+    id: 14,
+    title: 'Beginner\'s Guide to Hardware, Electronics, CAD, and Robotics',
+    date: 'January 15, 2025',
+    content: `
+        <p>So you've decided to dive into the world of hardware? Good choice. Hardware sits at the intersection of <span style="color: #00d1b2">electronics, software, and design</span> — the physical circuits you build, the code you write to control them, and the mechanical parts you design to bring it all together. This blog is your starter kit for entering that space: electronics, embedded systems, CAD design, 3D printing, and eventually robotics.</p>
+
+        <h2>Why Hardware + Robotics?</h2>
+        <p>Every smart device and robot around you is a mix of three worlds:</p>
+        <ol>
+          <li><strong>Electronics</strong> → sensors, modules, and circuits.</li>
+          <li><strong>Software</strong> → embedded code that drives the electronics.</li>
+          <li><strong>Mechanical design</strong> → 3D printed and CAD-designed parts that give form and motion.</li>
+        </ol>
+        <p>If you master all three, you can literally build robots, drones, IoT systems, and custom hardware from scratch.</p>
+
+        <h2>1. Core Development Boards</h2>
+        <p>Start here to bridge code and electronics:</p>
+        <ul>
+          <li><strong>Arduino Uno/Nano</strong> – Beginner-friendly, easy to program</li>
+          <li><strong>ESP32/ESP8266</strong> – WiFi + Bluetooth built in, great for IoT</li>
+          <li><strong>Raspberry Pi 4/5 or Pico</strong> – Linux computer or microcontroller</li>
+          <li><strong>STM32 Blue Pill (optional)</strong> – Pro-level microcontrollers</li>
+        </ul>
+
+        <h2>2. Essential Tools</h2>
+        <p>Your survival gear for building electronics:</p>
+        <ul>
+          <li><strong>Soldering iron + solder + flux</strong></li>
+          <li><strong>Multimeter</strong> – Measure voltage, current, resistance</li>
+          <li><strong>Breadboard + jumper wires</strong></li>
+          <li><strong>Wire stripper + toolkit</strong></li>
+          <li><strong>USB to TTL programmer</strong></li>
+          <li><strong>Adjustable power supply</strong></li>
+        </ul>
+
+        <h2>3. Basic Components</h2>
+        <p>The raw ingredients of electronics:</p>
+        <ul>
+          <li><strong>Resistors</strong></li>
+          <li><strong>Capacitors</strong></li>
+          <li><strong>LEDs</strong></li>
+          <li><strong>Transistors</strong></li>
+          <li><strong>Diodes</strong></li>
+          <li><strong>Switches + potentiometers</strong></li>
+        </ul>
+        <p>Or grab an <strong>electronics starter kit</strong> with everything bundled.</p>
+
+        <h2>4. Modules & Sensors</h2>
+        <p>Make your projects interactive and robotic:</p>
+        <ul>
+          <li><strong>Ultrasonic sensor (HC-SR04)</strong> – Distance measurement</li>
+          <li><strong>Temperature/humidity sensors (DHT11, DHT22, DS18B20)</strong></li>
+          <li><strong>Accelerometer/gyro (MPU6050)</strong> – Motion + robotics</li>
+          <li><strong>Relay modules</strong> – Control AC appliances</li>
+          <li><strong>Displays (OLED or LCD)</strong></li>
+          <li><strong>Motor drivers (L298N, DRV8825) + DC motors/servos/stepper motors</strong></li>
+        </ul>
+
+        <h2>5. CAD Design for Robotics</h2>
+        <p>Robotics isn't just electronics — you need mechanical design:</p>
+        <ul>
+          <li><strong>Fusion 360</strong> (free for hobbyists) → Industry-standard CAD.</li>
+          <li><strong>SolidWorks</strong> (student version available) → Professional CAD.</li>
+          <li><strong>FreeCAD</strong> → Open-source option.</li>
+        </ul>
+        <p>Use CAD to design brackets, gears, chassis, and full robotic arms.</p>
+
+        <h2>6. 3D Printing</h2>
+        <p>Pair CAD with 3D printing to bring your designs to life:</p>
+        <ul>
+          <li><strong>Entry-level printer: Creality Ender 3</strong></li>
+          <li><strong>Mid-tier: Prusa MK4</strong></li>
+          <li><strong>Filaments: PLA (easy), PETG (stronger), ABS (tough but harder)</strong></li>
+        </ul>
+        <p>With 3D printing, you can build custom enclosures, mounts, or entire robot frames.</p>
+
+        <h2>7. Software Side of Hardware</h2>
+        <p>Write the brains that drive your circuits:</p>
+        <ul>
+          <li><strong>Arduino IDE</strong> – Beginner-friendly [free]</li>
+          <li><strong>PlatformIO</strong> – Pro workflow [free]</li>
+          <li><strong>KiCad/EasyEDA</strong> – For PCB design [free]</li>
+          <li><strong>ROS2 (Robot Operating System)</strong> – For robotics software when you're ready [free]</li>
+        </ul>
+
+        <h2>8. Optional but Powerful Tools</h2>
+        <ul>
+          <li><strong>Oscilloscope</strong> – See real signals</li>
+          <li><strong>Hot air rework station</strong> – SMD soldering</li>
+          <li><strong>CNC machine</strong> – For custom parts</li>
+        </ul>
+
+        <div style="text-align: center; margin: 2rem 0; padding: 2rem; background: rgba(0, 209, 178, 0.1); border-radius: 8px; border: 1px solid rgba(0, 209, 178, 0.3);">
+          <h3 style="color: #00d1b2; margin-bottom: 1rem;">Ready to Get Started?</h3>
+          <p style="margin-bottom: 1.5rem;">I've curated a comprehensive list of the best tools, components, and resources to help you begin your hardware journey.</p>
+          <button id="gearModalBtn" style="background: #00d1b2; color: white; border: none; padding: 12px 24px; border-radius: 6px; font-size: 1rem; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='#00b8a9'" onmouseout="this.style.background='#00d1b2'">
+            📦 View Recommended Gear List
+          </button>
+        </div>
+
+        <h2>How to Start in Robotics</h2>
+        <p>Don't just buy parts and stall. Follow a progression:</p>
+        <ol>
+          <li>Blink LEDs → Sensors → Motors.</li>
+          <li>Combine electronics with simple CAD parts (e.g., design + 3D print a motor mount).</li>
+          <li>Build your first robot: a line-follower or obstacle-avoiding bot.</li>
+          <li>Scale up to IoT systems, robotic arms, or drones.</li>
+        </ol>
+
+        <h2>Final Words</h2>
+        <p>Robotics is the <span style="color: #00d1b2">full-stack of hardware</span>: electronics, software, and mechanical design. You'll burn out a board, break a gear, or misprint a 3D part — and that's normal. But once you stick with it, you'll gain the ability to create <em>real machines</em> that move, sense, and interact with the world.</p>
+      `,
+    gear: {
+      collections: [
+        {
+          title: 'Core Boards',
+          items: [
+            { title: 'Arduino Uno R4', link: 'https://amzn.to/47LlAle', emoji: '🧠' },
+            { title: 'ESP32 DevKit', link: 'https://amzn.to/4lOyTVw', emoji: '📶' },
+            { title: 'Raspberry Pi 5 Kit', link: 'https://amzn.to/4p0pHAn', emoji: '🍓' },
+            { title: 'STM32 Blue Pill', link: 'https://amzn.to/47eAikI', emoji: '💊' },
+          ],
+        },
+        {
+          title: 'Electronics Essentials',
+          items: [
+            { title: 'Digital Multimeter', link: 'https://amzn.to/41Y8nSv', emoji: '🔌' },
+            { title: 'Soldering Station', link: 'https://amzn.to/3Jz5Ub2', emoji: '🔥' },
+            { title: 'Adjustable Power Supply', link: 'https://amzn.to/3HGDgUK', emoji: '⚡' },
+            { title: 'Breadboard + Jumper Kit', link: 'https://amzn.to/3Jz7B8o', emoji: '🧩' },
+            { title: 'Wire Stripper Toolkit', link: 'https://amzn.to/4lE6v8p', emoji: '✂️' },
+          ],
+        },
+        {
+          title: 'Component Kits',
+          items: [
+            { title: 'Resistor Kit', link: 'https://amzn.to/4mzoUor', emoji: '📏' },
+            { title: 'Capacitor Kit', link: 'https://amzn.to/3JyG1rC', emoji: '💡' },
+            { title: 'LED Assortment Kit', link: 'https://amzn.to/3V6iuB7', emoji: '✨' },
+            { title: 'Transistor Kit', link: 'https://amzn.to/4fQnqmY', emoji: '🔀' },
+            { title: 'Diode Kit', link: 'https://amzn.to/3JAJkyu', emoji: '➡️' },
+            { title: 'Full Starter Kit (Elegoo Uno R3)', link: 'https://amzn.to/4mCbrfw', emoji: '🎁' },
+          ],
+        },
+        {
+          title: 'Robotics & Motion',
+          items: [
+            { title: 'HC-SR04 Ultrasonic Sensor', link: 'https://amzn.to/4lJDS9S', emoji: '📡' },
+            { title: 'DHT22 Temp/Humidity Sensor', link: 'https://amzn.to/41ov6ah', emoji: '🌡️' },
+            { title: 'MPU9250 IMU Sensor', link: 'https://amzn.to/3VjSXnS', emoji: '🧭' },
+            { title: 'Relay Module (5V)', link: 'https://amzn.to/47L69JN', emoji: '🔄' },
+            { title: 'L298N Motor Driver', link: 'https://amzn.to/41k4Eyr', emoji: '⚙️' },
+            { title: 'Servo Motor Pack', link: 'https://amzn.to/4mZU9IQ', emoji: '🤖' },
+            { title: 'Stepper Motor + Driver', link: 'https://amzn.to/3HEOxF5', emoji: '🦾' },
+          ],
+        },
+        {
+          title: '3D Printing & CAD',
+          items: [
+            { title: 'Creality Hi Combo Multicolor 3D Printer', link: 'https://amzn.to/45Qiqdz', emoji: '🖨️' },
+            { title: 'Prusa MK4', link: 'https://amzn.to/4oTolHm', emoji: '🏗️' },
+            { title: 'PLA Filament (Hatchbox)', link: 'https://amzn.to/4lOzqXw', emoji: '🧵' },
+            { title: 'PETG Filament (eSun)', link: 'https://amzn.to/468mGX2', emoji: '🧶' },
+            { title: 'Fusion 360 (Free for Hobbyists)', link: 'https://www.autodesk.com/products/fusion-360/personal', emoji: '🎨' },
+            { title: 'FreeCAD (Open Source)', link: 'https://www.freecadweb.org/', emoji: '📐' },
+          ],
+        },
+        {
+          title: 'Pro Tools',
+          items: [
+            { title: 'Hantek DSO2D15 Digital Oscilloscope', link: 'https://amzn.to/4n6RvkR', emoji: '📊' },
+            { title: 'Hot Air Rework Station', link: 'https://amzn.to/4fTRka7', emoji: '🌬️' },
+            { title: 'CNC 3018-PRO Router Kit', link: 'https://amzn.to/466LDSG', emoji: '🛠️' },
+          ],
+        },
+      ],      
+    },
+  },
 ];

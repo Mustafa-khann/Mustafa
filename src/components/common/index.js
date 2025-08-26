@@ -6,3 +6,4 @@ export { default as LoadingSpinner } from './LoadingSpinner';
 export { default as ErrorBoundary } from './ErrorBoundary';
 export { default as FadeInSection } from './FadeInSection';
 export { default as ScrollToTop } from './ScrollToTop';
+export { default as GearModal } from './GearModal';
