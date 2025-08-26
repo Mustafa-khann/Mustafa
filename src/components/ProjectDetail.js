@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useData } from '../context/DataContext';
 import LoadingSpinner from './common/LoadingSpinner';
 import '../styles/ProjectDetail.css';
+import { SEO } from './common';
 
 const ProjectDetail = () => {
   const { title } = useParams();
@@ -44,6 +45,13 @@ const ProjectDetail = () => {
 
   return (
     <div className='project-detail-container'>
+      <SEO
+        title={project.title}
+        description={project.abstract || project.title}
+        url={`/projects/${encodeURIComponent(decoded)}`}
+        type='article'
+        image={project.image}
+      />
       <div className='project-header'>
         <Link to='/projects' className='back-button'>
           <span className='back-arrow'>←</span>

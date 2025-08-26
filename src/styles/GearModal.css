@@ -79,6 +79,14 @@
   padding: 20px;
 }
 
+.gear-disclosure {
+  padding: 10px 20px;
+  background: rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  color: var(--slate);
+  font-size: 0.95rem;
+}
+
 .gear-collection { 
   margin-bottom: 28px; 
 }

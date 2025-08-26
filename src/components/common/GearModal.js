@@ -98,6 +98,12 @@ const GearModal = ({ isOpen, onClose, title = 'Recommended Gear', collections = 
           </button>
         </div>
 
+        <div className="gear-disclosure" role="note" aria-live="polite">
+          <span>
+            Disclosure: Some links may be affiliate links. If you purchase through them, I may earn a small commission at no extra cost to you.
+          </span>
+        </div>
+
         <div className="gear-modal-content">
           {collections.map((collection) => (
             <div key={collection.id || collection.title} className="gear-collection">
@@ -112,7 +118,7 @@ const GearModal = ({ isOpen, onClose, title = 'Recommended Gear', collections = 
                     className="gear-card"
                     href={item.link}
                     target="_blank"
-                    rel="noopener noreferrer nofollow"
+                    rel="noopener noreferrer nofollow sponsored"
                   >
                     <div className="gear-card-top">
                       <div className="gear-card-icon" aria-hidden>

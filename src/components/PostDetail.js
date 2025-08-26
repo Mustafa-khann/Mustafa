@@ -5,7 +5,7 @@ import LoadingSpinner from './common/LoadingSpinner';
 import { formatDate, cleanHtmlContent, calculateReadingTime, getWordCount } from '../utils/contentUtils';
 import '../styles/Posts.css';
 import '../styles/PostDetail.css';
-import { GearModal } from './common';
+import { GearModal, SEO } from './common';
 
 const PostDetail = () => {
   const { title } = useParams();
@@ -94,6 +94,7 @@ const PostDetail = () => {
   const wordCount = getWordCount(post.content);
   const formattedDate = formatDate(post.date);
   const cleanedContent = cleanHtmlContent(post.content);
+  const excerpt = cleanedContent.replace(/<[^>]*>/g, '').slice(0, 200);
 
   const onCopyLink = async () => {
     try {
@@ -123,37 +124,19 @@ const PostDetail = () => {
 
 
   // Example dataset; can be replaced per-post by adding a `gear` field to post data
-  const fallbackGear = [
-    {
-      title: 'Core Boards',
-      items: [
-        { title: 'Arduino Uno R3', link: 'https://amzn.to/3JvcvmN', emoji: '🧠' },
-        { title: 'ESP32 DevKit', link: 'https://amzn.to/4fTPhCE', emoji: '📶' },
-        { title: 'Raspberry Pi 5', link: 'https://amzn.to/4fR7DUV', emoji: '🍓' },
-      ],
-    },
-    {
-      title: 'Electronics Essentials',
-      items: [
-        { title: 'Multimeter', link: 'https://amzn.to/4lLk4mD', emoji: '🔌' },
-        { title: 'Soldering Station', link: 'https://amzn.to/3JyUjZl', emoji: '🔥' },
-        { title: 'Adjustable Power Supply', link: 'https://amzn.to/4mZIABy', emoji: '⚡' },
-      ],
-    },
-    {
-      title: 'Robotics & Motion',
-      items: [
-        { title: 'Servo Pack', link: 'https://amzn.to/463BYMN', emoji: '🤖' },
-        { title: 'Stepper + Driver', link: 'https://amzn.to/45xVwZA', emoji: '🦾' },
-        { title: 'MPU9250 IMU', link: 'https://amzn.to/4fXasE4', emoji: '🧭' },
-      ],
-    },
-  ];
+  const fallbackGear = [];
 
   const gearCollections = post.gear?.collections || fallbackGear;
 
   return (
     <div className='post-detail-container'>
+      <SEO
+        title={post.title}
+        description={excerpt}
+        url={`/posts/${encodeURIComponent(decoded)}`}
+        type='article'
+        publishedTime={post.date}
+      />
       <div className='reading-progress'>
         <div className='reading-progress-bar' style={{ width: `${progress}%` }}></div>
       </div>

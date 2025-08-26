@@ -7,3 +7,4 @@ export { default as ErrorBoundary } from './ErrorBoundary';
 export { default as FadeInSection } from './FadeInSection';
 export { default as ScrollToTop } from './ScrollToTop';
 export { default as GearModal } from './GearModal';
+export { default as SEO } from './seo/SEO';

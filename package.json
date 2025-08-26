@@ -13,6 +13,7 @@
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.4",
     "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
     "react-p5-wrapper": "^3.4.0",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^5.2.0",
@@ -25,7 +26,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && npx react-snap --inline-css --inline-scripts",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
@@ -44,7 +45,24 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^3.1.0"
+    "gh-pages": "^3.1.0",
+    "react-snap": "^1.23.0"
+  },
+  "reactSnap": {
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ],
+    "inlineCss": true,
+    "inlineScripts": true,
+    "skipThirdPartyRequests": true,
+    "crawl": true,
+    "include": [
+      "/posts",
+      "/ideas",
+      "/projects"
+    ],
+    "timeout": 60000
   },
   "homepage": "https://mustafakhan.xyz",
   "description": "<p align=\"center\">   <img src=\"https://img.icons8.com/color/48/000000/magritte.png\"/> </p> <h1 align=\"center\">   mustafakhan.xyz - v1 </h1> <p align=\"center\">   The first iteration of <a href=\"https://mustafakhan.xyz\" target=\"_blank\">mustafakhan.xyz</a> built with React.js leveraging Material UI. </p> <p align=\"center\">   Design inspired by <a href=\"https://www.gazijarin.com/\" target=\"_blank\">Gazi Jarin</a>. </p>",
