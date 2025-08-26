@@ -153,7 +153,7 @@ const PostDetail = () => {
           <span className='chip'>📝 {wordCount.toLocaleString()} words</span>
         </div>
         <div className='post-actions'>
-          <button className='action-btn' onClick={() => setIsGearOpen(true)}>📦 Recommended Gear</button>
+          <button className='action-btn gear-btn' onClick={() => setIsGearOpen(true)}>📦 Recommended Gear</button>
         </div>
       </div>
       <div
