@@ -9,6 +9,7 @@ const IdeasPage = lazy(() => import('../pages/IdeasPage'));
 const IdeaDetail = lazy(() => import('../components/IdeaDetail'));
 const ProjectsPage = lazy(() => import('../pages/ProjectsPage'));
 const ProjectDetail = lazy(() => import('../components/ProjectDetail'));
+const DisclosurePage = lazy(() => import('../pages/DisclosurePage'));
 
 // Route configuration
 export const routes = [
@@ -56,6 +57,12 @@ export const routes = [
     path: '/projects/:title',
     component: ProjectDetail,
     title: 'Project Detail',
+  },
+  {
+    path: '/disclosure',
+    exact: true,
+    component: DisclosurePage,
+    title: 'Affiliate Disclosure',
   },
 ];
 

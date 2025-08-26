@@ -154,8 +154,6 @@ const PostDetail = () => {
         </div>
         <div className='post-actions'>
           <button className='action-btn' onClick={() => setIsGearOpen(true)}>📦 Recommended Gear</button>
-          <button className='action-btn' onClick={onCopyLink}>🔗 Copy Link</button>
-          <button className='action-btn' onClick={onShareTwitter}>🐦 Share</button>
         </div>
       </div>
       <div

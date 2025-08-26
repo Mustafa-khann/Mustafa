@@ -87,6 +87,30 @@
   font-size: 0.95rem;
 }
 
+.gear-disclosure-toggle {
+  margin-left: 10px;
+  background: transparent;
+  color: var(--green-bright);
+  border: 1px solid rgba(100,255,218,0.4);
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.gear-disclosure-toggle:hover {
+  background: rgba(100,255,218,0.12);
+}
+
+.gear-disclosure-more {
+  margin-top: 8px;
+  color: var(--lightest-slate);
+}
+
+.gear-disclosure-link {
+  color: var(--green-bright);
+  text-decoration: underline;
+}
+
 .gear-collection { 
   margin-bottom: 28px; 
 }

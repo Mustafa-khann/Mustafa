@@ -6,6 +6,7 @@ const GearModal = ({ isOpen, onClose, title = 'Recommended Gear', collections = 
   const modalRef = useRef(null);
   const closeBtnRef = useRef(null);
   const previouslyFocusedElementRef = useRef(null);
+  const [showDisclosure, setShowDisclosure] = React.useState(false);
 
   useEffect(() => {
     const handleEsc = (e) => {
@@ -102,6 +103,22 @@ const GearModal = ({ isOpen, onClose, title = 'Recommended Gear', collections = 
           <span>
             Disclosure: Some links may be affiliate links. If you purchase through them, I may earn a small commission at no extra cost to you.
           </span>
+          <button
+            type="button"
+            className="gear-disclosure-toggle"
+            aria-expanded={showDisclosure}
+            onClick={() => setShowDisclosure(v => !v)}
+          >
+            {showDisclosure ? 'Hide' : 'Details'}
+          </button>
+          {showDisclosure && (
+            <div className="gear-disclosure-more">
+              <p>
+                I only recommend tools I genuinely use or believe will add value. Purchases made via these links help support my work at no additional cost to you. 
+                <a href="/disclosure" className="gear-disclosure-link">Learn more</a>.
+              </p>
+            </div>
+          )}
         </div>
 
         <div className="gear-modal-content">
