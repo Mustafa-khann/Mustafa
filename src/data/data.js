@@ -1204,8 +1204,8 @@ export const posts = [
         {
           title: '3D Printing & CAD',
           items: [
-            { title: 'Creality Hi Combo Multicolor 3D Printer', link: 'https://amzn.to/45Qiqdz', emoji: '🖨️' },
-            { title: 'Prusa MK4', link: 'https://amzn.to/4oTolHm', emoji: '🏗️' },
+            { title: 'Bambu Lab A1 Mini', link: 'https://amzn.to/3HYWmFF', emoji: '🖨️' },
+            { title: 'Bambu Lab A1 Full Size', link: 'https://amzn.to/46avZFY', emoji: '🏗️' },
             { title: 'PLA Filament (Hatchbox)', link: 'https://amzn.to/4lOzqXw', emoji: '🧵' },
             { title: 'PETG Filament (eSun)', link: 'https://amzn.to/468mGX2', emoji: '🧶' },
             { title: 'Fusion 360 (Free for Hobbyists)', link: 'https://www.autodesk.com/products/fusion-360/personal', emoji: '🎨' },
