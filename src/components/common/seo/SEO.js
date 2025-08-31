@@ -11,12 +11,13 @@ const absoluteUrl = (pathOrUrl) => {
   return `${base}${path}`;
 };
 
-const SEO = ({
-  title,
-  description,
-  url,
-  image,
-  type = 'article',
+const SEO = ({ 
+  title, 
+  description, 
+  image, 
+  url, 
+  type = 'website',
+  author = 'Mustafa Khan',
   publishedTime,
   modifiedTime,
   tags = [],
@@ -47,17 +48,18 @@ const SEO = ({
 
   return (
     <Helmet>
-      <title>{metaTitle}</title>
-      <meta name="description" content={metaDescription} />
-      <link rel="canonical" href={canonicalUrl} />
-
-      {/* Open Graph */}
+      {/* Basic Meta Tags */}
+      <title>{fullTitle}</title>
+      <meta name="description" content={description} />
+      <meta name="author" content={author} />
+      
+      {/* OpenGraph Meta Tags */}
       <meta property="og:type" content={type} />
-      <meta property="og:title" content={metaTitle} />
-      <meta property="og:description" content={metaDescription} />
-      <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:site_name" content={APP_CONFIG.NAME} />
-      <meta property="og:image" content={imageUrl} />
+      <meta property="og:title" content={fullTitle} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content={fullUrl} />
+      <meta property="og:site_name" content={siteName} />
+      <meta property="og:image" content={fullImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content={contentItem?.title || metaTitle} />
