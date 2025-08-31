@@ -255,30 +255,8 @@
   transform: translateY(-2px);
 }
 
-/* Enhanced Responsive Design */
-@media (max-width: 1200px) {
-  #about {
-    padding: 5rem 2rem;
-  }
-  
-  .about-content {
-    gap: 3.5rem;
-  }
-  
-  .about-heading {
-    font-size: 2.3rem;
-  }
-  
-  .section-title {
-    font-size: 2.3rem;
-  }
-}
-
+/* Responsive Design */
 @media (max-width: 1024px) {
-  #about {
-    padding: 4.5rem 1.5rem;
-  }
-  
   .about-content {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -289,15 +267,7 @@
   }
   
   .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  }
-  
-  .about-heading {
-    font-size: 2.2rem;
-  }
-  
-  .section-title {
-    font-size: 2.2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 }
 
@@ -316,24 +286,14 @@
   
   .about-paragraph {
     font-size: 1rem;
-    line-height: 1.6;
   }
   
   .skills-grid {
     grid-template-columns: 1fr;
-    gap: 1.25rem;
   }
   
   .skill-card {
     padding: 1.5rem;
-  }
-  
-  .skill-title {
-    font-size: 1.2rem;
-  }
-  
-  .skill-description {
-    font-size: 0.9rem;
   }
   
   .profile-card {
@@ -356,32 +316,15 @@
     padding: 0.4rem 0.8rem;
     font-size: 0.8rem;
   }
-  
-  .tech-stack-title {
-    font-size: 1.3rem;
-  }
 }
 
 @media (max-width: 480px) {
-  #about {
-    padding: 3rem 0.75rem;
-  }
-  
   .about-heading {
     font-size: 1.75rem;
-    line-height: 1.2;
   }
   
   .section-title {
     font-size: 1.75rem;
-  }
-  
-  .about-paragraph {
-    font-size: 0.95rem;
-  }
-  
-  .skill-card {
-    padding: 1.25rem;
   }
   
   .skill-icon {
@@ -393,127 +336,8 @@
     font-size: 1.5rem;
   }
   
-  .skill-title {
-    font-size: 1.1rem;
-  }
-  
-  .skill-description {
-    font-size: 0.85rem;
-  }
-  
-  .profile-card {
-    padding: 1.25rem;
-  }
-  
   .profile-image {
     height: 280px;
-  }
-  
-  .tech-stack-title {
-    font-size: 1.2rem;
-  }
-  
-  .tech-category {
-    padding: 0.875rem;
-  }
-  
-  .tech-item {
-    padding: 0.375rem 0.75rem;
-    font-size: 0.75rem;
-  }
-}
-
-@media (max-width: 375px) {
-  #about {
-    padding: 2.5rem 0.5rem;
-  }
-  
-  .about-heading {
-    font-size: 1.6rem;
-  }
-  
-  .section-title {
-    font-size: 1.6rem;
-  }
-  
-  .about-paragraph {
-    font-size: 0.9rem;
-  }
-  
-  .skill-card {
-    padding: 1rem;
-  }
-  
-  .skill-icon {
-    width: 45px;
-    height: 45px;
-  }
-  
-  .skill-icon svg {
-    font-size: 1.3rem;
-  }
-  
-  .profile-image {
-    height: 250px;
-  }
-  
-  .tech-item {
-    padding: 0.25rem 0.625rem;
-    font-size: 0.7rem;
-  }
-}
-
-/* Tablet Landscape */
-@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
-  #about {
-    padding: 3rem 1.5rem;
-  }
-  
-  .about-heading {
-    font-size: 2rem;
-  }
-  
-  .section-title {
-    font-size: 2rem;
-  }
-  
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Touch Device Optimizations */
-@media (hover: none) and (pointer: coarse) {
-  .skill-card:hover {
-    transform: none;
-  }
-  
-  .skill-card:active {
-    transform: scale(0.98);
-  }
-  
-  .tech-item:hover {
-    transform: none;
-  }
-  
-  .tech-item:active {
-    transform: scale(0.95);
-  }
-  
-  .profile-image-container:hover .profile-image {
-    transform: none;
-  }
-  
-  .profile-image-container:active .profile-image {
-    transform: scale(1.02);
-  }
-}
-
-/* High DPI Displays */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .profile-image {
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
   }
 }
 

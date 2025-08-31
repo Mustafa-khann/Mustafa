@@ -159,30 +159,6 @@
   }
 }
 
-/* Enhanced Responsive Design */
-@media (max-width: 1024px) {
-  .search-container {
-    max-width: 500px;
-    margin: 1.75rem 0;
-  }
-  
-  .search-input {
-    padding: 16px 48px 16px 50px;
-    font-size: 16px; /* Prevents zoom on iOS */
-  }
-  
-  .search-icon {
-    left: 16px;
-    font-size: 18px !important;
-  }
-  
-  .search-clear-btn {
-    right: 12px;
-    width: 30px;
-    height: 30px;
-  }
-}
-
 @media (max-width: 768px) {
   .search-container {
     max-width: 100%;
@@ -190,12 +166,12 @@
   }
 
   .search-input {
-    font-size: 16px; /* Prevents zoom on iOS */
-    padding: 14px 44px 14px 46px;
+    font-size: 0.95rem;
+    padding: 16px 44px 16px 48px;
   }
 
   .search-icon {
-    left: 14px;
+    left: 16px;
     font-size: 18px !important;
   }
 
@@ -203,7 +179,6 @@
     right: 10px;
     width: 28px;
     height: 28px;
-    min-height: 44px; /* Touch target */
   }
 
   .search-clear-btn svg {
@@ -217,94 +192,23 @@
 }
 
 @media (max-width: 480px) {
-  .search-container {
-    margin: 1.25rem 0;
-  }
-  
   .search-input {
-    font-size: 16px; /* Prevents zoom on iOS */
-    padding: 12px 40px 12px 42px;
+    font-size: 0.9rem;
+    padding: 14px 40px 14px 44px;
   }
 
   .search-icon {
-    left: 12px;
+    left: 14px;
     font-size: 16px !important;
   }
 
   .search-clear-btn {
-    right: 8px;
     width: 26px;
     height: 26px;
-    min-height: 44px; /* Touch target */
   }
 
   .search-clear-btn svg {
     font-size: 14px !important;
-  }
-  
-  .search-info {
-    font-size: 0.75rem;
-    padding: 4px 8px;
-  }
-}
-
-@media (max-width: 375px) {
-  .search-input {
-    padding: 10px 36px 10px 38px;
-  }
-  
-  .search-icon {
-    left: 10px;
-    font-size: 15px !important;
-  }
-  
-  .search-clear-btn {
-    right: 6px;
-    width: 24px;
-    height: 24px;
-  }
-  
-  .search-clear-btn svg {
-    font-size: 13px !important;
-  }
-}
-
-/* Touch Device Optimizations */
-@media (hover: none) and (pointer: coarse) {
-  .search-input-wrapper:hover {
-    transform: none;
-  }
-  
-  .search-input-wrapper:focus-within {
-    transform: none;
-  }
-  
-  .search-clear-btn:hover {
-    transform: none;
-  }
-  
-  .search-clear-btn:active {
-    transform: scale(0.9);
-    background: rgba(100, 255, 218, 0.3);
-  }
-  
-  .search-clear-btn:hover svg {
-    transform: none;
-  }
-  
-  .search-clear-btn:active svg {
-    transform: scale(0.9);
-  }
-}
-
-/* Landscape Mobile */
-@media (max-width: 768px) and (orientation: landscape) {
-  .search-container {
-    margin: 1rem 0;
-  }
-  
-  .search-input {
-    padding: 10px 40px 10px 42px;
   }
 }
 

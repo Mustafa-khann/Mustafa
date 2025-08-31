@@ -346,38 +346,15 @@
   }
 }
 
-/* Enhanced Responsive Design */
-@media (max-width: 1200px) {
-  .projects-container {
-    padding: 100px 24px 40px;
-  }
-  
-  .projects-grid {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 24px;
-  }
-  
-  .section-title {
-    font-size: 3.2rem;
-  }
-  
-  .projects-intro {
-    font-size: 1.2rem;
-  }
-}
-
+/* Responsive adjustments */
 @media (max-width: 1024px) {
-  .projects-container {
-    padding: 90px 20px 40px;
-  }
-  
   .projects-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 20px;
   }
 
   .section-title {
-    font-size: 2.8rem;
+    font-size: 3rem;
   }
   
   .project-card-content {
@@ -391,15 +368,11 @@
   .project-title {
     font-size: 1.2rem;
   }
-  
-  .search-container {
-    max-width: 500px;
-  }
 }
 
 @media (max-width: 768px) {
   .projects-container {
-    padding: 80px 16px 30px;
+    padding: 100px 15px 30px;
   }
 
   .projects-grid {
@@ -408,22 +381,21 @@
   }
 
   .section-header {
-    padding-bottom: 30px;
+    padding-bottom: 40px;
   }
 
   .section-header::after {
-    width: 120px;
-    margin-left: 15px;
+    width: 150px;
+    margin-left: 20px;
   }
 
   .section-title {
-    font-size: 2.4rem;
+    font-size: 2.5rem;
   }
 
   .projects-intro {
     font-size: 1.1rem;
-    margin-bottom: 25px;
-    line-height: 1.5;
+    margin-bottom: 30px;
   }
 
   .project-card-layout {
@@ -431,7 +403,7 @@
   }
   
   .project-card-image-section {
-    flex: 0 0 180px;
+    flex: 0 0 160px;
   }
   
   .project-card-content {
@@ -444,7 +416,7 @@
   
   .project-card-footer {
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     align-items: flex-start;
   }
   
@@ -452,36 +424,11 @@
     align-self: flex-end;
     margin-left: 0;
   }
-  
-  .search-container {
-    max-width: 100%;
-    margin: 20px 0;
-  }
-  
-  .search-input {
-    padding: 14px 45px 14px 16px;
-    font-size: 16px; /* Prevents zoom on iOS */
-  }
-  
-  .search-clear-btn {
-    right: 12px;
-    width: 28px;
-    height: 28px;
-  }
 }
 
 @media (max-width: 480px) {
-  .projects-container {
-    padding: 70px 12px 25px;
-  }
-  
-  .section-header {
-    padding-bottom: 25px;
-  }
-  
   .section-header::after {
-    width: 80px;
-    margin-left: 10px;
+    display: none;
   }
 
   .section-title {
@@ -490,11 +437,10 @@
 
   .projects-intro {
     font-size: 1rem;
-    margin-bottom: 20px;
   }
 
   .project-card-image-section {
-    flex: 0 0 160px;
+    flex: 0 0 140px;
   }
   
   .project-card-content {
@@ -507,77 +453,5 @@
   
   .project-description {
     font-size: 0.85rem;
-    line-height: 1.4;
-  }
-  
-  .project-tech-tags {
-    gap: 4px;
-  }
-  
-  .tech-tag {
-    font-size: 0.65rem;
-    padding: 2px 6px;
-  }
-  
-  .search-input {
-    padding: 12px 40px 12px 14px;
-    font-size: 16px;
-  }
-  
-  .search-clear-btn {
-    right: 10px;
-    width: 24px;
-    height: 24px;
-    font-size: 16px;
-  }
-}
-
-/* Tablet Landscape */
-@media (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
-  .projects-container {
-    padding: 70px 20px 30px;
-  }
-  
-  .section-title {
-    font-size: 2.5rem;
-  }
-  
-  .projects-intro {
-    font-size: 1.1rem;
-  }
-}
-
-/* Touch Device Optimizations */
-@media (hover: none) and (pointer: coarse) {
-  .project-card:hover {
-    transform: none;
-  }
-  
-  .project-card:active {
-    transform: scale(0.98);
-  }
-  
-  .tech-tag:hover {
-    transform: none;
-  }
-  
-  .tech-tag:active {
-    transform: scale(0.95);
-  }
-  
-  .search-clear-btn:hover {
-    transform: none;
-  }
-  
-  .search-clear-btn:active {
-    transform: scale(0.9);
-  }
-}
-
-/* High DPI Displays */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .project-card-image img {
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
   }
 }
