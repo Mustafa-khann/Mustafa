@@ -1049,83 +1049,146 @@ export const posts = [
     title: 'Beginner\'s Guide to Hardware, Electronics, CAD, and Robotics',
     date: 'August 28, 2025',
     content: `
-      🚀 <strong>So You Want to Build Hardware?</strong><br><br>
-      Good choice. Software alone is fun, but hardware is where things get real. It’s the moment when lines of code turn into blinking LEDs, buzzing motors, and actual machines that move in the physical world.<br><br>
-      Hardware lives at the intersection of three domains:<br><br>
-      <strong>Electronics</strong> → sensors, modules, circuits.<br>
-      <strong>Software</strong> → the embedded code that gives life to those circuits.<br>
-      <strong>Mechanical design</strong> → CAD and 3D-printed parts that give your system a body.<br><br>
-      Master those three, and you can build drones, robots, IoT devices, or even design your own products from scratch.<br><br>
-      This guide is your roadmap to starting that journey.<br><br>
+      <div style="font-family: 'NTR', sans-serif; color: var(--lightest-slate); line-height: 1.7; font-size: 1.05rem;">
+        <div style="text-align:center; margin-bottom: 2.2em;">
+          <span style="font-size:2.2rem; display:inline-block; margin-bottom:0.2em;">🚀</span><br>
+          <span style="font-size:1.5rem; font-weight:700; color:var(--green-bright); letter-spacing:0.5px;">So You Want to Build Hardware?</span>
+        </div>
+        <div style="max-width: 700px; margin: 0 auto;">
+          <p style="margin-bottom:1.2em;">
+            <span style="color:var(--green-bright); font-weight:600;">Good choice.</span> Software is fun, but hardware is where things get real. It’s the moment when lines of code turn into blinking LEDs, buzzing motors, and actual machines that move in the physical world.
+          </p>
+          <div style="background:rgba(100,255,218,0.07); border-radius:12px; padding:1.2em 1.5em; margin-bottom:1.5em;">
+            <div style="font-weight:600; color:var(--green-bright); margin-bottom:0.5em;">Hardware lives at the intersection of:</div>
+            <ul style="list-style:none; padding-left:0; margin:0;">
+              <li><span style="color:#00d1b2; font-weight:600;">Electronics</span> <span style="color:var(--slate);">– sensors, modules, circuits</span></li>
+              <li><span style="color:#00d1b2; font-weight:600;">Software</span> <span style="color:var(--slate);">– embedded code that gives life</span></li>
+              <li><span style="color:#00d1b2; font-weight:600;">Mechanical Design</span> <span style="color:var(--slate);">– CAD & 3D-printed parts</span></li>
+            </ul>
+          </div>
+          <p style="margin-bottom:1.5em;">
+            Master these three, and you can build drones, robots, IoT devices, or design your own products from scratch.<br>
+            <span style="color:var(--green-bright); font-weight:500;">This guide is your roadmap to starting that journey.</span>
+          </p>
 
-      <strong>1. Core Development Boards (Your Brain Chips)</strong><br><br>
-      Start with the boards that bridge code → reality:<br><br>
-      <strong>Arduino Uno/Nano</strong> – Your first board. Beginner-friendly, massive community, endless tutorials.<br>
-      <strong>ESP32/ESP8266</strong> – Built-in WiFi + Bluetooth. Perfect for IoT projects like smart home gadgets.<br>
-      <strong>Raspberry Pi 4/5 or Pico</strong> – Either a full Linux computer or a microcontroller. Use Pi if you need a camera, AI, or more horsepower.<br>
-      <strong>STM32 Blue Pill (optional)</strong> – A pro-level step up. More power, but a steeper learning curve.<br><br>
-      👉 <em>Pro tip:</em> Don’t hoard boards. Pick one (Arduino or ESP32), build something small, and only upgrade when you hit a wall.<br><br>
+          <ol style="padding-left:1.2em; margin-bottom:2em;">
+            <li style="margin-bottom:1.5em;">
+              <div style="font-weight:600; color:var(--green-bright); font-size:1.1rem; margin-bottom:0.3em;">Core Development Boards <span style="color:#ffd700;">🧠</span></div>
+              <ul style="margin:0 0 0.5em 0; padding-left:1.1em;">
+                <li><b>Arduino Uno/Nano</b> – Beginner-friendly, huge community, endless tutorials.</li>
+                <li><b>ESP32/ESP8266</b> – Built-in WiFi + Bluetooth. Perfect for IoT projects.</li>
+                <li><b>Raspberry Pi 4/5 or Pico</b> – Full Linux computer or microcontroller. Use Pi for camera, AI, or more power.</li>
+                <li><b>STM32 Blue Pill</b> (optional) – Pro-level, more power, steeper learning curve.</li>
+              </ul>
+              <div style="color:var(--slate); font-size:0.98em; margin-top:0.2em;">
+                <span style="color:#00d1b2;">💡 Pro tip:</span> Pick one (Arduino or ESP32), build something small, and only upgrade when you hit a wall.
+              </div>
+            </li>
+            <li style="margin-bottom:1.5em;">
+              <div style="font-weight:600; color:var(--green-bright); font-size:1.1rem; margin-bottom:0.3em;">Essential Tools <span style="color:#ff9800;">🛠️</span></div>
+              <ul style="margin:0 0 0.5em 0; padding-left:1.1em;">
+                <li><b>Soldering iron + flux</b> – You’ll mess up joints at first. Everyone does.</li>
+                <li><b>Multimeter</b> – Don’t guess if it’s working. Measure it.</li>
+                <li><b>Breadboard + jumper wires</b> – Your Lego baseplate for circuits.</li>
+                <li><b>Wire stripper + toolkit</b> – Saves time and frustration.</li>
+                <li><b>Adjustable power supply</b> – Because frying boards with random USB chargers is a rite of passage.</li>
+              </ul>
+            </li>
+            <li style="margin-bottom:1.5em;">
+              <div style="font-weight:600; color:var(--green-bright); font-size:1.1rem; margin-bottom:0.3em;">Basic Components <span style="color:#ffb300;">🔩</span></div>
+              <ul style="margin:0 0 0.5em 0; padding-left:1.1em;">
+                <li>Resistors, capacitors, LEDs, switches, transistors, diodes.</li>
+                <li>No need to memorize color codes—just grab a starter kit.</li>
+              </ul>
+              <div style="color:var(--slate); font-size:0.98em;">
+                <span style="color:#00d1b2;">✨ First project idea:</span> Build a simple night-light circuit with a photoresistor. Learn how sensors, resistors, and LEDs interact.
+              </div>
+            </li>
+            <li style="margin-bottom:1.5em;">
+              <div style="font-weight:600; color:var(--green-bright); font-size:1.1rem; margin-bottom:0.3em;">Modules & Sensors <span style="color:#00bcd4;">🔬</span></div>
+              <ul style="margin:0 0 0.5em 0; padding-left:1.1em;">
+                <li><b>Ultrasonic sensor (HC-SR04)</b> – Teaches distance.</li>
+                <li><b>DHT22 / DS18B20</b> – Temp + humidity sensing.</li>
+                <li><b>MPU6050</b> – Motion/gyro. Great for balancing bots or drones.</li>
+                <li><b>Relay modules</b> – Flip AC appliances on/off.</li>
+                <li><b>Motor drivers (L298N, DRV8825) + motors/servos/steppers</b> – The “muscles” of your robot.</li>
+              </ul>
+              <div style="color:var(--slate); font-size:0.98em;">
+                <span style="color:#00d1b2;">🏁 Milestone project:</span> Build a line-follower robot. It uses sensors, motor drivers, and code all working together.
+              </div>
+            </li>
+            <li style="margin-bottom:1.5em;">
+              <div style="font-weight:600; color:var(--green-bright); font-size:1.1rem; margin-bottom:0.3em;">CAD Design <span style="color:#7e57c2;">📐</span></div>
+              <ul style="margin:0 0 0.5em 0; padding-left:1.1em;">
+                <li><b>Fusion 360</b> – Industry standard, free for hobbyists.</li>
+                <li><b>SolidWorks</b> – Professional (student licenses exist).</li>
+                <li><b>FreeCAD</b> – Open source and surprisingly capable.</li>
+              </ul>
+              <div style="color:var(--slate); font-size:0.98em;">
+                <span style="color:#00d1b2;">💡 Pro tip:</span> Don’t overdesign. Start by modeling a motor mount or a basic chassis before dreaming of Iron Man suits.
+              </div>
+            </li>
+            <li style="margin-bottom:1.5em;">
+              <div style="font-weight:600; color:var(--green-bright); font-size:1.1rem; margin-bottom:0.3em;">3D Printing <span style="color:#ff7043;">🖨️</span></div>
+              <ul style="margin:0 0 0.5em 0; padding-left:1.1em;">
+                <li><b>Entry-level:</b> Creality Ender 3</li>
+                <li><b>Mid-tier:</b> Prusa MK4</li>
+                <li><b>Materials:</b> PLA (easy), PETG (tougher), ABS (durable but finicky)</li>
+              </ul>
+              <div style="color:var(--slate); font-size:0.98em;">
+                <span style="color:#00d1b2;">🏁 Milestone project:</span> Design and print a custom enclosure for your Arduino project. Make it look polished, not hacked together.
+              </div>
+            </li>
+            <li style="margin-bottom:1.5em;">
+              <div style="font-weight:600; color:var(--green-bright); font-size:1.1rem; margin-bottom:0.3em;">Software Side <span style="color:#29b6f6;">💻</span></div>
+              <ul style="margin:0 0 0.5em 0; padding-left:1.1em;">
+                <li>Arduino IDE – Beginner-friendly.</li>
+                <li>PlatformIO – Pro workflow, especially for ESP32.</li>
+                <li>KiCad/EasyEDA – PCB design.</li>
+                <li>ROS2 – When you’re ready for real robotics software.</li>
+              </ul>
+            </li>
+            <li style="margin-bottom:1.5em;">
+              <div style="font-weight:600; color:var(--green-bright); font-size:1.1rem; margin-bottom:0.3em;">Optional but Powerful Tools <span style="color:#ff1744;">⚡</span></div>
+              <ul style="margin:0 0 0.5em 0; padding-left:1.1em;">
+                <li>Oscilloscope – Stop guessing, start seeing signals.</li>
+                <li>Hot air rework station – SMD soldering, board repairs.</li>
+                <li>CNC machine – Custom parts beyond plastic.</li>
+              </ul>
+            </li>
+          </ol>
 
-      <strong>2. Essential Tools (Your Survival Kit)</strong><br><br>
-      These are like the hammer and screwdriver of electronics:<br><br>
-      <strong>Soldering iron + flux</strong> – You’ll mess up joints at first. Everyone does.<br>
-      <strong>Multimeter</strong> – Don’t guess if it’s working. Measure it.<br>
-      <strong>Breadboard + jumper wires</strong> – Your Lego baseplate for circuits.<br>
-      <strong>Wire stripper + toolkit</strong> – Saves time and frustration.<br>
-      <strong>Adjustable power supply</strong> – Because frying boards with random USB chargers is a rite of passage.<br><br>
+          <div style="background:rgba(100,255,218,0.07); border-radius:12px; padding:1.2em 1.5em; margin-bottom:1.5em;">
+            <div style="font-weight:600; color:var(--green-bright); font-size:1.1rem; margin-bottom:0.5em;">
+              🛠️ How to Actually Start (Don’t Just Collect Parts)
+            </div>
+            <p style="margin-bottom:0.7em;">
+              Too many beginners stall by just hoarding sensors. The key is <span style="color:#00d1b2; font-weight:600;">projects, not purchases</span>.
+            </p>
+            <div style="margin-bottom:0.7em;">
+              <span style="font-weight:600; color:var(--green-bright);">Progression path:</span>
+              <ul style="margin:0.5em 0 0 1.1em; padding:0;">
+                <li>Blink LEDs → learn loops, delays, and GPIO</li>
+                <li>Add sensors → make your circuits react to the environment</li>
+                <li>Add motors → motion! Your project comes alive</li>
+                <li>Add CAD + 3D printing → make enclosures, mounts, bodies</li>
+                <li>Build your first bot → a line-follower or obstacle avoider</li>
+                <li>Scale to IoT systems, robotic arms, or drones</li>
+              </ul>
+            </div>
+            <div style="color:var(--slate); font-size:0.98em;">
+              <span style="color:#00d1b2;">✨ Golden rule:</span> Break stuff. You will fry chips, misprint parts, and melt PLA spaghetti. That’s normal. Every broken board is tuition paid in the school of hardware.
+            </div>
+          </div>
 
-      <strong>3. Basic Components (The Raw Ingredients)</strong><br><br>
-      Resistors, capacitors, LEDs, switches, transistors, diodes.<br>
-      You don’t need to memorize resistor color codes right away—just grab a starter kit.<br><br>
-      👉 <em>First project idea:</em> build a simple night-light circuit with a photoresistor. It’ll teach you how sensors, resistors, and LEDs actually interact.<br><br>
-
-      <strong>4. Modules & Sensors (The Magic Add-Ons)</strong><br><br>
-      This is where your projects start feeling alive:<br><br>
-      <strong>Ultrasonic sensor (HC-SR04)</strong> – Teaches distance.<br>
-      <strong>DHT22 / DS18B20</strong> – Temp + humidity sensing.<br>
-      <strong>MPU6050</strong> – Motion/gyro. Perfect for balancing bots or drones.<br>
-      <strong>Relay modules</strong> – Flip AC appliances on/off.<br>
-      <strong>Motor drivers (L298N, DRV8825) + motors/servos/steppers</strong> – The “muscles” of your robot.<br><br>
-      👉 <em>Milestone project:</em> build a line-follower robot. It uses sensors, motor drivers, and code all working together.<br><br>
-
-      <strong>5. CAD Design (Giving Your Robot a Body)</strong><br><br>
-      Electronics without structure are just spaghetti wires. CAD gives your projects a skeleton.<br><br>
-      <strong>Fusion 360</strong> – Industry standard, free for hobbyists.<br>
-      <strong>SolidWorks</strong> – Professional (student licenses exist).<br>
-      <strong>FreeCAD</strong> – Open source and surprisingly capable.<br><br>
-      👉 <em>Pro tip:</em> Don’t overdesign. Start by modeling a motor mount or a basic chassis before dreaming of Iron Man suits.<br><br>
-
-      <strong>6. 3D Printing (Your Replicator Machine)</strong><br><br>
-      Pair CAD with 3D printing and suddenly you’re manufacturing your own parts:<br><br>
-      <strong>Entry-level:</strong> Creality Ender 3.<br>
-      <strong>Mid-tier:</strong> Prusa MK4.<br>
-      <strong>Materials:</strong> PLA (easy), PETG (tougher), ABS (durable but finicky).<br><br>
-      👉 <em>Milestone project:</em> design and print a custom enclosure for your Arduino project. It’s your first step into making projects look polished instead of hacked together.<br><br>
-
-      <strong>7. Software Side (Brains of the Machine)</strong><br><br>
-      Arduino IDE – Beginner-friendly.<br>
-      PlatformIO – Pro workflow, especially for ESP32.<br>
-      KiCad/EasyEDA – PCB design.<br>
-      ROS2 – When you’re ready for real robotics software.<br><br>
-
-      <strong>8. Optional but Powerful Tools (Endgame Gear)</strong><br><br>
-      Oscilloscope → stop guessing, start seeing signals.<br>
-      Hot air rework station → SMD soldering, board repairs.<br>
-      CNC machine → custom parts beyond plastic.<br><br>
-
-      <strong>🛠️ How to Actually Start (Don’t Just Collect Parts)</strong><br><br>
-      Too many beginners stall by just hoarding sensors. The key is projects, not purchases.<br><br>
-      <strong>Progression path:</strong><br>
-      Blink LEDs → learn loops, delays, and GPIO.<br>
-      Add sensors → make your circuits react to the environment.<br>
-      Add motors → motion! Your project comes alive.<br>
-      Add CAD + 3D printing → make enclosures, mounts, bodies.<br>
-      Build your first bot → a line-follower or obstacle avoider.<br>
-      Scale to IoT systems, robotic arms, or drones.<br><br>
-      👉 <em>Golden rule:</em> break stuff. You will fry chips, misprint parts, and melt PLA spaghetti. That’s normal. Every broken board is tuition paid in the school of hardware.<br><br>
-
-      <strong>⚡ Final Words</strong><br><br>
-      Robotics is full-stack engineering: hardware, software, and design. Once you stick with it, you’ll gain a skill few people on the planet have—the power to create real, physical machines that sense and act in the world.
+          <div style="text-align:center; margin-top:2.5em;">
+            <span style="font-size:1.2rem; font-weight:700; color:var(--green-bright);">⚡ Final Words</span>
+            <p style="margin-top:0.7em;">
+              Robotics is <span style="color:#00d1b2; font-weight:600;">full-stack engineering</span>: hardware, software, and design. Stick with it, and you’ll gain a skill few people on the planet have—the power to create real, physical machines that sense and act in the world.
+            </p>
+          </div>
+        </div>
+      </div>
     `,
     gear: {
       collections: [
