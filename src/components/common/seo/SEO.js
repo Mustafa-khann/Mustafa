@@ -1,57 +1,74 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { APP_CONFIG } from '../../../constants';
 
-const absoluteUrl = (pathOrUrl) => {
-  if (!pathOrUrl) return APP_CONFIG.WEBSITE;
-  if (/^https?:\/\//.test(pathOrUrl)) return pathOrUrl;
-  const base = APP_CONFIG.WEBSITE?.replace(/\/$/, '') || '';
-  const path = String(pathOrUrl).startsWith('/') ? pathOrUrl : `/${pathOrUrl}`;
-  return `${base}${path}`;
-};
-
-const SEO = ({
-  title,
-  description,
-  url,
-  image,
-  type = 'article',
+const SEO = ({ 
+  title, 
+  description, 
+  image, 
+  url, 
+  type = 'website',
+  author = 'Mustafa Khan',
   publishedTime,
   modifiedTime,
-  tags = [],
+  section,
+  tags = []
 }) => {
-  const metaTitle = title ? `${title} — ${APP_CONFIG.NAME}` : APP_CONFIG.NAME;
-  const metaDescription = description || APP_CONFIG.DESCRIPTION;
-  const canonicalUrl = absoluteUrl(url || (typeof window !== 'undefined' ? window.location.pathname : '/'));
-  const imageUrl = image ? absoluteUrl(image) : absoluteUrl('/assets/mustafa.jpeg');
-
+  const siteName = 'Mustafa Khan';
+  const siteUrl = 'https://www.mustafakhan.xyz'; // Replace with your actual domain
+  const defaultImage = '/assets/mustafa.jpeg';
+  const twitterHandle = '@mustafakhan'; // Replace with your actual handle
+  
+  const fullTitle = title ? `${title} | ${siteName}` : siteName;
+  const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
+  const fullImage = image ? `${siteUrl}${image}` : `${siteUrl}${defaultImage}`;
+  
   return (
     <Helmet>
-      <title>{metaTitle}</title>
-      <meta name="description" content={metaDescription} />
-      <link rel="canonical" href={canonicalUrl} />
-
-      {/* Open Graph */}
+      {/* Basic Meta Tags */}
+      <title>{fullTitle}</title>
+      <meta name="description" content={description} />
+      <meta name="author" content={author} />
+      
+      {/* OpenGraph Meta Tags */}
       <meta property="og:type" content={type} />
-      <meta property="og:title" content={metaTitle} />
-      <meta property="og:description" content={metaDescription} />
-      <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:site_name" content={APP_CONFIG.NAME} />
-      <meta property="og:image" content={imageUrl} />
+      <meta property="og:title" content={fullTitle} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content={fullUrl} />
+      <meta property="og:site_name" content={siteName} />
+      <meta property="og:image" content={fullImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-
-      {publishedTime && <meta property="article:published_time" content={new Date(publishedTime).toISOString()} />}
-      {modifiedTime && <meta property="article:modified_time" content={new Date(modifiedTime).toISOString()} />}
-      {Array.isArray(tags) && tags.map((t) => (
-        <meta key={t} property="article:tag" content={t} />
-      ))}
-
-      {/* Twitter */}
+      <meta property="og:image:alt" content={description} />
+      <meta property="og:locale" content="en_US" />
+      
+      {/* Article specific meta tags */}
+      {type === 'article' && (
+        <>
+          <meta property="article:author" content={author} />
+          <meta property="article:section" content={section} />
+          {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+          {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+          {tags.map((tag, index) => (
+            <meta key={index} property="article:tag" content={tag} />
+          ))}
+        </>
+      )}
+      
+      {/* Twitter Meta Tags */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={metaTitle} />
-      <meta name="twitter:description" content={metaDescription} />
-      <meta name="twitter:image" content={imageUrl} />
+      <meta name="twitter:site" content={twitterHandle} />
+      <meta name="twitter:creator" content={twitterHandle} />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={fullImage} />
+      <meta name="twitter:image:alt" content={description} />
+      
+      {/* Additional Meta Tags */}
+      <meta name="robots" content="index, follow" />
+      <meta name="googlebot" content="index, follow" />
+      
+      {/* Canonical URL */}
+      <link rel="canonical" href={fullUrl} />
     </Helmet>
   );
 };
