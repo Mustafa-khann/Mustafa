@@ -1046,14 +1046,10 @@ export const posts = [
   },
   {
     id: 14,
-    title: 'Beginner\'s Guide to Hardware, Electronics, CAD, and Robotics',
+    title: 'So You Want to Build Hardware?',
     date: 'August 28, 2025',
     content: `
       <div style="font-family: 'NTR', sans-serif; color: var(--lightest-slate); line-height: 1.7; font-size: 1.05rem;">
-        <div style="text-align:center; margin-bottom: 2.2em;">
-          <span style="font-size:2.2rem; display:inline-block; margin-bottom:0.2em;">🚀</span><br>
-          <span style="font-size:1.5rem; font-weight:700; color:var(--green-bright); letter-spacing:0.5px;">So You Want to Build Hardware?</span>
-        </div>
         <div style="max-width: 1000px; margin: 0 auto;">
           <p style="margin-bottom:1.2em;">
             <span style="color:var(--green-bright); font-weight:600;">Good choice.</span> Software is fun, but hardware is where things get real. It’s the moment when lines of code turn into blinking LEDs, buzzing motors, and actual machines that move in the physical world.
