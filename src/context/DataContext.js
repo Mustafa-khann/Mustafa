@@ -63,7 +63,7 @@ export const DataProvider = ({ children }) => {
         dispatch({ type: ACTIONS.SET_LOADING, payload: true });
 
         // Simulate async loading (in real app, this would be API calls)
-        await new Promise(resolve => setTimeout(resolve, 100));
+        await new Promise(resolve => setTimeout(resolve, 50));
 
         dispatch({ type: ACTIONS.SET_POSTS, payload: posts });
         dispatch({ type: ACTIONS.SET_RESEARCH_PAPERS, payload: researchPapers });

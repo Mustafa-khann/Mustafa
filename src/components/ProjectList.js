@@ -4,6 +4,7 @@ import SearchBar from './ui/SearchBar';
 import ProjectCard from './cards/ProjectCard';
 import Button from './common/Button';
 import '../styles/ProjectList.css';
+import '../styles/ProjectCard.css';
 import { slugify } from '../utils/slug';
 
 // Skeleton loading component
@@ -102,8 +103,8 @@ const ProjectList = () => {
         </div>
       ) : (
         <div className='projects-grid'>
-          {filteredProjects.map(project => (
-            <ProjectCard key={project.id} project={project} />
+          {filteredProjects.map((project, index) => (
+            <ProjectCard key={`${project.id}-${index}`} project={project} />
           ))}
         </div>
       )}
