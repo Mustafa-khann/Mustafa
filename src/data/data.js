@@ -1047,7 +1047,7 @@ export const posts = [
   {
     id: 14,
     title: 'Beginner\'s Guide to Hardware, Electronics, CAD, and Robotics',
-    date: 'January 15, 2025',
+    date: 'August 28, 2025',
     content: `
       🚀 <strong>So You Want to Build Hardware?</strong><br><br>
       Good choice. Software alone is fun, but hardware is where things get real. It’s the moment when lines of code turn into blinking LEDs, buzzing motors, and actual machines that move in the physical world.<br><br>
