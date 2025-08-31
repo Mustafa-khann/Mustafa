@@ -1094,7 +1094,7 @@ export const posts = [
               <div style="font-weight:600; color:var(--green-bright); font-size:1.1rem; margin-bottom:0.3em;">Basic Components <span style="color:#ffb300;">🔩</span></div>
               <ul style="margin:0 0 0.5em 0; padding-left:1.1em;">
                 <li>Resistors, capacitors, LEDs, switches, transistors, diodes.</li>
-                <li>No need to memorize color codes—just grab a starter kit.</li>
+                <li>No need to memorize color codes; just grab a starter kit.</li>
               </ul>
               <div style="color:var(--slate); font-size:0.98em;">
                 <span style="color:#00d1b2;">✨ First project idea:</span> Build a simple night-light circuit with a photoresistor. Learn how sensors, resistors, and LEDs interact.
@@ -1180,7 +1180,7 @@ export const posts = [
           <div style="text-align:center; margin-top:2.5em;">
             <span style="font-size:1.2rem; font-weight:700; color:var(--green-bright);">⚡ Final Words</span>
             <p style="margin-top:0.7em;">
-              Robotics is <span style="color:#00d1b2; font-weight:600;">full-stack engineering</span>: hardware, software, and design. Stick with it, and you’ll gain a skill few people on the planet have—the power to create real, physical machines that sense and act in the world.
+              Robotics is <span style="color:#00d1b2; font-weight:600;">full-stack engineering</span>: hardware, software, and design. Stick with it, and you’ll gain a skill few people on the planet have; the power to create real, physical machines that sense and act in the world.
             </p>
           </div>
         </div>
