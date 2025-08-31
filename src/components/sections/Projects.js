@@ -1,8 +1,10 @@
 import React from 'react';
 import '../../styles/Projects.css';
 import FolderOpenRoundedIcon from '@material-ui/icons/FolderOpenRounded';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LaunchIcon from '@material-ui/icons/Launch';
 import FadeInSection from '../common/FadeInSection';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Carousel from 'react-bootstrap/Carousel';
 import ExternalLinks from '../ui/ExternalLinks';
 
@@ -15,11 +17,13 @@ class Projects extends React.Component {
     };
     this.handleSelect = this.handleSelect.bind(this);
   }
+  
   handleSelect(eventKey) {
     this.setState({
       activeKey: eventKey,
     });
   }
+  
   render() {
     const spotlightProjects = {
       'HermesX - Autonomous Drone for Package Delivery': {
@@ -56,6 +60,7 @@ class Projects extends React.Component {
         image: '/assets/digitrecognizer.jpeg',
       },
     };
+    
     const projects = {
       'Tiny OS': {
         title: 'Tiny OS',
@@ -107,54 +112,114 @@ class Projects extends React.Component {
 
     return (
       <div id='projects'>
-        <div className='section-header '>
-          <span className='section-title'>/ pet projects</span>
-        </div>
-        <Carousel>
-          {Object.keys(spotlightProjects).map((key, i) => (
-            <Carousel.Item key={i}>
-              <img className='d-block w-100' src={spotlightProjects[key]['image']} alt={key} />
-              <div className='caption-bg'>
-                <Carousel.Caption className='carousel-caption-centered'>
-                  <h3 style={{ color: 'var(--lightest-slate)' }}>
-                    {spotlightProjects[key]['title']}
-                  </h3>
-                  <p>
-                    {spotlightProjects[key]['desc']}
-                    <p className='techStack'>{spotlightProjects[key]['techStack']}</p>
-                  </p>
-                  {spotlightProjects[key]['link'] && (
-                    <ExternalLinks githubLink={spotlightProjects[key]['link']}></ExternalLinks>
-                  )}
-                </Carousel.Caption>
-              </div>
-            </Carousel.Item>
-          ))}
-        </Carousel>
-        <div className='project-container'>
-          <ul className='projects-grid'>
-            {Object.keys(projects).map((key, i) => (
-              <FadeInSection delay={`${i + 1}00ms`}>
-                <li className='projects-card'>
-                  <div className='card-header'>
-                    <div className='folder-icon'>
-                      <FolderOpenRoundedIcon style={{ fontSize: 35 }}></FolderOpenRoundedIcon>
-                    </div>
-                    <ExternalLinks
-                      githubLink={projects[key]['link']}
-                      openLink={projects[key]['open']}
-                    ></ExternalLinks>
-                  </div>
+        <div className='projects-container'>
+          <div className='section-header'>
+            <span className='section-title'>Featured Projects</span>
+            <div className='section-line'></div>
+          </div>
+          
+          <div className='projects-intro'>
+            <h2 className='projects-heading'>
+              Turning Ideas 
+              <span className='highlight'> Into Systems</span>
+            </h2>
+            <p className='projects-subtitle'>
+              From AI apps to hardware prototypes, these projects reflect my drive to take concepts off the page and make them real.
+            </p>
+          </div>
 
-                  <div className='card-title' style={{ color: 'var(--green-bright)' }}>
-                    {key}
+
+          <div className='spotlight-section'>
+            <h3 className='spotlight-title'>Spotlight Projects</h3>
+            <div className='carousel-container'>
+              <Carousel className='project-carousel'>
+                {Object.keys(spotlightProjects).map((key, i) => (
+                  <Carousel.Item key={i}>
+                    <div className='carousel-item-container'>
+                      <img className='carousel-image' src={spotlightProjects[key]['image']} alt={key} />
+                      <div className='carousel-overlay'>
+                        <div className='carousel-content'>
+                          <h3 className='carousel-project-title'>
+                            {spotlightProjects[key]['title']}
+                          </h3>
+                          <p className='carousel-project-desc'>
+                            {spotlightProjects[key]['desc']}
+                          </p>
+                          <div className='carousel-tech-stack'>
+                            {spotlightProjects[key]['techStack']}
+                          </div>
+                          {spotlightProjects[key]['link'] && (
+                            <div className='carousel-links'>
+                              <a 
+                                href={spotlightProjects[key]['link']} 
+                                target='_blank' 
+                                rel='noopener noreferrer'
+                                className='carousel-link'
+                              >
+                                <GitHubIcon />
+                                <span>View Code</span>
+                              </a>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </Carousel.Item>
+                ))}
+              </Carousel>
+            </div>
+          </div>
+
+          <div className='all-projects-section'>
+            <h3 className='all-projects-title'>All Projects</h3>
+            <div className='projects-grid'>
+              {Object.keys(projects).map((key, i) => (
+                <FadeInSection delay={`${i * 100}ms`} key={i}>
+                  <div className='project-card'>
+                    <div className='project-card-header'>
+                      <div className='project-folder-icon'>
+                        <FolderOpenRoundedIcon />
+                      </div>
+                      <div className='project-links'>
+                        {projects[key]['link'] && (
+                          <a 
+                            href={projects[key]['link']} 
+                            target='_blank' 
+                            rel='noopener noreferrer'
+                            className='project-link'
+                          >
+                            <GitHubIcon />
+                          </a>
+                        )}
+                        {projects[key]['open'] && (
+                          <a 
+                            href={projects[key]['open']} 
+                            target='_blank' 
+                            rel='noopener noreferrer'
+                            className='project-link'
+                          >
+                            <LaunchIcon />
+                          </a>
+                        )}
+                      </div>
+                    </div>
+
+                    <h4 className='project-title'>
+                      {projects[key]['title'] || key}
+                    </h4>
+                    
+                    <p className='project-description'>
+                      {projects[key]['desc']}
+                    </p>
+                    
+                    <div className='project-tech-stack'>
+                      {projects[key]['techStack']}
+                    </div>
                   </div>
-                  <div className='card-desc'>{projects[key]['desc']}</div>
-                  <div className='card-tech'>{projects[key]['techStack']}</div>
-                </li>
-              </FadeInSection>
-            ))}
-          </ul>
+                </FadeInSection>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     );

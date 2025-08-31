@@ -1,85 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
 import FadeInSection from './common/FadeInSection';
-
-const isHorizontal = window.innerWidth < 600;
-
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  if (isHorizontal) {
-    return (
-      <div
-        role='tabpanel'
-        hidden={value !== index}
-        id={`full-width-tabpanel-${index}`}
-        aria-labelledby={`full-width-tab-${index}`}
-        {...other}
-      >
-        {value === index && (
-          <Box p={3}>
-            <Typography>{children}</Typography>
-          </Box>
-        )}
-      </div>
-    );
-  } else {
-    return (
-      <div role='tabpanel' hidden={value !== index} id={`vertical-tabpanel`} {...other}>
-        {value === index && (
-          <Box p={3}>
-            <Typography>{children}</Typography>
-          </Box>
-        )}
-      </div>
-    );
-  }
-}
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired,
-};
-
-function a11yProps(index) {
-  if (isHorizontal) {
-    return {
-      id: `full-width-tab-${index}`,
-      'aria-controls': `full-width-tabpanel-${index}`,
-    };
-  } else {
-    return {
-      id: `vertical-tab-${index}`,
-    };
-  }
-}
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-    backgroundColor: 'theme.palette.background.paper',
-    display: 'flex',
-    height: 300,
-  },
-  tabs: {
-    borderRight: `1px solid ${theme.palette.divider}`,
-  },
-}));
+import WorkIcon from '@material-ui/icons/Work';
+import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 const JobList = () => {
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [activeJob, setActiveJob] = React.useState(0);
 
-  const experienceItems = {
-    'Self Employed': {
+  const experienceItems = [
+    {
+      company: 'Self Employed',
       jobTitle: 'Software Engineer',
       duration: 'JUN 2025 - PRESENT',
+      location: 'On-site',
       desc: [
         'Building AI-powered web and mobile applications with React, React Native, and MERN stack.',
         'Designing and integrating intelligent agents (LLMs, LangChain) to automate workflows and enhance user experience.',
@@ -87,59 +21,86 @@ const JobList = () => {
         'Helping startups and businesses turn ideas into production-ready products, from MVPs to full-scale deployments.',
       ],
     },
-    VeevoTech: {
-      jobTitle: 'Software Engineer @',
+    {
+      company: 'VeevoTech',
+      jobTitle: 'Software Engineer',
       duration: 'APR 2025 - May 2025',
+      location: 'On-site',
       desc: [
         'Designing touch screen user interfaces and developing embedded system firmware using C/C++/Arduino.',
         'Conducting R&D to address product design challenges and enhance efficiency/performance of various components.',
         'Learning to design circuitry, create 3D models for product casings, and researching potential game-changing ICs.',
       ],
     },
-    AntonX: {
-      jobTitle: 'Software Engineer @',
+    {
+      company: 'AntonX',
+      jobTitle: 'Software Engineer',
       duration: 'SEP 2024 - APR 2025',
+      location: 'On-Site',
       desc: [
         'Collaborating with senior engineers to design and implement features across the full tech stack, ensuring seamless functionality and user experience.',
         'Writing clean, efficient, and well-documented code in Javascript & PHP Laravel to meet project requirements and improve overall system performance.',
         'Testing and debugging applications, resolving issues, and ensuring the delivery of high-quality, reliable software.',
       ],
     },
-  };
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  ];
 
   return (
-    <div className={classes.root}>
-      <Tabs
-        orientation={!isHorizontal ? 'vertical' : null}
-        variant={isHorizontal ? 'fullWidth' : 'scrollable'}
-        value={value}
-        onChange={handleChange}
-        className={classes.tabs}
-      >
-        {Object.keys(experienceItems).map((key, i) => (
-          <Tab label={isHorizontal ? `0${i}.` : key} {...a11yProps(i)} />
-        ))}
-      </Tabs>
-      {Object.keys(experienceItems).map((key, i) => (
-        <TabPanel value={value} index={i}>
-          <span className='joblist-job-title'>{experienceItems[key]['jobTitle'] + ' '}</span>
-          <span className='joblist-job-company'>{key == 'Self Employed' ? '' : key}</span>
-          <div className='joblist-duration'>{experienceItems[key]['duration']}</div>
-          <ul className='job-description'>
-            {experienceItems[key]['desc'].map(function (descItem, i) {
-              return (
-                <FadeInSection delay={`${i + 1}00ms`}>
-                  <li key={i}>{descItem}</li>
-                </FadeInSection>
-              );
-            })}
-          </ul>
-        </TabPanel>
-      ))}
+    <div className='joblist-container'>
+      <div className='joblist-header'>
+        <h3 className='joblist-title'>Work Experience</h3>
+        <p className='joblist-subtitle'>My professional journey in software engineering</p>
+      </div>
+      
+      <div className='joblist-content'>
+        <div className='job-cards'>
+          {experienceItems.map((job, index) => (
+            <FadeInSection delay={`${index * 200}ms`} key={index}>
+              <div 
+                className={`job-card ${activeJob === index ? 'active' : ''}`}
+                onClick={() => setActiveJob(index)}
+              >
+                <div className='job-card-header'>
+                  <div className='job-company-info'>
+                    <h4 className='job-company'>{job.company}</h4>
+                    <div className='job-meta'>
+                      <div className='job-meta-item'>
+                        <WorkIcon />
+                        <span>{job.jobTitle}</span>
+                      </div>
+                      <div className='job-meta-item'>
+                        <CalendarTodayIcon />
+                        <span>{job.duration}</span>
+                      </div>
+                      <div className='job-meta-item'>
+                        <LocationOnIcon />
+                        <span>{job.location}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='job-status'>
+                    {activeJob === index && <div className='active-indicator'></div>}
+                  </div>
+                </div>
+                
+                {activeJob === index && (
+                  <div className='job-details'>
+                    <div className='job-description'>
+                      <ul className='job-responsibilities'>
+                        {job.desc.map((item, itemIndex) => (
+                          <li key={itemIndex} className='responsibility-item'>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </FadeInSection>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

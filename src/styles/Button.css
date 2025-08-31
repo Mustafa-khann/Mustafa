@@ -188,18 +188,40 @@
   width: 100%;
 }
 
-/* Responsive adjustments */
+/* Enhanced Responsive Design */
+@media (max-width: 1024px) {
+  .btn-medium {
+    padding: 11px 22px;
+    font-size: 0.98rem;
+    min-height: 42px;
+  }
+
+  .btn-large {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    min-height: 50px;
+  }
+}
+
 @media (max-width: 768px) {
   .btn-medium {
     padding: 10px 20px;
     font-size: 0.95rem;
-    min-height: 40px;
+    min-height: 44px; /* Touch target */
   }
 
   .btn-large {
     padding: 14px 28px;
     font-size: 1rem;
-    min-height: 48px;
+    min-height: 48px; /* Touch target */
+  }
+  
+  .btn-icon {
+    min-width: 48px; /* Touch target */
+  }
+  
+  .btn-icon.btn-small {
+    min-width: 44px; /* Touch target */
   }
 }
 
@@ -207,12 +229,102 @@
   .btn-medium {
     padding: 8px 16px;
     font-size: 0.9rem;
-    min-height: 36px;
+    min-height: 44px; /* Touch target */
   }
 
   .btn-large {
     padding: 12px 24px;
     font-size: 0.95rem;
+    min-height: 48px; /* Touch target */
+  }
+  
+  .btn-small {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    min-height: 40px; /* Touch target */
+  }
+}
+
+@media (max-width: 375px) {
+  .btn-medium {
+    padding: 7px 14px;
+    font-size: 0.85rem;
+    min-height: 44px;
+  }
+
+  .btn-large {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    min-height: 48px;
+  }
+  
+  .btn-small {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    min-height: 40px;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .btn:hover {
+    transform: none;
+  }
+  
+  .btn:active {
+    transform: scale(0.98);
+  }
+  
+  .btn-primary:hover:not(:disabled) {
+    transform: none;
+  }
+  
+  .btn-primary:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+  
+  .btn-secondary:hover:not(:disabled) {
+    transform: none;
+  }
+  
+  .btn-secondary:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+  
+  .btn-outline:hover:not(:disabled) {
+    transform: none;
+  }
+  
+  .btn-outline:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+  
+  .btn-ghost:hover:not(:disabled) {
+    transform: none;
+  }
+  
+  .btn-ghost:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+  
+  .btn-danger:hover:not(:disabled) {
+    transform: none;
+  }
+  
+  .btn-danger:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+}
+
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .btn-medium {
+    padding: 8px 16px;
+    min-height: 40px;
+  }
+  
+  .btn-large {
+    padding: 12px 24px;
     min-height: 44px;
   }
 }

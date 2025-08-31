@@ -9,22 +9,36 @@ import { slugify } from '../utils/slug';
 // Skeleton loading component
 const ProjectCardSkeleton = () => (
   <div className='project-card skeleton'>
-    <div className='project-card-image skeleton' style={{ height: '200px' }}></div>
-    <div className='project-card-content'>
-      <div
-        className='skeleton'
-        style={{ height: '24px', width: '80%', marginBottom: '12px' }}
-      ></div>
-      <div
-        className='skeleton'
-        style={{ height: '20px', width: '60%', marginBottom: '12px' }}
-      ></div>
-      <div
-        className='skeleton'
-        style={{ height: '16px', width: '100%', marginBottom: '8px' }}
-      ></div>
-      <div className='skeleton' style={{ height: '16px', width: '90%', marginBottom: '8px' }}></div>
-      <div className='skeleton' style={{ height: '16px', width: '70%' }}></div>
+    <div className='project-card-layout'>
+      <div className='project-card-image-section'>
+        <div className='project-card-image skeleton' style={{ height: '100%' }}></div>
+      </div>
+      <div className='project-card-content-section'>
+        <div className='project-card-content'>
+          <div
+            className='skeleton'
+            style={{ height: '20px', width: '60px', marginBottom: '12px' }}
+          ></div>
+          <div
+            className='skeleton'
+            style={{ height: '24px', width: '80%', marginBottom: '12px' }}
+          ></div>
+          <div
+            className='skeleton'
+            style={{ height: '16px', width: '100%', marginBottom: '8px' }}
+          ></div>
+          <div className='skeleton' style={{ height: '16px', width: '90%', marginBottom: '8px' }}></div>
+          <div className='skeleton' style={{ height: '16px', width: '70%', marginBottom: '12px' }}></div>
+          <div className='project-card-footer'>
+            <div style={{ display: 'flex', gap: '6px' }}>
+              <div className='skeleton' style={{ height: '20px', width: '50px' }}></div>
+              <div className='skeleton' style={{ height: '20px', width: '60px' }}></div>
+              <div className='skeleton' style={{ height: '20px', width: '40px' }}></div>
+            </div>
+            <div className='skeleton' style={{ height: '20px', width: '20px' }}></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 );

@@ -26,6 +26,8 @@ html {
   flex-direction: column;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+  position: relative;
 }
 
 .App-logo {
@@ -43,6 +45,9 @@ a {
   width: 100%;
   overflow-x: hidden;
   min-height: calc(100vh - 80px); /* Account for navbar height */
+  position: relative;
+  margin-top: 80px; /* Account for fixed navbar */
+  padding-top: 0;
 }
 
 .rs-steps-horizontal .rs-steps-item-content {
@@ -120,6 +125,8 @@ a {
   #content {
     width: 100%;
     min-height: calc(100vh - 60px);
+    overflow-x: hidden;
+    margin-top: 60px; /* Account for smaller navbar on mobile */
   }
 
   .section-header {

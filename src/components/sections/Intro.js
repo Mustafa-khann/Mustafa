@@ -1,10 +1,10 @@
 import React from 'react';
-
 import '../../styles/Intro.css';
-import { TypeAnimation } from 'react-type-animation';
 import EmailRoundedIcon from '@material-ui/icons/EmailRounded';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import GitHubIcon from '@material-ui/icons/GitHub';
 import FadeInSection from '../common/FadeInSection';
-import RoboticArm from '../features/RoboticArm';
+import { TypeAnimation } from 'react-type-animation';
 
 class Intro extends React.Component {
   constructor() {
@@ -16,36 +16,58 @@ class Intro extends React.Component {
     };
     this.handleSelect = this.handleSelect.bind(this);
   }
+  
   handleSelect(eventKey) {
     this.setState({
       activeKey: eventKey,
     });
   }
+  
   render() {
     return (
-      <div id='intro' style={{ paddingTop: 10 }}>
-        {/* <RoboticArm></RoboticArm> */}
-        {/* <TypeAnimation
-          sequence={['hi, Mustafa here.']}
-          wrapper='span'
-          speed={50}
-          className='intro-title'
-          cursor={false}
-        /> */}
-        <h1 className='intro-title'>hi, Mustafa here.</h1>
-        <FadeInSection>
-          <div className='intro-subtitle'>I build apps.</div>
-          <div className='intro-desc'>
-            I'm Mustafa Khan; a Full-Stack Engineer who builds AI-powered Web and Mobile
-            applications. I combine engineering depth with creativity, whether it’s crafting smooth
-            user experiences, integrating intelligent agents, or taking an idea from MVP to
-            production.
-          </div>
-          <a href='mailto:mustafakhann050@gmail.com' className='intro-contact'>
-            <EmailRoundedIcon></EmailRoundedIcon>
-            {" Let's talk!"}
-          </a>
-        </FadeInSection>
+      <div id='intro'>
+        <div className='intro-container'>
+          <FadeInSection>
+            <div className='intro-content'>
+              <div className='intro-greeting'>
+                <span className='greeting-text'>Hello, I'm</span>
+              </div>
+              
+              <div className='intro-name-animation'>
+                <TypeAnimation
+                  sequence={[
+                    'Mustafa Khan',
+                    2000,
+                    '',
+                  ]}
+                  wrapper='h1'
+                  speed={50}
+                  className='intro-title'
+                  cursor={true}
+                  repeat={Infinity}
+                />
+              </div>
+              
+              <div className='intro-subtitle'>
+                <span className='role-text'>Software</span>
+                <span className='role-separator'>•</span>
+                <span className='specialty-text'>Hardware</span>
+              </div>
+              
+              <div className='intro-desc'>
+              I make code tangible, hardware smart, and ideas real.
+              </div>
+              
+              <div className='intro-actions'>
+                <a href='mailto:mustafakhann050@gmail.com' className='intro-contact primary-btn'>
+                  <EmailRoundedIcon />
+                  <span>Get In Touch</span>
+                </a>
+                
+              </div>
+            </div>
+          </FadeInSection>
+        </div>
       </div>
     );
   }

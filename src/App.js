@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 import { DataProvider } from './context/DataContext';
 import { routes } from './config/routes';
 import NavBar from './components/layout/NavBar';
-import Footer from './components/layout/Footer';
 import ScrollToTop from './components/common/ScrollToTop';
 import ErrorBoundary from './components/common/ErrorBoundary';
 import LoadingSpinner from './components/common/LoadingSpinner';
@@ -42,7 +41,6 @@ function App() {
               </Switch>
             </Suspense>
           </div>
-          <Footer />
           <ScrollToTop />
         </div>
       </DataProvider>
