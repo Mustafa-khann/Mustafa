@@ -103,11 +103,52 @@
   padding: 2rem;
   backdrop-filter: blur(20px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
 }
 
 .project-carousel {
   border-radius: 16px;
   overflow: hidden;
+  position: relative;
+}
+
+/* Ensure carousel controls don't interfere with layout */
+.project-carousel .carousel-control-prev,
+.project-carousel .carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 15;
+  background: rgba(100, 255, 218, 0.2);
+  border-radius: 50%;
+  border: 2px solid var(--green-bright);
+  width: 50px;
+  height: 50px;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.project-carousel .carousel-control-prev {
+  left: 20px;
+}
+
+.project-carousel .carousel-control-next {
+  right: 20px;
+}
+
+.project-carousel .carousel-control-prev:hover,
+.project-carousel .carousel-control-next:hover {
+  background: var(--green-bright);
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.project-carousel .carousel-control-prev-icon,
+.project-carousel .carousel-control-next-icon {
+  filter: brightness(0) invert(1);
+  width: 24px;
+  height: 24px;
 }
 
 .carousel-item-container {
@@ -303,30 +344,7 @@
   letter-spacing: 0.1em;
 }
 
-/* Carousel Controls */
-.carousel-control-prev,
-.carousel-control-next {
-  width: 50px;
-  height: 50px;
-  background: rgba(100, 255, 218, 0.2);
-  border-radius: 50%;
-  border: 2px solid var(--green-bright);
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0.8;
-  transition: all 0.3s ease;
-}
 
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
-  background: var(--green-bright);
-  opacity: 1;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  filter: brightness(0) invert(1);
-}
 
 .carousel-indicators {
   bottom: 20px;
@@ -399,6 +417,27 @@
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+  
+  /* Adjust carousel controls for mobile */
+  .project-carousel .carousel-control-prev,
+  .project-carousel .carousel-control-next {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .project-carousel .carousel-control-prev {
+    left: 10px;
+  }
+  
+  .project-carousel .carousel-control-next {
+    right: 10px;
+  }
+  
+  .project-carousel .carousel-control-prev-icon,
+  .project-carousel .carousel-control-next-icon {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -441,6 +480,27 @@
   
   .project-description {
     font-size: 0.9rem;
+  }
+  
+  /* Further adjust carousel controls for small screens */
+  .project-carousel .carousel-control-prev,
+  .project-carousel .carousel-control-next {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .project-carousel .carousel-control-prev {
+    left: 5px;
+  }
+  
+  .project-carousel .carousel-control-next {
+    right: 5px;
+  }
+  
+  .project-carousel .carousel-control-prev-icon,
+  .project-carousel .carousel-control-next-icon {
+    width: 18px;
+    height: 18px;
   }
 }
 
