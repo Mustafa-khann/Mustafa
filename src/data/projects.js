@@ -128,12 +128,12 @@ export const projectDetails = [
   {
     id: 4,
     title: 'Tiny Compiler',
-    date: null,
+    date: 'December 2022',
     techStack: 'C',
     abstract:
       'A tiny compiler for C like language, with a complete lexer, parser, and code generator.',
-    image: null,
-    link: null,
+    image: '/assets/tinycompiler.jpeg',
+    link: '',
     content: `
         <h2>Project Guide: Compiler Construction (Conceptual)</h2>
 
@@ -295,12 +295,12 @@ export const projectDetails = [
   {
     id: 8,
     title: 'LLama 3.0 Resume Analyzer',
-    date: null,
+    date: 'March 2023',
     techStack: 'Python, Nodejs, Ollama',
     abstract:
       'LLama 3.0 based resume analyzer that analyzes your resume and gives you a score and suggestions on how to improve it.',
-    image: null,
-    link: null,
+    image: '/assets/llama-analyzer.jpeg',
+    link: '',
     content: `
         <h2>Project Guide: LLM-Based Resume Analyzer (Conceptual)</h2>
 
@@ -340,12 +340,12 @@ export const projectDetails = [
   {
     id: 9,
     title: 'Sign Language Recognizer Neural Network in C',
-    date: null,
+    date: 'September 2022',
     techStack: 'C',
     abstract:
       'A sign language recognizer neural network purely written in C. Yeilds 73% accuracy on the MNIST Sign Language Dataset.',
-    image: null,
-    link: null,
+    image: '/assets/sign-language.jpeg',
+    link: '',
     content: `
         <h2>Project Guide: Sign Language NN in C (Conceptual)</h2>
 
@@ -374,12 +374,12 @@ export const projectDetails = [
   {
     id: 10,
     title: 'CNN Architecture from Scratch in C',
-    date: null,
+    date: 'July 2022',
     techStack: 'C',
     abstract:
       'Built a convolutional neural network in C, implementing convolutions, pooling, and backpropagation to understand how CNNs process images.',
-    image: null,
-    link: null,
+    image: '/assets/cnn-c.jpeg',
+    link: '',
     content: `
         <h2>Project Guide: CNN Implementation in C (Conceptual)</h2>
 
