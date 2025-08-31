@@ -50,7 +50,10 @@ const ProjectDetail = () => {
         description={project.abstract || project.title}
         url={`/projects/${encodeURIComponent(decoded)}`}
         type='article'
-        image={project.image}
+        contentType='project'
+        contentItem={project}
+        author='Mustafa Khan'
+        tags={project.technologies}
       />
       <div className='project-header'>
         <Link to='/projects' className='back-button'>

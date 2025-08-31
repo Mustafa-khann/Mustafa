@@ -50,6 +50,10 @@ const IdeaDetail = () => {
         description={paper.abstract || paper.title}
         url={`/ideas/${encodeURIComponent(decoded)}`}
         type='article'
+        publishedTime={paper.date}
+        contentType='idea'
+        contentItem={paper}
+        author={paper.author || 'Mustafa Khan'}
       />
       <div className='research-header'>
         <Link to='/ideas' className='back-button'>

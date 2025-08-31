@@ -5,7 +5,13 @@ import { SEO } from '../components/common';
 const IdeasPage = () => {
   return (
     <div className='ideas-page'>
-      <SEO title='Ideas' description='Research notes and ideas.' url='/ideas' type='website' />
+      <SEO 
+        title='Ideas' 
+        description='Research notes, explorations, and intellectual inquiries into technology, AI, robotics, and philosophy.' 
+        url='/ideas' 
+        type='website'
+        contentType='ideas'
+      />
       <Ideas />
     </div>
   );

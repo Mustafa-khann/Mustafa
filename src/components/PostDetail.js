@@ -136,6 +136,10 @@ const PostDetail = () => {
         url={`/posts/${encodeURIComponent(decoded)}`}
         type='article'
         publishedTime={post.date}
+        contentType='post'
+        contentItem={post}
+        author={post.author || 'Mustafa Khan'}
+        tags={post.tags}
       />
       <div className='reading-progress'>
         <div className='reading-progress-bar' style={{ width: `${progress}%` }}></div>

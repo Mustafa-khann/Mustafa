@@ -1,0 +1,112 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <!-- Professional gradient backgrounds -->
+      <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#18181b;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#18181baa;stop-opacity:1" />
+      </linearGradient>
+      
+      <!-- Accent gradient -->
+      <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1" />
+        <stop offset="50%" style="stop-color:#ef4444;stop-opacity:0.8" />
+        <stop offset="100%" style="stop-color:#ef4444;stop-opacity:0.6" />
+      </linearGradient>
+      
+      <!-- Text shadow filter -->
+      <filter id="textShadow">
+        <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="rgba(0,0,0,0.3)"/>
+      </filter>
+      
+      <!-- Glow effect -->
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+        <feMerge> 
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+    
+    <!-- Main background -->
+    <rect width="1200" height="630" fill="url(#mainGradient)"/>
+    
+    <!-- Professional geometric elements -->
+    <rect x="0" y="0" width="12" height="630" fill="url(#accentGradient)"/>
+    <rect x="1188" y="0" width="12" height="630" fill="url(#accentGradient)" opacity="0.3"/>
+    
+    <!-- Top accent line -->
+    <rect x="0" y="0" width="1200" height="4" fill="url(#accentGradient)"/>
+    
+    <!-- Content area -->
+    <g transform="translate(80, 0)">
+      <!-- Brand area -->
+      <g transform="translate(0, 100)">
+        <!-- Main icon/emoji with glow -->
+        <text x="0" y="80" 
+              font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif" 
+              font-size="120" 
+              fill="#ef4444"
+              filter="url(#glow)">📚</text>
+        
+        <!-- Content type title -->
+        <text x="160" y="30" 
+              font-family="'SF Pro Display', 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" 
+              font-size="84" 
+              font-weight="800" 
+              fill="white"
+              filter="url(#textShadow)">Book Recommendations</text>
+              
+        <!-- Subtitle -->
+        <text x="160" y="80" 
+              font-family="'SF Pro Text', 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" 
+              font-size="36" 
+              font-weight="400" 
+              fill="#e2e8f0">Curated reading across disciplines</text>
+      </g>
+      
+      <!-- Author signature -->
+      <g transform="translate(0, 400)">
+        <text x="0" y="0" 
+              font-family="'SF Pro Display', 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" 
+              font-size="48" 
+              font-weight="600" 
+              fill="white"
+              filter="url(#textShadow)">Mustafa Khan</text>
+              
+        <text x="0" y="40" 
+              font-family="'SF Pro Text', 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif" 
+              font-size="28" 
+              font-weight="400" 
+              fill="#94a3b8">Software Engineer & Researcher</text>
+              
+        <text x="0" y="80" 
+              font-family="'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace" 
+              font-size="24" 
+              font-weight="400" 
+              fill="#ef4444">mustafakhan.xyz</text>
+      </g>
+      
+      <!-- Decorative professional elements -->
+      <g opacity="0.15" fill="#ef4444">
+        <!-- Abstract geometric shapes -->
+        <circle cx="900" cy="120" r="80"/>
+        <circle cx="1000" cy="200" r="40"/>
+        <rect x="880" y="300" width="200" height="6" rx="3"/>
+        <rect x="920" y="320" width="120" height="4" rx="2"/>
+        
+        <!-- Tech-inspired grid pattern -->
+        <g opacity="0.3">
+          <line x1="850" y1="450" x2="1050" y2="450" stroke="#ef4444" stroke-width="1"/>
+          <line x1="850" y1="470" x2="1050" y2="470" stroke="#ef4444" stroke-width="1"/>
+          <line x1="850" y1="490" x2="1050" y2="490" stroke="#ef4444" stroke-width="1"/>
+          <line x1="900" y1="430" x2="900" y2="510" stroke="#ef4444" stroke-width="1"/>
+          <line x1="950" y1="430" x2="950" y2="510" stroke="#ef4444" stroke-width="1"/>
+          <line x1="1000" y1="430" x2="1000" y2="510" stroke="#ef4444" stroke-width="1"/>
+        </g>
+      </g>
+    </g>
+    
+    <!-- Bottom accent -->
+    <rect x="0" y="626" width="1200" height="4" fill="url(#accentGradient)"/>
+  </svg>
