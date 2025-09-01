@@ -1154,6 +1154,28 @@ export const posts = [
             </li>
           </ol>
 
+          <div style="text-align:center; margin:2em 0;">
+            <button 
+              style="
+                background: linear-gradient(135deg, #00d1b2 0%, #00a085 100%);
+                color: white;
+                border: none;
+                border-radius: 8px;
+                padding: 12px 24px;
+                font-size: 1rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 12px rgba(0, 209, 178, 0.3);
+              "
+              onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(0, 209, 178, 0.4)'"
+              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0, 209, 178, 0.3)'"
+              onclick="document.getElementById('gearModal').style.display='block'"
+            >
+              🛠️ Recommended Gear
+            </button>
+          </div>
+
           <div style="background:rgba(100,255,218,0.07); border-radius:12px; padding:1.2em 1.5em; margin-bottom:1.5em;">
             <div style="font-weight:600; color:var(--green-bright); font-size:1.1rem; margin-bottom:0.5em;">
               🛠️ How to Actually Start (Don’t Just Collect Parts)
