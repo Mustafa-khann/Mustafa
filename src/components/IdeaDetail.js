@@ -46,8 +46,8 @@ const IdeaDetail = () => {
   return (
     <div className='research-detail-container'>
       <SEO
-        title={paper.title}
-        description={paper.abstract || paper.title}
+        title={String(paper.title || '')}
+        description={String(paper.abstract || paper.title || '')}
         url={`/ideas/${encodeURIComponent(decoded)}`}
         type='article'
       />

@@ -94,7 +94,7 @@ const PostDetail = () => {
   const wordCount = getWordCount(post.content);
   const formattedDate = formatDate(post.date);
   const cleanedContent = cleanHtmlContent(post.content);
-  const excerpt = cleanedContent.replace(/<[^>]*>/g, '').slice(0, 200);
+  const excerpt = String(cleanedContent || '').replace(/<[^>]*>/g, '').slice(0, 200);
 
   const onCopyLink = async () => {
     try {
@@ -131,11 +131,11 @@ const PostDetail = () => {
   return (
     <div className='post-detail-container'>
       <SEO
-        title={post.title}
-        description={excerpt}
+        title={String(post.title || '')}
+        description={String(excerpt || '')}
         url={`/posts/${encodeURIComponent(decoded)}`}
         type='article'
-        publishedTime={post.date}
+        publishedTime={String(post.date || '')}
       />
       <div className='reading-progress'>
         <div className='reading-progress-bar' style={{ width: `${progress}%` }}></div>

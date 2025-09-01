@@ -9,8 +9,8 @@
 export const calculateReadingTime = (content, wordsPerMinute = 200) => {
   if (!content) return 1;
   
-  // Remove HTML tags and get text content
-  const textContent = content.replace(/<[^>]*>/g, '').trim();
+  // Ensure content is a string and remove HTML tags
+  const textContent = String(content).replace(/<[^>]*>/g, '').trim();
   
   // Count words (split by whitespace and filter out empty strings)
   const wordCount = textContent.split(/\s+/).filter(word => word.length > 0).length;
@@ -31,8 +31,8 @@ export const calculateReadingTime = (content, wordsPerMinute = 200) => {
 export const extractExcerpt = (content, maxLength = 150) => {
   if (!content) return '';
   
-  // Remove HTML tags and get text content
-  const textContent = content.replace(/<[^>]*>/g, '').trim();
+  // Ensure content is a string and remove HTML tags
+  const textContent = String(content).replace(/<[^>]*>/g, '').trim();
   
   if (textContent.length <= maxLength) {
     return textContent;
@@ -77,7 +77,7 @@ export const formatDate = (dateString) => {
 export const getWordCount = (content) => {
   if (!content) return 0;
   
-  const textContent = content.replace(/<[^>]*>/g, '').trim();
+  const textContent = String(content).replace(/<[^>]*>/g, '').trim();
   return textContent.split(/\s+/).filter(word => word.length > 0).length;
 };
 
@@ -89,6 +89,9 @@ export const getWordCount = (content) => {
 export const cleanHtmlContent = (content) => {
   if (!content) return '';
   
+  // Ensure content is a string
+  const stringContent = String(content);
+  
   // Remove any potentially dangerous scripts
-  return content.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+  return stringContent.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
 }; 

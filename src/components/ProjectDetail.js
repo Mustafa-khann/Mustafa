@@ -46,8 +46,8 @@ const ProjectDetail = () => {
   return (
     <div className='project-detail-container'>
       <SEO
-        title={project.title || 'Project'}
-        description={project.abstract || project.title || 'Project details'}
+        title={String(project.title || 'Project')}
+        description={String(project.abstract || project.title || 'Project details')}
         url={`/projects/${encodeURIComponent(decoded)}`}
         type='article'
         image={project.image || undefined}
