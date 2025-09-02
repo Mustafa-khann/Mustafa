@@ -23,6 +23,7 @@ const PostDetail = () => {
     fullUrl: `https://www.mustafakhan.xyz/posts/${encodeURIComponent(decoded)}`
   });
 
+  
   const [isGearOpen, setIsGearOpen] = React.useState(false);
   const contentRef = React.useRef(null);
   const [progress, setProgress] = React.useState(0);
