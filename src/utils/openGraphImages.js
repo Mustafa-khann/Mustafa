@@ -151,7 +151,7 @@ export const getDefaultOGImage = () => {
  * @param {Object} content - The content object
  * @returns {string} The URL to the appropriate Open Graph image
  */
-export const getContentOGImage = (contentType, content) => {
+export const getContentOGImage = (content, contentType) => {
   switch (contentType) {
     case 'post':
       return getPostOGImage(content);
