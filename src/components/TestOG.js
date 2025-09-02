@@ -1,5 +1,6 @@
 import React from 'react';
 import { getPostOGImage, getDefaultOGImage } from '../utils/openGraphImages';
+import { SEO } from '../common';
 
 const TestOG = () => {
   // Test with a sample post
@@ -92,6 +93,19 @@ const TestOG = () => {
 <meta property="twitter:description" content="${testPost.abstract}" />
 <meta property="twitter:image" content="https://www.mustafakhan.xyz${ogImage}" />`}
         </pre>
+      </div>
+
+      <div style={{ backgroundColor: '#333', padding: '1rem', borderRadius: '8px', marginTop: '1rem' }}>
+        <h3>React Helmet Test:</h3>
+        <SEO 
+          title={testPost.title}
+          description={testPost.abstract}
+          url="/test-og"
+          type="article"
+          post={testPost}
+        />
+        <p>Check the browser console for SEO component debug logs.</p>
+        <p>This will test if React Helmet is working properly.</p>
       </div>
     </div>
   );
