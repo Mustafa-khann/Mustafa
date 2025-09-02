@@ -1051,6 +1051,9 @@ export const posts = [
     content: `
       <div style="font-family: 'NTR', sans-serif; color: var(--lightest-slate); line-height: 1.7; font-size: 1.05rem;">
         <div style="max-width: 1000px; margin: 0 auto;">
+          <p style="margin-bottom:1.2em;">
+            <span style="color:var(--green-bright); font-weight:600;">Good choice.</span> Software is fun, but hardware is where things get real. It’s the moment when lines of code turn into blinking LEDs, buzzing motors, and actual machines that move in the physical world.
+          </p>
           <div style="background:rgba(100,255,218,0.07); border-radius:12px; padding:1.2em 1.5em; margin-bottom:1.5em;">
             <div style="font-weight:600; color:var(--green-bright); margin-bottom:0.5em;">Hardware lives at the intersection of:</div>
             <ul style="list-style:none; padding-left:0; margin:0;">
