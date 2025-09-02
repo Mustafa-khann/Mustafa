@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { getPostOGImage, getProjectOGImage, getDefaultOGImage } from '../../../utils/openGraphImages';
 
@@ -116,6 +116,53 @@ const SEO = ({
       </script>
     </Helmet>
   );
+  
+  // Debug effect to verify meta tags are applied
+  useEffect(() => {
+    console.log('🔍 SEO Component Rendered - Meta Tags Applied:');
+    console.log('Title:', fullTitle);
+    console.log('Description:', safeDescription);
+    console.log('Image:', fullImage);
+    console.log('URL:', fullUrl);
+    console.log('Type:', safeType);
+    
+    // Verify meta tags are in the DOM
+    setTimeout(() => {
+      const ogImage = document.querySelector('meta[property="og:image"]');
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      const ogDescription = document.querySelector('meta[property="og:description"]');
+      
+      console.log('🔍 DOM Meta Tags Found:');
+      console.log('og:image:', ogImage?.getAttribute('content'));
+      console.log('og:title:', ogTitle?.getAttribute('content'));
+      console.log('og:description:', ogDescription?.getAttribute('content'));
+      
+      // Fallback: manually set meta tags if they're missing
+      if (!ogImage) {
+        console.log('⚠️ og:image missing, manually setting...');
+        const meta = document.createElement('meta');
+        meta.setAttribute('property', 'og:image');
+        meta.setAttribute('content', fullImage);
+        document.head.appendChild(meta);
+      }
+      
+      if (!ogTitle) {
+        console.log('⚠️ og:title missing, manually setting...');
+        const meta = document.createElement('meta');
+        meta.setAttribute('property', 'og:title');
+        meta.setAttribute('content', fullTitle);
+        document.head.appendChild(meta);
+      }
+      
+      if (!ogDescription) {
+        console.log('⚠️ og:description missing, manually setting...');
+        const meta = document.createElement('meta');
+        meta.setAttribute('property', 'og:description');
+        meta.setAttribute('content', safeDescription);
+        document.head.appendChild(meta);
+      }
+    }, 100);
+  }, [fullTitle, safeDescription, fullImage, fullUrl, safeType]);
 };
 
 export default SEO;
