@@ -137,24 +137,66 @@ const PostDetail = () => {
         type='article'
         publishedTime={post.date}
       />
-      <div className='reading-progress'>
-        <div className='reading-progress-bar' style={{ width: `${progress}%` }}></div>
+      
+      {/* New Structured Post Header */}
+      <div className='post-header-section'>
+        <div className='post-category'>
+          {post.category || 'Article'}
+        </div>
+        
+        <div className='post-header-content'>
+          <div className='post-header-left'>
+            <h1 className='post-main-title'>{post.title}</h1>
+            <div className='post-visual-element'>
+              {/* Placeholder for visual element - can be customized per post */}
+              <div className='post-visual-placeholder'>
+                <div className='visual-dots'></div>
+              </div>
+            </div>
+          </div>
+          
+          <div className='post-header-right'>
+            <div className='post-intro'>
+              {post.abstract || excerpt}
+            </div>
+            
+            <div className='post-metadata'>
+              <div className='metadata-line'>
+                <span className='metadata-label'>By</span>
+                <span className='metadata-value author'>{post.author || 'Mustafa Khan'}</span>
+              </div>
+              <div className='metadata-line'>
+                <span className='metadata-label'>Published on</span>
+                <span className='metadata-value'>{formattedDate}</span>
+              </div>
+              <div className='metadata-line'>
+                <span className='metadata-label'>Last Updated on</span>
+                <span className='metadata-value'>{formattedDate}</span>
+              </div>
+              <div className='metadata-line'>
+                <span className='metadata-label'>{readingTime} min read</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className='post-header-summary'>
+          {post.summary || post.abstract || excerpt}
+        </div>
       </div>
-      <div className='post-header'>
+      
+      {/* Navigation and Actions */}
+      <div className='post-navigation'>
         <Link to='/posts' className='back-button'>
           <span className='back-arrow'>←</span>
         </Link>
-        <h1>{post.title}</h1>
-      </div>
-      <div className='post-meta-detail'>
-        <div className='post-chips'>
-          <span className='chip'>{formattedDate}</span>
-          <span className='chip'>⏱ {readingTime} min</span>
-          <span className='chip'>📝 {wordCount.toLocaleString()} words</span>
-        </div>
         <div className='post-actions'>
           <button className='action-btn gear-btn' onClick={() => setIsGearOpen(true)}>📦 Recommended Gear</button>
         </div>
+      </div>
+      
+      <div className='reading-progress'>
+        <div className='reading-progress-bar' style={{ width: `${progress}%` }}></div>
       </div>
       <div
         className='post-content post-article'

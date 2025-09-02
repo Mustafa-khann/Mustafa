@@ -1155,7 +1155,8 @@ export const posts = [
           </ol>
 
           <div style="text-align:center; margin:2em 0;">
-            <button 
+                        <button
+              data-gear-modal="true"
               style="
                 background: linear-gradient(135deg, #00d1b2 0%, #00a085 100%);
                 color: white;
@@ -1168,9 +1169,6 @@ export const posts = [
                 transition: all 0.3s ease;
                 box-shadow: 0 4px 12px rgba(0, 209, 178, 0.3);
               "
-              onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(0, 209, 178, 0.4)'"
-              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0, 209, 178, 0.3)'"
-              onclick="document.getElementById('gearModal').style.display='block'"
             >
               🛠️ Recommended Gear
             </button>

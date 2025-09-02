@@ -16,52 +16,65 @@ const SEO = ({
   const siteName = 'Mustafa Khan';
   const siteUrl = 'https://www.mustafakhan.xyz'; // Replace with your actual domain
   const defaultImage = '/assets/mustafa.jpeg';
-  const twitterHandle = '@mustafakhan'; // Replace with your actual handle
+  const twitterHandle = '@oprydai'; // Replace with your actual handle
   
-  const fullTitle = title ? `${title} | ${siteName}` : siteName;
+  // Ensure all values are strings and handle undefined/null cases
+  const safeTitle = String(title || '');
+  const safeDescription = String(description || '');
+  const safeAuthor = String(author || 'Mustafa Khan');
+  const safeType = String(type || 'website');
+  const safeSection = section ? String(section) : '';
+  const safePublishedTime = publishedTime ? String(publishedTime) : '';
+  const safeModifiedTime = modifiedTime ? String(modifiedTime) : '';
+  const safeTags = Array.isArray(tags) ? tags.map(tag => String(tag)) : [];
+  const safeImage = image && image !== null ? String(image) : '';
+  
+  const fullTitle = safeTitle ? `${safeTitle} | ${siteName}` : siteName;
   const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
-  const fullImage = image && image !== null ? `${siteUrl}${image}` : `${siteUrl}${defaultImage}`;
+  const fullImage = safeImage ? `${siteUrl}${safeImage}` : `${siteUrl}${defaultImage}`;
   
   return (
     <Helmet>
       {/* Basic Meta Tags */}
       <title>{fullTitle}</title>
-      <meta name="description" content={description || ''} />
-      <meta name="author" content={author} />
+      <meta name="description" content={safeDescription} />
+      <meta name="author" content={safeAuthor} />
       
       {/* OpenGraph Meta Tags */}
-      <meta property="og:type" content={type} />
+      <meta property="og:type" content={safeType} />
       <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description || ''} />
+      <meta property="og:description" content={safeDescription} />
       <meta property="og:url" content={fullUrl} />
       <meta property="og:site_name" content={siteName} />
       <meta property="og:image" content={fullImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content={description || ''} />
+      <meta property="og:image:alt" content={safeDescription} />
       <meta property="og:locale" content="en_US" />
       
-      {/* Article specific meta tags */}
-      {type === 'article' && (
-        <>
-          <meta property="article:author" content={author} />
-          <meta property="article:section" content={section} />
-          {publishedTime && <meta property="article:published_time" content={publishedTime} />}
-          {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
-          {tags.map((tag, index) => (
-            <meta key={index} property="article:tag" content={tag} />
-          ))}
-        </>
+      {/* Article specific meta tags (avoid React Fragments inside Helmet) */}
+      {safeType === 'article' && <meta property="article:author" content={safeAuthor} />}
+      {safeType === 'article' && <meta property="article:section" content={safeSection} />}
+      {safeType === 'article' && safePublishedTime && (
+        <meta property="article:published_time" content={safePublishedTime} />
       )}
+      {safeType === 'article' && safeModifiedTime && (
+        <meta property="article:modified_time" content={safeModifiedTime} />
+      )}
+      {safeType === 'article' &&
+        Array.isArray(safeTags) &&
+        safeTags.map((tag, index) => (
+          <meta key={`article-tag-${index}`} property="article:tag" content={tag} />
+        ))}
       
       {/* Twitter Meta Tags */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content={twitterHandle} />
       <meta name="twitter:creator" content={twitterHandle} />
       <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description || ''} />
+      <meta name="twitter:description" content={safeDescription} />
       <meta name="twitter:image" content={fullImage} />
-      <meta name="twitter:image:alt" content={description || ''} />
+      <meta name="twitter:image:alt" content={safeDescription} />
       
       {/* Additional Meta Tags */}
       <meta name="robots" content="index, follow" />
