@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { getPostOGImage, getProjectOGImage, getDefaultOGImage } from '../../../utils/openGraphImages';
+import { getContentOGImage, getDefaultOGImage } from '../../../utils/openGraphImages';
 
 const SEO = ({ 
   title, 
@@ -14,7 +14,10 @@ const SEO = ({
   section,
   tags = [],
   post, // Add post object for better OG image handling
-  project // Add project object for better OG image handling
+  project, // Add project object for better OG image handling
+  book, // Add book object for better OG image handling
+  idea, // Add idea object for better OG image handling
+  contentType = 'website' // Specify content type for better OG image selection
 }) => {
   const siteName = 'Mustafa Khan';
   const siteUrl = 'https://www.mustafakhan.xyz'; // Replace with your actual domain
@@ -40,13 +43,21 @@ const SEO = ({
     fullImage = `${siteUrl}${image}`;
     console.log('🔍 SEO: Using provided image:', fullImage);
   } else if (post) {
-    const postOGImage = getPostOGImage(post);
+    const postOGImage = getContentOGImage(post, contentType);
     fullImage = postOGImage ? `${siteUrl}${postOGImage}` : `${siteUrl}${defaultImage}`;
     console.log('🔍 SEO: Post detected, OG image:', postOGImage, 'Full URL:', fullImage);
   } else if (project) {
-    const projectOGImage = getProjectOGImage(project);
+    const projectOGImage = getContentOGImage(project, contentType);
     fullImage = projectOGImage ? `${siteUrl}${projectOGImage}` : `${siteUrl}${defaultImage}`;
     console.log('🔍 SEO: Project detected, OG image:', projectOGImage, 'Full URL:', fullImage);
+  } else if (book) {
+    const bookOGImage = getContentOGImage(book, contentType);
+    fullImage = bookOGImage ? `${siteUrl}${bookOGImage}` : `${siteUrl}${defaultImage}`;
+    console.log('🔍 SEO: Book detected, OG image:', bookOGImage, 'Full URL:', fullImage);
+  } else if (idea) {
+    const ideaOGImage = getContentOGImage(idea, contentType);
+    fullImage = ideaOGImage ? `${siteUrl}${ideaOGImage}` : `${siteUrl}${defaultImage}`;
+    console.log('🔍 SEO: Idea detected, OG image:', ideaOGImage, 'Full URL:', fullImage);
   } else {
     fullImage = `${siteUrl}${defaultImage}`;
     console.log('🔍 SEO: Using default image:', fullImage);
@@ -111,7 +122,9 @@ const SEO = ({
           url: fullUrl,
           type: safeType,
           post: !!post,
-          project: !!project
+          project: !!project,
+          book: !!book,
+          idea: !!idea
         })}
       </script>
     </Helmet>

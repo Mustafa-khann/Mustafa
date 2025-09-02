@@ -1,6 +1,6 @@
-import React from 'react';
-import { getPostOGImage, getDefaultOGImage } from '../utils/openGraphImages';
-import { SEO } from '../common';
+import React, { useState } from 'react';
+import { SEO } from './common/seo';
+import { getContentOGImage, getDefaultOGImage } from '../utils/openGraphImages';
 
 const TestOG = () => {
   // Test with a sample post
@@ -13,7 +13,7 @@ const TestOG = () => {
     readingTime: '4'
   };
 
-  const ogImage = getPostOGImage(testPost);
+  const ogImage = getContentOGImage(testPost);
   const defaultImage = getDefaultOGImage();
 
   return (

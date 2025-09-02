@@ -78,27 +78,19 @@ export const generateOpenGraphData = (content) => {
  * @returns {string} The URL to the Open Graph image
  */
 export const getPostOGImage = (post) => {
-  if (!post) {
-    console.log('🔍 getPostOGImage: No post object provided');
-    return null;
-  }
-  
-  console.log('🔍 getPostOGImage: Processing post:', post.title);
+  if (!post) return null;
   
   // Check if we have a custom OG image for this specific post
   const postSlug = post.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
   
   // For the hardware post, use the specific image
   if (post.title === 'So You Want to Build Hardware?') {
-    const imagePath = '/assets/og-images/post-hardware.png';
-    console.log('🔍 getPostOGImage: Using hardware post image:', imagePath);
-    return imagePath;
+    return '/assets/og-images/post-hardware.png';
   }
   
   // For other posts, generate a generic path
-  const genericPath = `/assets/og-images/post-${postSlug}.png`;
-  console.log('🔍 getPostOGImage: Using generic path:', genericPath);
-  return genericPath;
+  // You can run npm run generate-og to create these images
+  return `/assets/og-images/post-${postSlug}.png`;
 };
 
 /**
@@ -114,11 +106,66 @@ export const getProjectOGImage = (project) => {
 };
 
 /**
+ * Generate the Open Graph image URL for a book
+ * @param {Object} book - The book object
+ * @returns {string} The URL to the Open Graph image
+ */
+export const getBookOGImage = (book) => {
+  if (!book) return null;
+  
+  const bookSlug = book.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  return `/assets/og-images/book-${bookSlug}.png`;
+};
+
+/**
+ * Generate the Open Graph image URL for an idea
+ * @param {Object} idea - The idea object
+ * @returns {string} The URL to the Open Graph image
+ */
+export const getIdeaOGImage = (idea) => {
+  if (!idea) return null;
+  
+  const ideaSlug = idea.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  return `/assets/og-images/idea-${ideaSlug}.png`;
+};
+
+/**
+ * Get the homepage Open Graph image
+ * @returns {string} The URL to the homepage Open Graph image
+ */
+export const getHomeOGImage = () => {
+  return '/assets/og-images/home.png';
+};
+
+/**
  * Get the default Open Graph image
  * @returns {string} The URL to the default Open Graph image
  */
 export const getDefaultOGImage = () => {
   return '/assets/mustafa.jpeg';
+};
+
+/**
+ * Get the appropriate Open Graph image based on content type
+ * @param {string} contentType - The type of content (post, project, book, idea, home)
+ * @param {Object} content - The content object
+ * @returns {string} The URL to the appropriate Open Graph image
+ */
+export const getContentOGImage = (contentType, content) => {
+  switch (contentType) {
+    case 'post':
+      return getPostOGImage(content);
+    case 'project':
+      return getProjectOGImage(content);
+    case 'book':
+      return getBookOGImage(content);
+    case 'idea':
+      return getIdeaOGImage(content);
+    case 'home':
+      return getHomeOGImage();
+    default:
+      return getDefaultOGImage();
+  }
 };
 
 /**
