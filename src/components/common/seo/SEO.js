@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { getPostOGImage, getProjectOGImage, getDefaultOGImage } from '../../../utils/openGraphImages';
 
 const SEO = ({ 
   title, 
@@ -11,11 +12,13 @@ const SEO = ({
   publishedTime,
   modifiedTime,
   section,
-  tags = []
+  tags = [],
+  post, // Add post object for better OG image handling
+  project // Add project object for better OG image handling
 }) => {
   const siteName = 'Mustafa Khan';
   const siteUrl = 'https://www.mustafakhan.xyz'; // Replace with your actual domain
-  const defaultImage = '/assets/mustafa.jpeg';
+  const defaultImage = getDefaultOGImage();
   const twitterHandle = '@oprydai'; // Replace with your actual handle
   
   // Ensure all values are strings and handle undefined/null cases
@@ -27,11 +30,23 @@ const SEO = ({
   const safePublishedTime = publishedTime ? String(publishedTime) : '';
   const safeModifiedTime = modifiedTime ? String(modifiedTime) : '';
   const safeTags = Array.isArray(tags) ? tags.map(tag => String(tag)) : [];
-  const safeImage = image && image !== null ? String(image) : '';
   
   const fullTitle = safeTitle ? `${safeTitle} | ${siteName}` : siteName;
   const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
-  const fullImage = safeImage ? `${siteUrl}${safeImage}` : `${siteUrl}${defaultImage}`;
+  
+  // Determine the best image to use
+  let fullImage;
+  if (image) {
+    fullImage = `${siteUrl}${image}`;
+  } else if (post) {
+    const postOGImage = getPostOGImage(post);
+    fullImage = postOGImage ? `${siteUrl}${postOGImage}` : `${siteUrl}${defaultImage}`;
+  } else if (project) {
+    const projectOGImage = getProjectOGImage(project);
+    fullImage = projectOGImage ? `${siteUrl}${projectOGImage}` : `${siteUrl}${defaultImage}`;
+  } else {
+    fullImage = `${siteUrl}${defaultImage}`;
+  }
   
   return (
     <Helmet>

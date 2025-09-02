@@ -69,3 +69,60 @@ export const generateOpenGraphData = (content) => {
     section: category
   };
 };
+
+// Utility functions for Open Graph images
+
+/**
+ * Generate the Open Graph image URL for a post
+ * @param {Object} post - The post object
+ * @returns {string} The URL to the Open Graph image
+ */
+export const getPostOGImage = (post) => {
+  if (!post) return null;
+  
+  // Check if we have a custom OG image for this specific post
+  const postSlug = post.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  
+  // For the hardware post, use the specific image
+  if (post.title === 'So You Want to Build Hardware?') {
+    return '/assets/og-images/post-hardware.png';
+  }
+  
+  // For other posts, generate a generic path
+  // You can run npm run generate-og to create these images
+  return `/assets/og-images/post-${postSlug}.png`;
+};
+
+/**
+ * Generate the Open Graph image URL for a project
+ * @param {Object} project - The project object
+ * @returns {string} The URL to the Open Graph image
+ */
+export const getProjectOGImage = (project) => {
+  if (!project) return null;
+  
+  const projectSlug = project.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  return `/assets/og-images/project-${projectSlug}.png`;
+};
+
+/**
+ * Get the default Open Graph image
+ * @returns {string} The URL to the default Open Graph image
+ */
+export const getDefaultOGImage = () => {
+  return '/assets/mustafa.jpeg';
+};
+
+/**
+ * Check if an Open Graph image exists
+ * @param {string} imagePath - The path to the image
+ * @returns {Promise<boolean>} Whether the image exists
+ */
+export const checkOGImageExists = async (imagePath) => {
+  try {
+    const response = await fetch(imagePath, { method: 'HEAD' });
+    return response.ok;
+  } catch (error) {
+    return false;
+  }
+};

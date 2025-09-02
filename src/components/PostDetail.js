@@ -136,6 +136,7 @@ const PostDetail = () => {
         url={`/posts/${encodeURIComponent(decoded)}`}
         type='article'
         publishedTime={post.date}
+        post={post}
       />
       
       {/* New Structured Post Header */}
@@ -148,10 +149,18 @@ const PostDetail = () => {
           <div className='post-header-left'>
             <h1 className='post-main-title'>{post.title}</h1>
             <div className='post-visual-element'>
-              {/* Placeholder for visual element - can be customized per post */}
-              <div className='post-visual-placeholder'>
-                <div className='visual-dots'></div>
-              </div>
+              {/* Custom visual element for specific posts */}
+              {post.title === 'So You Want to Build Hardware?' ? (
+                <img 
+                  src="/assets/postCovers/gettingStartedInHardware.png" 
+                  alt="Person working on robotics hardware" 
+                  className='post-custom-image'
+                />
+              ) : (
+                <div className='post-visual-placeholder'>
+                  <div className='visual-dots'></div>
+                </div>
+              )}
             </div>
           </div>
           
