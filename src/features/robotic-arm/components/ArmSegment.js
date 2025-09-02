@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ArmSegment = ({ position, rotation, length, color = '#666' }) => {
+const ArmSegment = ({ position, rotation, length, color = 'var(--slate, #878787)' }) => {
   return (
     <div
       className='arm-segment'

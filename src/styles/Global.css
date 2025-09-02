@@ -1,15 +1,23 @@
 :root {
-  --dark-navy: #020c1b;
-  --navy: #0a192f;
-  --light-navy: #112240;
-  --lightest-navy: #233554;
-  --navy-shadow: rgba(2, 12, 27, 0.7);
-  --slate: #8892b0;
-  --light-slate: #a8b2d1;
-  --lightest-slate: #ccd6f6;
-  --white: #e6f1ff;
-  --green-bright: #64ffda;
-  --green-tint: rgba(100, 255, 218, 0.1);
+  --dark-navy: #151419; /* Dark Void */
+  --navy: #1b1b1e; /* Gluon Grey */
+  --light-navy: #262626; /* Slate Grey */
+  --lightest-navy: #878787; /* Dusty Grey (used for subtle elements) */
+  --navy-shadow: rgba(21, 20, 25, 0.7);
+  --slate: #878787; /* Dusty Grey for secondary text */
+  --light-slate: #a3a3a3; /* derived lighter grey */
+  --lightest-slate: #fbfbfb; /* Snow for primary text on dark */
+  --white: #fbfbfb; /* Snow */
+  --green-bright: #f56e0f; /* Liquid Lava as primary accent */
+  --green-tint: rgba(245, 110, 15, 0.12);
+
+  /* New explicit palette tokens */
+  --color-dark-void: #151419;
+  --color-liquid-lava: #f56e0f;
+  --color-gluon-grey: #1b1b1e;
+  --color-slate-grey: #262626;
+  --color-dusty-grey: #878787;
+  --color-snow: #fbfbfb;
 }
 
 * {
@@ -133,7 +141,7 @@ select:focus {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--lightest-navy);
+  background: var(--light-navy);
   border-radius: 4px;
 }
 
@@ -144,12 +152,12 @@ select:focus {
 /* Selection styling */
 ::selection {
   background: var(--green-tint);
-  color: var(--green-bright);
+  color: var(--white);
 }
 
 ::-moz-selection {
   background: var(--green-tint);
-  color: var(--green-bright);
+  color: var(--white);
 }
 
 /* Error page styles */
