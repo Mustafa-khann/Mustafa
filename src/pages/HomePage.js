@@ -5,7 +5,7 @@ import { SEO } from '../components/common';
 const HomePage = () => {
   return (
     <div className='home-page'>
-      <SEO title='Home' description='Essays, projects and ideas by Mustafa Khan.' url='/' type='website' />
+      <SEO title='Mustafa Khan' description='Essays, projects and ideas by Mustafa Khan.' url='/' type='website' contentType='home' />
       <Intro />
       <About />
       <Experience />

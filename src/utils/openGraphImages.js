@@ -1,28 +1,30 @@
 // OpenGraph Image Configuration
 export const OPENGRAPH_IMAGES = {
   // Main sections
-  home: '/assets/og-home.jpg',
-  about: '/assets/og-about.jpg',
-  projects: '/assets/og-projects.jpg',
-  posts: '/assets/og-posts.jpg',
-  books: '/assets/og-books.jpg',
-  ideas: '/assets/og-ideas.jpg',
-  experience: '/assets/og-experience.jpg',
+  // Use images that actually exist in the repo
+  home: '/assets/og-images/home.png',
+  about: '/assets/og-images/home.png',
+  projects: '/assets/og-images/home.png',
+  posts: '/assets/og-images/home.png',
+  books: '/assets/og-images/home.png',
+  ideas: '/assets/og-images/home.png',
+  experience: '/assets/og-images/home.png',
   
   // Default fallback
   default: '/assets/mustafa.jpeg',
   
   // Category-specific images
   categories: {
-    software: '/assets/og-software.jpg',
-    research: '/assets/og-research.jpg',
-    robotics: '/assets/og-robotics.jpg',
-    ai: '/assets/og-ai.jpg',
-    engineering: '/assets/og-engineering.jpg',
-    technology: '/assets/og-technology.jpg',
-    science: '/assets/og-science.jpg',
-    philosophy: '/assets/og-philosophy.jpg',
-    literature: '/assets/og-literature.jpg',
+    // Fallback to a known-good image until category-specific ones exist
+    software: '/assets/og-images/home.png',
+    research: '/assets/og-images/home.png',
+    robotics: '/assets/og-images/home.png',
+    ai: '/assets/og-images/home.png',
+    engineering: '/assets/og-images/home.png',
+    technology: '/assets/og-images/home.png',
+    science: '/assets/og-images/home.png',
+    philosophy: '/assets/og-images/home.png',
+    literature: '/assets/og-images/home.png',
   }
 };
 
