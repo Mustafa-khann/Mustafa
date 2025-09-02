@@ -26,13 +26,15 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && react-snap",
+    "build-no-snap": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -b master -d build",
     "generate-og": "node scripts/generate-og-images.js",
-    "generate-post-og": "node scripts/generate-post-og.js"
+    "generate-post-og": "node scripts/generate-post-og.js",
+    "validate-og": "node scripts/validate-og-images.js"
   },
   "browserslist": {
     "production": [

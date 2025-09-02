@@ -6,7 +6,7 @@ export const OPENGRAPH_IMAGES = {
   about: '/assets/og-images/home.png',
   projects: '/assets/og-images/home.png',
   posts: '/assets/og-images/home.png',
-  books: '/assets/og-images/home.png',
+  books: '/assets/og-images/post-books-collection.png',
   ideas: '/assets/og-images/home.png',
   experience: '/assets/og-images/home.png',
   
@@ -165,6 +165,14 @@ export const getContentOGImage = (content, contentType) => {
       return getIdeaOGImage(content);
     case 'home':
       return getHomeOGImage();
+    case 'posts':
+    case 'projects':
+    case 'ideas':
+      // For section pages, use the home image as fallback
+      return getHomeOGImage();
+    case 'books':
+      // Use the specific books collection image
+      return '/assets/og-images/post-books-collection.png';
     default:
       return getDefaultOGImage();
   }

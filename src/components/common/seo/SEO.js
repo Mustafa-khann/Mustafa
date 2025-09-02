@@ -44,21 +44,30 @@ const SEO = ({
     console.log('🔍 SEO: Using provided image:', fullImage);
   } else if (post) {
     // Ensure correct content type when a post object is supplied
-    const postOGImage = getContentOGImage(post, contentType || 'post');
+    const postOGImage = getContentOGImage(post, 'post');
     fullImage = postOGImage ? `${siteUrl}${postOGImage}` : `${siteUrl}${defaultImage}`;
     console.log('🔍 SEO: Post detected, OG image:', postOGImage, 'Full URL:', fullImage);
   } else if (project) {
-    const projectOGImage = getContentOGImage(project, contentType || 'project');
+    const projectOGImage = getContentOGImage(project, 'project');
     fullImage = projectOGImage ? `${siteUrl}${projectOGImage}` : `${siteUrl}${defaultImage}`;
     console.log('🔍 SEO: Project detected, OG image:', projectOGImage, 'Full URL:', fullImage);
   } else if (book) {
-    const bookOGImage = getContentOGImage(book, contentType || 'book');
+    const bookOGImage = getContentOGImage(book, 'book');
     fullImage = bookOGImage ? `${siteUrl}${bookOGImage}` : `${siteUrl}${defaultImage}`;
     console.log('🔍 SEO: Book detected, OG image:', bookOGImage, 'Full URL:', fullImage);
   } else if (idea) {
-    const ideaOGImage = getContentOGImage(idea, contentType || 'idea');
+    const ideaOGImage = getContentOGImage(idea, 'idea');
     fullImage = ideaOGImage ? `${siteUrl}${ideaOGImage}` : `${siteUrl}${defaultImage}`;
     console.log('🔍 SEO: Idea detected, OG image:', ideaOGImage, 'Full URL:', fullImage);
+  } else if (contentType === 'home') {
+    const homeOGImage = getContentOGImage(null, 'home');
+    fullImage = homeOGImage ? `${siteUrl}${homeOGImage}` : `${siteUrl}${defaultImage}`;
+    console.log('🔍 SEO: Home page detected, OG image:', homeOGImage, 'Full URL:', fullImage);
+  } else if (contentType && contentType !== 'website') {
+    // For section pages like /posts, /projects, /ideas, /books
+    const sectionOGImage = getContentOGImage(null, contentType);
+    fullImage = sectionOGImage ? `${siteUrl}${sectionOGImage}` : `${siteUrl}${defaultImage}`;
+    console.log('🔍 SEO: Section page detected, OG image:', sectionOGImage, 'Full URL:', fullImage);
   } else {
     fullImage = `${siteUrl}${defaultImage}`;
     console.log('🔍 SEO: Using default image:', fullImage);
