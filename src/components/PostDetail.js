@@ -14,6 +14,15 @@ const PostDetail = () => {
   const decoded = decodeURIComponent(title);
   const post = getPostBySlug(decoded);
 
+  // Debug logging
+  console.log('🔍 PostDetail Debug:', {
+    title,
+    decoded,
+    post,
+    url: `/posts/${encodeURIComponent(decoded)}`,
+    fullUrl: `https://www.mustafakhan.xyz/posts/${encodeURIComponent(decoded)}`
+  });
+
   const [isGearOpen, setIsGearOpen] = React.useState(false);
   const contentRef = React.useRef(null);
   const [progress, setProgress] = React.useState(0);

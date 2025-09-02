@@ -78,6 +78,21 @@ const TestOG = () => {
           <li><strong>Full Default URL:</strong> https://www.mustafakhan.xyz{defaultImage}</li>
         </ul>
       </div>
+
+      <div style={{ backgroundColor: '#333', padding: '1rem', borderRadius: '8px', marginTop: '1rem' }}>
+        <h3>Generated Open Graph Meta Tags:</h3>
+        <pre style={{ backgroundColor: '#222', padding: '1rem', borderRadius: '8px', overflow: 'auto', fontSize: '12px' }}>
+{`<meta property="og:title" content="${testPost.title} | Mustafa Khan" />
+<meta property="og:description" content="${testPost.abstract}" />
+<meta property="og:image" content="https://www.mustafakhan.xyz${ogImage}" />
+<meta property="og:url" content="https://www.mustafakhan.xyz/posts/so-you-want-to-build-hardware" />
+<meta property="og:type" content="article" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content="${testPost.title} | Mustafa Khan" />
+<meta property="twitter:description" content="${testPost.abstract}" />
+<meta property="twitter:image" content="https://www.mustafakhan.xyz${ogImage}" />`}
+        </pre>
+      </div>
     </div>
   );
 };
