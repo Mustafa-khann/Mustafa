@@ -78,19 +78,27 @@ export const generateOpenGraphData = (content) => {
  * @returns {string} The URL to the Open Graph image
  */
 export const getPostOGImage = (post) => {
-  if (!post) return null;
+  if (!post) {
+    console.log('🔍 getPostOGImage: No post object provided');
+    return null;
+  }
+  
+  console.log('🔍 getPostOGImage: Processing post:', post.title);
   
   // Check if we have a custom OG image for this specific post
   const postSlug = post.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
   
   // For the hardware post, use the specific image
   if (post.title === 'So You Want to Build Hardware?') {
-    return '/assets/og-images/post-hardware.png';
+    const imagePath = '/assets/og-images/post-hardware.png';
+    console.log('🔍 getPostOGImage: Using hardware post image:', imagePath);
+    return imagePath;
   }
   
   // For other posts, generate a generic path
-  // You can run npm run generate-og to create these images
-  return `/assets/og-images/post-${postSlug}.png`;
+  const genericPath = `/assets/og-images/post-${postSlug}.png`;
+  console.log('🔍 getPostOGImage: Using generic path:', genericPath);
+  return genericPath;
 };
 
 /**

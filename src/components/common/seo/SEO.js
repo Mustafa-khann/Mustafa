@@ -38,14 +38,18 @@ const SEO = ({
   let fullImage;
   if (image) {
     fullImage = `${siteUrl}${image}`;
+    console.log('🔍 SEO: Using provided image:', fullImage);
   } else if (post) {
     const postOGImage = getPostOGImage(post);
     fullImage = postOGImage ? `${siteUrl}${postOGImage}` : `${siteUrl}${defaultImage}`;
+    console.log('🔍 SEO: Post detected, OG image:', postOGImage, 'Full URL:', fullImage);
   } else if (project) {
     const projectOGImage = getProjectOGImage(project);
     fullImage = projectOGImage ? `${siteUrl}${projectOGImage}` : `${siteUrl}${defaultImage}`;
+    console.log('🔍 SEO: Project detected, OG image:', projectOGImage, 'Full URL:', fullImage);
   } else {
     fullImage = `${siteUrl}${defaultImage}`;
+    console.log('🔍 SEO: Using default image:', fullImage);
   }
   
   return (
