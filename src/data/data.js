@@ -1051,9 +1051,6 @@ export const posts = [
     content: `
       <div style="font-family: 'NTR', sans-serif; color: var(--lightest-slate); line-height: 1.7; font-size: 1.05rem;">
         <div style="max-width: 1000px; margin: 0 auto;">
-          <p style="margin-bottom:1.2em;">
-            <span style="color:var(--green-bright); font-weight:600;">Good choice.</span> Software is fun, but hardware is where things get real. It’s the moment when lines of code turn into blinking LEDs, buzzing motors, and actual machines that move in the physical world.
-          </p>
           <div style="background:rgba(100,255,218,0.07); border-radius:12px; padding:1.2em 1.5em; margin-bottom:1.5em;">
             <div style="font-weight:600; color:var(--green-bright); margin-bottom:0.5em;">Hardware lives at the intersection of:</div>
             <ul style="list-style:none; padding-left:0; margin:0;">
@@ -1083,8 +1080,8 @@ export const posts = [
             <li style="margin-bottom:1.5em;">
               <div style="font-weight:600; color:var(--green-bright); font-size:1.1rem; margin-bottom:0.3em;">Essential Tools <span style="color:#ff9800;">🛠️</span></div>
               <ul style="margin:0 0 0.5em 0; padding-left:1.1em;">
-                <li><b>Soldering iron + flux</b> – You’ll mess up joints at first. Everyone does.</li>
-                <li><b>Multimeter</b> – Don’t guess if it’s working. Measure it.</li>
+                <li><b>Soldering iron + flux</b> – You'll mess up joints at first. Everyone does.</li>
+                <li><b>Multimeter</b> – Don't guess if it's working. Measure it.</li>
                 <li><b>Breadboard + jumper wires</b> – Your Lego baseplate for circuits.</li>
                 <li><b>Wire stripper + toolkit</b> – Saves time and frustration.</li>
                 <li><b>Adjustable power supply</b> – Because frying boards with random USB chargers is a rite of passage.</li>
@@ -1107,7 +1104,7 @@ export const posts = [
                 <li><b>DHT22 / DS18B20</b> – Temp + humidity sensing.</li>
                 <li><b>MPU6050</b> – Motion/gyro. Great for balancing bots or drones.</li>
                 <li><b>Relay modules</b> – Flip AC appliances on/off.</li>
-                <li><b>Motor drivers (L298N, DRV8825) + motors/servos/steppers</b> – The “muscles” of your robot.</li>
+                <li><b>Motor drivers (L298N, DRV8825) + motors/servos/steppers</b> – The "muscles" of your robot.</li>
               </ul>
               <div style="color:var(--slate); font-size:0.98em;">
                 <span style="color:#00d1b2;">🏁 Milestone project:</span> Build a line-follower robot. It uses sensors, motor drivers, and code all working together.
@@ -1121,7 +1118,7 @@ export const posts = [
                 <li><b>FreeCAD</b> – Open source and surprisingly capable.</li>
               </ul>
               <div style="color:var(--slate); font-size:0.98em;">
-                <span style="color:#00d1b2;">💡 Pro tip:</span> Don’t overdesign. Start by modeling a motor mount or a basic chassis before dreaming of Iron Man suits.
+                <span style="color:#00d1b2;">💡 Pro tip:</span> Don't overdesign. Start by modeling a motor mount or a basic chassis before dreaming of Iron Man suits.
               </div>
             </li>
             <li style="margin-bottom:1.5em;">
@@ -1141,7 +1138,7 @@ export const posts = [
                 <li>Arduino IDE – Beginner-friendly.</li>
                 <li>PlatformIO – Pro workflow, especially for ESP32.</li>
                 <li>KiCad/EasyEDA – PCB design.</li>
-                <li>ROS2 – When you’re ready for real robotics software.</li>
+                <li>ROS2 – When you're ready for real robotics software.</li>
               </ul>
             </li>
             <li style="margin-bottom:1.5em;">
@@ -1176,7 +1173,7 @@ export const posts = [
 
           <div style="background:rgba(100,255,218,0.07); border-radius:12px; padding:1.2em 1.5em; margin-bottom:1.5em;">
             <div style="font-weight:600; color:var(--green-bright); font-size:1.1rem; margin-bottom:0.5em;">
-              🛠️ How to Actually Start (Don’t Just Collect Parts)
+              🛠️ How to Actually Start (Don't Just Collect Parts)
             </div>
             <p style="margin-bottom:0.7em;">
               Too many beginners stall by just hoarding sensors. The key is <span style="color:#00d1b2; font-weight:600;">projects, not purchases</span>.
@@ -1193,14 +1190,14 @@ export const posts = [
               </ul>
             </div>
             <div style="color:var(--slate); font-size:0.98em;">
-              <span style="color:#00d1b2;">✨ Golden rule:</span> Break stuff. You will fry chips, misprint parts, and melt PLA spaghetti. That’s normal. Every broken board is tuition paid in the school of hardware.
+              <span style="color:#00d1b2;">✨ Golden rule:</span> Break stuff. You will fry chips, misprint parts, and melt PLA spaghetti. That's normal. Every broken board is tuition paid in the school of hardware.
             </div>
           </div>
 
           <div style="text-align:center; margin-top:2.5em;">
             <span style="font-size:1.2rem; font-weight:700; color:var(--green-bright);">⚡ Final Words</span>
             <p style="margin-top:0.7em;">
-              Robotics is <span style="color:#00d1b2; font-weight:600;">full-stack engineering</span>: hardware, software, and design. Stick with it, and you’ll gain a skill few people on the planet have; the power to create real, physical machines that sense and act in the world.
+              Robotics is <span style="color:#00d1b2; font-weight:600;">full-stack engineering</span>: hardware, software, and design. Stick with it, and you'll gain a skill few people on the planet have; the power to create real, physical machines that sense and act in the world.
             </p>
           </div>
         </div>
