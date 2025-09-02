@@ -51,6 +51,7 @@ const ProjectDetail = () => {
         url={`/projects/${encodeURIComponent(decoded)}`}
         type='article'
         project={project}
+        contentType='project'
       />
       <div className='project-header'>
         <Link to='/projects' className='back-button'>

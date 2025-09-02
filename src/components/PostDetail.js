@@ -146,6 +146,7 @@ const PostDetail = () => {
         type='article'
         publishedTime={post.date}
         post={post}
+        contentType='post'
       />
       
       {/* New Structured Post Header */}

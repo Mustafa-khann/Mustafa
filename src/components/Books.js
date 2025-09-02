@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/Books.css'; // Import the CSS file for styling
+import '../styles/Books.css';
 
 const Books = () => {
   const bookList = [

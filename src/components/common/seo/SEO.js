@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { getContentOGImage, getDefaultOGImage } from '../../../utils/openGraphImages';
+import { getContentOGImage, getDefaultOGImage, getOpenGraphImage } from '../../../utils/openGraphImages';
 
 const SEO = ({ 
   title, 
@@ -20,7 +20,7 @@ const SEO = ({
   contentType = 'website' // Specify content type for better OG image selection
 }) => {
   const siteName = 'Mustafa Khan';
-  const siteUrl = 'https://www.mustafakhan.xyz'; // Replace with your actual domain
+  const siteUrl = 'https://mustafakhan.xyz';
   const defaultImage = getDefaultOGImage();
   const twitterHandle = '@oprydai'; // Replace with your actual handle
   
@@ -43,21 +43,26 @@ const SEO = ({
     fullImage = `${siteUrl}${image}`;
     console.log('🔍 SEO: Using provided image:', fullImage);
   } else if (post) {
-    const postOGImage = getContentOGImage(post, contentType);
+    // Ensure correct content type when a post object is supplied
+    const postOGImage = getContentOGImage(post, contentType || 'post');
     fullImage = postOGImage ? `${siteUrl}${postOGImage}` : `${siteUrl}${defaultImage}`;
     console.log('🔍 SEO: Post detected, OG image:', postOGImage, 'Full URL:', fullImage);
   } else if (project) {
-    const projectOGImage = getContentOGImage(project, contentType);
+    const projectOGImage = getContentOGImage(project, contentType || 'project');
     fullImage = projectOGImage ? `${siteUrl}${projectOGImage}` : `${siteUrl}${defaultImage}`;
     console.log('🔍 SEO: Project detected, OG image:', projectOGImage, 'Full URL:', fullImage);
   } else if (book) {
-    const bookOGImage = getContentOGImage(book, contentType);
+    const bookOGImage = getContentOGImage(book, contentType || 'book');
     fullImage = bookOGImage ? `${siteUrl}${bookOGImage}` : `${siteUrl}${defaultImage}`;
     console.log('🔍 SEO: Book detected, OG image:', bookOGImage, 'Full URL:', fullImage);
   } else if (idea) {
-    const ideaOGImage = getContentOGImage(idea, contentType);
+    const ideaOGImage = getContentOGImage(idea, contentType || 'idea');
     fullImage = ideaOGImage ? `${siteUrl}${ideaOGImage}` : `${siteUrl}${defaultImage}`;
     console.log('🔍 SEO: Idea detected, OG image:', ideaOGImage, 'Full URL:', fullImage);
+  } else if (contentType) {
+    const sectionImage = getOpenGraphImage(contentType);
+    fullImage = `${siteUrl}${sectionImage || defaultImage}`;
+    console.log('🔍 SEO: Section detected, using image for', contentType, '→', fullImage);
   } else {
     fullImage = `${siteUrl}${defaultImage}`;
     console.log('🔍 SEO: Using default image:', fullImage);
@@ -129,8 +134,8 @@ const SEO = ({
       </script>
     </Helmet>
   );
-  
-  // Debug effect to verify meta tags are applied
+
+  // Debug effect to verify meta tags are applied (runs in browser only)
   useEffect(() => {
     console.log('🔍 SEO Component Rendered - Meta Tags Applied:');
     console.log('Title:', fullTitle);
