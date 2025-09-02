@@ -344,17 +344,7 @@
   position: relative;
 }
 
-.post-custom-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-  transition: transform 0.3s ease;
-}
-
-.post-custom-image:hover {
-  transform: scale(1.02);
-}
+/* Custom image styles removed - using default dots pattern instead */
 
 .visual-dots {
   width: 100%;
