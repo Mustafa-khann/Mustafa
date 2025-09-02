@@ -10,6 +10,7 @@ const IdeaDetail = lazy(() => import('../components/IdeaDetail'));
 const ProjectsPage = lazy(() => import('../pages/ProjectsPage'));
 const ProjectDetail = lazy(() => import('../components/ProjectDetail'));
 const DisclosurePage = lazy(() => import('../pages/DisclosurePage'));
+const TestOG = lazy(() => import('../components/TestOG'));
 
 // Route configuration
 export const routes = [
@@ -63,6 +64,12 @@ export const routes = [
     exact: true,
     component: DisclosurePage,
     title: 'Affiliate Disclosure',
+  },
+  {
+    path: '/test-og',
+    exact: true,
+    component: TestOG,
+    title: 'Test Open Graph',
   },
 ];
 
