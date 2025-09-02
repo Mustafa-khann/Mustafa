@@ -101,6 +101,19 @@ const SEO = ({
       
       {/* Canonical URL */}
       <link rel="canonical" href={fullUrl} />
+      
+      {/* Debug logging for meta tags */}
+      <script type="application/json" id="seo-debug">
+        {JSON.stringify({
+          title: fullTitle,
+          description: safeDescription,
+          image: fullImage,
+          url: fullUrl,
+          type: safeType,
+          post: !!post,
+          project: !!project
+        })}
+      </script>
     </Helmet>
   );
 };
