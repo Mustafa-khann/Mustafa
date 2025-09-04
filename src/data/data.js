@@ -1275,7 +1275,7 @@ export const posts = [
   {
     id: 15,
     title: 'How to Fund Your Hardware Projects',
-    date: 'March 27, 2025',
+    date: 'Sep 4, 2025',
     content: `
       <div style="font-family: 'NTR', sans-serif; color: var(--lightest-slate); line-height: 1.7; font-size: 1.05rem;">
         <div style="max-width: 1000px; margin: 0 auto;">
