@@ -182,10 +182,6 @@ const PostDetail = () => {
                 <span className='metadata-value'>{formattedDate}</span>
               </div>
               <div className='metadata-line'>
-                <span className='metadata-label'>Last Updated on</span>
-                <span className='metadata-value'>{formattedDate}</span>
-              </div>
-              <div className='metadata-line'>
                 <span className='metadata-label'>{readingTime} min read</span>
               </div>
             </div>
