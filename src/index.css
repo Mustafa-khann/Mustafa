@@ -9,10 +9,10 @@
   }
 
   body {
-    @apply bg-background-primary text-text-body font-mono leading-relaxed;
+    @apply bg-white text-neutral-900 font-mono antialiased min-h-screen leading-relaxed;
   }
 
   a {
-    @apply text-text-heading underline underline-offset-2 transition-colors duration-200 hover:text-text-accent decoration-border-active;
+    @apply underline underline-offset-4 decoration-neutral-300 transition-colors duration-200 hover:text-neutral-900 text-neutral-500;
   }
 }

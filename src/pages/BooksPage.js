@@ -77,8 +77,8 @@ const BooksPage = () => {
   return (
     <main className="max-w-5xl mx-auto px-6 py-12 md:py-16">
       <header className="mb-24">
-        <Link to="/" className="inline-block mb-8 text-xs font-bold uppercase tracking-widest text-text-muted no-underline hover:text-text-heading transition-colors">← Back</Link>
-        <h1 className="text-3xl md:text-4xl font-bold tracking-tightest mb-2 text-text-heading">Books</h1>
+        <Link to="/" className="inline-block mb-8 text-xs font-bold uppercase tracking-widest text-text-muted no-underline hover:text-neutral-900 transition-colors">← Back</Link>
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tightest mb-2 text-neutral-900">Books</h1>
         <p className="text-text-muted italic">Reference material. No rankings.</p>
       </header>
 
@@ -89,7 +89,7 @@ const BooksPage = () => {
             id="category"
             value={filter}
             onChange={(e) => setFilter(e.target.value)}
-            className="font-mono text-xs font-bold uppercase tracking-widest px-4 py-2 border border-border-standard bg-background-primary text-text-body outline-none focus:border-border-active transition-colors"
+            className="font-mono text-xs font-bold uppercase tracking-widest px-4 py-2 border border-border-standard bg-background-primary text-neutral-800 outline-none focus:border-border-active transition-colors"
           >
             {categories.map(cat => (
               <option key={cat} value={cat}>{cat}</option>
@@ -104,7 +104,7 @@ const BooksPage = () => {
           <ul className="list-none p-0">
             {categoryBooks.map((book, idx) => (
               <li key={idx} className="flex justify-between items-baseline mb-2 gap-8 py-1">
-                <span className="text-text-body font-bold tracking-tight">{book.title}</span>
+                <span className="text-neutral-800 font-bold tracking-tight">{book.title}</span>
                 <span className="text-sm text-text-muted italic whitespace-nowrap opacity-80">{book.author}</span>
               </li>
             ))}

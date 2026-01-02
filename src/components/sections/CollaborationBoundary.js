@@ -3,9 +3,9 @@ import { siteContent } from '../../data/siteContent';
 
 const Collaboration = () => {
     return (
-        <section className="mb-16">
-            <h2 className="text-sm font-bold uppercase tracking-widest text-text-muted mb-6 border-b border-border-subtle pb-2">Collaboration</h2>
-            <p className="italic text-text-body leading-relaxed max-w-2xl bg-background-surface p-6 border border-border-subtle">{siteContent.collaboration}</p>
+        <section className="py-8 md:py-16">
+            <h2 className="text-sm font-bold uppercase tracking-wider mb-6 text-neutral-500 border-b border-neutral-100 pb-2">Collaboration</h2>
+            <p className="text-base text-neutral-600 max-w-2xl">{siteContent.collaboration}</p>
         </section>
     );
 };

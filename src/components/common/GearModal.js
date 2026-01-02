@@ -84,9 +84,9 @@ const GearModal = ({ isOpen, onClose, title = 'Recommended Gear', collections = 
         ref={modalRef}
       >
         <div className="sticky top-0 flex items-center justify-between px-6 py-4 bg-background-primary border-b border-border-subtle z-10">
-          <h2 id="gear-modal-title" className="text-sm font-bold uppercase tracking-widest text-text-heading">{title}</h2>
+          <h2 id="gear-modal-title" className="text-sm font-bold uppercase tracking-widest text-neutral-900">{title}</h2>
           <button
-            className="bg-transparent text-text-muted border border-border-standard px-2 py-1 text-xs font-bold uppercase cursor-pointer transition-colors duration-200 hover:border-border-active hover:text-text-heading"
+            className="bg-transparent text-text-muted border border-border-standard px-2 py-1 text-xs font-bold uppercase cursor-pointer transition-colors duration-200 hover:border-border-active hover:text-neutral-900"
             aria-label="Close gear modal"
             onClick={onClose}
             ref={closeBtnRef}
@@ -101,7 +101,7 @@ const GearModal = ({ isOpen, onClose, title = 'Recommended Gear', collections = 
           </span>
           <button
             type="button"
-            className="ml-4 bg-transparent text-text-body border border-border-standard px-2 py-1 text-[10px] font-bold uppercase cursor-pointer hover:border-border-active transition-colors"
+            className="ml-4 bg-transparent text-neutral-800 border border-border-standard px-2 py-1 text-[10px] font-bold uppercase cursor-pointer hover:border-border-active transition-colors"
             aria-expanded={showDisclosure}
             onClick={() => setShowDisclosure(v => !v)}
           >
@@ -111,7 +111,7 @@ const GearModal = ({ isOpen, onClose, title = 'Recommended Gear', collections = 
             <div className="mt-2 not-italic">
               <p>
                 I only recommend tools I genuinely use or believe will add value. Purchases made via these links help support my work at no additional cost to you.
-                <a href="/disclosure" className="text-text-heading underline font-bold decoration-border-active">Learn more</a>.
+                <a href="/disclosure" className="text-neutral-900 underline font-bold decoration-border-active">Learn more</a>.
               </p>
             </div>
           )}
@@ -128,7 +128,7 @@ const GearModal = ({ isOpen, onClose, title = 'Recommended Gear', collections = 
                 {collection.items?.map((item) => (
                   <a
                     key={item.id || item.title}
-                    className="flex justify-between items-baseline py-3 no-underline text-text-body border-b border-border-subtle gap-8 last:border-b-0 hover:bg-background-surface px-2 -mx-2 transition-colors duration-200 group"
+                    className="flex justify-between items-baseline py-3 no-underline text-neutral-800 border-b border-border-subtle gap-8 last:border-b-0 hover:bg-background-surface px-2 -mx-2 transition-colors duration-200 group"
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer nofollow sponsored"
@@ -138,7 +138,7 @@ const GearModal = ({ isOpen, onClose, title = 'Recommended Gear', collections = 
                         {item.emoji || '🔧'}
                       </span>
                       <div>
-                        <h4 className="font-bold tracking-tight text-sm group-hover:text-text-heading">{item.title}</h4>
+                        <h4 className="font-bold tracking-tight text-sm group-hover:text-neutral-900">{item.title}</h4>
                         {item.note ? <span className="text-text-muted text-xs italic block mt-0.5">{item.note}</span> : null}
                       </div>
                     </div>

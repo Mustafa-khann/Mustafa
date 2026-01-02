@@ -92,8 +92,8 @@ const ProjectsPage = () => {
   return (
     <main className="max-w-5xl mx-auto px-6 py-12 md:py-16">
       <header className="mb-24">
-        <Link to="/" className="inline-block mb-8 text-xs font-bold uppercase tracking-widest text-text-muted no-underline hover:text-text-heading transition-colors">← Back</Link>
-        <h1 className="text-3xl md:text-4xl font-bold tracking-tightest mb-2 text-text-heading">Projects</h1>
+        <Link to="/" className="inline-block mb-8 text-xs font-bold uppercase tracking-widest text-text-muted no-underline hover:text-neutral-900 transition-colors">← Back</Link>
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tightest mb-2 text-neutral-900">Projects</h1>
         <p className="text-text-muted italic">Artifacts with source or documentation.</p>
       </header>
 
@@ -104,7 +104,7 @@ const ProjectsPage = () => {
             {typeProjects.map((project, idx) => (
               <li key={idx} className="mb-8 pb-8 border-b border-border-subtle last:border-b-0">
                 <div className="flex justify-between items-baseline mb-2">
-                  <span className="font-bold tracking-tight text-text-heading">
+                  <span className="font-bold tracking-tight text-neutral-900">
                     {project.link ? (
                       <a href={project.link} target="_blank" rel="noopener noreferrer" className="no-underline hover:underline decoration-border-active">
                         {project.name}

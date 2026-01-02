@@ -13,18 +13,18 @@ const Notes = () => {
     return (
         <main className="max-w-5xl mx-auto px-6 py-12 md:py-16">
             <header className="mb-24">
-                <Link to="/" className="inline-block mb-8 text-xs font-bold uppercase tracking-widest text-text-muted no-underline hover:text-text-heading transition-colors">← Back</Link>
-                <h1 className="text-3xl md:text-4xl font-bold tracking-tightest mb-2 text-text-heading">Articles</h1>
-                <p className="text-text-muted italic">Technical notes, essays, and observations.</p>
+                <Link to="/" className="inline-block mb-8 text-xs font-bold uppercase tracking-wider text-neutral-500 no-underline hover:text-neutral-900 transition-colors">← Back</Link>
+                <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-2 text-neutral-900">Articles</h1>
+                <p className="text-neutral-500 italic">Technical notes, essays, and observations.</p>
             </header>
 
             <section className="mb-16">
                 <ul className="list-none p-0">
                     {sortedPosts.map((post) => (
-                        <li key={post.id} className="mb-4 pb-4 border-b border-border-subtle last:border-b-0">
+                        <li key={post.id} className="mb-4 pb-4 border-b border-neutral-100 last:border-b-0">
                             <Link to={`/posts/${encodeURIComponent(post.title)}`} className="flex justify-between items-baseline gap-8 no-underline group">
-                                <span className="text-text-body font-bold tracking-tight group-hover:text-text-heading transition-colors group-hover:underline decoration-border-active">{post.title}</span>
-                                <span className="text-sm text-text-muted italic whitespace-nowrap opacity-80">{post.date}</span>
+                                <span className="text-neutral-800 font-bold tracking-tight group-hover:text-neutral-900 transition-colors group-hover:underline decoration-neutral-300">{post.title}</span>
+                                <span className="text-sm text-neutral-500 italic whitespace-nowrap opacity-80">{post.date}</span>
                             </Link>
                         </li>
                     ))}
