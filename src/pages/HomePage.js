@@ -10,7 +10,7 @@ import Footer from '../components/sections/Footer';
 
 const HomePage = () => {
   return (
-    <main className="max-w-lab mx-auto px-8 py-16">
+    <main className="max-w-5xl mx-auto px-6 py-12 md:py-16">
       <Header />
       <WhatThisIs />
       <HowIWork />

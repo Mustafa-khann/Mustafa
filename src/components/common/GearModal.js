@@ -63,7 +63,7 @@ const GearModal = ({ isOpen, onClose, title = 'Recommended Gear', collections = 
 
   return (
     <div
-      className="fixed inset-0 bg-black/30 flex items-center justify-center p-8 z-50"
+      className="fixed inset-0 bg-background-primary/95 flex items-center justify-center p-4 z-50 backdrop-blur-sm"
       ref={overlayRef}
       role="button"
       aria-label="Close gear modal"
@@ -76,17 +76,17 @@ const GearModal = ({ isOpen, onClose, title = 'Recommended Gear', collections = 
       }}
     >
       <div
-        className="w-full max-w-lab max-h-[90vh] overflow-auto bg-lab-bg border border-lab-border"
+        className="w-full max-w-2xl max-h-[90vh] overflow-auto bg-background-primary border border-border-standard shadow-2xl"
         role="dialog"
         aria-modal="true"
         aria-labelledby="gear-modal-title"
         tabIndex={-1}
         ref={modalRef}
       >
-        <div className="sticky top-0 flex items-center justify-between px-8 py-4 bg-lab-bg border-b border-lab-border z-10">
-          <h2 id="gear-modal-title" className="text-sm font-bold uppercase tracking-widest">{title}</h2>
+        <div className="sticky top-0 flex items-center justify-between px-6 py-4 bg-background-primary border-b border-border-subtle z-10">
+          <h2 id="gear-modal-title" className="text-sm font-bold uppercase tracking-widest text-text-heading">{title}</h2>
           <button
-            className="bg-transparent text-lab-muted border border-lab-border px-2 py-1 text-xs font-bold uppercase cursor-pointer transition-colors duration-150 hover:border-lab-muted hover:text-lab-text"
+            className="bg-transparent text-text-muted border border-border-standard px-2 py-1 text-xs font-bold uppercase cursor-pointer transition-colors duration-200 hover:border-border-active hover:text-text-heading"
             aria-label="Close gear modal"
             onClick={onClose}
             ref={closeBtnRef}
@@ -95,13 +95,13 @@ const GearModal = ({ isOpen, onClose, title = 'Recommended Gear', collections = 
           </button>
         </div>
 
-        <div className="px-8 py-4 bg-lab-bg-alt border-b border-lab-border text-lab-muted text-xs italic leading-relaxed" role="note" aria-live="polite">
+        <div className="px-6 py-4 bg-background-surface border-b border-border-subtle text-text-muted text-xs italic leading-relaxed font-mono" role="note" aria-live="polite">
           <span>
             Disclosure: Some links may be affiliate links. If you purchase through them, I may earn a small commission at no extra cost to you.
           </span>
           <button
             type="button"
-            className="ml-4 bg-transparent text-lab-text border border-lab-border px-2 py-1 text-[10px] font-bold uppercase cursor-pointer hover:border-lab-muted"
+            className="ml-4 bg-transparent text-text-body border border-border-standard px-2 py-1 text-[10px] font-bold uppercase cursor-pointer hover:border-border-active transition-colors"
             aria-expanded={showDisclosure}
             onClick={() => setShowDisclosure(v => !v)}
           >
@@ -111,38 +111,38 @@ const GearModal = ({ isOpen, onClose, title = 'Recommended Gear', collections = 
             <div className="mt-2 not-italic">
               <p>
                 I only recommend tools I genuinely use or believe will add value. Purchases made via these links help support my work at no additional cost to you.
-                <a href="/disclosure" className="text-lab-text underline font-bold">Learn more</a>.
+                <a href="/disclosure" className="text-text-heading underline font-bold decoration-border-active">Learn more</a>.
               </p>
             </div>
           )}
         </div>
 
-        <div className="p-8">
+        <div className="p-6">
           {collections.map((collection) => (
-            <div key={collection.id || collection.title} className="mb-16 last:mb-0">
-              <div className="mb-4">
-                <h3 className="text-sm font-bold uppercase tracking-wide text-lab-muted mb-4 border-b border-lab-border pb-1">{collection.title}</h3>
-                {collection.description ? <p className="text-lab-muted text-sm italic mb-4 opacity-80">{collection.description}</p> : null}
+            <div key={collection.id || collection.title} className="mb-12 last:mb-0">
+              <div className="mb-6">
+                <h3 className="text-xs font-bold uppercase tracking-widest text-text-muted mb-4 border-b border-border-subtle pb-2">{collection.title}</h3>
+                {collection.description ? <p className="text-text-muted text-sm italic mb-4 opacity-80">{collection.description}</p> : null}
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col gap-2">
                 {collection.items?.map((item) => (
                   <a
                     key={item.id || item.title}
-                    className="flex justify-between items-baseline py-4 no-underline text-lab-text border-b border-lab-border gap-8 last:border-b-0 group"
+                    className="flex justify-between items-baseline py-3 no-underline text-text-body border-b border-border-subtle gap-8 last:border-b-0 hover:bg-background-surface px-2 -mx-2 transition-colors duration-200 group"
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer nofollow sponsored"
                   >
                     <div className="flex items-center gap-4">
-                      <span className="text-xl min-w-6 opacity-70" aria-hidden>
+                      <span className="text-lg min-w-6 opacity-70 grayscale group-hover:grayscale-0 transition-all" aria-hidden>
                         {item.emoji || '🔧'}
                       </span>
                       <div>
-                        <h4 className="font-bold tracking-tight underline underline-offset-4 group-hover:text-black">{item.title}</h4>
-                        {item.note ? <span className="text-lab-muted text-xs italic">{item.note}</span> : null}
+                        <h4 className="font-bold tracking-tight text-sm group-hover:text-text-heading">{item.title}</h4>
+                        {item.note ? <span className="text-text-muted text-xs italic block mt-0.5">{item.note}</span> : null}
                       </div>
                     </div>
-                    {item.price ? <div className="text-lab-muted text-xs italic whitespace-nowrap">{item.price}</div> : null}
+                    {item.price ? <div className="text-text-muted text-xs font-mono whitespace-nowrap">{item.price}</div> : null}
                   </a>
                 ))}
               </div>

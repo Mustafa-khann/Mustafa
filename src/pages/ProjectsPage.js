@@ -90,33 +90,33 @@ const ProjectsPage = () => {
   }, {});
 
   return (
-    <main className="max-w-lab mx-auto px-8 py-16">
+    <main className="max-w-5xl mx-auto px-6 py-12 md:py-16">
       <header className="mb-24">
-        <Link to="/" className="inline-block mb-8 text-xs font-bold uppercase tracking-widest text-lab-muted no-underline hover:text-lab-text">← Back</Link>
-        <h1 className="text-2xl font-bold mb-2 tracking-tight">Projects</h1>
-        <p className="text-lab-muted italic">Artifacts with source or documentation.</p>
+        <Link to="/" className="inline-block mb-8 text-xs font-bold uppercase tracking-widest text-text-muted no-underline hover:text-text-heading transition-colors">← Back</Link>
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tightest mb-2 text-text-heading">Projects</h1>
+        <p className="text-text-muted italic">Artifacts with source or documentation.</p>
       </header>
 
       {Object.entries(grouped).map(([type, typeProjects]) => (
         <section key={type} className="mb-16">
-          <h2 className="text-sm font-bold uppercase tracking-wide text-lab-muted mb-4 border-b border-lab-border pb-1">{type}</h2>
+          <h2 className="text-sm font-bold uppercase tracking-widest text-text-muted mb-6 border-b border-border-subtle pb-2">{type}</h2>
           <ul className="list-none p-0">
             {typeProjects.map((project, idx) => (
-              <li key={idx} className="mb-8 pb-8 border-b border-lab-border last:border-b-0">
+              <li key={idx} className="mb-8 pb-8 border-b border-border-subtle last:border-b-0">
                 <div className="flex justify-between items-baseline mb-2">
-                  <span className="font-bold tracking-tight">
+                  <span className="font-bold tracking-tight text-text-heading">
                     {project.link ? (
-                      <a href={project.link} target="_blank" rel="noopener noreferrer">
+                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="no-underline hover:underline decoration-border-active">
                         {project.name}
                       </a>
                     ) : (
                       project.name
                     )}
                   </span>
-                  <span className="text-sm text-lab-muted italic opacity-80">{project.status}</span>
+                  <span className="text-sm text-text-muted italic opacity-80">{project.status}</span>
                 </div>
-                <p className="text-lab-muted mb-2">{project.description}</p>
-                <span className="text-sm text-lab-muted italic opacity-70">{project.stack}</span>
+                <p className="text-text-muted mb-2">{project.description}</p>
+                <span className="text-sm text-text-muted italic opacity-70 font-mono">{project.stack}</span>
               </li>
             ))}
           </ul>

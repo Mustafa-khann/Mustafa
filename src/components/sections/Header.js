@@ -6,8 +6,8 @@ const Header = () => {
 
     return (
         <header className="mb-24">
-            <h1 className="text-2xl font-bold mb-2">{name}</h1>
-            <p className="text-lab-muted italic">{definition}</p>
+            <h1 className="text-3xl md:text-4xl font-bold tracking-tightest mb-2 text-text-heading">{name}</h1>
+            <p className="text-text-muted italic">{definition}</p>
         </header>
     );
 };

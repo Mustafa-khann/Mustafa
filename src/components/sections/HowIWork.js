@@ -6,18 +6,18 @@ const HowIWork = () => {
 
     return (
         <section className="mb-16">
-            <h2 className="text-sm font-bold uppercase tracking-wide text-lab-muted mb-4 border-b border-lab-border pb-1">How I Work</h2>
+            <h2 className="text-sm font-bold uppercase tracking-widest text-text-muted mb-6 border-b border-border-subtle pb-2">How I Work</h2>
 
             <ul className="list-none p-0 mb-8">
                 {process.map((step, index) => (
-                    <li key={index} className="mb-2 pl-4 relative before:content-['→'] before:absolute before:left-0 before:text-lab-muted font-bold tracking-tight">{step}</li>
+                    <li key={index} className="mb-2 pl-4 relative before:content-['→'] before:absolute before:left-0 before:text-text-muted font-bold tracking-tight text-text-body">{step}</li>
                 ))}
             </ul>
 
-            <h3 className="text-sm font-bold text-lab-muted mb-2 mt-8 italic">Constraints</h3>
+            <h3 className="text-sm font-bold text-text-muted mb-4 mt-8 italic uppercase tracking-widest">Constraints</h3>
             <ul className="list-none p-0">
                 {constraints.map((constraint, index) => (
-                    <li key={index} className="mb-2 text-lab-muted italic opacity-80">{constraint}</li>
+                    <li key={index} className="mb-2 text-text-muted italic opacity-90">{constraint}</li>
                 ))}
             </ul>
         </section>

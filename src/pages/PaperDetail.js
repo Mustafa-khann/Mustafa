@@ -30,15 +30,15 @@ const PaperDetail = () => {
     };
 
     return (
-        <main className="max-w-lab mx-auto px-8 py-16">
+        <main className="max-w-5xl mx-auto px-6 py-12 md:py-16">
             <header className="mb-24">
-                <Link to="/ideas" className="inline-block mb-8 text-xs font-bold uppercase tracking-widest text-lab-muted no-underline hover:text-lab-text">← Back to Ideas</Link>
-                <h1 className="text-2xl font-bold mb-2 tracking-tight">{paper.title}</h1>
-                <p className="text-lab-muted italic opacity-80">{paper.author} — {paper.date}</p>
+                <Link to="/ideas" className="inline-block mb-8 text-xs font-bold uppercase tracking-widest text-text-muted no-underline hover:text-text-heading transition-colors">← Back to Ideas</Link>
+                <h1 className="text-3xl md:text-4xl font-bold tracking-tightest mb-2 text-text-heading">{paper.title}</h1>
+                <p className="text-text-muted italic opacity-80">{paper.author} — {paper.date}</p>
             </header>
 
             <article
-                className="leading-relaxed prose prose-neutral max-w-none [&_h2]:mt-16 [&_h2]:mb-4 [&_h2]:font-bold [&_h2]:uppercase [&_h2]:text-sm [&_h2]:tracking-widest [&_h2]:border-b [&_h2]:border-lab-border [&_h2]:pb-1 [&_h3]:mt-8 [&_h3]:mb-4 [&_h3]:font-bold [&_h3]:italic [&_p]:mb-8 [&_ul]:mb-8 [&_ol]:mb-8 [&_a]:text-lab-text [&_a]:font-bold [&_table]:w-full [&_table]:border-collapse [&_table]:mb-8 [&_table]:text-sm [&_th]:border [&_th]:border-lab-border [&_th]:p-2 [&_th]:text-left [&_th]:bg-lab-bg-alt [&_th]:font-bold [&_td]:border [&_td]:border-lab-border [&_td]:p-2 [&_blockquote]:border-l-2 [&_blockquote]:border-lab-border [&_blockquote]:pl-4 [&_blockquote]:text-lab-muted [&_blockquote]:italic [&_blockquote]:mb-8 [&_img]:max-w-full [&_img]:h-auto [&_img]:border [&_img]:border-lab-border"
+                className="leading-relaxed prose prose-neutral max-w-none text-text-body [&_h2]:mt-16 [&_h2]:mb-6 [&_h2]:font-bold [&_h2]:uppercase [&_h2]:text-sm [&_h2]:tracking-widest [&_h2]:text-text-muted [&_h2]:border-b [&_h2]:border-border-subtle [&_h2]:pb-2 [&_h3]:mt-12 [&_h3]:mb-4 [&_h3]:font-bold [&_h3]:italic [&_p]:mb-6 [&_ul]:mb-6 [&_ol]:mb-6 [&_li]:mb-2 [&_a]:text-text-heading [&_a]:underline [&_a]:decoration-border-active [&_table]:w-full [&_table]:border-collapse [&_table]:mb-8 [&_table]:text-sm [&_th]:border [&_th]:border-border-standard [&_th]:p-3 [&_th]:text-left [&_th]:bg-background-surface [&_th]:font-bold [&_th]:tracking-wide [&_td]:border [&_td]:border-border-standard [&_td]:p-3 [&_blockquote]:border-l-2 [&_blockquote]:border-border-active [&_blockquote]:pl-4 [&_blockquote]:text-text-muted [&_blockquote]:italic [&_blockquote]:mb-8 [&_img]:max-w-full [&_img]:h-auto [&_img]:border [&_img]:border-border-subtle [&_img]:p-1 [&_img]:bg-background-surface"
                 dangerouslySetInnerHTML={{ __html: cleanContent(paper.content) }}
             />
         </main>

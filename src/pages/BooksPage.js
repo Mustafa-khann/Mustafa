@@ -75,21 +75,21 @@ const BooksPage = () => {
   }, {});
 
   return (
-    <main className="max-w-lab mx-auto px-8 py-16">
+    <main className="max-w-5xl mx-auto px-6 py-12 md:py-16">
       <header className="mb-24">
-        <Link to="/" className="inline-block mb-8 text-xs font-bold uppercase tracking-widest text-lab-muted no-underline hover:text-lab-text">← Back</Link>
-        <h1 className="text-2xl font-bold mb-2 tracking-tight">Books</h1>
-        <p className="text-lab-muted italic">Reference material. No rankings.</p>
+        <Link to="/" className="inline-block mb-8 text-xs font-bold uppercase tracking-widest text-text-muted no-underline hover:text-text-heading transition-colors">← Back</Link>
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tightest mb-2 text-text-heading">Books</h1>
+        <p className="text-text-muted italic">Reference material. No rankings.</p>
       </header>
 
       <section className="mb-8">
         <div className="mb-8">
-          <label htmlFor="category" className="mr-2 text-xs font-bold uppercase tracking-widest text-lab-muted">Filter: </label>
+          <label htmlFor="category" className="mr-2 text-xs font-bold uppercase tracking-widest text-text-muted">Filter: </label>
           <select
             id="category"
             value={filter}
             onChange={(e) => setFilter(e.target.value)}
-            className="font-sans text-xs font-bold uppercase tracking-widest px-4 py-2 border border-lab-border bg-lab-bg text-lab-text outline-none focus:border-lab-muted"
+            className="font-mono text-xs font-bold uppercase tracking-widest px-4 py-2 border border-border-standard bg-background-primary text-text-body outline-none focus:border-border-active transition-colors"
           >
             {categories.map(cat => (
               <option key={cat} value={cat}>{cat}</option>
@@ -100,12 +100,12 @@ const BooksPage = () => {
 
       {Object.entries(grouped).sort().map(([category, categoryBooks]) => (
         <section key={category} className="mb-16">
-          <h2 className="text-sm font-bold uppercase tracking-wide text-lab-muted mb-4 border-b border-lab-border pb-1">{category}</h2>
+          <h2 className="text-sm font-bold uppercase tracking-widest text-text-muted mb-6 border-b border-border-subtle pb-2">{category}</h2>
           <ul className="list-none p-0">
             {categoryBooks.map((book, idx) => (
               <li key={idx} className="flex justify-between items-baseline mb-2 gap-8 py-1">
-                <span className="text-lab-text font-bold tracking-tight">{book.title}</span>
-                <span className="text-sm text-lab-muted italic whitespace-nowrap opacity-80">{book.author}</span>
+                <span className="text-text-body font-bold tracking-tight">{book.title}</span>
+                <span className="text-sm text-text-muted italic whitespace-nowrap opacity-80">{book.author}</span>
               </li>
             ))}
           </ul>
