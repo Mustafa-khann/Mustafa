@@ -16,7 +16,7 @@ function App() {
             />
           ))}
           <Route>
-            <main className="max-w-lab mx-auto px-8 py-16">
+            <main className="max-w-lab mx-auto px-1 py-1">
               <h1 className="text-2xl font-medium mb-4">404</h1>
               <p>Page not found.</p>
               <a href="/">Return</a>
