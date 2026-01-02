@@ -3,11 +3,11 @@ import { siteContent } from '../../data/siteContent';
 
 const CurrentSetup = () => {
     return (
-        <section className="lab-section lab-current-setup">
-            <h2 className="lab-section-title">Current Setup</h2>
-            <ul className="lab-setup-list">
+        <section className="mb-16">
+            <h2 className="text-sm font-bold uppercase tracking-wide text-lab-muted mb-4 border-b border-lab-border pb-1">Current Setup</h2>
+            <ul className="list-none p-0">
                 {siteContent.currentSetup.map((item, index) => (
-                    <li key={index} className="lab-setup-item">{item}</li>
+                    <li key={index} className="mb-2 font-bold tracking-tight">{item}</li>
                 ))}
             </ul>
         </section>

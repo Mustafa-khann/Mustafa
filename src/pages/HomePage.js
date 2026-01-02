@@ -7,11 +7,10 @@ import Outputs from '../components/sections/Outputs';
 import CurrentSetup from '../components/sections/CurrentSetup';
 import CollaborationBoundary from '../components/sections/CollaborationBoundary';
 import Footer from '../components/sections/Footer';
-import '../styles/Lab.css';
 
 const HomePage = () => {
   return (
-    <main className="lab-page">
+    <main className="max-w-lab mx-auto px-8 py-16">
       <Header />
       <WhatThisIs />
       <HowIWork />

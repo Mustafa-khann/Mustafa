@@ -6,20 +6,20 @@ const Footer = () => {
     const { name, email, github, twitter } = siteContent.footer;
 
     return (
-        <footer className="lab-footer">
-            <nav className="lab-nav" aria-label="Site navigation">
-                <ul className="lab-nav-list">
-                    <li><Link to="/posts" className="lab-nav-link">Posts</Link></li>
-                    <li><Link to="/ideas" className="lab-nav-link">Ideas</Link></li>
-                    <li><Link to="/books" className="lab-nav-link">Books</Link></li>
-                    <li><Link to="/projects" className="lab-nav-link">Projects</Link></li>
+        <footer className="mt-24 pt-8 border-t border-lab-border">
+            <nav className="mt-16 pt-8 border-t border-lab-border" aria-label="Site navigation">
+                <ul className="list-none p-0 flex gap-8">
+                    <li><Link to="/posts" className="text-xs font-bold uppercase tracking-widest text-lab-muted hover:text-lab-text">Posts</Link></li>
+                    <li><Link to="/ideas" className="text-xs font-bold uppercase tracking-widest text-lab-muted hover:text-lab-text">Ideas</Link></li>
+                    <li><Link to="/books" className="text-xs font-bold uppercase tracking-widest text-lab-muted hover:text-lab-text">Books</Link></li>
+                    <li><Link to="/projects" className="text-xs font-bold uppercase tracking-widest text-lab-muted hover:text-lab-text">Projects</Link></li>
                 </ul>
             </nav>
-            <p className="lab-footer-name">{name}</p>
-            <nav className="lab-footer-links" aria-label="Contact and social links">
-                <a href={`mailto:${email}`} className="lab-footer-link">Email</a>
-                <a href={github} target="_blank" rel="noopener noreferrer" className="lab-footer-link">GitHub</a>
-                <a href={twitter} target="_blank" rel="noopener noreferrer" className="lab-footer-link">X</a>
+            <p className="font-bold mb-2 mt-8 uppercase tracking-widest text-sm">{name}</p>
+            <nav className="flex gap-8" aria-label="Contact and social links">
+                <a href={`mailto:${email}`} className="text-sm text-lab-muted italic hover:text-lab-text">Email</a>
+                <a href={github} target="_blank" rel="noopener noreferrer" className="text-sm text-lab-muted italic hover:text-lab-text">GitHub</a>
+                <a href={twitter} target="_blank" rel="noopener noreferrer" className="text-sm text-lab-muted italic hover:text-lab-text">X</a>
             </nav>
         </footer>
     );

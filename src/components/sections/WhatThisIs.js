@@ -3,8 +3,8 @@ import { siteContent } from '../../data/siteContent';
 
 const WhatThisIs = () => {
     return (
-        <section className="lab-section lab-what-this-is">
-            <h2 className="lab-section-title">What This Site Is</h2>
+        <section className="mb-16">
+            <h2 className="text-sm font-bold uppercase tracking-wide text-lab-muted mb-4 border-b border-lab-border pb-1">What This Site Is</h2>
             <p>{siteContent.whatThisIs}</p>
         </section>
     );

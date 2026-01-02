@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { posts } from '../data/data';
 import GearModal from '../components/common/GearModal';
-import '../styles/Lab.css';
 
 const NoteDetail = () => {
     const { title } = useParams();
@@ -31,10 +30,10 @@ const NoteDetail = () => {
 
     if (!post) {
         return (
-            <main className="lab-page">
-                <header className="lab-header">
-                    <Link to="/posts" className="lab-back-link">← Back to Posts</Link>
-                    <h1 className="lab-header-name">Not Found</h1>
+            <main className="max-w-lab mx-auto px-8 py-16">
+                <header className="mb-24">
+                    <Link to="/posts" className="inline-block mb-8 text-sm text-lab-muted no-underline hover:text-lab-text">← Back to Articles</Link>
+                    <h1 className="text-2xl font-medium mb-2">Not Found</h1>
                 </header>
                 <p>Note not found.</p>
             </main>
@@ -54,17 +53,17 @@ const NoteDetail = () => {
     const hasGear = post.gear && post.gear.collections && post.gear.collections.length > 0;
 
     return (
-        <main className="lab-page lab-note-detail">
-            <header className="lab-header">
-                <Link to="/posts" className="lab-back-link">← Back to Articles</Link>
-                <h1 className="lab-header-name">{post.title}</h1>
-                <p className="lab-header-definition">{post.date}</p>
+        <main className="max-w-lab mx-auto px-8 py-16">
+            <header className="mb-24">
+                <Link to="/posts" className="inline-block mb-8 text-xs font-bold uppercase tracking-widest text-lab-muted no-underline hover:text-lab-text">← Back to Articles</Link>
+                <h1 className="text-2xl font-bold mb-2 tracking-tight">{post.title}</h1>
+                <p className="text-lab-muted italic opacity-80">{post.date}</p>
             </header>
 
             {hasGear && (
-                <div className="lab-note-actions">
+                <div className="mb-8">
                     <button
-                        className="lab-gear-btn"
+                        className="font-sans text-xs font-bold uppercase tracking-widest px-4 py-2 border border-lab-border bg-lab-bg text-lab-text cursor-pointer transition-colors duration-150 hover:bg-lab-bg-alt hover:border-lab-muted"
                         onClick={() => setIsGearOpen(true)}
                     >
                         📦 Recommended Gear
@@ -73,7 +72,7 @@ const NoteDetail = () => {
             )}
 
             <article
-                className="lab-note-content"
+                className="leading-relaxed prose prose-neutral max-w-none [&_h2]:mt-16 [&_h2]:mb-4 [&_h2]:font-bold [&_h2]:uppercase [&_h2]:text-sm [&_h2]:tracking-widest [&_h2]:border-b [&_h2]:border-lab-border [&_h2]:pb-1 [&_h3]:mt-8 [&_h3]:mb-4 [&_h3]:font-bold [&_h3]:italic [&_p]:mb-8 [&_ul]:mb-8 [&_ol]:mb-8 [&_a]:text-lab-text [&_a]:font-bold [&_table]:w-full [&_table]:border-collapse [&_table]:mb-8 [&_table]:text-sm [&_th]:border [&_th]:border-lab-border [&_th]:p-2 [&_th]:text-left [&_th]:bg-lab-bg-alt [&_th]:font-bold [&_td]:border [&_td]:border-lab-border [&_td]:p-2 [&_blockquote]:border-l-2 [&_blockquote]:border-lab-border [&_blockquote]:pl-4 [&_blockquote]:text-lab-muted [&_blockquote]:italic [&_blockquote]:mb-8 [&_img]:max-w-full [&_img]:h-auto [&_img]:border [&_img]:border-lab-border"
                 ref={contentRef}
                 dangerouslySetInnerHTML={{ __html: cleanContent(post.content) }}
             />

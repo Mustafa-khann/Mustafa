@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/Lab.css';
 
 const projects = [
   {
@@ -91,21 +90,21 @@ const ProjectsPage = () => {
   }, {});
 
   return (
-    <main className="lab-page">
-      <header className="lab-header">
-        <Link to="/" className="lab-back-link">← Back</Link>
-        <h1 className="lab-header-name">Projects</h1>
-        <p className="lab-header-definition">Artifacts with source or documentation.</p>
+    <main className="max-w-lab mx-auto px-8 py-16">
+      <header className="mb-24">
+        <Link to="/" className="inline-block mb-8 text-xs font-bold uppercase tracking-widest text-lab-muted no-underline hover:text-lab-text">← Back</Link>
+        <h1 className="text-2xl font-bold mb-2 tracking-tight">Projects</h1>
+        <p className="text-lab-muted italic">Artifacts with source or documentation.</p>
       </header>
 
       {Object.entries(grouped).map(([type, typeProjects]) => (
-        <section key={type} className="lab-section">
-          <h2 className="lab-section-title">{type}</h2>
-          <ul className="lab-projects-list">
+        <section key={type} className="mb-16">
+          <h2 className="text-sm font-bold uppercase tracking-wide text-lab-muted mb-4 border-b border-lab-border pb-1">{type}</h2>
+          <ul className="list-none p-0">
             {typeProjects.map((project, idx) => (
-              <li key={idx} className="lab-project-item">
-                <div className="lab-project-header">
-                  <span className="lab-project-name">
+              <li key={idx} className="mb-8 pb-8 border-b border-lab-border last:border-b-0">
+                <div className="flex justify-between items-baseline mb-2">
+                  <span className="font-bold tracking-tight">
                     {project.link ? (
                       <a href={project.link} target="_blank" rel="noopener noreferrer">
                         {project.name}
@@ -114,10 +113,10 @@ const ProjectsPage = () => {
                       project.name
                     )}
                   </span>
-                  <span className="lab-project-status">{project.status}</span>
+                  <span className="text-sm text-lab-muted italic opacity-80">{project.status}</span>
                 </div>
-                <p className="lab-project-description">{project.description}</p>
-                <span className="lab-project-stack">{project.stack}</span>
+                <p className="text-lab-muted mb-2">{project.description}</p>
+                <span className="text-sm text-lab-muted italic opacity-70">{project.stack}</span>
               </li>
             ))}
           </ul>

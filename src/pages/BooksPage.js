@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/Lab.css';
 
 const books = [
   // Fiction
@@ -76,21 +75,21 @@ const BooksPage = () => {
   }, {});
 
   return (
-    <main className="lab-page">
-      <header className="lab-header">
-        <Link to="/" className="lab-back-link">← Back</Link>
-        <h1 className="lab-header-name">Books</h1>
-        <p className="lab-header-definition">Reference material. No rankings.</p>
+    <main className="max-w-lab mx-auto px-8 py-16">
+      <header className="mb-24">
+        <Link to="/" className="inline-block mb-8 text-xs font-bold uppercase tracking-widest text-lab-muted no-underline hover:text-lab-text">← Back</Link>
+        <h1 className="text-2xl font-bold mb-2 tracking-tight">Books</h1>
+        <p className="text-lab-muted italic">Reference material. No rankings.</p>
       </header>
 
-      <section className="lab-section">
-        <div className="lab-filter">
-          <label htmlFor="category">Filter: </label>
+      <section className="mb-8">
+        <div className="mb-8">
+          <label htmlFor="category" className="mr-2 text-xs font-bold uppercase tracking-widest text-lab-muted">Filter: </label>
           <select
             id="category"
             value={filter}
             onChange={(e) => setFilter(e.target.value)}
-            className="lab-select"
+            className="font-sans text-xs font-bold uppercase tracking-widest px-4 py-2 border border-lab-border bg-lab-bg text-lab-text outline-none focus:border-lab-muted"
           >
             {categories.map(cat => (
               <option key={cat} value={cat}>{cat}</option>
@@ -100,13 +99,13 @@ const BooksPage = () => {
       </section>
 
       {Object.entries(grouped).sort().map(([category, categoryBooks]) => (
-        <section key={category} className="lab-section">
-          <h2 className="lab-section-title">{category}</h2>
-          <ul className="lab-books-list">
+        <section key={category} className="mb-16">
+          <h2 className="text-sm font-bold uppercase tracking-wide text-lab-muted mb-4 border-b border-lab-border pb-1">{category}</h2>
+          <ul className="list-none p-0">
             {categoryBooks.map((book, idx) => (
-              <li key={idx} className="lab-book-item">
-                <span className="lab-book-title">{book.title}</span>
-                <span className="lab-book-author">{book.author}</span>
+              <li key={idx} className="flex justify-between items-baseline mb-2 gap-8 py-1">
+                <span className="text-lab-text font-bold tracking-tight">{book.title}</span>
+                <span className="text-sm text-lab-muted italic whitespace-nowrap opacity-80">{book.author}</span>
               </li>
             ))}
           </ul>

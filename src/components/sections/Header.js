@@ -5,9 +5,9 @@ const Header = () => {
     const { name, definition } = siteContent.header;
 
     return (
-        <header className="lab-header">
-            <h1 className="lab-header-name">{name}</h1>
-            <p className="lab-header-definition">{definition}</p>
+        <header className="mb-24">
+            <h1 className="text-2xl font-bold mb-2">{name}</h1>
+            <p className="text-lab-muted italic">{definition}</p>
         </header>
     );
 };
