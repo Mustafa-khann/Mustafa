@@ -1,16 +1,13 @@
 import { lazy } from 'react';
 
-// Lazy load pages for better performance
+// Lazy load pages
 const HomePage = lazy(() => import('../pages/HomePage'));
+const NotesPage = lazy(() => import('../pages/NotesPage'));
+const NoteDetail = lazy(() => import('../pages/NoteDetail'));
 const BooksPage = lazy(() => import('../pages/BooksPage'));
-const PostsPage = lazy(() => import('../pages/PostsPage'));
-const PostDetail = lazy(() => import('../components/PostDetail'));
-const IdeasPage = lazy(() => import('../pages/IdeasPage'));
-const IdeaDetail = lazy(() => import('../components/IdeaDetail'));
 const ProjectsPage = lazy(() => import('../pages/ProjectsPage'));
-const ProjectDetail = lazy(() => import('../components/ProjectDetail'));
-const DisclosurePage = lazy(() => import('../pages/DisclosurePage'));
-const TestOG = lazy(() => import('../components/TestOG'));
+const IdeasPage = lazy(() => import('../pages/IdeasPage'));
+const PaperDetail = lazy(() => import('../pages/PaperDetail'));
 
 // Route configuration
 export const routes = [
@@ -18,7 +15,18 @@ export const routes = [
     path: '/',
     exact: true,
     component: HomePage,
-    title: 'Home',
+    title: 'Mustafa Khan',
+  },
+  {
+    path: '/posts',
+    exact: true,
+    component: NotesPage,
+    title: 'Articles',
+  },
+  {
+    path: '/posts/:title',
+    component: NoteDetail,
+    title: 'Post',
   },
   {
     path: '/books',
@@ -27,15 +35,10 @@ export const routes = [
     title: 'Books',
   },
   {
-    path: '/posts',
+    path: '/projects',
     exact: true,
-    component: PostsPage,
-    title: 'Posts',
-  },
-  {
-    path: '/posts/:title',
-    component: PostDetail,
-    title: 'Post Detail',
+    component: ProjectsPage,
+    title: 'Projects',
   },
   {
     path: '/ideas',
@@ -45,76 +48,16 @@ export const routes = [
   },
   {
     path: '/ideas/:title',
-    component: IdeaDetail,
-    title: 'Idea Detail',
-  },
-  {
-    path: '/projects',
-    exact: true,
-    component: ProjectsPage,
-    title: 'Projects',
-  },
-  {
-    path: '/projects/:title',
-    component: ProjectDetail,
-    title: 'Project Detail',
-  },
-  {
-    path: '/disclosure',
-    exact: true,
-    component: DisclosurePage,
-    title: 'Affiliate Disclosure',
-  },
-  {
-    path: '/test-og',
-    exact: true,
-    component: TestOG,
-    title: 'Test Open Graph',
+    component: PaperDetail,
+    title: 'Idea',
   },
 ];
 
-// Navigation links for the navbar
+// Navigation links
 export const navigationLinks = [
-  { path: '/', label: 'Home', icon: 'HomeIcon' },
+  { path: '/', label: 'Home' },
+  { path: '/posts', label: 'Articles' },
   { path: '/books', label: 'Books' },
-  { path: '/posts', label: 'Posts' },
-  { path: '/ideas', label: 'Ideas' },
   { path: '/projects', label: 'Projects' },
+  { path: '/ideas', label: 'Ideas' },
 ];
-
-// Social media links
-export const socialLinks = [
-  {
-    name: 'GitHub',
-    url: 'https://github.com/mustafa-khann',
-    icon: 'GitHubIcon',
-  },
-  {
-    name: 'Twitter',
-    url: 'https://x.com/oprydai',
-    icon: 'TwitterIcon',
-  },
-  {
-    name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/mustafa-kh4n/',
-    icon: 'LinkedInIcon',
-  },
-  {
-    name: 'Instagram',
-    url: 'https://www.instagram.com/oprydai/',
-    icon: 'InstagramIcon',
-  },
-];
-
-// Helper function to get route by path
-export const getRouteByPath = path => {
-  return routes.find(route => route.path === path);
-};
-
-// Helper function to check if path is active
-export const isActivePath = (currentPath, routePath) => {
-  if (routePath === '/') {
-    return currentPath === '/';
-  }
-  return currentPath.startsWith(routePath);
-};

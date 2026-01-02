@@ -1,0 +1,651 @@
+/**
+ * Lab.css - Minimal research lab aesthetic
+ * White background, dark text, one font, no decoration
+ */
+
+:root {
+  --color-bg: #ffffff;
+  --color-bg-alt: #fafafa;
+  --color-text: #1a1a1a;
+  --color-text-muted: #666666;
+  --color-border: #e0e0e0;
+  --color-link: #1a1a1a;
+  --color-link-hover: #000000;
+  
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-size-base: 16px;
+  --font-size-small: 14px;
+  --font-size-large: 18px;
+  
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+  
+  --max-width: 720px;
+  --line-height: 1.6;
+}
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: var(--font-size-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: var(--line-height);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: var(--spacing-sm);
+}
+
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.25rem; }
+h3 { font-size: 1.125rem; }
+
+p {
+  margin-bottom: var(--spacing-sm);
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+ul, ol {
+  padding-left: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+li {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Layout */
+.lab-page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--spacing-lg) var(--spacing-md);
+}
+
+.lab-section {
+  margin-bottom: var(--spacing-lg);
+}
+
+.lab-section-title {
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Header */
+.lab-header {
+  margin-bottom: var(--spacing-xl);
+}
+
+.lab-header-name {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: var(--spacing-xs);
+}
+
+.lab-header-definition {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-base);
+}
+
+/* Purpose */
+.lab-purpose p {
+  color: var(--color-text);
+  max-width: 100%;
+}
+
+/* Operating Model */
+.lab-operating-model-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.lab-operating-model-item {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.lab-operating-model-item:last-child {
+  border-bottom: none;
+}
+
+.lab-operating-model-phase {
+  font-weight: 500;
+  min-width: 100px;
+  flex-shrink: 0;
+}
+
+.lab-operating-model-desc {
+  color: var(--color-text-muted);
+}
+
+/* Domains */
+.lab-domains-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.lab-domains-item {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Outputs */
+.lab-outputs-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.lab-output-item {
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.lab-output-item:last-child {
+  border-bottom: none;
+}
+
+.lab-output-header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+}
+
+.lab-output-name {
+  font-weight: 500;
+}
+
+.lab-output-type {
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+}
+
+.lab-output-description {
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-xs);
+}
+
+.lab-output-stack {
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+}
+
+/* Current State */
+.lab-state-row {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+}
+
+.lab-state-label {
+  font-weight: 500;
+  min-width: 60px;
+}
+
+.lab-state-value {
+  color: var(--color-text-muted);
+}
+
+/* Footer */
+.lab-footer {
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.lab-footer-name {
+  font-weight: 500;
+  margin-bottom: var(--spacing-xs);
+}
+
+.lab-footer-links {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.lab-footer-link {
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+}
+
+.lab-footer-link:hover {
+  color: var(--color-text);
+}
+
+/* Utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Back Link */
+.lab-back-link {
+  display: inline-block;
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.lab-back-link:hover {
+  color: var(--color-text);
+}
+
+/* Navigation */
+.lab-nav {
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.lab-nav-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.lab-nav-link {
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+}
+
+.lab-nav-link:hover {
+  color: var(--color-text);
+}
+
+/* Notes List */
+.lab-notes-list {
+  list-style: none;
+  padding: 0;
+}
+
+.lab-note-item {
+  margin-bottom: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.lab-note-item:last-child {
+  border-bottom: none;
+}
+
+.lab-note-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  text-decoration: none;
+  gap: var(--spacing-md);
+}
+
+.lab-note-title {
+  color: var(--color-text);
+}
+
+.lab-note-link:hover .lab-note-title {
+  text-decoration: underline;
+}
+
+.lab-note-date {
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* Note Detail */
+.lab-note-content {
+  line-height: 1.7;
+}
+
+.lab-note-content h2,
+.lab-note-content h3,
+.lab-note-content h4 {
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+}
+
+.lab-note-content p {
+  margin-bottom: var(--spacing-md);
+}
+
+.lab-note-content ul,
+.lab-note-content ol {
+  margin-bottom: var(--spacing-md);
+}
+
+.lab-note-content a {
+  color: var(--color-text);
+}
+
+.lab-note-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-small);
+}
+
+.lab-note-content th,
+.lab-note-content td {
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  text-align: left;
+}
+
+.lab-note-content th {
+  background: var(--color-bg-alt);
+  font-weight: 500;
+}
+
+/* Books */
+.lab-filter {
+  margin-bottom: var(--spacing-md);
+}
+
+.lab-select {
+  font-family: var(--font-family);
+  font-size: var(--font-size-small);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.lab-books-list {
+  list-style: none;
+  padding: 0;
+}
+
+.lab-book-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--spacing-xs);
+  gap: var(--spacing-md);
+}
+
+.lab-book-title {
+  color: var(--color-text);
+}
+
+.lab-book-author {
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* Projects */
+.lab-projects-list {
+  list-style: none;
+  padding: 0;
+}
+
+.lab-project-item {
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.lab-project-item:last-child {
+  border-bottom: none;
+}
+
+.lab-project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--spacing-xs);
+}
+
+.lab-project-name {
+  font-weight: 500;
+}
+
+.lab-project-name a {
+  color: var(--color-text);
+}
+
+.lab-project-status {
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+}
+
+.lab-project-description {
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-xs);
+}
+
+.lab-project-stack {
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+}
+
+/* How I Work */
+.lab-process-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: var(--spacing-md);
+}
+
+.lab-process-item {
+  margin-bottom: var(--spacing-xs);
+  padding-left: var(--spacing-sm);
+  position: relative;
+}
+
+.lab-process-item::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--color-text-muted);
+}
+
+.lab-subsection-title {
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-xs);
+  margin-top: var(--spacing-md);
+}
+
+.lab-constraints-list {
+  list-style: none;
+  padding: 0;
+}
+
+.lab-constraint-item {
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text-muted);
+}
+
+/* Current Setup */
+.lab-setup-list {
+  list-style: none;
+  padding: 0;
+}
+
+.lab-setup-item {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Ideas */
+.lab-ideas-list {
+  list-style: none;
+  padding: 0;
+}
+
+.lab-idea-item {
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.lab-idea-item:last-child {
+  border-bottom: none;
+}
+
+.lab-idea-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--spacing-xs);
+}
+
+.lab-idea-title {
+  font-weight: 500;
+}
+
+.lab-idea-status {
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+}
+
+.lab-idea-description {
+  color: var(--color-text-muted);
+}
+
+/* Gear Button */
+.lab-note-actions {
+  margin-bottom: var(--spacing-md);
+}
+
+.lab-gear-btn {
+  font-family: var(--font-family);
+  font-size: var(--font-size-small);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.lab-gear-btn:hover {
+  background: var(--color-bg-alt);
+  border-color: var(--color-text-muted);
+}
+
+/* Global content reset for legacy HTML */
+.lab-note-content div, 
+.lab-note-content span, 
+.lab-note-content p, 
+.lab-note-content li {
+  color: inherit !important;
+  font-family: inherit !important;
+  background-color: transparent !important;
+  font-size: inherit !important;
+  max-width: none !important;
+}
+
+.lab-note-content blockquote {
+  border-left: 2px solid var(--color-border);
+  padding-left: var(--spacing-sm);
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-bottom: var(--spacing-md);
+}
+
+.lab-note-content img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--color-border);
+}
+
+/* Responsive Audit */
+@media (max-width: 768px) {
+  :root {
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+  }
+  
+  .lab-page {
+    padding: var(--spacing-md);
+  }
+  
+  .lab-header {
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .lab-note-link {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .lab-note-date {
+    font-size: 12px;
+  }
+}
+
+/* Lab Navigation Buttons */
+.lab-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+}
+
+.lab-nav-button {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-md);
+  border: 1px solid var(--color-border);
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.lab-nav-button:hover {
+  background: var(--color-bg-alt);
+  border-color: var(--color-text-muted);
+}
+
+.lab-nav-label {
+  font-weight: 500;
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+  margin-bottom: 4px;
+}
+
+.lab-nav-sublabel {
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+}

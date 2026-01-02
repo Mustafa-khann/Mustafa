@@ -1,6 +1,8 @@
-// Section components index file
-export { default as About } from './About';
-export { default as Credits } from './Credits';
-export { default as Experience } from './Experience';
-export { default as Intro } from './Intro';
-export { default as Projects } from './Projects';
+export { default as Header } from './Header';
+export { default as WhatThisIs } from './WhatThisIs';
+export { default as HowIWork } from './HowIWork';
+export { default as Domains } from './Domains';
+export { default as Outputs } from './Outputs';
+export { default as CurrentSetup } from './CurrentSetup';
+export { default as CollaborationBoundary } from './CollaborationBoundary';
+export { default as Footer } from './Footer';

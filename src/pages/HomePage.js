@@ -1,17 +1,26 @@
 import React from 'react';
-import { Intro, About, Experience, Projects, Credits } from '../components/sections';
-import { SEO } from '../components/common';
+import Header from '../components/sections/Header';
+import WhatThisIs from '../components/sections/WhatThisIs';
+import HowIWork from '../components/sections/HowIWork';
+import Domains from '../components/sections/Domains';
+import Outputs from '../components/sections/Outputs';
+import CurrentSetup from '../components/sections/CurrentSetup';
+import CollaborationBoundary from '../components/sections/CollaborationBoundary';
+import Footer from '../components/sections/Footer';
+import '../styles/Lab.css';
 
 const HomePage = () => {
   return (
-    <div className='home-page'>
-      <SEO title='Mustafa Khan' description='Essays, projects and ideas by Mustafa Khan.' url='/' type='website' contentType='home' />
-      <Intro />
-      <About />
-      <Experience />
-      <Projects />
-      <Credits />
-    </div>
+    <main className="lab-page">
+      <Header />
+      <WhatThisIs />
+      <HowIWork />
+      <Domains />
+      <Outputs />
+      <CurrentSetup />
+      <CollaborationBoundary />
+      <Footer />
+    </main>
   );
 };
 

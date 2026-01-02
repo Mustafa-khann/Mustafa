@@ -1,30 +1,26 @@
+/**
+ * GearModal.css - Lab Aesthetic
+ * Minimal, white background, no shadows, no animations.
+ */
+
 .gear-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(2, 12, 27, 0.6);
-  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: var(--spacing-md);
   z-index: 1000;
-  animation: gearOverlayIn 180ms ease-out;
 }
 
 .gear-modal {
-  width: min(960px, 100%);
-  max-height: min(85vh, 100%);
+  width: min(720px, 100%);
+  max-height: 90vh;
   overflow: auto;
-  overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
-  background: #0a192f;
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 16px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-  transform: translateY(12px) scale(0.98);
-  opacity: 0;
-  animation: gearModalIn 220ms cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
-  will-change: transform, opacity;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  padding: 0;
 }
 
 .gear-modal-header {
@@ -33,206 +29,170 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px;
-  background: rgba(10,25,47,0.8);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  backdrop-filter: blur(8px);
-  z-index: 1;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  z-index: 2;
 }
 
 .gear-modal-header h2 {
   margin: 0;
-  font-size: 1.4rem;
-  color: var(--green-bright);
+  font-size: var(--font-size-large);
+  font-weight: 500;
+  color: var(--color-text);
+  text-transform: none;
+  letter-spacing: normal;
 }
 
 .gear-close-btn {
-  background: rgba(100,255,218,0.1);
-  color: var(--lightest-slate);
-  border: 1px solid rgba(100,255,218,0.3);
-  border-radius: 8px;
-  padding: 6px 10px;
+  background: transparent;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  padding: 4px 8px;
   cursor: pointer;
-  min-width: 36px;
-  min-height: 36px;
-  display: grid;
-  place-items: center;
-  transition: background 0.2s ease, transform 0.12s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  font-size: 14px;
+  transition: border-color 0.15s ease, color 0.15s ease;
 }
 
 .gear-close-btn:hover {
-  background: rgba(100,255,218,0.18);
-  border-color: rgba(100,255,218,0.5);
-  box-shadow: 0 6px 18px rgba(100,255,218,0.15);
-}
-
-.gear-close-btn:active {
-  transform: translateY(1px) scale(0.98);
-}
-
-.gear-close-btn:focus-visible {
-  outline: 2px solid var(--green-bright);
-  outline-offset: 2px;
-}
-
-.gear-modal-content {
-  padding: 20px;
+  border-color: var(--color-text-muted);
+  color: var(--color-text);
 }
 
 .gear-disclosure {
-  padding: 10px 20px;
-  background: rgba(255,255,255,0.04);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  color: var(--slate);
-  font-size: 0.95rem;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-bg-alt);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-small);
+  line-height: var(--line-height);
 }
 
 .gear-disclosure-toggle {
-  margin-left: 10px;
+  margin-left: var(--spacing-sm);
   background: transparent;
-  color: var(--green-bright);
-  border: 1px solid rgba(100,255,218,0.4);
-  border-radius: 6px;
-  padding: 4px 8px;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  padding: 2px 6px;
   cursor: pointer;
+  font-size: 12px;
 }
 
 .gear-disclosure-toggle:hover {
-  background: rgba(100,255,218,0.12);
+  border-color: var(--color-text-muted);
 }
 
 .gear-disclosure-more {
-  margin-top: 8px;
-  color: var(--lightest-slate);
+  margin-top: var(--spacing-xs);
 }
 
-.gear-disclosure-link {
-  color: var(--green-bright);
-  text-decoration: underline;
+.gear-modal-content {
+  padding: var(--spacing-md);
 }
 
-.gear-collection { 
-  margin-bottom: 28px; 
+.gear-collection {
+  margin-bottom: var(--spacing-lg);
+}
+
+.gear-collection:last-child {
+  margin-bottom: 0;
 }
 
 .gear-collection-header h3 {
-  margin: 0 0 4px 0;
-  color: var(--lightest-slate);
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-sm);
 }
 
 .gear-collection-desc {
-  margin: 0 0 12px 0;
-  color: var(--slate);
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-small);
 }
 
 .gear-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
 .gear-card {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 14px;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: var(--spacing-sm) 0;
   text-decoration: none;
-  color: var(--lightest-slate);
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 12px;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+  gap: var(--spacing-md);
+}
+
+.gear-card:last-child {
+  border-bottom: none;
 }
 
 .gear-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(100,255,218,0.35);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-  background: rgba(255,255,255,0.05);
-}
-
-.gear-card:focus-visible {
-  outline: 2px solid var(--green-bright);
-  outline-offset: 2px;
-  border-color: rgba(100,255,218,0.5);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.38);
+  background: transparent;
 }
 
 .gear-card-top {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--spacing-sm);
 }
 
 .gear-card-icon {
-  width: 36px;
-  height: 36px;
-  display: grid;
-  place-items: center;
-  border-radius: 10px;
-  background: rgba(100,255,218,0.12);
-  border: 1px solid rgba(100,255,218,0.25);
+  font-size: 1.2rem;
+  min-width: 24px;
+}
+
+.gear-card-title {
+  display: flex;
+  flex-direction: column;
 }
 
 .gear-card-title h4 {
   margin: 0;
-  font-size: 1rem;
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
-.gear-card-note { 
-  color: var(--slate); 
-  font-size: 0.9rem; 
+.gear-card-note {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-small);
 }
 
 .gear-price {
-  color: var(--green-bright);
-  font-weight: 600;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-small);
+  white-space: nowrap;
 }
 
 .gear-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--green-bright);
-  font-weight: 600;
-  transition: transform 0.18s ease;
-}
-
-.gear-card:hover .gear-cta {
-  transform: translateX(2px);
-}
-
-@keyframes gearOverlayIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes gearModalIn {
-  from { opacity: 0; transform: translateY(12px) scale(0.98); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  display: none;
+  /* Hide flashy CTA button */
 }
 
 @media (max-width: 600px) {
   .gear-modal {
     width: 100%;
-    max-height: 90vh;
-    border-radius: 12px;
-  }
-  .gear-modal-content { padding: 16px; }
-  .gear-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-  .gear-close-btn {
-    min-width: 40px;
-    min-height: 40px;
+    height: 100%;
+    max-height: 100%;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .gear-modal-overlay { animation: none; }
-  .gear-modal { animation: none; transform: none; opacity: 1; }
-  .gear-card, .gear-close-btn, .gear-cta { transition: none; }
+
+  .gear-modal-overlay,
+  .gear-modal,
+  .gear-card,
+  .gear-close-btn {
+    transition: none !important;
+    animation: none !important;
+  }
 }
-
-
