@@ -1,10 +1,12 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { routes } from './config/routes';
+import ScrollRestoration from './components/common/ScrollRestoration';
 
 function App() {
   return (
     <div className="App">
+      <ScrollRestoration />
       <React.Suspense fallback={<div className="max-w-lab mx-auto px-8 py-16"><p>Loading...</p></div>}>
         <Switch>
           {routes.map((route, index) => (
@@ -29,3 +31,4 @@ function App() {
 }
 
 export default App;
+

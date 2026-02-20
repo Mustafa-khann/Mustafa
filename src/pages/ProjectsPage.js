@@ -81,6 +81,14 @@ const projects = [
   },
 ];
 
+const statusColors = {
+  'Active': 'text-accent-600 border-accent-200 bg-accent-50',
+  'In progress': 'text-amber-600 border-amber-200 bg-amber-50',
+  'Complete': 'text-neutral-500 border-neutral-200 bg-neutral-50',
+  'Prototype complete': 'text-neutral-500 border-neutral-200 bg-neutral-50',
+  'Research phase': 'text-violet-600 border-violet-200 bg-violet-50',
+};
+
 const ProjectsPage = () => {
   // Group by type
   const grouped = projects.reduce((acc, project) => {
@@ -91,32 +99,46 @@ const ProjectsPage = () => {
 
   return (
     <main className="max-w-5xl mx-auto px-6 py-12 md:py-16">
-      <header className="mb-24">
-        <Link to="/" className="inline-block mb-8 text-xs font-bold uppercase tracking-widest text-text-muted no-underline hover:text-neutral-900 transition-colors">← Back</Link>
-        <h1 className="text-3xl md:text-4xl font-bold tracking-tightest mb-2 text-neutral-900">Projects</h1>
-        <p className="text-text-muted italic">Artifacts with source or documentation.</p>
+      <header className="mb-20 opacity-0 animate-fade-in">
+        <Link to="/" className="back-link mb-8 inline-flex">← Back</Link>
+        <h1 className="page-title">Projects</h1>
+        <p className="page-subtitle">Artifacts with source or documentation.</p>
       </header>
 
-      {Object.entries(grouped).map(([type, typeProjects]) => (
-        <section key={type} className="mb-16">
-          <h2 className="text-sm font-bold uppercase tracking-widest text-text-muted mb-6 border-b border-border-subtle pb-2">{type}</h2>
-          <ul className="list-none p-0">
+      {Object.entries(grouped).map(([type, typeProjects], groupIndex) => (
+        <section
+          key={type}
+          className="mb-16 opacity-0 animate-fade-in"
+          style={{ animationDelay: `${(groupIndex + 1) * 100}ms` }}
+        >
+          <h2 className="section-header">{type}</h2>
+          <ul className="list-none p-0 stagger-children">
             {typeProjects.map((project, idx) => (
-              <li key={idx} className="mb-8 pb-8 border-b border-border-subtle last:border-b-0">
-                <div className="flex justify-between items-baseline mb-2">
-                  <span className="font-bold tracking-tight text-neutral-900">
+              <li
+                key={idx}
+                className="mb-6 pb-6 border-b border-neutral-100 last:border-b-0 opacity-0 animate-slide-in group"
+              >
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-2 mb-3">
+                  <span className="font-bold tracking-tight text-neutral-900 group-hover:text-neutral-700 transition-colors">
                     {project.link ? (
-                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="no-underline hover:underline decoration-border-active">
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="no-underline hover:underline decoration-neutral-300 text-neutral-900"
+                      >
                         {project.name}
                       </a>
                     ) : (
                       project.name
                     )}
                   </span>
-                  <span className="text-sm text-text-muted italic opacity-80">{project.status}</span>
+                  <span className={`text-[10px] uppercase px-2 py-0.5 border font-medium tracking-wider ${statusColors[project.status] || 'text-neutral-500 border-neutral-200 bg-neutral-50'}`}>
+                    {project.status}
+                  </span>
                 </div>
-                <p className="text-text-muted mb-2">{project.description}</p>
-                <span className="text-sm text-text-muted italic opacity-70 font-mono">{project.stack}</span>
+                <p className="text-neutral-600 mb-3 leading-relaxed">{project.description}</p>
+                <span className="text-xs text-neutral-400 font-mono">{project.stack}</span>
               </li>
             ))}
           </ul>

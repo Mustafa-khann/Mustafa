@@ -2,10 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+/* CSS Custom Properties for consistent theming */
+:root {
+  --transition-fast: 150ms;
+  --transition-base: 200ms;
+  --transition-slow: 300ms;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-subtle: 0 1px 2px 0 rgb(0 0 0 / 0.03);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+}
+
 /* Base layer customizations */
 @layer base {
   html {
-    @apply antialiased;
+    @apply antialiased scroll-smooth;
   }
 
   body {
@@ -13,6 +24,755 @@
   }
 
   a {
-    @apply underline underline-offset-4 decoration-neutral-300 transition-colors duration-200 hover:text-neutral-900 text-neutral-500;
+    @apply underline underline-offset-4 decoration-neutral-300 transition-all duration-200 hover:text-neutral-900 text-neutral-500;
+  }
+
+  /* Enhanced focus states for accessibility */
+  :focus-visible {
+    @apply outline-none ring-2 ring-neutral-900 ring-offset-2;
+  }
+
+  /* Selection styling */
+  ::selection {
+    @apply bg-neutral-900 text-white;
+  }
+}
+
+/* Component layer for reusable patterns */
+@layer components {
+
+  /* Section header styling */
+  .section-header {
+    @apply text-xs font-bold uppercase tracking-widest mb-8 text-neutral-400 border-b border-neutral-100 pb-3;
+  }
+
+  /* Card hover effect */
+  .card-hover {
+    @apply transition-all duration-300;
+    transition-timing-function: var(--ease-out-expo);
+  }
+
+  .card-hover:hover {
+    @apply -translate-y-0.5;
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Status indicator */
+  .status-indicator {
+    @apply inline-flex items-center gap-2 text-xs font-mono;
+  }
+
+  .status-dot {
+    @apply w-1.5 h-1.5 rounded-full bg-accent-500;
+    animation: pulse-subtle 2s ease-in-out infinite;
+  }
+
+  /* Back link styling */
+  .back-link {
+    @apply inline-flex items-center gap-1 text-xs font-bold uppercase tracking-widest text-neutral-400 no-underline hover:text-neutral-900 transition-colors duration-200;
+  }
+
+  /* Page title styling */
+  .page-title {
+    @apply text-3xl md:text-4xl font-bold tracking-tight mb-3 text-neutral-900;
+  }
+
+  /* Page subtitle styling */
+  .page-subtitle {
+    @apply text-neutral-500 italic;
+  }
+}
+
+/* Utility layer for animation delays */
+@layer utilities {
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  /* Staggered children animation */
+  .stagger-children>*:nth-child(1) {
+    animation-delay: 50ms;
+  }
+
+  .stagger-children>*:nth-child(2) {
+    animation-delay: 100ms;
+  }
+
+  .stagger-children>*:nth-child(3) {
+    animation-delay: 150ms;
+  }
+
+  .stagger-children>*:nth-child(4) {
+    animation-delay: 200ms;
+  }
+
+  .stagger-children>*:nth-child(5) {
+    animation-delay: 250ms;
+  }
+
+  .stagger-children>*:nth-child(6) {
+    animation-delay: 300ms;
+  }
+
+  .stagger-children>*:nth-child(7) {
+    animation-delay: 350ms;
+  }
+
+  .stagger-children>*:nth-child(8) {
+    animation-delay: 400ms;
+  }
+
+  /* Fade mask for visual polish */
+  .fade-edge-bottom {
+    mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+  }
+}
+
+
+/* =========================================
+   BOOKSHELF PAGE — Site-matched aesthetic
+   ========================================= */
+
+.bookshelf-page {
+  position: fixed;
+  inset: 0;
+  background: white;
+  display: flex;
+  overflow: hidden;
+}
+
+/* ---- Left scroll indicator sidebar ---- */
+.bookshelf-scroll-indicator {
+  position: relative;
+  width: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.2rem 0;
+  z-index: 10;
+  flex-shrink: 0;
+  border-right: 1px solid #e5e5e5;
+}
+
+.scroll-indicator-back {
+  font-size: 0.75rem;
+  color: #a3a3a3;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+  transition: color 0.2s;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-indicator-back:hover {
+  color: #171717;
+}
+
+.scroll-indicator-lines {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  flex: 1;
+  justify-content: center;
+}
+
+.scroll-indicator-line {
+  position: relative;
+  width: 14px;
+  height: 2px;
+  background: #d4d4d4;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 1px;
+  transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.scroll-indicator-line:hover {
+  background: #737373;
+}
+
+.scroll-indicator-line.hovered {
+  background: #171717;
+}
+
+.scroll-indicator-line.active {
+  background: #171717;
+  width: 20px;
+}
+
+/* Hover tooltip — shows book title to the right of hovered line */
+.scroll-indicator-line::after {
+  content: attr(data-title);
+  position: absolute;
+  left: calc(100% + 14px);
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #171717;
+  background: white;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  z-index: 100;
+}
+
+.scroll-indicator-line.hovered::after {
+  opacity: 1;
+}
+
+/* ---- Scrollable main content ---- */
+.bookshelf-main {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 3rem 2rem 6rem;
+  scroll-behavior: smooth;
+}
+
+/* Header — uses site's standard classes (page-title, back-link, page-subtitle) */
+.bookshelf-header {
+  max-width: 56rem;
+  margin: 0 auto 3rem;
+}
+
+/* ---- 3D Bookshelf ---- */
+.bookshelf-shelf {
+  max-width: 56rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  perspective: 2400px;
+  perspective-origin: 50% 40%;
+}
+
+/* Book wrapper */
+.book-3d-wrapper {
+  cursor: pointer;
+  outline: none;
+  opacity: 0;
+  animation: book-3d-enter 0.5s ease-out forwards;
+  flex-shrink: 0;
+}
+
+.book-3d-wrapper:focus-visible .book-3d {
+  outline: 2px solid #171717;
+  outline-offset: 6px;
+}
+
+/* Stagger entrance */
+.book-3d-wrapper:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.book-3d-wrapper:nth-child(2) {
+  animation-delay: 50ms;
+}
+
+.book-3d-wrapper:nth-child(3) {
+  animation-delay: 100ms;
+}
+
+.book-3d-wrapper:nth-child(4) {
+  animation-delay: 150ms;
+}
+
+.book-3d-wrapper:nth-child(5) {
+  animation-delay: 200ms;
+}
+
+.book-3d-wrapper:nth-child(6) {
+  animation-delay: 250ms;
+}
+
+.book-3d-wrapper:nth-child(7) {
+  animation-delay: 300ms;
+}
+
+.book-3d-wrapper:nth-child(8) {
+  animation-delay: 350ms;
+}
+
+.book-3d-wrapper:nth-child(n+9) {
+  animation-delay: 400ms;
+}
+
+/* The 3D book box */
+.book-3d {
+  position: relative;
+  width: 100%;
+  height: var(--book-thickness);
+  transform-style: preserve-3d;
+  transform: rotateX(32deg) rotateZ(-0.6deg);
+  transform-origin: center center;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1)) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.08));
+}
+
+.book-3d-wrapper:hover .book-3d {
+  transform: rotateX(24deg) rotateZ(0deg) translateY(-4px) scale(1.01);
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.15)) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.1));
+}
+
+/* Front face — the spine */
+.book-3d-front {
+  position: absolute;
+  inset: 0;
+  background: var(--spine-color);
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  border-radius: 2px;
+  backface-visibility: hidden;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.25),
+    inset 1px 0 0 rgba(255, 255, 255, 0.04),
+    inset -1px 0 0 rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+.book-3d-front::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+      rgba(0, 0, 0, 0.15) 0%,
+      transparent 25%,
+      transparent 75%,
+      rgba(0, 0, 0, 0.08) 100%);
+  pointer-events: none;
+}
+
+.book-3d-front::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
+.book-3d-author {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 1;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.book-3d-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-align: right;
+  flex: 1;
+  padding-left: 2.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  z-index: 1;
+}
+
+/* Top face */
+.book-3d-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--top-color);
+  transform-origin: top center;
+  transform: rotateX(90deg);
+  border-radius: 2px 2px 0 0;
+  background-image:
+    linear-gradient(90deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      transparent 3%,
+      transparent 97%,
+      rgba(0, 0, 0, 0.08) 100%);
+}
+
+/* Right face — page edges */
+.book-3d-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 48px;
+  height: 100%;
+  transform-origin: right center;
+  transform: rotateY(90deg);
+  border-radius: 0 2px 2px 0;
+  background:
+    repeating-linear-gradient(0deg,
+      #e8e2da 0px, #f2ede6 1px, #ebe5dd 2px, #f4efe8 3px);
+  box-shadow: inset 3px 0 6px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================================
+   BOOK DETAIL PAGE
+   ========================================= */
+
+.book-detail-page {
+  min-height: 100vh;
+  background: var(--book-bg);
+  color: var(--book-text);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem 4rem;
+  animation: bookshelf-fade-in 0.5s ease-out forwards;
+}
+
+.book-detail-nav {
+  max-width: 64rem;
+  width: 100%;
+  margin: 0 auto 3rem;
+}
+
+.book-detail-back {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--book-text);
+  opacity: 0.4;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s;
+  text-decoration: none;
+}
+
+.book-detail-back:hover {
+  opacity: 0.8;
+}
+
+.book-detail-content {
+  max-width: 64rem;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.book-cover-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 900px;
+  animation: book-cover-enter 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+  opacity: 0;
+}
+
+.book-cover-3d {
+  position: relative;
+  width: 280px;
+  height: 400px;
+  transform-style: preserve-3d;
+  transform: rotateY(-25deg);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.book-cover-3d:hover {
+  transform: rotateY(-15deg);
+}
+
+.book-cover-front {
+  position: absolute;
+  inset: 0;
+  border-radius: 2px 6px 6px 2px;
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+  box-shadow: 6px 6px 18px rgba(0, 0, 0, 0.4), 2px 2px 6px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.book-cover-front::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, transparent 50%, rgba(0, 0, 0, 0.1) 100%);
+  pointer-events: none;
+}
+
+.book-cover-front::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1));
+  pointer-events: none;
+}
+
+.book-cover-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.book-cover-category {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.book-cover-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.book-cover-author {
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.book-cover-spine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 100%;
+  transform: rotateY(-90deg) translateZ(0px) translateX(-15px);
+  border-radius: 2px 0 0 2px;
+}
+
+.book-cover-pages {
+  position: absolute;
+  top: 4px;
+  right: -18px;
+  width: 18px;
+  height: calc(100% - 8px);
+  background: linear-gradient(90deg, #e8e4df 0%, #f5f2ed 30%, #e8e4df 31%, #f5f2ed 60%, #e8e4df 61%, #f2efea 100%);
+  transform: rotateY(90deg) translateZ(0);
+  transform-origin: left center;
+  border-radius: 0 2px 2px 0;
+}
+
+.book-detail-info {
+  animation: info-slide-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+  opacity: 0;
+}
+
+.book-detail-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 0.5rem;
+  color: var(--book-text);
+}
+
+.book-detail-author {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--book-accent);
+  margin: 0 0 1.5rem;
+  font-style: italic;
+}
+
+.book-detail-category-tag {
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid;
+  border-color: var(--book-text);
+  opacity: 0.5;
+  border-radius: 2px;
+  margin-bottom: 2rem;
+}
+
+.book-detail-description {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--book-text);
+  opacity: 0.75;
+  margin: 0;
+  max-width: 480px;
+}
+
+
+/* =========================================
+   KEYFRAMES
+   ========================================= */
+
+@keyframes bookshelf-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes book-3d-enter {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes book-cover-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+  }
+}
+
+@keyframes info-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 768px) {
+  .bookshelf-scroll-indicator {
+    width: 32px;
+    padding: 0.8rem 0;
+  }
+
+  .scroll-indicator-line {
+    width: 10px;
+  }
+
+  .scroll-indicator-line.active {
+    width: 14px;
+  }
+
+  .scroll-indicator-line::after {
+    display: none;
+  }
+
+  .bookshelf-main {
+    padding: 2rem 1rem 4rem;
+  }
+
+  .bookshelf-shelf {
+    gap: 1rem;
+  }
+
+  .book-3d-front {
+    padding: 0 1.2rem;
+  }
+
+  .book-3d-author {
+    font-size: 0.65rem;
+  }
+
+  .book-3d-title {
+    font-size: 0.78rem;
+    padding-left: 1.5rem;
+  }
+
+  .book-3d-top {
+    height: 32px;
+  }
+
+  .book-3d-right {
+    width: 32px;
+  }
+
+  .book-detail-content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .book-cover-3d {
+    width: 200px;
+    height: 290px;
+  }
+
+  .book-detail-title {
+    font-size: 1.6rem;
+  }
+
+  .book-detail-description {
+    font-size: 0.85rem;
   }
 }

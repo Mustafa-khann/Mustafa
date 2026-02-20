@@ -5,6 +5,7 @@ const HomePage = lazy(() => import('../pages/HomePage'));
 const NotesPage = lazy(() => import('../pages/NotesPage'));
 const NoteDetail = lazy(() => import('../pages/NoteDetail'));
 const BooksPage = lazy(() => import('../pages/BooksPage'));
+const BookDetailPage = lazy(() => import('../pages/BookDetailPage'));
 const ProjectsPage = lazy(() => import('../pages/ProjectsPage'));
 const IdeasPage = lazy(() => import('../pages/IdeasPage'));
 const PaperDetail = lazy(() => import('../pages/PaperDetail'));
@@ -33,6 +34,11 @@ export const routes = [
     exact: true,
     component: BooksPage,
     title: 'Books',
+  },
+  {
+    path: '/books/:slug',
+    component: BookDetailPage,
+    title: 'Book',
   },
   {
     path: '/projects',
