@@ -568,7 +568,6 @@ const BooksPage = () => {
     <div className="bookshelf-page">
       {/* Left scroll indicator */}
       <nav className="bookshelf-scroll-indicator" aria-label="Book navigation">
-        <Link to="/" className="scroll-indicator-back">←</Link>
         <div
           className="scroll-indicator-lines"
           ref={lineContainerRef}
@@ -588,7 +587,6 @@ const BooksPage = () => {
           ))}
         </div>
       </nav>
-
       {/* Main content */}
       <div className="bookshelf-main" ref={shelfRef}>
         {/* Header matching site aesthetic */}
@@ -597,8 +595,6 @@ const BooksPage = () => {
           <h1 className="page-title">Books</h1>
           <p className="page-subtitle">Books that i've read or suggest.</p>
         </header>
-
-        {/* 3D Books */}
         <section className="bookshelf-shelf">
           {books.map((book, idx) => (
             <div
