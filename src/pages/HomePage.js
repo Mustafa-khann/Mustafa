@@ -7,8 +7,11 @@ import Outputs from '../components/sections/Outputs';
 import CurrentSetup from '../components/sections/CurrentSetup';
 import CollaborationBoundary from '../components/sections/CollaborationBoundary';
 import Footer from '../components/sections/Footer';
+import usePreloadRoutes from '../utils/usePreloadRoutes';
 
 const HomePage = () => {
+  usePreloadRoutes();
+
   return (
     <main className="max-w-5xl mx-auto px-6 py-12 md:py-16">
       <Header />
