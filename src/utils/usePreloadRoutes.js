@@ -14,6 +14,7 @@ const usePreloadRoutes = () => {
                 () => import('../pages/BooksPage'),
                 () => import('../pages/BookDetailPage'),
                 () => import('../pages/ProjectsPage'),
+                () => import('../pages/ProjectDetailPage'),
                 () => import('../pages/IdeasPage'),
                 () => import('../pages/PaperDetail'),
             ];

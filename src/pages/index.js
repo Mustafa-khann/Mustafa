@@ -7,3 +7,4 @@ export { default as NoteDetail } from './NoteDetail';
 export { default as IdeasPage } from './IdeasPage';
 export { default as PaperDetail } from './PaperDetail';
 export { default as ProjectsPage } from './ProjectsPage';
+export { default as ProjectDetailPage } from './ProjectDetailPage';

@@ -1,6 +1,7 @@
 export const projectDetails = [
   {
     id: 1,
+    slug: 'hermesx',
     title: 'HermesX - Autonomous Drone for Package Delivery',
     date: 'May 2023',
     techStack: 'Pixhawk, ROS, Python, C++, React Native',
@@ -41,6 +42,7 @@ export const projectDetails = [
   },
   {
     id: 2,
+    slug: 'anky',
     title: 'Anky - 5 DoF Robotic Arm',
     date: 'January 2023',
     techStack: 'Arduino, C++, Servo Control, Inverse Kinematics',
@@ -84,6 +86,7 @@ export const projectDetails = [
   },
   {
     id: 3,
+    slug: 'tiny-os',
     title: 'Tiny OS',
     date: 'December 2022',
     techStack: 'C, Assembly',
@@ -127,6 +130,7 @@ export const projectDetails = [
   },
   {
     id: 4,
+    slug: 'tiny-compiler',
     title: 'Tiny Compiler',
     date: 'December 2022',
     techStack: 'C',
@@ -164,6 +168,7 @@ export const projectDetails = [
   },
   {
     id: 5,
+    slug: 'mnist-nn',
     title: 'MNIST Digit Recognizer Neural Network in C',
     date: 'August 2022',
     techStack: 'C',
@@ -203,6 +208,7 @@ export const projectDetails = [
   },
   {
     id: 6,
+    slug: 'urdu-text-gen',
     title: 'Urdu Text Generation Using GAN Architecture',
     date: 'June 2022',
     techStack: 'Python, PyTorch, Transformer',
@@ -245,6 +251,7 @@ export const projectDetails = [
   },
   {
     id: 7,
+    slug: 'rusty-transformer',
     title: 'Rusty Transformer',
     date: 'April 2022',
     techStack: 'Rust',
@@ -294,6 +301,7 @@ export const projectDetails = [
   },
   {
     id: 8,
+    slug: 'resume-analyzer',
     title: 'LLama 3.0 Resume Analyzer',
     date: 'March 2023',
     techStack: 'Python, Nodejs, Ollama',
@@ -339,6 +347,7 @@ export const projectDetails = [
   },
   {
     id: 9,
+    slug: 'sign-language-nn',
     title: 'Sign Language Recognizer Neural Network in C',
     date: 'September 2022',
     techStack: 'C',
@@ -373,6 +382,7 @@ export const projectDetails = [
   },
   {
     id: 10,
+    slug: 'cnn-from-scratch',
     title: 'CNN Architecture from Scratch in C',
     date: 'July 2022',
     techStack: 'C',
