@@ -81,6 +81,37 @@
   .page-subtitle {
     @apply text-neutral-500 italic;
   }
+
+  .route-pending {
+    @apply fixed left-0 right-0 top-0 z-50 h-px overflow-hidden bg-transparent;
+  }
+
+  .route-pending::after {
+    content: '';
+    display: block;
+    width: 35%;
+    height: 100%;
+    background: #171717;
+    animation: route-pending 900ms ease-in-out infinite;
+  }
+}
+
+@keyframes route-pending {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(300%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-pending::after {
+    animation: none;
+    opacity: 0.2;
+    width: 100%;
+  }
 }
 
 /* Utility layer for animation delays */
