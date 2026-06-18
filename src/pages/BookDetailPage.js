@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useCallback, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import { books } from './BooksPage';
+import { books } from '../data/books';
+import './books.css';
 
 const BookDetailPage = () => {
     const { slug } = useParams();

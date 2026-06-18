@@ -1,15 +1,25 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { posts } from '../data/data';
+import { useParams, Link, useHistory } from 'react-router-dom';
+import { posts } from '../data/posts';
 import GearModal from '../components/common/GearModal';
+import { matchesSlug, slugify } from '../utils/slugs';
 
 const NoteDetail = () => {
-    const { title } = useParams();
-    const decoded = decodeURIComponent(title);
-    const post = posts.find(p => p.title === decoded);
+    const { slug } = useParams();
+    const history = useHistory();
+    const decoded = decodeURIComponent(slug);
+    const post = posts.find(p => matchesSlug(p.title, slug) || p.title === decoded);
 
     const [isGearOpen, setIsGearOpen] = useState(false);
     const contentRef = useRef(null);
+
+    useEffect(() => {
+        if (!post) return;
+        const cleanPath = `/posts/${slugify(post.title)}`;
+        if (window.location.pathname !== cleanPath) {
+            history.replace(cleanPath);
+        }
+    }, [history, post]);
 
     // Handle inline gear button clicks
     useEffect(() => {

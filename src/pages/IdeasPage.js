@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { researchPapers } from '../data/data';
+import { researchPaperSummaries } from '../data/contentSummaries';
+import { slugify } from '../utils/slugs';
 
 const IdeasPage = () => {
   return (
@@ -13,13 +14,13 @@ const IdeasPage = () => {
 
       <section className="mb-16 opacity-0 animate-fade-in animation-delay-100">
         <ul className="list-none p-0 stagger-children">
-          {researchPapers.map((paper) => (
+          {researchPaperSummaries.map((paper) => (
             <li
               key={paper.id}
               className="mb-0 border-b border-neutral-100 last:border-b-0 opacity-0 animate-slide-in"
             >
               <Link
-                to={`/ideas/${encodeURIComponent(paper.title)}`}
+                to={`/ideas/${slugify(paper.title)}`}
                 className="block no-underline group py-6 transition-colors hover:bg-neutral-50 -mx-4 px-4"
               >
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-2 mb-3">

@@ -1,11 +1,21 @@
-import React from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { researchPapers } from '../data/data';
+import React, { useEffect } from 'react';
+import { useParams, Link, useHistory } from 'react-router-dom';
+import { researchPapers } from '../data/researchPapers';
+import { matchesSlug, slugify } from '../utils/slugs';
 
 const PaperDetail = () => {
-    const { title } = useParams();
-    const decoded = decodeURIComponent(title);
-    const paper = researchPapers.find(p => p.title === decoded);
+    const { slug } = useParams();
+    const history = useHistory();
+    const decoded = decodeURIComponent(slug);
+    const paper = researchPapers.find(p => matchesSlug(p.title, slug) || p.title === decoded);
+
+    useEffect(() => {
+        if (!paper) return;
+        const cleanPath = `/ideas/${slugify(paper.title)}`;
+        if (window.location.pathname !== cleanPath) {
+            history.replace(cleanPath);
+        }
+    }, [history, paper]);
 
     if (!paper) {
         return (

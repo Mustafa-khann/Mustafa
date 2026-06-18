@@ -1,15 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { projectDetails } from '../data/projects';
-
-// Derive a type category from project metadata
-const getType = (p) => {
-  const t = p.title.toLowerCase();
-  if (t.includes('drone') || t.includes('robotic') || t.includes('arm')) return 'Hardware';
-  if (t.includes('os') || t.includes('compiler')) return 'System';
-  if (t.includes('stabilizer') || t.includes('analyzer')) return 'Tool';
-  return 'Experiment';
-};
+import { projectSummaries } from '../data/projectSummaries';
 
 // Gradient palettes keyed by project type
 const typeGradients = {
@@ -31,8 +22,9 @@ const getInitials = (name) =>
 // Thumbnail with graceful fallback for missing images
 const ProjectThumbnail = ({ project }) => {
   const [imgFailed, setImgFailed] = useState(false);
+  const image = project.thumbnail || project.image;
 
-  if (!project.image || imgFailed) {
+  if (!image || imgFailed) {
     // Gradient placeholder with initials
     return (
       <div className={`relative h-44 overflow-hidden bg-gradient-to-br ${typeGradients[project.type] || typeGradients.Experiment} flex items-center justify-center`}>
@@ -58,10 +50,13 @@ const ProjectThumbnail = ({ project }) => {
   return (
     <div className="relative h-44 overflow-hidden bg-neutral-100">
       <img
-        src={project.image}
+        src={image}
         alt={project.name}
         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         loading="lazy"
+        decoding="async"
+        width="640"
+        height="360"
         onError={() => setImgFailed(true)}
       />
       {/* Gradient overlay */}
@@ -70,24 +65,11 @@ const ProjectThumbnail = ({ project }) => {
   );
 };
 
-// Build listing entries from the detail data
-const projects = projectDetails.map((p) => ({
-  name: p.title.split(' - ')[0].split(' — ')[0].trim(),
-  fullTitle: p.title,
-  type: getType(p),
-  description: p.abstract,
-  stack: p.techStack,
-  link: p.link,
-  image: p.image,
-  date: p.date,
-  slug: p.slug,
-}));
-
 const typeOrder = ['Hardware', 'System', 'Experiment', 'Tool'];
 
 const ProjectsPage = () => {
   // Group by type
-  const grouped = projects.reduce((acc, project) => {
+  const grouped = projectSummaries.reduce((acc, project) => {
     if (!acc[project.type]) acc[project.type] = [];
     acc[project.type].push(project);
     return acc;

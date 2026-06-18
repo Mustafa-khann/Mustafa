@@ -8,6 +8,7 @@ export const projectDetails = [
     abstract:
       'Learn how to build a fully functional autonomous drone prototype that delivers packages to a specific GPS location via a mobile app.',
     image: '/assets/drone-1080.jpg',
+    thumbnail: '/assets/drone-thumb.jpg',
     link: '',
     content: `
         <h2>Project Guide: Autonomous Delivery Drone (Conceptual)</h2>
@@ -49,6 +50,7 @@ export const projectDetails = [
     abstract:
       'A step-by-step guide to building a desktop-scale 3D printed 5-DoF robotic arm with precision control for pick-and-place operations.',
     image: '/assets/arm-1080.jpeg',
+    thumbnail: '/assets/arm-thumb.jpeg',
     link: '',
     content: `
         <h2>Project Guide: 5 DoF Robotic Arm (Conceptual)</h2>
@@ -93,6 +95,7 @@ export const projectDetails = [
     abstract:
       'A tiny operating system for the Raspberry Pi written purely in C, with the bootloader in assembly.',
     image: '/assets/tinyos.jpeg',
+    thumbnail: '/assets/tinyos-thumb.jpeg',
     link: 'https://github.com/Mustafa-khann/TinyOS',
     content: `
         <h2>Project Guide: Minimalist Operating System (Conceptual)</h2>
@@ -137,6 +140,7 @@ export const projectDetails = [
     abstract:
       'A tiny compiler for C like language, with a complete lexer, parser, and code generator.',
     image: '/assets/tinycompiler.jpeg',
+    thumbnail: '/assets/tinycompiler-thumb.jpeg',
     link: '',
     content: `
         <h2>Project Guide: Compiler Construction (Conceptual)</h2>
@@ -174,6 +178,7 @@ export const projectDetails = [
     techStack: 'C',
     abstract: 'A MNIST digit recognizer neural network purely written in C. Yields 90% accuracy.',
     image: '/assets/digitrecognizer.jpeg',
+    thumbnail: '/assets/digitrecognizer-thumb.jpeg',
     link: 'https://github.com/Mustafa-khann/MNIST-Digit-Recognizer-in-C',
     content: `
         <h2>Project Guide: Feedforward Neural Network in C (Conceptual)</h2>
@@ -214,7 +219,6 @@ export const projectDetails = [
     techStack: 'Python, PyTorch, Transformer',
     abstract:
       'Developed a GAN-based Urdu text generator, leveraging transformer architecture to overcome long-range text dependencies.',
-    image: '/assets/urdugan.jpeg',
     link: 'https://github.com/yourusername/urdu-text-generator',
     content: `
         <h2>Project Guide: GAN + Transformer for Urdu Text Generation (Conceptual)</h2>
@@ -257,7 +261,6 @@ export const projectDetails = [
     techStack: 'Rust',
     abstract:
       'The Transformer architecture implemented in Rust for high performance and memory safety, focusing on efficient natural language processing.',
-    image: '/assets/rustytransformer.jpeg',
     link: 'https://github.com/Mustafa-khann/rusty-transformer',
     content: `
         <h2>Project Guide: Transformer Implementation in Rust (Conceptual)</h2>
@@ -307,7 +310,6 @@ export const projectDetails = [
     techStack: 'Python, Nodejs, Ollama',
     abstract:
       'LLama 3.0 based resume analyzer that analyzes your resume and gives you a score and suggestions on how to improve it.',
-    image: '/assets/llama-analyzer.jpeg',
     link: '',
     content: `
         <h2>Project Guide: LLM-Based Resume Analyzer (Conceptual)</h2>
@@ -353,7 +355,6 @@ export const projectDetails = [
     techStack: 'C',
     abstract:
       'A sign language recognizer neural network purely written in C. Yeilds 73% accuracy on the MNIST Sign Language Dataset.',
-    image: '/assets/sign-language.jpeg',
     link: '',
     content: `
         <h2>Project Guide: Sign Language NN in C (Conceptual)</h2>
@@ -388,7 +389,6 @@ export const projectDetails = [
     techStack: 'C',
     abstract:
       'Built a convolutional neural network in C, implementing convolutions, pooling, and backpropagation to understand how CNNs process images.',
-    image: '/assets/cnn-c.jpeg',
     link: '',
     content: `
         <h2>Project Guide: CNN Implementation in C (Conceptual)</h2>

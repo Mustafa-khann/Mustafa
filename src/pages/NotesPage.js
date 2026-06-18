@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { posts } from '../data/data';
+import { postSummaries } from '../data/contentSummaries';
+import { slugify } from '../utils/slugs';
 
 const Notes = () => {
     // Sort posts by date (newest first)
-    const sortedPosts = [...posts].sort((a, b) => {
+    const sortedPosts = [...postSummaries].sort((a, b) => {
         const dateA = new Date(a.date);
         const dateB = new Date(b.date);
         return dateB - dateA;
@@ -26,7 +27,7 @@ const Notes = () => {
                             className="mb-0 border-b border-neutral-100 last:border-b-0 opacity-0 animate-slide-in"
                         >
                             <Link
-                                to={`/posts/${encodeURIComponent(post.title)}`}
+                                to={`/posts/${slugify(post.title)}`}
                                 className="flex justify-between items-baseline gap-8 no-underline group py-4 transition-colors hover:bg-neutral-50 -mx-4 px-4"
                             >
                                 <span className="text-neutral-800 font-bold tracking-tight group-hover:text-neutral-900 transition-colors">

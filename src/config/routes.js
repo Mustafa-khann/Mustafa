@@ -26,7 +26,7 @@ export const routes = [
     title: 'Articles',
   },
   {
-    path: '/posts/:title',
+    path: '/posts/:slug',
     component: NoteDetail,
     title: 'Post',
   },
@@ -59,17 +59,8 @@ export const routes = [
     title: 'Ideas',
   },
   {
-    path: '/ideas/:title',
+    path: '/ideas/:slug',
     component: PaperDetail,
     title: 'Idea',
   },
-];
-
-// Navigation links
-export const navigationLinks = [
-  { path: '/', label: 'Home' },
-  { path: '/posts', label: 'Articles' },
-  { path: '/books', label: 'Books' },
-  { path: '/projects', label: 'Projects' },
-  { path: '/ideas', label: 'Ideas' },
 ];

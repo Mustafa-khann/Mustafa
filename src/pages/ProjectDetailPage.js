@@ -33,6 +33,8 @@ const HeroImage = ({ project }) => {
           src={project.image}
           alt={project.title}
           className="w-full h-auto max-h-[480px] object-cover"
+          decoding="async"
+          fetchpriority="high"
           onError={() => setFailed(true)}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent pointer-events-none" />

@@ -1,188 +1,76 @@
-# Mustafa Khan - Personal Portfolio & Blog
+# Mustafa Khan
 
-<p align="center">
-  <img src="https://img.icons8.com/color/48/000000/magritte.png" alt="Portfolio Icon"/>
-</p>
+Personal portfolio and writing site for Mustafa Khan. The app is a Create React App project with React Router routes for the home page, articles, books, ideas, and projects.
 
-A modern, responsive personal portfolio and blog website showcasing software development, hardware projects, and technical writing. Built with React.js and featuring a clean, minimalist design philosophy.
+Live site: [mustafakhan.xyz](https://mustafakhan.xyz)
 
-**Live Site:** [mustafakhan.xyz](https://mustafakhan.xyz)
+## Tech Stack
 
-## ✨ Features
+- React 17
+- React Router DOM 5
+- Create React App / react-scripts
+- Tailwind CSS 3
+- Vercel deployment config
 
-- **Portfolio Showcase** - Display of software and hardware projects
-- **Technical Blog** - Articles on software development, hardware, and technology
-- **Responsive Design** - Optimized for all devices and screen sizes
-- **Modern UI/UX** - Clean, minimalist interface with smooth animations
-- **SEO Optimized** - Open Graph images and meta tags for social sharing
-- **Performance Focused** - Fast loading times and optimized assets
+## Getting Started
 
-## 🛠️ Tech Stack
-
-- **Frontend Framework:** React.js 17
-- **Styling:** CSS3 with custom design system
-- **UI Components:** Material-UI, React Bootstrap
-- **Routing:** React Router DOM
-- **Animations:** React Transition Group, P5.js
-- **3D Graphics:** Three.js
-- **Build Tool:** Create React App
-- **Deployment:** Vercel
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js (v14 or higher)
-- npm or yarn package manager
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Mustafa-khann/Mustafa.git
-   cd Mustafa
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
-
-3. **Start the development server**
-   ```bash
-   npm start
-   # or
-   yarn start
-   ```
-
-4. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
-
-## 📁 Project Structure
-
-```
-src/
-├── components/          # React components
-│   ├── common/         # Reusable UI components
-│   ├── layout/         # Layout components (NavBar, etc.)
-│   ├── sections/       # Main page sections
-│   └── ui/            # UI-specific components
-├── data/               # Static data (posts, projects)
-├── styles/             # CSS stylesheets
-├── utils/              # Utility functions
-├── hooks/              # Custom React hooks
-└── context/            # React context providers
-```
-
-## 🎨 Design System
-
-### Color Palette
-
-| Color          | Hex                                                                | Usage                    |
-| -------------- | ------------------------------------------------------------------ | ------------------------ |
-| Navy           | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) `#0a192f` | Primary background       |
-| Light Navy     | ![#112240](https://via.placeholder.com/10/112240?text=+) `#112240` | Secondary background     |
-| Lightest Navy  | ![#233554](https://via.placeholder.com/10/233554?text=+) `#233554` | Card backgrounds        |
-| Slate          | ![#8892b0](https://via.placeholder.com/10/8892b0?text=+) `#8892b0` | Secondary text          |
-| Light Slate    | ![#a8b2d1](https://via.placeholder.com/10/a8b2d1?text=+) `#a8b2d1` | Body text               |
-| Lightest Slate | ![#ccd6f6](https://via.placeholder.com/10/ccd6f6?text=+) `#ccd6f6` | Primary text            |
-| White          | ![#e6f1ff](https://via.placeholder.com/10/e6f1ff?text=+) `#e6f1ff` | Accent text             |
-| Green          | ![#64ffda](https://via.placeholder.com/10/64ffda?text=+) `#64ffda` | Highlights & links      |
-
-### Typography
-
-- **Primary Font:** NTR (custom)
-- **Secondary Font:** Source Serif Pro
-- **Monospace:** System default
-
-## 📝 Available Scripts
-
-- `npm start` - Start development server
-- `npm run build` - Build for production
-- `npm test` - Run test suite
-- `npm run eject` - Eject from Create React App
-- `npm run generate-og` - Generate Open Graph images
-- `npm run deploy` - Deploy to GitHub Pages
-
-## 🌐 Deployment
-
-### Vercel (Recommended)
-
-1. Connect your GitHub repository to Vercel
-2. Vercel will automatically detect it's a React app
-3. Deploy with zero configuration
-
-### GitHub Pages
+Install dependencies:
 
 ```bash
-npm run deploy
+npm install
 ```
 
-## 📱 Features & Components
+Start the development server:
 
-### Portfolio Sections
-- **About** - Personal introduction and skills
-- **Projects** - Software and hardware project showcase
-- **Experience** - Professional background
-- **Blog** - Technical articles and insights
-- **Books** - Reading recommendations
-
-### Interactive Elements
-- **3D Animations** - Three.js powered visualizations
-- **Smooth Transitions** - CSS and React-based animations
-- **Responsive Navigation** - Mobile-friendly navigation system
-- **Search Functionality** - Content search across the site
-
-## 🔧 Configuration
-
-### Environment Variables
-
-Create a `.env` file in the root directory:
-
-```env
-REACT_APP_SITE_URL=https://mustafakhan.xyz
-REACT_APP_GA_TRACKING_ID=your-ga-id
+```bash
+npm start
 ```
 
-### Customization
+Build for production:
 
-- **Colors:** Update CSS variables in `src/styles/Global.css`
-- **Content:** Modify data files in `src/data/`
-- **Styling:** Edit component-specific CSS files
+```bash
+npm run build
+```
 
-## 📊 Performance
+Run the CRA test runner:
 
-- **Lazy Loading** - Components load on demand
-- **Image Optimization** - Optimized images and lazy loading
-- **Code Splitting** - Automatic code splitting with React Router
-- **Bundle Optimization** - Minified production builds
+```bash
+npm test -- --watchAll=false
+```
 
-## 🤝 Contributing
+There are currently no test files checked in, so this command exits with CRA's "No tests found" status until tests are added.
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+## Project Structure
 
-## 📄 License
+```text
+src/
+|-- components/
+|   |-- common/
+|   `-- sections/
+|-- config/
+|-- data/
+|-- pages/
+`-- utils/
+```
 
-This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
+Important files:
 
-## 🙏 Acknowledgments
+- `src/config/routes.js` defines the route table.
+- `src/data/posts.js` and `src/data/researchPapers.js` contain full article/idea content.
+- `src/data/contentSummaries.js` contains lightweight list-page metadata.
+- `src/data/projects.js` contains project entries and detail content.
+- `src/data/projectSummaries.js` contains lightweight project-list metadata.
+- `src/data/books.js` contains book shelf data.
+- `src/pages/BooksPage.js` contains the book shelf data and UI.
+- `public/assets/` contains static images referenced by app content.
+- `public/index.html` contains crawler-visible default metadata.
 
-- **Icons:** [Icons8](https://icons8.com/)
-- **Fonts:** Custom NTR font and Source Serif Pro
-- **Inspiration:** Modern portfolio design principles
+## Deployment
 
-## 📞 Contact
+Vercel uses `vercel.json`:
 
-- **Website:** [mustafakhan.xyz](https://mustafakhan.xyz)
-- **Email:** mustafakhann050@gmail.com
-- **GitHub:** [@Mustafa-khann](https://github.com/Mustafa-khann)
+- build command: `npm run build`
+- output directory: `build`
+- SPA rewrites route unmatched paths to `index.html`
 
----
-
-**Built with ❤️ using React.js**
+The app relies on static Open Graph metadata in `public/index.html`; there is no runtime SEO package or Open Graph image generation step in the active build. Production builds disable source maps to keep deployment output lean.
