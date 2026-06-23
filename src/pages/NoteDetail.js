@@ -1,42 +1,50 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useParams, Link, useHistory } from 'react-router-dom';
 import { posts } from '../data/posts';
 import GearModal from '../components/common/GearModal';
-import { matchesSlug, slugify } from '../utils/slugs';
+import {
+    findPostByRouteSlug,
+    getPostDateMeta,
+    getPostPath,
+    hasRecommendedGear,
+    preparePostHtml,
+    POST_GEAR_TRIGGER_SELECTOR,
+} from '../utils/posts';
 
 const NoteDetail = () => {
     const { slug } = useParams();
     const history = useHistory();
-    const decoded = decodeURIComponent(slug);
-    const post = posts.find(p => matchesSlug(p.title, slug) || p.title === decoded);
+    const post = useMemo(() => findPostByRouteSlug(posts, slug), [slug]);
 
     const [isGearOpen, setIsGearOpen] = useState(false);
-    const contentRef = useRef(null);
+    const hasGear = hasRecommendedGear(post);
+    const contentHtml = useMemo(() => (post ? preparePostHtml(post.content) : ''), [post]);
+    const dateMeta = useMemo(() => getPostDateMeta(post?.date), [post?.date]);
 
     useEffect(() => {
         if (!post) return;
-        const cleanPath = `/posts/${slugify(post.title)}`;
+        const cleanPath = getPostPath(post);
         if (window.location.pathname !== cleanPath) {
             history.replace(cleanPath);
         }
     }, [history, post]);
 
-    // Handle inline gear button clicks
     useEffect(() => {
-        if (!post) return;
+        setIsGearOpen(false);
+    }, [post?.id]);
 
-        const container = contentRef.current;
-        const handleClick = (e) => {
-            const target = e.target.closest('#gearModalBtn, [data-gear-modal="true"]');
-            if (target && container && container.contains(target)) {
-                e.preventDefault();
-                setIsGearOpen(true);
-            }
-        };
+    const openGear = useCallback(() => setIsGearOpen(true), []);
+    const closeGear = useCallback(() => setIsGearOpen(false), []);
 
-        container?.addEventListener('click', handleClick);
-        return () => container?.removeEventListener('click', handleClick);
-    }, [post?.title]);
+    const handleArticleClick = useCallback((event) => {
+        if (!hasGear || !(event.target instanceof Element)) return;
+
+        const trigger = event.target.closest(POST_GEAR_TRIGGER_SELECTOR);
+        if (!trigger || !event.currentTarget.contains(trigger)) return;
+
+        event.preventDefault();
+        openGear();
+    }, [hasGear, openGear]);
 
     if (!post) {
         return (
@@ -50,31 +58,24 @@ const NoteDetail = () => {
         );
     }
 
-    // Clean content - remove colored spans for minimal style
-    const cleanContent = (html) => {
-        return html
-            .replace(/style="color:[^"]*"/g, '')
-            .replace(/<span[^>]*>/g, '')
-            .replace(/<\/span>/g, '')
-            .replace(/<br\s*\/?>/g, '<br>')
-            .replace(/<br>\s*<br>/g, '</p><p>');
-    };
-
-    const hasGear = post.gear && post.gear.collections && post.gear.collections.length > 0;
-
     return (
         <main className="max-w-5xl mx-auto px-6 py-12 md:py-16">
             <header className="mb-16 opacity-0 animate-fade-in">
                 <Link to="/posts" className="back-link mb-8 inline-flex">← Back to Articles</Link>
                 <h1 className="page-title">{post.title}</h1>
-                <p className="text-neutral-400 font-mono text-sm">{post.date}</p>
+                <time className="text-neutral-400 font-mono text-sm" dateTime={dateMeta.isoDate}>
+                    {post.date}
+                </time>
             </header>
 
             {hasGear && (
                 <div className="mb-10 opacity-0 animate-fade-in animation-delay-100">
                     <button
                         className="font-mono text-xs font-bold uppercase tracking-wider px-5 py-2.5 border border-neutral-200 bg-white text-neutral-700 cursor-pointer transition-all duration-200 hover:bg-neutral-50 hover:border-neutral-400 flex items-center gap-2"
-                        onClick={() => setIsGearOpen(true)}
+                        type="button"
+                        aria-haspopup="dialog"
+                        aria-expanded={isGearOpen}
+                        onClick={openGear}
                     >
                         <span>📦</span>
                         <span>Recommended Gear</span>
@@ -96,16 +97,16 @@ const NoteDetail = () => {
                     [&_img]:max-w-full [&_img]:h-auto [&_img]:border [&_img]:border-neutral-100 [&_img]:p-1 [&_img]:bg-neutral-50
                     [&_code]:bg-neutral-100 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-sm [&_code]:font-mono [&_code]:text-neutral-800
                     [&_pre]:bg-neutral-900 [&_pre]:text-neutral-100 [&_pre]:p-4 [&_pre]:overflow-x-auto [&_pre]:mb-6 [&_pre_code]:bg-transparent [&_pre_code]:p-0"
-                ref={contentRef}
-                dangerouslySetInnerHTML={{ __html: cleanContent(post.content) }}
+                onClick={handleArticleClick}
+                dangerouslySetInnerHTML={{ __html: contentHtml }}
             />
 
             {hasGear && (
                 <GearModal
                     isOpen={isGearOpen}
-                    onClose={() => setIsGearOpen(false)}
+                    onClose={closeGear}
                     title={post.gear?.title || 'Recommended Gear'}
-                    collections={post.gear.collections}
+                    collections={post.gear?.collections}
                 />
             )}
         </main>

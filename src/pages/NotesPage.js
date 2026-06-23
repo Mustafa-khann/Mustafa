@@ -1,15 +1,10 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { postSummaries } from '../data/contentSummaries';
-import { slugify } from '../utils/slugs';
+import { getPostDateMeta, getPostPath, sortPostsByDateDesc } from '../utils/posts';
 
 const Notes = () => {
-    // Sort posts by date (newest first)
-    const sortedPosts = [...postSummaries].sort((a, b) => {
-        const dateA = new Date(a.date);
-        const dateB = new Date(b.date);
-        return dateB - dateA;
-    });
+    const sortedPosts = useMemo(() => sortPostsByDateDesc(postSummaries), []);
 
     return (
         <main className="max-w-5xl mx-auto px-6 py-12 md:py-16">
@@ -21,24 +16,31 @@ const Notes = () => {
 
             <section className="mb-16 opacity-0 animate-fade-in animation-delay-100">
                 <ul className="list-none p-0 stagger-children">
-                    {sortedPosts.map((post) => (
-                        <li
-                            key={post.id}
-                            className="mb-0 border-b border-neutral-100 last:border-b-0 opacity-0 animate-slide-in"
-                        >
-                            <Link
-                                to={`/posts/${slugify(post.title)}`}
-                                className="flex justify-between items-baseline gap-8 no-underline group py-4 transition-colors hover:bg-neutral-50 -mx-4 px-4"
+                    {sortedPosts.map((post) => {
+                        const dateMeta = getPostDateMeta(post.date);
+
+                        return (
+                            <li
+                                key={post.id}
+                                className="mb-0 border-b border-neutral-100 last:border-b-0 opacity-0 animate-slide-in"
                             >
-                                <span className="text-neutral-800 font-bold tracking-tight group-hover:text-neutral-900 transition-colors">
-                                    {post.title}
-                                </span>
-                                <span className="text-xs text-neutral-400 font-mono whitespace-nowrap">
-                                    {post.date}
-                                </span>
-                            </Link>
-                        </li>
-                    ))}
+                                <Link
+                                    to={getPostPath(post)}
+                                    className="flex justify-between items-baseline gap-8 no-underline group py-4 transition-colors hover:bg-neutral-50 -mx-4 px-4"
+                                >
+                                    <span className="text-neutral-800 font-bold tracking-tight group-hover:text-neutral-900 transition-colors">
+                                        {post.title}
+                                    </span>
+                                    <time
+                                        className="text-xs text-neutral-400 font-mono whitespace-nowrap"
+                                        dateTime={dateMeta.isoDate}
+                                    >
+                                        {post.date}
+                                    </time>
+                                </Link>
+                            </li>
+                        );
+                    })}
                 </ul>
             </section>
         </main>
