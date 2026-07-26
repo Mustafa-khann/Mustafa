@@ -11,7 +11,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "data": "node scripts/generate-data.mjs"
   },
   "browserslist": {
     "production": [

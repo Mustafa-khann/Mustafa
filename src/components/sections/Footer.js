@@ -1,16 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { siteContent } from '../../data/siteContent';
 
+/**
+ * Identity and outbound links only. The internal index used to be duplicated
+ * here, a hundred pixels below the Index section that now carries the same four
+ * links with counts and lead lines — the same navigation twice in one screen
+ * reads as unconsidered, and the richer one wins.
+ */
 const Footer = () => {
     const { name, email, github, twitter } = siteContent.footer;
-
-    const internalLinks = [
-        { to: '/posts', label: 'Posts' },
-        { to: '/ideas', label: 'Ideas' },
-        { to: '/projects', label: 'Projects' },
-        { to: '/books', label: 'Books' },
-    ];
 
     const externalLinks = [
         { href: `mailto:${email}`, label: 'Email', arrow: false },
@@ -35,19 +33,6 @@ const Footer = () => {
                         <span className="footer-status-dot" />
                         <span>System Online</span>
                     </div>
-                </div>
-
-                {/* Center — Index */}
-                <div className="footer-col">
-                    <span className="footer-col-heading">Index</span>
-                    <nav className="footer-col-nav">
-                        {internalLinks.map(({ to, label }) => (
-                            <Link key={to} to={to} className="footer-link">
-                                <span className="footer-link-dash">—</span>
-                                <span>{label}</span>
-                            </Link>
-                        ))}
-                    </nav>
                 </div>
 
                 {/* Right — Network */}

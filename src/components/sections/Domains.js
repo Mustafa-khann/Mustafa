@@ -1,23 +1,32 @@
 import React from 'react';
+import Reveal from '../common/Reveal';
 import { siteContent } from '../../data/siteContent';
 
-const Domains = () => {
-    return (
-        <section className="py-12 md:py-20 opacity-0 animate-fade-in animation-delay-300">
-            <h2 className="section-header">Domains I Work In</h2>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 stagger-children">
-                {siteContent.domains.map((domain, index) => (
-                    <li
-                        key={index}
-                        className="border border-neutral-200 p-4 bg-white font-medium text-neutral-800 flex items-center justify-between group hover:border-neutral-400 hover:bg-neutral-50 transition-all duration-200 cursor-default opacity-0 animate-scale-in"
-                    >
-                        <span className="text-sm">{domain}</span>
-                        <span className="w-1.5 h-1.5 bg-neutral-200 group-hover:bg-accent-500 transition-colors duration-200 rounded-full"></span>
-                    </li>
-                ))}
-            </ul>
-        </section>
-    );
-};
+/**
+ * Domains are a statement of scope, not a navigation surface — two of them have
+ * no shipped project behind them, so linking would promise a page and deliver
+ * an empty one. These used to be cards that lit up on hover and went nowhere;
+ * an affordance that never pays teaches visitors to stop probing the whole
+ * site, so the response is withdrawn rather than faked.
+ */
+const Domains = ({ className = '' }) => (
+    <section className={className}>
+        <h2 className="section-header">Domains I Work In</h2>
+
+        <Reveal as="ul" stagger className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 list-none p-0 m-0">
+            {siteContent.domains.map((domain, index) => (
+                <li
+                    key={domain}
+                    className="flex items-baseline gap-4 py-3 border-b border-neutral-100 text-neutral-700"
+                >
+                    <span className="font-mono text-xs text-neutral-300 w-6 flex-shrink-0">
+                        {(index + 1).toString().padStart(2, '0')}
+                    </span>
+                    <span className="text-sm leading-relaxed">{domain}</span>
+                </li>
+            ))}
+        </Reveal>
+    </section>
+);
 
 export default Domains;

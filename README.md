@@ -38,11 +38,17 @@ Run the CRA test runner:
 npm test -- --watchAll=false
 ```
 
-There are currently no test files checked in, so this command exits with CRA's "No tests found" status until tests are added.
+Regenerate derived data after editing posts, projects or books:
+
+```bash
+npm run data
+```
 
 ## Project Structure
 
 ```text
+scripts/
+`-- generate-data.mjs
 src/
 |-- components/
 |   |-- common/
@@ -56,14 +62,48 @@ src/
 Important files:
 
 - `src/config/routes.js` defines the route table.
+- `src/data/siteContent.js` holds all homepage copy, including the lab log.
 - `src/data/posts.js` and `src/data/researchPapers.js` contain full article/idea content.
-- `src/data/contentSummaries.js` contains lightweight list-page metadata.
 - `src/data/projects.js` contains project entries and detail content.
 - `src/data/projectSummaries.js` contains lightweight project-list metadata.
 - `src/data/books.js` contains book shelf data.
-- `src/pages/BooksPage.js` contains the book shelf data and UI.
+- `src/pages/BooksPage.js` contains the book shelf UI.
 - `public/assets/` contains static images referenced by app content.
 - `public/index.html` contains crawler-visible default metadata.
+
+### Generated data
+
+Two files are produced by `npm run data` and should not be hand-edited:
+
+- `src/data/contentSummaries.js` — the `postSummaries` export, with an excerpt
+  and reading time derived from each post's body. (`researchPaperSummaries` in
+  the same file is hand-maintained and is left untouched by the generator.)
+- `src/data/libraryIndex.js` — counts and lead lines for the homepage index.
+
+Both exist for bundle weight: list pages and the homepage read from these small
+modules so the full `posts.js` (~94KB) and `books.js` (~18KB) stay inside the
+lazy route chunks that actually need them.
+
+### Adding a lab log entry
+
+`siteContent.labLog` drives the dated log on the homepage — the site's main
+signal that work is ongoing. Add newest first, one concrete line each:
+
+```js
+{ date: 'Jul 26, 2026', entry: 'Burned three ESCs; redesigned the motor mount.' },
+```
+
+### Motion
+
+`src/index.css` defines one easing curve and three durations
+(`--duration-state`, `--duration-transition`, `--duration-entrance`); Tailwind's
+transition defaults in `tailwind.config.js` point at the same curve, so
+`transition-*` utilities inherit it without extra classes.
+
+Content in the first viewport renders unanimated. Anything below it is wrapped
+in `components/common/Reveal.js`, which reveals on scroll via
+`IntersectionObserver` and falls back to fully visible when the observer is
+missing or the visitor prefers reduced motion.
 
 ## Deployment
 

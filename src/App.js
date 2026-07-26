@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { preloadRouteForPath, routes, scheduleRoutePreloading } from './config/routes';
 import ScrollRestoration from './components/common/ScrollRestoration';
+import NotFoundPage from './pages/NotFoundPage';
 
 const RoutePending = () => <div className="route-pending" aria-hidden="true" />;
 
@@ -40,11 +41,7 @@ function App() {
             />
           ))}
           <Route>
-            <main className="max-w-lab mx-auto px-1 py-1">
-              <h1 className="text-2xl font-medium mb-4">404</h1>
-              <p>Page not found.</p>
-              <a href="/">Return</a>
-            </main>
+            <NotFoundPage />
           </Route>
         </Switch>
       </React.Suspense>

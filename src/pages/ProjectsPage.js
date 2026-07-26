@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Reveal from '../components/common/Reveal';
 import { projectSummaries } from '../data/projectSummaries';
 
 // Gradient palettes keyed by project type
@@ -82,88 +83,85 @@ const ProjectsPage = () => {
 
   return (
     <main className="max-w-5xl mx-auto px-6 py-12 md:py-16">
-      <header className="mb-20 opacity-0 animate-fade-in">
+      <header className="mb-16">
         <Link to="/" className="back-link mb-8 inline-flex">← Back</Link>
         <h1 className="page-title">Projects</h1>
         <p className="page-subtitle">Artifacts with source or documentation.</p>
       </header>
 
-      {sortedGroups.map(([type, typeProjects], groupIndex) => (
-        <section
-          key={type}
-          className="mb-20 opacity-0 animate-fade-in"
-          style={{ animationDelay: `${(groupIndex + 1) * 100}ms` }}
-        >
+      {sortedGroups.map(([type, typeProjects]) => (
+        <section key={type} className="mb-20">
           <h2 className="section-header">{type}</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 stagger-children">
-            {typeProjects.map((project, idx) => (
-              <Link
-                key={idx}
-                to={`/projects/${project.slug}`}
-                className="group block no-underline"
+          <Reveal stagger className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {typeProjects.map((project) => (
+              /* The card title carries a stretched anchor so the whole card is
+                 clickable, and the GitHub anchor sits above it. Both stay real
+                 links — the click-handler-on-a-span this replaced was
+                 unreachable by keyboard and invisible to assistive tech. */
+              <article
+                key={project.slug}
+                className="relative group border border-neutral-100 bg-white overflow-hidden transition-transform duration-transition hover:border-neutral-300 hover:shadow-lg hover:-translate-y-1"
               >
-                <article className="border border-neutral-100 bg-white overflow-hidden transition-all duration-300 hover:border-neutral-300 hover:shadow-lg hover:-translate-y-1">
-                  {/* Thumbnail with fallback */}
-                  <ProjectThumbnail project={project} />
+                <ProjectThumbnail project={project} />
 
-                  {/* Content */}
-                  <div className="p-5">
-                    <div className="flex items-baseline justify-between gap-3 mb-2">
-                      <h3 className="font-bold text-neutral-900 tracking-tight group-hover:text-neutral-700 transition-colors text-base leading-tight">
+                <div className="p-5">
+                  <div className="flex items-baseline justify-between gap-3 mb-2">
+                    <h3 className="font-bold text-neutral-900 tracking-tight text-base leading-tight m-0">
+                      <Link
+                        to={`/projects/${project.slug}`}
+                        className="no-underline text-neutral-900 group-hover:text-neutral-700 transition-colors after:absolute after:inset-0 after:content-['']"
+                      >
                         {project.name}
-                      </h3>
-                      <span className="text-[10px] text-neutral-400 font-mono whitespace-nowrap flex-shrink-0">
-                        {project.date}
-                      </span>
-                    </div>
+                      </Link>
+                    </h3>
+                    <span className="text-[10px] text-neutral-400 font-mono whitespace-nowrap flex-shrink-0">
+                      {project.date}
+                    </span>
+                  </div>
 
-                    <p className="text-sm text-neutral-500 leading-relaxed mb-4 line-clamp-2">
-                      {project.description}
-                    </p>
+                  <p className="text-sm text-neutral-500 leading-relaxed mb-4 line-clamp-2">
+                    {project.description}
+                  </p>
 
-                    <div className="flex items-center justify-between gap-3">
-                      <div className="flex flex-wrap gap-1.5">
-                        {project.stack.split(',').slice(0, 3).map((tech, i) => (
-                          <span
-                            key={i}
-                            className="text-[10px] font-mono px-1.5 py-0.5 bg-neutral-50 border border-neutral-100 text-neutral-500 tracking-wide"
-                          >
-                            {tech.trim()}
-                          </span>
-                        ))}
-                        {project.stack.split(',').length > 3 && (
-                          <span className="text-[10px] font-mono text-neutral-400">
-                            +{project.stack.split(',').length - 3}
-                          </span>
-                        )}
-                      </div>
-
-                      {project.link && (
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.stack.split(',').slice(0, 3).map((tech) => (
                         <span
-                          className="text-[10px] font-mono text-neutral-400 hover:text-neutral-900 transition-colors"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            window.open(project.link, '_blank');
-                          }}
+                          key={tech}
+                          className="text-[10px] font-mono px-1.5 py-0.5 bg-neutral-50 border border-neutral-100 text-neutral-500 tracking-wide"
                         >
-                          GitHub ↗
+                          {tech.trim()}
+                        </span>
+                      ))}
+                      {project.stack.split(',').length > 3 && (
+                        <span className="text-[10px] font-mono text-neutral-400">
+                          +{project.stack.split(',').length - 3}
                         </span>
                       )}
                     </div>
-                  </div>
 
-                  {/* Read more indicator */}
-                  <div className="px-5 pb-4">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-neutral-300 group-hover:text-neutral-500 transition-colors">
-                      Read guide →
-                    </span>
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative z-10 no-underline flex-shrink-0 text-[10px] font-mono text-neutral-400 hover:text-neutral-900 transition-colors"
+                      >
+                        GitHub ↗
+                      </a>
+                    )}
                   </div>
-                </article>
-              </Link>
+                </div>
+
+                <div className="px-5 pb-4">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-neutral-300 group-hover:text-neutral-500 transition-colors">
+                    Read guide →
+                  </span>
+                </div>
+              </article>
             ))}
-          </div>
+          </Reveal>
         </section>
       ))}
     </main>

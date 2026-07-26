@@ -2,14 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-/* CSS Custom Properties for consistent theming */
+/* =========================================
+   MOTION SYSTEM
+   One curve, three durations. Easing reads as personality, so everything
+   that moves on this site moves with the same hand.
+   ========================================= */
 :root {
-  --transition-fast: 150ms;
-  --transition-base: 200ms;
-  --transition-slow: 300ms;
-  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --shadow-subtle: 0 1px 2px 0 rgb(0 0 0 / 0.03);
-  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+  --ease-signature: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --duration-state: 120ms;
+  /* hover, focus, press */
+  --duration-transition: 240ms;
+  /* something changing in place */
+  --duration-entrance: 420ms;
+  /* something arriving */
+
+  --reveal-shift: 14px;
+  --reveal-step: 45ms;
+
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
 }
 
@@ -24,7 +34,7 @@
   }
 
   a {
-    @apply underline underline-offset-4 decoration-neutral-300 transition-all duration-200 hover:text-neutral-900 text-neutral-500;
+    @apply underline underline-offset-4 decoration-neutral-300 transition-colors hover:text-neutral-900 text-neutral-500;
   }
 
   /* Enhanced focus states for accessibility */
@@ -46,10 +56,60 @@
     @apply text-xs font-bold uppercase tracking-widest mb-8 text-neutral-400 border-b border-neutral-100 pb-3;
   }
 
+  /* ---------------------------------------
+     Reveal — entrances driven by the viewport, not by a load timer.
+     Anything in the first viewport skips this entirely.
+     --------------------------------------- */
+  .reveal,
+  .reveal-stagger>* {
+    opacity: 0;
+    transform: translateY(var(--reveal-shift));
+    transition:
+      opacity var(--duration-entrance) var(--ease-signature),
+      transform var(--duration-entrance) var(--ease-signature);
+  }
+
+  .reveal.is-revealed,
+  .reveal-stagger.is-revealed>* {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal-stagger.is-revealed>*:nth-child(1) {
+    transition-delay: 0ms;
+  }
+
+  .reveal-stagger.is-revealed>*:nth-child(2) {
+    transition-delay: calc(var(--reveal-step) * 1);
+  }
+
+  .reveal-stagger.is-revealed>*:nth-child(3) {
+    transition-delay: calc(var(--reveal-step) * 2);
+  }
+
+  .reveal-stagger.is-revealed>*:nth-child(4) {
+    transition-delay: calc(var(--reveal-step) * 3);
+  }
+
+  .reveal-stagger.is-revealed>*:nth-child(5) {
+    transition-delay: calc(var(--reveal-step) * 4);
+  }
+
+  .reveal-stagger.is-revealed>*:nth-child(6) {
+    transition-delay: calc(var(--reveal-step) * 5);
+  }
+
+  .reveal-stagger.is-revealed>*:nth-child(7) {
+    transition-delay: calc(var(--reveal-step) * 6);
+  }
+
+  .reveal-stagger.is-revealed>*:nth-child(n + 8) {
+    transition-delay: calc(var(--reveal-step) * 7);
+  }
+
   /* Card hover effect */
   .card-hover {
-    @apply transition-all duration-300;
-    transition-timing-function: var(--ease-out-expo);
+    @apply transition-transform duration-transition;
   }
 
   .card-hover:hover {
@@ -57,19 +117,9 @@
     box-shadow: var(--shadow-md);
   }
 
-  /* Status indicator */
-  .status-indicator {
-    @apply inline-flex items-center gap-2 text-xs font-mono;
-  }
-
-  .status-dot {
-    @apply w-1.5 h-1.5 rounded-full bg-accent-500;
-    animation: pulse-subtle 2s ease-in-out infinite;
-  }
-
   /* Back link styling */
   .back-link {
-    @apply inline-flex items-center gap-1 text-xs font-bold uppercase tracking-widest text-neutral-400 no-underline hover:text-neutral-900 transition-colors duration-200;
+    @apply inline-flex items-center gap-1 text-xs font-bold uppercase tracking-widest text-neutral-400 no-underline hover:text-neutral-900 transition-colors duration-state;
   }
 
   /* Page title styling */
@@ -96,7 +146,41 @@
   }
 
   .post-gear-trigger {
-    @apply inline-flex items-center justify-center gap-2 border border-neutral-200 bg-white px-5 py-2.5 font-mono text-xs font-bold uppercase tracking-wider text-neutral-700 transition-colors duration-200 hover:border-neutral-400 hover:bg-neutral-50 hover:text-neutral-900;
+    @apply inline-flex items-center justify-center gap-2 border border-neutral-200 bg-white px-5 py-2.5 font-mono text-xs font-bold uppercase tracking-wider text-neutral-700 transition-colors duration-state hover:border-neutral-400 hover:bg-neutral-50 hover:text-neutral-900;
+  }
+
+  /* ---------------------------------------
+     Reading progress — the same 1px slot the route indicator uses, so
+     "something is happening at the top edge" stays one idea.
+     --------------------------------------- */
+  .read-progress {
+    @apply fixed left-0 right-0 top-0 z-40 h-px bg-transparent;
+  }
+
+  .read-progress__bar {
+    @apply h-full bg-neutral-900 origin-left;
+    /* Near-linear: a progress bar that eases is a progress bar that lies. */
+    transition: transform 90ms linear;
+  }
+
+  /* ---------------------------------------
+     List rows — metadata is held back until the row is actually
+     approached, so attention is rewarded rather than pre-spent.
+     --------------------------------------- */
+  .row-reveal {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition:
+      max-height var(--duration-transition) var(--ease-signature),
+      opacity var(--duration-transition) var(--ease-signature);
+  }
+
+  .group:hover .row-reveal,
+  .group:focus-visible .row-reveal,
+  .group:focus-within .row-reveal {
+    max-height: 5rem;
+    opacity: 1;
   }
 }
 
@@ -111,67 +195,40 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
+  /* Nothing may be left stranded mid-animation when motion is declined. */
+  .reveal,
+  .reveal-stagger>* {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .row-reveal {
+    max-height: 5rem;
+    opacity: 1;
+  }
+
   .route-pending::after {
     animation: none;
     opacity: 0.2;
     width: 100%;
   }
+
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
 }
 
-/* Utility layer for animation delays */
 @layer utilities {
-  .animation-delay-100 {
-    animation-delay: 100ms;
-  }
-
-  .animation-delay-200 {
-    animation-delay: 200ms;
-  }
-
-  .animation-delay-300 {
-    animation-delay: 300ms;
-  }
-
-  .animation-delay-400 {
-    animation-delay: 400ms;
-  }
-
-  .animation-delay-500 {
-    animation-delay: 500ms;
-  }
-
-  /* Staggered children animation */
-  .stagger-children>*:nth-child(1) {
-    animation-delay: 50ms;
-  }
-
-  .stagger-children>*:nth-child(2) {
-    animation-delay: 100ms;
-  }
-
-  .stagger-children>*:nth-child(3) {
-    animation-delay: 150ms;
-  }
-
-  .stagger-children>*:nth-child(4) {
-    animation-delay: 200ms;
-  }
-
-  .stagger-children>*:nth-child(5) {
-    animation-delay: 250ms;
-  }
-
-  .stagger-children>*:nth-child(6) {
-    animation-delay: 300ms;
-  }
-
-  .stagger-children>*:nth-child(7) {
-    animation-delay: 350ms;
-  }
-
-  .stagger-children>*:nth-child(8) {
-    animation-delay: 400ms;
-  }
 
   /* Fade mask for visual polish */
   .fade-edge-bottom {
@@ -202,7 +259,7 @@
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   gap: 3rem;
   align-items: start;
 }
@@ -252,7 +309,9 @@
   border-radius: 50%;
   background: #22c55e;
   box-shadow: 0 0 6px rgba(34, 197, 94, 0.5);
-  animation: footer-pulse 2s ease-in-out infinite;
+  /* The site's only ambient motion. Slow and shallow enough to read as
+     breathing rather than as something demanding to be looked at. */
+  animation: footer-pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 @keyframes footer-pulse {
@@ -263,7 +322,7 @@
   }
 
   50% {
-    opacity: 0.4;
+    opacity: 0.7;
   }
 }
 
@@ -294,7 +353,7 @@
   color: #525252;
   text-decoration: none;
   font-size: 0.78rem;
-  transition: color 0.2s, transform 0.2s;
+  transition: color var(--duration-state) var(--ease-signature), transform var(--duration-state) var(--ease-signature);
   transform: translateX(0);
 }
 
@@ -306,7 +365,7 @@
 .footer-link-dash {
   font-size: 0.6rem;
   color: #d4d4d4;
-  transition: color 0.2s;
+  transition: color var(--duration-state) var(--ease-signature);
   flex-shrink: 0;
 }
 
@@ -318,7 +377,7 @@
   font-size: 0.6rem;
   opacity: 0;
   margin-left: -0.2rem;
-  transition: opacity 0.2s, margin-left 0.2s;
+  transition: opacity var(--duration-state) var(--ease-signature), margin-left var(--duration-state) var(--ease-signature);
 }
 
 .footer-link:hover .footer-link-arrow {
