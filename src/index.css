@@ -19,8 +19,6 @@
 
   --reveal-shift: 14px;
   --reveal-step: 45ms;
-
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
 }
 
 /* Base layer customizations */
@@ -51,9 +49,12 @@
 /* Component layer for reusable patterns */
 @layer components {
 
-  /* Section header styling */
+  /* Section header styling.
+     No rule underneath. Seven full-width lines down a page read as a form,
+     and the space above each heading already says "new section" — drawing
+     the boundary twice is the cheapest kind of clutter to remove. */
   .section-header {
-    @apply text-xs font-bold uppercase tracking-widest mb-8 text-neutral-400 border-b border-neutral-100 pb-3;
+    @apply text-xs font-bold uppercase tracking-widest mb-6 text-neutral-400;
   }
 
   /* ---------------------------------------
@@ -105,16 +106,6 @@
 
   .reveal-stagger.is-revealed>*:nth-child(n + 8) {
     transition-delay: calc(var(--reveal-step) * 7);
-  }
-
-  /* Card hover effect */
-  .card-hover {
-    @apply transition-transform duration-transition;
-  }
-
-  .card-hover:hover {
-    @apply -translate-y-0.5;
-    box-shadow: var(--shadow-md);
   }
 
   /* Back link styling */
@@ -253,8 +244,10 @@
 .footer-divider {
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #d4d4d4 20%, #d4d4d4 80%, transparent);
-  margin-bottom: 3rem;
+  /* A flat hairline. The fading gradient was a small piece of decoration
+     doing the job a plain line already does. */
+  background: #f0f0f0;
+  margin-bottom: 2.5rem;
 }
 
 .footer-grid {
@@ -285,14 +278,6 @@
   text-transform: uppercase;
 }
 
-.footer-tagline {
-  margin: 0.75rem 0 0;
-  font-size: 0.72rem;
-  line-height: 1.6;
-  color: #a3a3a3;
-  max-width: 280px;
-}
-
 .footer-status {
   display: flex;
   align-items: center;
@@ -303,27 +288,13 @@
   letter-spacing: 0.04em;
 }
 
+/* Neutral, unlit, still. It was the one saturated colour on the site and it
+   pulsed forever in the corner of the eye to report nothing. */
 .footer-status-dot {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #22c55e;
-  box-shadow: 0 0 6px rgba(34, 197, 94, 0.5);
-  /* The site's only ambient motion. Slow and shallow enough to read as
-     breathing rather than as something demanding to be looked at. */
-  animation: footer-pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-@keyframes footer-pulse {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.7;
-  }
+  background: #d4d4d4;
 }
 
 .footer-col {

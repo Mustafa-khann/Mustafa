@@ -22,13 +22,14 @@ const Footer = () => {
             <div className="footer-divider" />
 
             <div className="footer-grid">
-                {/* Left — Identity */}
+                {/* Left — Identity.
+                    The tagline that used to sit here ("Independent R&D —
+                    software, hardware, autonomous systems.") restated the
+                    definition in the header almost word for word, four screens
+                    below it. */}
                 <div className="footer-identity">
                     <span className="footer-name">{name}</span>
                     <span className="footer-lab">Synthesis Labs</span>
-                    <p className="footer-tagline">
-                        Independent R&D — software, hardware, autonomous systems.
-                    </p>
                     <div className="footer-status">
                         <span className="footer-status-dot" />
                         <span>System Online</span>
