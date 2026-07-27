@@ -23,7 +23,7 @@ const LabLog = ({ className = '' }) => {
                     <Reveal as="ul" stagger className="space-y-4 list-none p-0 m-0">
                         {currentSetup.map((item) => (
                             <li key={item} className="flex items-start text-neutral-700">
-                                <span className="mr-4 text-accent-500 font-bold flex-shrink-0">✓</span>
+                                <span className="mr-4 font-mono text-sm text-neutral-300 flex-shrink-0">::</span>
                                 <span className="leading-relaxed">{item}</span>
                             </li>
                         ))}

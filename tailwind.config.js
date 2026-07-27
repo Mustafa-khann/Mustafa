@@ -13,20 +13,10 @@ module.exports = {
             maxWidth: {
                 '5xl': '64rem',
             },
-            colors: {
-                accent: {
-                    50: '#f0fdf4',
-                    100: '#dcfce7',
-                    200: '#bbf7d0',
-                    300: '#86efac',
-                    400: '#4ade80',
-                    500: '#22c55e',
-                    600: '#16a34a',
-                    700: '#15803d',
-                    800: '#166534',
-                    900: '#14532d',
-                },
-            },
+            // No accent scale. The page is neutral end to end, so emphasis has
+            // to be earned with weight, size and space rather than with hue —
+            // a single saturated colour pulls the eye to whatever wears it,
+            // and nothing here deserves that more than the writing does.
             // One curve and three durations. Easing is read as personality, so
             // every moving thing on the site runs through the same one.
             transitionTimingFunction: {
