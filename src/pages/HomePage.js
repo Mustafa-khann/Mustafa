@@ -1,45 +1,45 @@
 import React from 'react';
-import Header from '../components/sections/Header';
-import WhatThisIs from '../components/sections/WhatThisIs';
-import Outputs from '../components/sections/Outputs';
-import LabLog from '../components/sections/LabLog';
-import HowIWork from '../components/sections/HowIWork';
-import Domains from '../components/sections/Domains';
-import CollaborationBoundary from '../components/sections/CollaborationBoundary';
-import Footer from '../components/sections/Footer';
+import { Link } from 'react-router-dom';
+import ProjectList from '../components/common/ProjectList';
+import PostList from '../components/common/PostList';
+import { projectSummaries } from '../data/projectSummaries';
+import { postSummaries } from '../data/contentSummaries';
+import { sortPostsByDateDesc } from '../utils/posts';
+import { siteContent } from '../data/siteContent';
+import { usePageMetadata } from '../utils/metadata';
 
-/**
- * Ordered as the reader's questions arrive: who is this, is anything real here,
- * is it still running, how do they think, what's the scope, can I work with
- * them.
- *
- * Evidence comes second rather than fifth. The first scroll is a contract test
- * — a visitor is deciding whether there is anything behind the claims — and
- * three sections of methodology is the wrong answer to that question.
- *
- * There is exactly one set of navigation, in the header. A second copy at the
- * bottom said the same four things again four screens later, which is the kind
- * of thing that makes a short site feel long.
- *
- * Spacing is set here rather than inside each section because rhythm is a page
- * concern: the wider gaps mark the three movements, and proximity does the
- * grouping that identically-weighted headings cannot.
- */
-const HomePage = () => (
-    <main className="max-w-5xl mx-auto px-6 py-12 md:py-16">
-        <Header />
-        <WhatThisIs className="pt-2 pb-12" />
+const HomePage = () => {
+  usePageMetadata({ title: 'Mustafa Khan — Independent engineer', description: 'Projects and writing across software, hardware, and autonomous systems.' });
+  return (
+    <main className="site-main home-page">
+      <header className="home-intro">
+        <div className="eyebrow"><span>Independent engineer</span><span>Software / Hardware / Autonomy</span></div>
+        <h1>Mustafa Khan<span className="title-period">.</span></h1>
+        <div className="intro-bottom">
+          <p>I build systems to understand them.<br />Software, hardware, and the space between.</p>
+          <div className="intro-aside"><span>Working independently.</span><span>Documenting what holds up.</span></div>
+        </div>
+      </header>
 
-        <Outputs className="pt-14 md:pt-20 pb-12" />
-        <LabLog className="pt-12 pb-12" />
+      <section className="indexed-section" aria-labelledby="work-heading">
+        <div className="section-label"><span className="eyebrow">01 / Work</span><h2 id="work-heading">Selected<br />projects</h2><Link className="text-link" to="/projects">All projects <span aria-hidden="true">↗</span></Link></div>
+        <ProjectList projects={projectSummaries.slice(0, 3)} />
+      </section>
 
-        <HowIWork className="pt-14 md:pt-20 pb-12" />
-        <Domains className="pt-12 pb-12" />
+      <section className="indexed-section" aria-labelledby="writing-heading">
+        <div className="section-label"><span className="eyebrow">02 / Writing</span><h2 id="writing-heading">Notes from<br />the work</h2><Link className="text-link" to="/posts">All writing <span aria-hidden="true">↗</span></Link></div>
+        <PostList posts={sortPostsByDateDesc(postSummaries).slice(0, 4)} compact />
+      </section>
 
-        <CollaborationBoundary className="pt-14 md:pt-20 pb-4" />
-
-        <Footer />
+      <section className="indexed-section approach-section" aria-labelledby="approach-heading">
+        <div className="section-label"><span className="eyebrow">03 / Approach</span><h2 id="approach-heading">A short<br />feedback loop.</h2></div>
+        <div className="approach-content">
+          <p className="approach-lead">Start with a problem. Build the smallest test.<br />Let the result decide what comes next.</p>
+          <div className="approach-grid"><div><span className="eyebrow">Constraints</span><p>Small budgets. Short cycles.<br />Only the tools the work needs.</p></div><div><span className="eyebrow">Current focus</span><p>Building a physical hardware lab.<br />Making it easier to test ideas.</p></div></div>
+          <div className="contact-line"><p>For collaboration, start with the technical problem.</p><a className="text-link" href={`mailto:${siteContent.footer.email}`}>Get in touch <span aria-hidden="true">↗</span></a></div>
+        </div>
+      </section>
     </main>
-);
-
+  );
+};
 export default HomePage;

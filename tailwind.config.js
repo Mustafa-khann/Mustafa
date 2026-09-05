@@ -7,38 +7,54 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                'sans': ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
+                'sans': ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
                 'mono': ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
             },
             maxWidth: {
                 '5xl': '64rem',
             },
-            // No accent scale. The page is neutral end to end, so emphasis has
-            // to be earned with weight, size and space rather than with hue —
-            // a single saturated colour pulls the eye to whatever wears it,
-            // and nothing here deserves that more than the writing does.
-            // One curve and three durations. Easing is read as personality, so
-            // every moving thing on the site runs through the same one.
-            transitionTimingFunction: {
-                DEFAULT: 'cubic-bezier(0.16, 1, 0.3, 1)',
-                signature: 'cubic-bezier(0.16, 1, 0.3, 1)',
-            },
-            transitionDuration: {
-                DEFAULT: '120ms',
-                state: '120ms',       // hover, focus, press
-                transition: '240ms',  // something changing in place
-                entrance: '420ms',    // something arriving
+            colors: {
+                accent: {
+                    50: '#fafafa',
+                    100: '#f5f5f5',
+                    200: '#e5e5e5',
+                    300: '#d4d4d4',
+                    400: '#a3a3a3',
+                    500: '#737373',
+                    600: '#525252',
+                    700: '#404040',
+                    800: '#262626',
+                    900: '#171717',
+                },
             },
             keyframes: {
-                'breathe': {
+                'fade-in': {
+                    '0%': { opacity: '0', transform: 'translateY(8px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' },
+                },
+                'fade-in-up': {
+                    '0%': { opacity: '0', transform: 'translateY(16px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' },
+                },
+                'slide-in': {
+                    '0%': { opacity: '0', transform: 'translateX(-8px)' },
+                    '100%': { opacity: '1', transform: 'translateX(0)' },
+                },
+                'scale-in': {
+                    '0%': { opacity: '0', transform: 'scale(0.95)' },
+                    '100%': { opacity: '1', transform: 'scale(1)' },
+                },
+                'pulse-subtle': {
                     '0%, 100%': { opacity: '1' },
-                    '50%': { opacity: '0.75' },
+                    '50%': { opacity: '0.6' },
                 },
             },
             animation: {
-                // Slow and shallow: one ambient element reads as a heartbeat,
-                // anything faster reads as a fidget in peripheral vision.
-                'breathe': 'breathe 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'fade-in': 'fade-in 0.5s ease-out forwards',
+                'fade-in-up': 'fade-in-up 0.6s ease-out forwards',
+                'slide-in': 'slide-in 0.4s ease-out forwards',
+                'scale-in': 'scale-in 0.3s ease-out forwards',
+                'pulse-subtle': 'pulse-subtle 2s ease-in-out infinite',
             },
             backdropBlur: {
                 xs: '2px',

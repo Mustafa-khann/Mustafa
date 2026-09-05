@@ -109,7 +109,7 @@ const normalizeGearTriggers = (html) =>
 
 export const preparePostHtml = (html = '') =>
   normalizeGearTriggers(String(html))
-    .replace(/\sstyle=(["'])color\s*:[^"']*\1/gi, '')
+    .replace(/\sstyle=(["'])[\s\S]*?\1/gi, '')
     .replace(/<span\b[^>]*>/gi, '')
     .replace(/<\/span>/gi, '')
     .replace(/<br\s*\/?>/gi, '<br>')

@@ -10,7 +10,7 @@ export const books = [
     accentColor: '#E17055',
     topColor: '#3D4446',
     thickness: 52,
-    description: 'A dystopian novel set in a totalitarian society under constant surveillance. Orwell\'s masterpiece explores the dangers of authoritarianism, propaganda, and the manipulation of truth — themes that remain chillingly relevant.',
+    description: "A surveillance state controls language, memory, and public truth. A novel about power and the erosion of independent thought.",
   },
   {
     slug: 'there-is-no-antimemetics-division',
@@ -22,7 +22,7 @@ export const books = [
     accentColor: '#00CEC9',
     topColor: '#1D1D1D',
     thickness: 44,
-    description: 'A mind-bending exploration of antimemetics — ideas that resist being remembered or communicated. Built from the SCP Foundation universe, it asks: what happens when the enemy is something you can\'t remember exists?',
+    description: "An organization confronts ideas that erase the memory of their own existence. Science fiction about knowledge, memory, and invisible threats.",
   },
   {
     slug: 'fahrenheit-451',
@@ -34,7 +34,7 @@ export const books = [
     accentColor: '#FDCB6E',
     topColor: '#E64A3B',
     thickness: 46,
-    description: 'In a future where books are banned and "firemen" burn them, one man begins to question everything. Bradbury\'s scorching novel is a defense of literature and free thought against the numbing embrace of mass media.',
+    description: "A fireman in a society that burns books begins to question his work. A novel about censorship, distraction, and independent thought.",
   },
   {
     slug: 'lolita',
@@ -46,7 +46,7 @@ export const books = [
     accentColor: '#FD79A8',
     topColor: '#7C6CF7',
     thickness: 54,
-    description: 'A controversial and linguistically dazzling novel narrated by Humbert Humbert. Nabokov crafts a disturbing yet masterful exploration of obsession, manipulation, and the unreliable narrator.',
+    description: "An unreliable narrator uses language to disguise his abuse and manipulation. A study of obsession and the gap between eloquence and truth.",
   },
   {
     slug: 'the-idiot',
@@ -58,7 +58,7 @@ export const books = [
     accentColor: '#636E72',
     topColor: '#C2CED3',
     thickness: 60,
-    description: 'Prince Myshkin, a genuinely good man, returns to Russian society only to be consumed by it. Dostoevsky examines whether pure goodness can survive a corrupt world.',
+    description: "Prince Myshkin returns to Russian society with an unusual openness and trust. His relationships test whether goodness can survive social ambition.",
   },
   {
     slug: 'the-trial',
@@ -70,7 +70,7 @@ export const books = [
     accentColor: '#FFEAA7',
     topColor: '#737E82',
     thickness: 42,
-    description: 'Josef K. is arrested and prosecuted by a remote, inaccessible authority for a crime that is never revealed. Kafka\'s unfinished novel is the definitive literary rendering of bureaucratic absurdity and existential dread.',
+    description: "Josef K. is prosecuted for an undisclosed crime by an inaccessible authority. A novel about bureaucracy, uncertainty, and power.",
   },
   {
     slug: 'crime-and-punishment',
@@ -82,7 +82,7 @@ export const books = [
     accentColor: '#E17055',
     topColor: '#3D4446',
     thickness: 64,
-    description: 'Raskolnikov murders a pawnbroker to prove an extraordinary-man theory, then is destroyed by his own conscience. A psychological deep-dive into guilt, redemption, and the limits of rationalism.',
+    description: "Raskolnikov commits murder to test a theory of exceptional individuals. His guilt exposes the limits of his reasoning.",
   },
 
   // Philosophy
@@ -96,7 +96,7 @@ export const books = [
     accentColor: '#55EFC4',
     topColor: '#10C8A4',
     thickness: 56,
-    description: 'Dennett dismantles the "Cartesian theater" model of consciousness and proposes the Multiple Drafts theory. A rigorous, contrarian take on the hardest problem in philosophy of mind.',
+    description: "Dennett challenges the idea of a single inner observer and develops the Multiple Drafts account of consciousness.",
   },
   {
     slug: 'godel-escher-bach',
@@ -108,7 +108,7 @@ export const books = [
     accentColor: '#E17055',
     topColor: '#FEDB8E',
     thickness: 70,
-    description: 'An exploration of how self-reference and formal rules give rise to meaning, intelligence, and consciousness — weaving together mathematics, art, and music into a unified intellectual tapestry.',
+    description: "Self-reference, formal systems, and the emergence of meaning, explored through mathematics, art, and music.",
   },
   {
     slug: 'existentialism-is-a-humanism',
@@ -120,7 +120,7 @@ export const books = [
     accentColor: '#74B9FF',
     topColor: '#3D4446',
     thickness: 38,
-    description: 'Sartre\'s defense of existentialism: existence precedes essence, we are condemned to be free, and we are fully responsible for what we make of ourselves.',
+    description: "Sartre’s account of freedom and responsibility: existence precedes essence, and people are responsible for what they make of themselves.",
   },
   {
     slug: 'communist-manifesto',
@@ -132,7 +132,7 @@ export const books = [
     accentColor: '#E74C3C',
     topColor: '#D0493B',
     thickness: 34,
-    description: 'The foundational text of Marxism. A short, incendiary pamphlet laying out the theory of class struggle and the call for proletarian revolution that reshaped the 20th century.',
+    description: "Marx and Engels set out their account of class struggle and their argument for a communist transformation of society.",
   },
 
   // Non-Fiction
@@ -146,7 +146,7 @@ export const books = [
     accentColor: '#74B9FF',
     topColor: '#2E47A9',
     thickness: 62,
-    description: 'A sweeping anthropological history of debt that overturns the standard economic narrative. Graeber argues that debt precedes money and that its moral weight has been used to justify everything from slavery to war.',
+    description: "An anthropological history of debt, money, and obligation. Graeber examines how financial relationships become moral and political ones.",
   },
   {
     slug: 'design-as-art',
@@ -158,7 +158,7 @@ export const books = [
     accentColor: '#E17055',
     topColor: '#F0F0F0',
     thickness: 36,
-    description: 'Munari argues that design is not mere decoration but a way of thinking. A slim, elegant manifesto on making the visual environment more humane, functional, and beautiful.',
+    description: "Munari treats design as part of everyday life, connecting visual judgment with the function and accessibility of objects.",
   },
   {
     slug: 'the-visual-display-of-quantitative-information',
@@ -170,7 +170,7 @@ export const books = [
     accentColor: '#636E72',
     topColor: '#EFF2F5',
     thickness: 48,
-    description: 'The definitive guide to data visualization. Tufte establishes principles of graphical excellence — maximizing data-ink ratio, eliminating chartjunk, and letting the data speak.',
+    description: "Principles for presenting quantitative evidence: increase useful information, remove chart clutter, and preserve the relationships in the data.",
   },
 
   // Technology
@@ -184,7 +184,7 @@ export const books = [
     accentColor: '#3C6382',
     topColor: '#1C3471',
     thickness: 54,
-    description: 'The geopolitical history of the semiconductor industry. Miller traces how chips became the most critical resource of the modern era, shaping military power, economic competition, and technological supremacy.',
+    description: "A history of the semiconductor industry and the role of chip production in economic competition and geopolitical power.",
   },
   {
     slug: 'fundamentals-of-materials-science',
@@ -196,7 +196,7 @@ export const books = [
     accentColor: '#3C6382',
     topColor: '#1A4D72',
     thickness: 66,
-    description: 'The canonical materials science textbook. Covers atomic structure, crystallography, mechanical properties, phase diagrams, and the engineering of metals, ceramics, polymers, and composites.',
+    description: "Atomic structure, crystallography, mechanical properties, and phase diagrams, applied to metals, ceramics, polymers, and composites.",
   },
   {
     slug: 'fundamentals-of-aerodynamics',
@@ -208,7 +208,7 @@ export const books = [
     accentColor: '#6C5CE7',
     topColor: '#2B2474',
     thickness: 64,
-    description: 'Anderson\'s comprehensive treatment of aerodynamic theory — from incompressible flow to hypersonics. The standard reference for understanding lift, drag, and fluid dynamics in aerospace engineering.',
+    description: "Aerodynamic theory from incompressible flow to hypersonics, with the foundations of lift, drag, and fluid motion.",
   },
   {
     slug: 'silicon-photonics-design',
@@ -220,7 +220,7 @@ export const books = [
     accentColor: '#00B894',
     topColor: '#1D1D1D',
     thickness: 48,
-    description: 'A practical guide to designing photonic circuits on silicon. Covers waveguides, ring resonators, Mach-Zehnder interferometers, and the simulation/fabrication workflow for integrated photonics.',
+    description: "Designing integrated photonic circuits: waveguides, ring resonators, interferometers, and the simulation-to-fabrication workflow.",
   },
 
   // Electronics
@@ -234,7 +234,7 @@ export const books = [
     accentColor: '#FDCB6E',
     topColor: '#3D4446',
     thickness: 72,
-    description: 'The bible of electronics. Horowitz and Hill cover everything from basic circuits to microprocessors with an engineer\'s intuition — emphasizing practical design over pure theory.',
+    description: "Practical electronic circuit design, from basic components to microprocessors, with an emphasis on engineering judgment.",
   },
 
   // Biology
@@ -248,7 +248,7 @@ export const books = [
     accentColor: '#55EFC4',
     topColor: '#10C8A4',
     thickness: 48,
-    description: 'Dawkins reframes evolution from the gene\'s perspective: organisms are survival machines for replicators. Introduces the concept of memes and fundamentally shifts how we think about natural selection.',
+    description: "A gene-centered account of evolution that considers organisms as vehicles for replicators and introduces the concept of memes.",
   },
   {
     slug: 'the-origin-of-species',
@@ -260,7 +260,7 @@ export const books = [
     accentColor: '#D4A574',
     topColor: '#7C6B4E',
     thickness: 58,
-    description: 'Darwin\'s foundational work introducing the theory of evolution by natural selection. Methodical, evidence-rich, and still staggering in its explanatory power after more than 160 years.',
+    description: "Darwin’s argument for evolution by natural selection, developed through observations of variation, inheritance, and adaptation.",
   },
   {
     slug: 'molecular-biology-of-the-cell',
@@ -272,7 +272,7 @@ export const books = [
     accentColor: '#74B9FF',
     topColor: '#1994F3',
     thickness: 74,
-    description: 'The standard reference for cell biology. Covers everything from DNA replication and gene expression to cell signaling, the cytoskeleton, and cancer — at molecular resolution.',
+    description: "Cell biology at the molecular level: DNA replication, gene expression, signaling, the cytoskeleton, and cancer.",
   },
 
   // Programming
@@ -286,7 +286,7 @@ export const books = [
     accentColor: '#B2BEC3',
     topColor: '#737E82',
     thickness: 46,
-    description: 'A foundational work on mechanized theorem proving. Boyer and Moore develop a logic and a system for automatically verifying the correctness of programs — pioneering formal verification.',
+    description: "Boyer and Moore develop a logic and an automated theorem-proving system for reasoning about program correctness.",
   },
   {
     slug: 'algorithms-in-c',
@@ -298,7 +298,7 @@ export const books = [
     accentColor: '#636E72',
     topColor: '#3D4446',
     thickness: 56,
-    description: 'Sedgewick\'s practical guide to fundamental algorithms implemented in C. Covers sorting, searching, graph algorithms, and string processing with clear code and analysis.',
+    description: "Fundamental algorithms implemented in C, including sorting, searching, graphs, and string processing.",
   },
   {
     slug: 'arm-bare-metal',
@@ -310,7 +310,7 @@ export const books = [
     accentColor: '#00B894',
     topColor: '#1D1D1D',
     thickness: 38,
-    description: 'A hands-on guide to programming ARM processors without an operating system. Covers register-level hardware interaction, interrupts, and building embedded systems from scratch.',
+    description: "Programming ARM processors without an operating system, including registers, interrupts, and direct hardware interaction.",
   },
   {
     slug: 'c-programming-language',
@@ -322,7 +322,7 @@ export const books = [
     accentColor: '#636E72',
     topColor: '#F0F0F0',
     thickness: 40,
-    description: 'K&R — the original and most influential programming book ever written. Lean, precise, and complete. Every serious programmer has read it; many keep it within arm\'s reach.',
+    description: "Kernighan and Ritchie’s introduction to C: types, control flow, pointers, structures, and the standard library.",
   },
   {
     slug: 'computer-systems',
@@ -334,7 +334,7 @@ export const books = [
     accentColor: '#4A69BD',
     topColor: '#2E47A9',
     thickness: 68,
-    description: 'How computers actually execute programs — from bits and assembly to memory hierarchies, linking, virtual memory, and concurrency. The bridge between code and hardware.',
+    description: "How programs execute across layers: bits, assembly, linking, memory hierarchies, virtual memory, and concurrency.",
   },
   {
     slug: 'cuda-c-programming-guide',
@@ -346,7 +346,7 @@ export const books = [
     accentColor: '#2ECC71',
     topColor: '#37BE70',
     thickness: 44,
-    description: 'NVIDIA\'s official guide to programming GPUs with CUDA. Covers the execution model, memory hierarchy, kernel optimization, and parallel computing patterns for massively parallel workloads.',
+    description: "NVIDIA’s guide to the CUDA execution model, memory hierarchy, kernel optimization, and GPU programming.",
   },
   {
     slug: 'data-structures-and-algorithms-in-cpp',
@@ -358,7 +358,7 @@ export const books = [
     accentColor: '#3498DB',
     topColor: '#3C4E60',
     thickness: 58,
-    description: 'A thorough treatment of data structures and algorithm analysis using C++. Covers lists, trees, hashing, sorting, graphs, and algorithm design with mathematical rigor.',
+    description: "Data structures and algorithm analysis in C++, covering lists, trees, hashing, sorting, and graphs.",
   },
   {
     slug: 'programming-massively-parallel-processors',
@@ -370,7 +370,7 @@ export const books = [
     accentColor: '#D63031',
     topColor: '#1D1D1D',
     thickness: 52,
-    description: 'The definitive textbook on GPU computing and parallel programming. Covers CUDA architecture, parallel patterns, memory optimization, and real-world application case studies.',
+    description: "GPU architecture and parallel programming, with CUDA patterns, memory optimization, and application examples.",
   },
 
   // Manufacturing
@@ -384,7 +384,7 @@ export const books = [
     accentColor: '#636E72',
     topColor: '#C2CED3',
     thickness: 50,
-    description: 'A brilliantly accessible introduction to structural engineering. Gordon explains tension, compression, beams, and arches with wit and clarity — making the invisible forces of the built world visible.',
+    description: "An introduction to structural engineering through tension, compression, beams, and arches.",
   },
   {
     slug: 'the-toyota-way',
@@ -396,7 +396,7 @@ export const books = [
     accentColor: '#FF7675',
     topColor: '#E64041',
     thickness: 54,
-    description: 'A deep look at Toyota\'s management principles: continuous improvement, respect for people, long-term thinking, and lean manufacturing. The operational philosophy that revolutionized production worldwide.',
+    description: "Toyota’s management principles, including continuous improvement, respect for people, and long-term thinking.",
   },
   {
     slug: 'the-design-of-everyday-things',
@@ -408,7 +408,7 @@ export const books = [
     accentColor: '#E17055',
     topColor: '#FEDB8E',
     thickness: 48,
-    description: 'Norman\'s classic on human-centered design. Introduces affordances, signifiers, and mapping — the principles that separate good design (doors you can open) from bad (doors that confuse you).',
+    description: "How affordances, signifiers, feedback, and mapping shape the usability of everyday objects.",
   },
 
   // Robotics
@@ -422,7 +422,7 @@ export const books = [
     accentColor: '#3C6382',
     topColor: '#1C3471',
     thickness: 56,
-    description: 'The standard textbook for robot mechanics and control. Covers spatial descriptions, forward/inverse kinematics, dynamics, trajectory planning, and manipulator design.',
+    description: "Robot mechanics and control: spatial descriptions, kinematics, dynamics, trajectory planning, and manipulator design.",
   },
   {
     slug: 'nasa-systems-engineering-handbook',
@@ -434,7 +434,7 @@ export const books = [
     accentColor: '#6C5CE7',
     topColor: '#2B2474',
     thickness: 60,
-    description: 'NASA\'s comprehensive guide to systems engineering: requirements, architecture, verification, validation, and managing complexity in large-scale aerospace and defense programs.',
+    description: "NASA’s approach to requirements, architecture, verification, validation, and the management of complex engineering systems.",
   },
 
   // Software
@@ -448,7 +448,7 @@ export const books = [
     accentColor: '#FDCB6E',
     topColor: '#F18065',
     thickness: 46,
-    description: 'Hoffman\'s framework for scaling startups at breakneck speed — prioritizing speed over efficiency in the face of uncertainty. Case studies from LinkedIn, Airbnb, and other hypergrowth companies.',
+    description: "A framework for scaling companies quickly under uncertainty, examining the tradeoff between speed and efficiency.",
   },
   {
     slug: 'designing-data-intensive-applications',
@@ -460,7 +460,7 @@ export const books = [
     accentColor: '#0984E3',
     topColor: '#3D4446',
     thickness: 62,
-    description: 'The modern bible of distributed systems. Kleppmann covers replication, partitioning, transactions, batch/stream processing, and the trade-offs that define how we build reliable, scalable data systems.',
+    description: "The tradeoffs behind reliable data systems: replication, partitioning, transactions, and batch and stream processing.",
   },
   {
     slug: 'the-mythical-man-month',
@@ -472,7 +472,7 @@ export const books = [
     accentColor: '#B2BEC3',
     topColor: '#737E82',
     thickness: 44,
-    description: 'Brooks\'s timeless essays on software engineering management. "Adding manpower to a late software project makes it later." Still the most cited book in the field, half a century later.',
+    description: "Essays on software project management, coordination costs, estimation, and the limits of adding people to a delayed project.",
   },
 ];
 

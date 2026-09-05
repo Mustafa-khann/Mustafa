@@ -62,6 +62,15 @@ const ScrollRestoration = () => {
 
     // Handle navigation with scroll restoration
     useEffect(() => {
+        if (location.hash) {
+            let id = location.hash.slice(1);
+            try { id = decodeURIComponent(id); } catch { /* Keep malformed fragments literal. */ }
+            const frame = requestAnimationFrame(() => {
+                document.getElementById(id)?.scrollIntoView({ block: 'start' });
+            });
+            prevPathRef.current = location.pathname;
+            return () => cancelAnimationFrame(frame);
+        }
         const isPop = history.action === 'POP';
         const currentPath = location.pathname;
         const previousPath = prevPathRef.current;
@@ -116,7 +125,7 @@ const ScrollRestoration = () => {
         }
 
         prevPathRef.current = currentPath;
-    }, [location.pathname, location.key, history.action]);
+    }, [location.pathname, location.key, location.hash, history.action]);
 
     return null;
 };

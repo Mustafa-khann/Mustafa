@@ -9,6 +9,8 @@ const loadProjectsPage = () => import('../pages/ProjectsPage');
 const loadProjectDetailPage = () => import('../pages/ProjectDetailPage');
 const loadIdeasPage = () => import('../pages/IdeasPage');
 const loadPaperDetail = () => import('../pages/PaperDetail');
+const loadShopPage = () => import('../pages/ShopPage');
+const loadProductPage = () => import('../pages/ProductPage');
 
 const NotesPage = lazy(loadNotesPage);
 const NoteDetail = lazy(loadNoteDetail);
@@ -18,6 +20,8 @@ const ProjectsPage = lazy(loadProjectsPage);
 const ProjectDetailPage = lazy(loadProjectDetailPage);
 const IdeasPage = lazy(loadIdeasPage);
 const PaperDetail = lazy(loadPaperDetail);
+const ShopPage = lazy(loadShopPage);
+const ProductPage = lazy(loadProductPage);
 
 const preloadCache = new Map();
 const preload = (loadPage) => {
@@ -56,9 +60,13 @@ const preloadOrder = [
   loadProjectDetailPage,
   loadPaperDetail,
   loadBookDetailPage,
+  loadShopPage,
+  loadProductPage,
 ];
 
 export const preloadRouteForPath = (pathname) => {
+  if (pathname === '/shop') return preload(loadShopPage);
+  if (pathname.startsWith('/shop/')) return preload(loadProductPage);
   if (pathname === '/posts') return preload(loadNotesPage);
   if (pathname.startsWith('/posts/')) return preload(loadNoteDetail);
   if (pathname === '/projects') return preload(loadProjectsPage);
@@ -141,5 +149,16 @@ export const routes = [
     path: '/ideas/:slug',
     component: PaperDetail,
     title: 'Idea',
+  },
+  {
+    path: '/shop',
+    exact: true,
+    component: ShopPage,
+    title: 'Shop',
+  },
+  {
+    path: '/shop/:slug',
+    component: ProductPage,
+    title: 'Product',
   },
 ];

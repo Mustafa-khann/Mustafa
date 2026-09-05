@@ -30,15 +30,12 @@ const GearItem = ({ item }) => {
   const content = (
     <>
       <div className="flex items-center gap-4 min-w-0">
-        <span className="text-lg min-w-6 opacity-70 grayscale group-hover:grayscale-0 transition-all" aria-hidden="true">
-          {item.emoji || '🔧'}
-        </span>
         <div className="min-w-0">
           <h4 className="font-bold tracking-tight text-sm group-hover:text-neutral-900">{item.title}</h4>
-          {item.note ? <span className="text-neutral-500 text-xs italic block mt-0.5">{item.note}</span> : null}
+          {item.note ? <span className="text-neutral-500 text-sm italic block mt-0.5">{item.note}</span> : null}
         </div>
       </div>
-      {item.price ? <div className="text-neutral-500 text-xs font-mono whitespace-nowrap">{item.price}</div> : null}
+      {item.price ? <div className="text-neutral-500 text-sm font-mono whitespace-nowrap">{item.price}</div> : null}
     </>
   );
 
@@ -138,13 +135,13 @@ const GearModal = ({ isOpen, onClose, title = 'Recommended Gear', collections = 
 
   return ReactDOM.createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-white/95 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-white/95 p-4 "
       onClick={(event) => {
         if (event.target === event.currentTarget) onClose?.();
       }}
     >
       <div
-        className="w-full max-w-2xl max-h-[90vh] overflow-auto bg-white border border-neutral-200 shadow-2xl"
+        className="w-full max-w-2xl max-h-[90vh] overflow-auto bg-white border border-neutral-200 "
         role="dialog"
         aria-modal="true"
         aria-labelledby="gear-modal-title"
@@ -157,7 +154,7 @@ const GearModal = ({ isOpen, onClose, title = 'Recommended Gear', collections = 
             {title}
           </h2>
           <button
-            className="border border-neutral-200 bg-transparent px-2 py-1 text-xs font-bold uppercase text-neutral-500 transition-colors duration-200 hover:border-neutral-400 hover:text-neutral-900"
+            className="border border-neutral-200 bg-transparent px-2 py-1 text-sm font-bold uppercase text-neutral-500 transition-colors duration-200 hover:border-neutral-400 hover:text-neutral-900"
             aria-label="Close gear modal"
             onClick={onClose}
             ref={closeButtonRef}
@@ -167,13 +164,13 @@ const GearModal = ({ isOpen, onClose, title = 'Recommended Gear', collections = 
           </button>
         </div>
 
-        <div className="border-b border-neutral-100 bg-neutral-50 px-6 py-4 text-xs italic leading-relaxed text-neutral-500 font-mono" role="note">
+        <div className="border-b border-neutral-100 bg-neutral-50 px-6 py-4 text-sm italic leading-relaxed text-neutral-500 font-mono" role="note">
           <span id="gear-modal-disclosure-summary">
             Disclosure: Some links may be affiliate links. If you purchase through them, I may earn a small commission at no extra cost to you.
           </span>
           <button
             type="button"
-            className="ml-4 border border-neutral-200 bg-transparent px-2 py-1 text-[10px] font-bold uppercase text-neutral-800 transition-colors hover:border-neutral-400"
+            className="ml-4 border border-neutral-200 bg-transparent px-2 py-1 text-sm font-bold uppercase text-neutral-800 transition-colors hover:border-neutral-400"
             aria-expanded={showDisclosure}
             aria-controls="gear-modal-disclosure-details"
             onClick={() => setShowDisclosure((value) => !value)}
@@ -194,7 +191,7 @@ const GearModal = ({ isOpen, onClose, title = 'Recommended Gear', collections = 
             visibleCollections.map((collection) => (
               <section key={collection.id || collection.title} className="mb-12 last:mb-0">
                 <div className="mb-6">
-                  <h3 className="mb-4 border-b border-neutral-100 pb-2 text-xs font-bold uppercase tracking-widest text-neutral-500">
+                  <h3 className="mb-4 border-b border-neutral-100 pb-2 text-sm font-bold uppercase tracking-widest text-neutral-500">
                     {collection.title}
                   </h3>
                   {collection.description ? (
