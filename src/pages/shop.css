@@ -927,7 +927,7 @@
 }
 
 
-/* Shared site proportions and a monochrome catalog. */
+/* Shared site proportions and catalog layout. */
 .shop-shell { --shop-muted: var(--muted); --shop-faint: var(--muted); --shop-line: var(--line); --shop-paper: var(--paper); background: var(--paper); }
 .shop-main, .shop-toolbar { width: min(1184px, calc(100% - 96px)); margin-inline: auto; }
 .shop-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-block: 18px 0; font: .875rem/1.6 var(--mono); color: var(--muted); }
@@ -947,8 +947,7 @@
 .shop-product-card-price { font: .875rem/1.5 var(--mono); white-space: nowrap; }
 .shop-product-card-index, .product-gallery-count { font: .75rem var(--mono); color: var(--muted); }
 .shop-product-card .product-media { aspect-ratio: 4 / 4.5; }
-.shop-product-card:hover .product-media { transform: none; filter: grayscale(1); }
-.product-media, .product-media-image { filter: grayscale(1); }
+.shop-product-card:hover .product-media { transform: none; }
 .product-breadcrumb { text-transform: none; letter-spacing: 0; flex-wrap: wrap; white-space: normal; font-family: var(--mono); }
 .product-purchase-panel h1 { font-weight: 500; line-height: 1.08; }
 .product-purchase-register { flex-wrap: wrap; font: .75rem/1.6 var(--mono); letter-spacing: 0; overflow-wrap: anywhere; }

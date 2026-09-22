@@ -59,7 +59,7 @@
 .project-row h3 { font-size: 1.5rem; font-weight: 500; line-height: 1.25; letter-spacing: -.04em; margin: 9px 0 7px; }
 .project-row p { margin: 0; max-width: 36rem; color: var(--muted); line-height: 1.6; }
 .project-stack { display: block; margin-top: 12px; color: var(--muted); }
-.project-thumbnail { width: 140px; height: 106px; flex-shrink: 0; object-fit: cover; filter: grayscale(1); background: var(--soft); margin-top: 4px; }
+.project-thumbnail { width: 140px; height: 106px; flex-shrink: 0; object-fit: cover; background: var(--soft); margin-top: 4px; }
 .entry-arrow { font-family: var(--sans); font-size: 1.25rem; line-height: 1.2; color: var(--muted); flex-shrink: 0; transition: color 150ms; }
 .project-row:hover h3, .writing-row:hover h3, .research-row:hover h2, .book-row:hover h3 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
 .project-row:hover .entry-arrow, .writing-row:hover .entry-arrow { color: var(--ink); }
@@ -183,7 +183,7 @@
 .document-prose a { text-decoration: underline; text-decoration-color: #888; }
 .document-prose a:hover { text-decoration-color: var(--ink); }
 .document-prose blockquote { border-left: 2px solid var(--ink); padding-left: 24px; margin: 32px 0; color: var(--muted); }
-.document-prose img { max-width: 100%; height: auto; filter: grayscale(1); margin-block: 28px; }
+.document-prose img { max-width: 100%; height: auto; margin-block: 28px; }
 .document-prose code { font: .875rem/1.8 var(--mono); background: var(--soft); padding: 2px 5px; }
 .document-prose pre { padding: 24px; margin: 24px 0; background: #202020; color: #f5f5f5; overflow-x: auto; }
 .document-prose pre code { background: transparent; padding: 0; color: inherit; }
