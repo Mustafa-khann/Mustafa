@@ -14,10 +14,11 @@ const ProjectList = ({ projects, offset = 0 }) => (
         <Link className="project-row" to={`/projects/${project.slug}`}>
           <span className="entry-number">{String(offset + index + 1).padStart(2, '0')}</span>
           <div className="project-row-copy">
-            <div className="entry-meta">{project.type} <span aria-hidden="true">/</span> {project.date}</div>
+            <div className="entry-meta">{project.type} <span aria-hidden="true">/</span> Solo{project.date && <> <span aria-hidden="true">/</span> {project.date}</>}</div>
             <h3>{project.name}</h3>
             <p>{project.description}</p>
             <span className="project-stack">{project.stack}</span>
+            {project.traction && <span className="project-traction">{project.traction.stars} GitHub stars · {project.traction.forks} forks <span>as of {project.traction.asOf}</span></span>}
           </div>
           <ProjectImage project={project} />
           <span className="entry-arrow" aria-hidden="true">↗</span>

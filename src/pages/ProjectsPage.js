@@ -9,7 +9,7 @@ const ProjectsPage = () => {
   let offset = 0;
   return (
     <main className="site-main">
-      <PageHeader number="01" title="Projects" description="Hardware prototypes, systems software, and experiments in machine learning. Build notes and source where available." count={projectSummaries.length} />
+      <PageHeader number="01" title="Projects" description="I built each of these projects independently. Hardware prototypes, systems software, and machine learning experiments, with implementation details and source where available." count={projectSummaries.length} />
       {['Hardware', 'System', 'Experiment', 'Tool'].map((type) => {
         const projects = projectSummaries.filter((project) => project.type === type);
         const start = offset;

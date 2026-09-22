@@ -64,8 +64,9 @@ Important files:
 - `src/config/routes.js` defines the route table.
 - `src/data/siteContent.js` holds all homepage copy, including the lab log.
 - `src/data/posts.js` and `src/data/researchPapers.js` contain full article/idea content.
-- `src/data/projects.js` contains project entries and detail content.
-- `src/data/projectSummaries.js` contains lightweight project-list metadata.
+- `src/data/projects.js` contains project write-ups and contribution details, joined to the shared metadata.
+- `src/data/projectSummaries.js` contains shared titles, dates, source links, and dated GitHub snapshots for both lists and detail pages.
+- `docs/portfolio-author-notes.md` records confirmed personal details, source checks, and remaining author notes; it is not published on the site.
 - `src/data/books.js` contains book shelf data.
 - `src/pages/BooksPage.js` contains the book shelf UI.
 - `public/assets/` contains static images referenced by app content.

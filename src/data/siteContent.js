@@ -64,10 +64,10 @@ export const siteContent = {
         {
             name: 'TinyCompiler',
             type: 'System',
-            description: 'Compiler for C-like language. Lexer, parser, code generator.',
+            description: 'Small language implementation in C. Lexer, parser, syntax tree, and interpreter.',
             stack: 'C',
             slug: 'tiny-compiler',
-            link: 'https://github.com/Mustafa-khann/TinyCompiler',
+            link: 'https://github.com/Mustafa-khann/Tiny-Compiler',
         },
         {
             name: 'MNIST Neural Network',
@@ -83,7 +83,6 @@ export const siteContent = {
             description: 'Convolutional neural network in C. Convolutions, pooling, backpropagation.',
             stack: 'C',
             slug: 'cnn-from-scratch',
-            link: 'https://github.com/Mustafa-khann/CNN-Architecture-from-Scratch-in-C',
         },
         {
             name: 'Rusty Transformer',

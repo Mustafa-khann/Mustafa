@@ -17,8 +17,8 @@ export const postEditorial = {
   15: { title: 'Funding a hardware project', summary: 'Ways to move from a prototype budget to a working project.' },
 };
 export const paperEditorial = {
-  1: { title: 'Giving language models a spatial context', summary: 'A review of approaches connecting SLAM, 3D maps, and natural-language robot commands.' },
-  2: { title: 'From spatial mapping to robot tasks', summary: 'A proposed workflow for using maps and multimodal models in changing environments.' },
-  3: { title: 'Connecting SLAM maps to Gemini', summary: 'Representing 3D maps as text to connect spatial information with language-based task planning.' },
-  4: { title: 'Relational attention for spatial reasoning', summary: 'Exploring graph-based spatial relationships as context for robot navigation and instructions.' },
+  1: { title: 'Giving language models a spatial context', kind: 'Literature review', summary: 'A review of approaches connecting SLAM, 3D maps, and natural-language robot commands.' },
+  2: { title: 'From spatial mapping to robot tasks', kind: 'Experimental research', summary: 'My experiments integrating SLAM, 3D maps, and multimodal models for robot tasks in changing environments.' },
+  3: { title: 'Connecting SLAM maps to Gemini', kind: 'Experimental research', summary: 'My experiments representing 3D maps as text for robot task planning with Gemini.' },
+  4: { title: 'Relational attention for spatial reasoning', kind: 'Experimental research', summary: 'My experiments using graph-based spatial relationships for robot navigation and language instructions.' },
 };

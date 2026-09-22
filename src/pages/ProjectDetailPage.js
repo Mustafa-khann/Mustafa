@@ -8,7 +8,7 @@ import ArticleLayout from '../components/common/ArticleLayout';
 const ProjectMedia = ({ project }) => {
   const [failed, setFailed] = useState(false);
   if (!project.image || failed) return null;
-  return <figure className="project-figure"><img src={project.image} alt={project.title} onError={() => setFailed(true)} decoding="async" /><figcaption>{project.title} <span>{project.date}</span></figcaption></figure>;
+  return <figure className="project-figure"><img src={project.image} alt={project.imageAlt || project.title} onError={() => setFailed(true)} decoding="async" /><figcaption>{project.imageCaption || project.title} {project.date && <span>{project.date}</span>}</figcaption></figure>;
 };
 const ProjectDetailPage = () => {
   const { slug } = useParams();
@@ -18,7 +18,15 @@ const ProjectDetailPage = () => {
   const source = project.link && !project.link.includes('yourusername') ? project.link : null;
   return (
     <ArticleLayout recordKey={slug} title={summary?.name || project.title} summary={summary?.description || project.abstract} category="Projects" backTo="/projects" date={project.date} meta={project.techStack} html={preparePostHtml(project.content)} contents progress>
-      {source && <div className="document-tools"><a className="text-link" href={source} target="_blank" rel="noopener noreferrer">Source on GitHub ↗</a></div>}
+      <dl className="project-facts">
+        <div><dt>My role</dt><dd>Sole builder</dd></div>
+        <div><dt>Project</dt><dd>{project.format}</dd></div>
+        <div><dt>My contribution</dt><dd>{project.contribution}</dd></div>
+      </dl>
+      {source && <div className="document-tools project-evidence">
+        <a className="text-link" href={source} target="_blank" rel="noopener noreferrer">Source on GitHub ↗</a>
+        {summary?.traction && <p>{summary.traction.stars} stars · {summary.traction.forks} forks <span>GitHub snapshot · {summary.traction.asOf}</span></p>}
+      </div>}
       <ProjectMedia key={slug} project={project} />
     </ArticleLayout>
   );

@@ -17,8 +17,13 @@ const HomePage = () => {
         <h1>Mustafa Khan<span className="title-period">.</span></h1>
         <div className="intro-bottom">
           <p>I build systems to understand them.<br />Software, hardware, and the space between.</p>
-          <div className="intro-aside"><span>Working independently.</span><span>Documenting what holds up.</span></div>
+          <div className="intro-aside"><span>All projects are solo builds.</span><span>Software, hardware, and experiments.</span></div>
         </div>
+        <nav className="intro-links" aria-label="More of my work">
+          <a className="text-link" href={siteContent.footer.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a className="text-link" href={siteContent.footer.twitter} target="_blank" rel="noopener noreferrer">X ↗</a>
+          <Link className="text-link" to="/posts/why-robotics-is-hard-to-break-into-personal-experience">My path into robotics ↗</Link>
+        </nav>
       </header>
 
       <section className="indexed-section" aria-labelledby="work-heading">
@@ -28,7 +33,7 @@ const HomePage = () => {
 
       <section className="indexed-section" aria-labelledby="writing-heading">
         <div className="section-label"><span className="eyebrow">02 / Writing</span><h2 id="writing-heading">Notes from<br />the work</h2><Link className="text-link" to="/posts">All writing <span aria-hidden="true">↗</span></Link></div>
-        <PostList posts={sortPostsByDateDesc(postSummaries).slice(0, 4)} compact />
+        <PostList posts={[postSummaries.find((post) => post.id === 7), ...sortPostsByDateDesc(postSummaries).filter((post) => post.id !== 7).slice(0, 3)].filter(Boolean)} compact />
       </section>
 
       <section className="indexed-section approach-section" aria-labelledby="approach-heading">
