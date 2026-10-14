@@ -4,6 +4,18 @@
   "framework": "create-react-app",
   "installCommand": "npm install",
   "devCommand": "npm start",
+  "redirects": [
+    {
+      "source": "/shop",
+      "destination": "https://shop.oprydai.com",
+      "permanent": true
+    },
+    {
+      "source": "/shop/:path*",
+      "destination": "https://shop.oprydai.com",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/static/(.*)",

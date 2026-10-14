@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export const navigation = [
   ['/', 'Index'], ['/projects', 'Projects'], ['/posts', 'Writing'],
-  ['/ideas', 'Research'], ['/books', 'Books'], ['/shop', 'Shop'],
+  ['/ideas', 'Research'], ['/books', 'Books'], ['https://shop.oprydai.com', 'Shop'],
 ];
 
 const SiteNavigation = () => (
@@ -13,7 +13,9 @@ const SiteNavigation = () => (
       <span>Mustafa Khan</span>
     </NavLink>
     <nav aria-label="Main navigation">
-      {navigation.map(([to, label]) => (
+      {navigation.map(([to, label]) => to.startsWith('https://') ? (
+        <a key={to} href={to}>{label}</a>
+      ) : (
         <NavLink key={to} exact={to === '/'} to={to} activeClassName="is-active">{label}</NavLink>
       ))}
     </nav>

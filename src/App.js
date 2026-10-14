@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { preloadRouteForPath, routes, scheduleRoutePreloading } from './config/routes';
 import ScrollRestoration from './components/common/ScrollRestoration';
-import { CartProvider } from './commerce/CartContext';
+import ExternalRedirect from './components/common/ExternalRedirect';
 import SiteNavigation from './components/common/SiteNavigation';
 import Footer from './components/sections/Footer';
 
@@ -25,17 +25,16 @@ function App() {
   }, []);
 
   return (
-    <CartProvider>
-      <div
-        className="App"
-        onFocusCapture={handleLinkIntent}
-        onMouseOverCapture={handleLinkIntent}
-        onTouchStartCapture={handleLinkIntent}
-      >
-        <ScrollRestoration />
-        <a className="skip-link" href="#main-content">Skip to content</a>
-        <SiteNavigation />
-        <div id="main-content" tabIndex={-1}>
+    <div
+      className="App"
+      onFocusCapture={handleLinkIntent}
+      onMouseOverCapture={handleLinkIntent}
+      onTouchStartCapture={handleLinkIntent}
+    >
+      <ScrollRestoration />
+      <a className="skip-link" href="#main-content">Skip to content</a>
+      <SiteNavigation />
+      <div id="main-content" tabIndex={-1}>
         <React.Suspense fallback={<RoutePending />}>
           <Switch>
             {routes.map((route, index) => (
@@ -44,6 +43,7 @@ function App() {
                 path={route.path}
                 exact={route.exact}
                 component={route.component}
+                render={route.redirectTo ? () => <ExternalRedirect to={route.redirectTo} /> : undefined}
               />
             ))}
             <Route>
@@ -55,10 +55,9 @@ function App() {
             </Route>
           </Switch>
         </React.Suspense>
-        </div>
-        <Footer />
       </div>
-    </CartProvider>
+      <Footer />
+    </div>
   );
 }
 

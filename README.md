@@ -114,4 +114,6 @@ Vercel uses `vercel.json`:
 - output directory: `build`
 - SPA rewrites route unmatched paths to `index.html`
 
+The shop is hosted separately at [shop.oprydai.com](https://shop.oprydai.com). The Shop navigation links there directly, and `/shop` plus its subpaths redirect there. This repository contains no catalog, cart, or checkout implementation.
+
 The app relies on static Open Graph metadata in `public/index.html`; there is no runtime SEO package or Open Graph image generation step in the active build. Production builds disable source maps to keep deployment output lean.
